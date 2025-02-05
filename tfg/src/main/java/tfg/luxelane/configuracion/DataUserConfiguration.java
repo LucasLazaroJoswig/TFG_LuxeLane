@@ -28,11 +28,9 @@ public class DataUserConfiguration{
 
 	JdbcUserDetailsManager users = 
 			new JdbcUserDetailsManager(dataSource); 
-	users.setUsersByUsernameQuery("select username,password,enabled from Usuarios u where username=?"); 
-	users.setAuthoritiesByUsernameQuery("select u.username,p.nombre from Usuario_Perfiles up " +
-	 "inner join usuarios u on u.username = up.username " +
-			"inner join perfiles p on p.id_perfil = up.id_perfil " +
-			"where u.username = ?");
+	users.setUsersByUsernameQuery("select correo,contraseña,enabled from Usuarios u where correo=?"); 
+	users.setAuthoritiesByUsernameQuery("select u.correo, u.rol from Usuarios " +
+			"where u.correo = ?");
 
 	return users;
 
