@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Registro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { 
+      font-family: 'DM Sans', sans-serif; 
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .transition-panel {
+      transition: transform 0.8s ease-in-out;
+    }
+    .register-mode .left-panel {
+      transform: translateX(100%);
+    }
+    .register-mode .right-panel {
+      transform: translateX(-100%);
+    }
+    .register-mode #loginForm {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .register-mode #registerForm {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #registerForm {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease-in-out;
+    }
+    #container {
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+    }
+    .left-panel, .right-panel {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.8s ease-in-out;
+    }
+    .left-panel {
+      background: linear-gradient(135deg, #4A00E0, #8E2DE2);
+    }
+    .right-panel {
+      background: #1A1A1A;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+  <div id="container" class="relative w-full flex overflow-hidden">
+    <div class="left-panel flex flex-col items-center justify-center text-center p-8">
+      <h2 id="panelTitle" class="text-3xl font-bold mb-4">¡Bienvenido de nuevo!</h2>
+      <p id="panelText" class="mb-6">Inicia sesión para continuar</p>
+      <div id="botonRegistroLogin">
+        <button id="toRegisterBtn" class="py-2 px-6 border border-white rounded-full hover:bg-white hover:text-black transition-all">
+            Regístrate
+        </button>
+    </div>
+    </div>
+    
+    <div class="right-panel flex items-center justify-center p-8">
+      <div id="loginForm" class="w-full max-w-md">
+        <h2 class="text-3xl font-bold mb-6 text-center">Iniciar Sesión</h2>
+        <form>
+          <input type="email" placeholder="Correo electrónico" class="w-full px-4 py-2 bg-gray-700 rounded mb-4" />
+          <input type="password" placeholder="Contraseña" class="w-full px-4 py-2 bg-gray-700 rounded mb-6" />
+          <button class="w-full py-2 bg-[#ff3600] rounded-full font-bold">Iniciar Sesión</button>
+        </form>
+      </div>
+      
+      <div id="registerForm" class="w-full max-w-md absolute">
+        <h2 class="text-3xl font-bold mb-6 text-center">Registrarse</h2>
+        <form>
+          <input type="text" placeholder="Nombre" class="w-full px-4 py-2 bg-gray-700 rounded mb-4" />
+          <input type="email" placeholder="Correo electrónico" class="w-full px-4 py-2 bg-gray-700 rounded mb-4" />
+          <input type="password" placeholder="Contraseña" class="w-full px-4 py-2 bg-gray-700 rounded mb-6" />
+          <button class="w-full py-2 bg-[#ff3600] rounded-full font-bold">Registrarse</button>
+        </form>
+        <p class="mt-4 text-center">
+          ¿Ya tienes cuenta? <button id="toLoginBtn" class="text-[#ff3600] underline">Inicia Sesión</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("container");
+      const toRegisterBtn = document.getElementById("toRegisterBtn");
+      const toLoginBtn = document.getElementById("toLoginBtn");
+      const panelTitle = document.getElementById("panelTitle");
+      const panelText = document.getElementById("panelText");
+
+      toRegisterBtn.addEventListener("click", () => {
+        container.classList.add("register-mode");
+        panelTitle.textContent = "¡Únete a nosotros!";
+        panelText.textContent = "Regístrate y empieza tu viaje con nosotros.";
+        toRegisterBtn.classList.replace("toRegisterBtn","toLoginBtn")
+      });
+
+      toLoginBtn.addEventListener("click", () => {
+        container.classList.remove("register-mode");
+        panelTitle.textContent = "¡Bienvenido de nuevo!";
+        panelText.textContent = "Inicia sesión para continuar";
+        toLoginBtn.classList.replace("toLoginBtn","toRegisterBtn")
+      });
+    });
+  </script>
+</body>
+</html>
