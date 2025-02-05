@@ -1,4 +1,4 @@
-package tfg.luxelane.tfg;
+package tfg.luxelane;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
