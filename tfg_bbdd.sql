@@ -103,29 +103,31 @@ CREATE TABLE Motos (
 CREATE TABLE Reservas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
-    tipo_vehiculo ENUM('coche', 'moto') NOT NULL,
-    vehiculo_id INT NOT NULL,
+    coche_id INT NULL, 
+    moto_id INT NULL,
     fecha_inicio DATE NOT NULL,
     fecha_fin DATE NOT NULL,
     estado ENUM('pendiente', 'confirmada', 'cancelada', 'completada') NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id),
-    FOREIGN KEY (vehiculo_id) REFERENCES Coches(id),
-    FOREIGN KEY (vehiculo_id) REFERENCES Motos(id)
+    FOREIGN KEY (coche_id) REFERENCES Coches(id) ON DELETE SET NULL,
+    FOREIGN KEY (moto_id) REFERENCES Motos(id) ON DELETE SET NULL
 );
+
 
 -- Tabla de Reseñas
 CREATE TABLE Resenas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
-    tipo_vehiculo ENUM('coche', 'moto') NOT NULL,
-    vehiculo_id INT NOT NULL,
+    coche_id INT NULL,
+    moto_id INT NULL,
     calificacion INT CHECK(calificacion BETWEEN 1 AND 5) NOT NULL,
     comentario TEXT,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id),
-    FOREIGN KEY (vehiculo_id) REFERENCES Coches(id) ,
-    FOREIGN KEY (vehiculo_id) REFERENCES Motos(id)
+    FOREIGN KEY (coche_id) REFERENCES Coches(id) ON DELETE SET NULL,
+    FOREIGN KEY (moto_id) REFERENCES Motos(id) ON DELETE SET NULL
 );
+
 
 -- Tabla de Solicitudes de Empleo para Choferes
 CREATE TABLE SolicitudesEmpleo (
