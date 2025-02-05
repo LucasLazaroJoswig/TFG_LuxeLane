@@ -11,15 +11,19 @@ CREATE TABLE Usuarios (
     telefono VARCHAR(20),
     direccion TEXT,
     rol ENUM('cliente', 'chofer', 'administrador') NOT NULL,
+    
+    -- Datos de licencia (para clientes que conducen y choferes)
     licencia VARCHAR(50),
     fecha_vencimiento_licencia DATE,
     categoria_licencia VARCHAR(50),
     foto_perfil TEXT,
     documentos TEXT,
+
     estado_verificacion ENUM('pendiente', 'verificado', 'rechazado'),
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     enabled ENUM('S','N')
 );
+
 
 -- Tabla de Coches
 CREATE TABLE Coches (
