@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Registro - Estilo Moderno</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fuente DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-100 flex items-center justify-center">
+  <!-- Contenedor del formulario -->
+  <div class="bg-[#191919] rounded-xl shadow-xl p-8 w-full max-w-md">
+    <div class="text-center mb-6">
+      <h2 class="text-3xl text-white font-bold">Accede o Regístrate</h2>
+      <p class="text-gray-400 mt-1">Ingresa tus datos para continuar</p>
+    </div>
+    <!-- Pestañas para Login/Registro -->
+    <div class="flex justify-center mb-6 space-x-6">
+      <button id="loginTab" class="text-white font-semibold pb-1 border-b-2 border-transparent focus:outline-none transition">
+        Iniciar Sesión
+      </button>
+      <button id="registerTab" class="text-white font-semibold pb-1 border-b-2 border-transparent focus:outline-none transition">
+        Registrarse
+      </button>
+    </div>
+    <!-- Formulario de Login -->
+    <div id="loginForm" class="space-y-4">
+      <div>
+        <label for="login-email" class="block text-gray-300 mb-1">Correo Electrónico</label>
+        <input type="email" id="login-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+      </div>
+      <div>
+        <label for="login-password" class="block text-gray-300 mb-1">Contraseña</label>
+        <input type="password" id="login-password" placeholder="Contraseña" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+      </div>
+      <div class="text-right">
+        <a href="#" class="text-sm text-[#ff3600] hover:underline">¿Olvidaste tu contraseña?</a>
+      </div>
+      <button class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e12d00] transition">
+        Iniciar Sesión
+      </button>
+    </div>
+    <!-- Formulario de Registro (inicialmente oculto) -->
+    <div id="registerForm" class="space-y-4 hidden">
+      <div>
+        <label for="reg-nombre" class="block text-gray-300 mb-1">Nombre</label>
+        <input type="text" id="reg-nombre" placeholder="Tu nombre" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+      </div>
+      <div>
+        <label for="reg-apellidos" class="block text-gray-300 mb-1">Apellidos</label>
+        <input type="text" id="reg-apellidos" placeholder="Tus apellidos" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+      </div>
+      <div>
+        <label for="reg-email" class="block text-gray-300 mb-1">Correo Electrónico</label>
+        <input type="email" id="reg-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+      </div>
+      <div>
+        <label for="reg-contraseña" class="block text-gray-300 mb-1">Contraseña</label>
+        <input type="password" id="reg-contraseña" placeholder="Contraseña" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+      </div>
+      <div>
+        <label for="reg-telefono" class="block text-gray-300 mb-1">Teléfono</label>
+        <input type="text" id="reg-telefono" placeholder="Número de teléfono" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+      </div>
+      <div>
+        <label for="reg-direccion" class="block text-gray-300 mb-1">Dirección</label>
+        <input type="text" id="reg-direccion" placeholder="Tu dirección" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+      </div>
+        <div>
+          <label for="reg-rol" class="block text-gray-300 mb-1">Rol</label>
+          <select id="reg-rol" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]">
+            <option value="cliente">Cliente</option>
+            <option value="chofer">Chofer</option>
+            <option value="administrador">Administrador</option>
+          </select>
+        </div>
+      <div id="choferFields" class="hidden space-y-4">
+        <div>
+          <label for="reg-licencia" class="block text-gray-300 mb-1">Licencia</label>
+          <input type="text" id="reg-licencia" placeholder="Número de licencia" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        </div>
+        <div>
+          <label for="reg-fecha-vencimiento-licencia" class="block text-gray-300 mb-1">Fecha de Vencimiento de Licencia</label>
+          <input type="date" id="reg-fecha-vencimiento-licencia" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        </div>
+        <div>
+          <label for="reg-categoria-licencia" class="block text-gray-300 mb-1">Categoría de Licencia</label>
+          <input type="text" id="reg-categoria-licencia" placeholder="Categoría de licencia" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        </div>
+      </div>
+      <button class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e12d00] transition">
+        Registrarse
+      </button>
+    </div>
+  </div>
+
+  <!-- Script para alternar entre formularios y mostrar campos adicionales para choferes -->
+  <script>
+    const loginTab = document.getElementById('loginTab');
+    const registerTab = document.getElementById('registerTab');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const regRol = document.getElementById('reg-rol');
+    const choferFields = document.getElementById('choferFields');
+
+    loginTab.addEventListener('click', () => {
+      loginForm.classList.remove('hidden');
+      registerForm.classList.add('hidden');
+      loginTab.classList.add('border-b-2','border-[#ff3600]');
+      registerTab.classList.remove('border-b-2','border-[#ff3600]');
+    });
+
+    registerTab.addEventListener('click', () => {
+      registerForm.classList.remove('hidden');
+      loginForm.classList.add('hidden');
+      registerTab.classList.add('border-b-2','border-[#ff3600]');
+      loginTab.classList.remove('border-b-2','border-[#ff3600]');
+    });
+
+    regRol.addEventListener('change', () => {
+      if (regRol.value === 'chofer') {
+        choferFields.classList.remove('hidden');
+      } else {
+        choferFields.classList.add('hidden');
+      }
+    });
+
+    // Activar por defecto la pestaña de login
+    loginTab.classList.add('border-b-2','border-[#ff3600]');
+  </script>
+</body>
+</html>
