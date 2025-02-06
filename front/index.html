@@ -14,6 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://c.webfontfree.com/c.js?f=Separat-Regular" type="text/javascript"></script>
     <style>
         body {
@@ -265,6 +266,25 @@
     font-weight: 700;
     font-family: Epilogue, sans-serif;
 }
+.socio h4 {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    line-height: 24px;
+    font-weight: 600;
+    font-family: Epilogue, sans-serif;
+    margin: 0; /* Elimina márgenes adicionales */
+    margin-right: 250px;
+}
+
+.socio h5 {
+    font-size: 16px;
+    color: rgb(206, 206, 206);
+    line-height: 27px;
+    font-weight: 400;
+    font-family: DM Sans, sans-serif;
+    margin-top: 10px; /* Espacio entre h4 y h5 */
+    margin-right: 100px;
+}
 
 .socio p {
     font-size: 16px;
@@ -292,6 +312,25 @@
     background-color: #222; /* Fondo oscuro para diferenciar */
     height: 100%; /* Asegura que ocupe toda la altura */
 }
+.socio img {
+    width: 110px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción original */
+}
+
+
+.socio .image-text-container {
+    display: flex;
+    align-items: flex-start; /* Alinea la imagen y el texto verticalmente al principio */
+    gap: 20px; /* Espacio entre la imagen y el contenedor de los textos */
+}
+.socio .text-container {
+    display: flex;
+    flex-direction: column; /* Apila el h4 y h5 en una columna */
+    justify-content: flex-start; /* Alinea los elementos al principio */
+    color: white;
+}
+
+
 
     </style>
 </head>
@@ -344,9 +383,17 @@
             <h2>Tu socio confiable en 
             <br>alquiler de coches</h2>
             <p>Servicios confiables, precios accesibles y soporte 24/7.</p>
+            <div class="image-text-container">
+                <img src="/img/Container.svg" alt="Contenedor">
+                <div class="text-container">
+                    <h4>Proceso de Reserva Fácil</h4>
+                    <h5>Hemos optimizado el proceso de reserva para que nuestros clientes puedan experimentar el servicio más fácil y seguro.</h5>
+                </div>
+            </div>
             <a href="#" class="button button-reservar">Saber más</a>
         </div>
     </section>
+    
 
     <section class="section1">
         <h2>Explora nuestra gama de servicios</h2>
