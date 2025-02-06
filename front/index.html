@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alquiler de Coches</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <script src="https://c.webfontfree.com/c.js?f=Separat-Regular" type="text/javascript"></script>
     <style>
         body {
-            font-family: Epilogue, sans-serif;
             background-color: #000;
             color: white;
             margin: 0;
@@ -21,7 +28,8 @@
         header {
             background-color: #000;
             display: flex;
-            justify-content: center; /* Centrado del contenido */
+            justify-content: center;
+            /* Centrado del contenido */
             align-items: center;
             padding: 10px 20px;
             color: white;
@@ -30,18 +38,25 @@
 
         /* Logo y nombre de LuxeLane */
         .logo {
-            font-size: 30px; /* Aumenté el tamaño del texto */
+            font-size: 30px;
+            /* Aumenté el tamaño del texto */
             font-weight: bold;
-            color: #ff4500; /* Naranja para el logo */
+            color: #ff4500;
+            /* Naranja para el logo */
             display: flex;
             align-items: center;
-            margin-right: 50px; /* Separación entre el logo y el menú */
+            margin-right: 50px;
+            /* Separación entre el logo y el menú */
+            font-family: 'Separat-Regular', cursive;
         }
 
         .logo img {
-            width: 100px; /* Aumenté el tamaño de la imagen */
-            height: 70px; /* Aumenté el tamaño de la imagen */
-            margin-right: 10px; /* Espacio entre el logo y el nombre */
+            width: 100px;
+            /* Aumenté el tamaño de la imagen */
+            height: 70px;
+            /* Aumenté el tamaño de la imagen */
+            margin-right: 10px;
+            /* Espacio entre el logo y el nombre */
         }
 
         /* Menú de navegación */
@@ -62,7 +77,7 @@
         }
 
         nav a:hover {
-            color: #ff4500;
+            color: rgb(255, 54, 0);
         }
 
         /* Estilos para los menús desplegables */
@@ -73,27 +88,43 @@
 
         .hero {
             position: relative;
-            height: 75vh; /* Aumenté la altura del encabezado */
+            height: 75vh;
+            /* Aumenté la altura del encabezado */
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             overflow: hidden;
-            padding: 20px; /* Espacio entre el borde del contenedor y el video */
-            background-color: #000; /* Color de fondo para que se vea alrededor del video */
+            padding: 20px;
+            /* Espacio entre el borde del contenedor y el video */
+            background-color: #000;
+            /* Color de fondo para que se vea alrededor del video */
         }
+
         .hero video {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 95%; /* Ajusté el tamaño del video */
+            width: 95%;
+            /* Ajusté el tamaño del video */
             height: 95%;
             object-fit: cover;
-            border-radius: 20px; /* Bordes redondeados de 20px */
-            margin: 5px; /* Separación más sutil entre el video y el borde */
-            opacity: 0.7; /* Opacidad del video */
+            border-radius: 20px;
+            /* Bordes redondeados de 20px */
+            margin: 5px;
+            /* Separación más sutil entre el video y el borde */
+            opacity: 0.7;
+            /* Opacidad del video */
         }
+
+        nav {
+            font-family: DM Sans, sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 27px;
+        }
+
         /* Capa de fondo negro sobre el video */
         .hero::before {
             content: "";
@@ -102,58 +133,89 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
-            z-index: 1; /* Colocamos la capa por encima del video, pero por debajo del contenido */
+            background: rgba(0, 0, 0, 0.5);
+            /* Fondo negro con 50% de opacidad */
+            z-index: 1;
+            /* Colocamos la capa por encima del video, pero por debajo del contenido */
         }
-        .hero h1, h4, .hero .button {
+
+        .hero h1,
+        h4,
+        .hero .button {
             position: relative;
-            z-index: 2; /* Aseguramos que el texto y los botones se vean por encima de la capa y el video */
+            z-index: 2;
+            /* Aseguramos que el texto y los botones se vean por encima de la capa y el video */
         }
+
         h1 {
-            font-size: 74px; /* Aumenté el tamaño del h1 */
+            font-size: 74px;
+            /* Aumenté el tamaño del h1 */
+            font-family: Epilogue, sans-serif;
+            color: rgb(255, 255, 255);
+            font-weight: 700;
+            line-height: 89px;
         }
+
         h4 {
-            font-size: 18px; /* Aumenté el tamaño del h4 */
-            color: #cecece;
+            font-size: 18px;
+            /* Aumenté el tamaño del h4 */
+            color: rgb(206, 206, 206);
+            font-family: DM Sans, sans-serif;
+            line-height: 31px;
+            font-weight: 400;
         }
+
         /* Estilo para el texto "*Bienvenido a LuxeLane" */
         .welcome-text {
-            font-size: 14px; /* Tamaño más pequeño */
-            color: #ff4500; /* Color naranja */
-            font-weight: bold; /* Negrita */
-            margin-bottom: 10px; /* Espacio entre el texto y el título principal */
+            font-size: 16px;
+            /* Tamaño más pequeño */
+            color: rgb(255, 54, 0);
+            /* Color naranja */
+            font-weight: 600;
+            /* Negrita */
+            line-height: 19px;
+            font-family: Epilogue, sans-serif;
         }
+
         /* Contenedor de los botones */
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 20px; /* Espacio entre los botones */
+            gap: 20px;
+            /* Espacio entre los botones */
             position: relative;
             z-index: 2;
         }
+
         /* Estilo para los botones */
         .button {
             padding: 12px 25px;
             text-decoration: none;
-            border-radius: 25px; /* Aumento del borde redondeado */
+            border-radius: 25px;
+            /* Aumento del borde redondeado */
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .button:hover {
             transform: scale(1.1);
         }
+
         /* Botón "Reservar ahora" */
         .button-reservar {
             background-color: #ff4500;
             color: white;
         }
+
         .button-reservar:hover {
             background-color: #e63e00;
         }
+
         /* Botón "Más Información" */
         .button-info {
             background-color: white;
             color: #111;
         }
+
         .button-info:hover {
             background-color: #f1f1f1;
         }
@@ -164,19 +226,76 @@
             margin: 20px 0;
             border-radius: 10px;
         }
+
         .cards {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
+
         .card {
             background-color: #333;
             padding: 20px;
             border-radius: 10px;
             width: 200px;
         }
+
+        .socio {
+    background-color: #000;
+    color: white;
+    padding: 100px 20px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+}
+
+.socio .contenido-derecho {
+    width: 50%; /* Toma la mitad del espacio */
+    margin-right: 475px;
+    margin-bottom: 200px;
+}
+
+.socio h2 {
+    font-size: 44px;
+    margin-bottom: 30px;
+    color: rgb(255, 255, 255);
+    line-height: 53px;
+    font-weight: 700;
+    font-family: Epilogue, sans-serif;
+}
+
+.socio p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    color: rgb(206, 206, 206);
+    font-family: DM Sans, sans-serif;
+}
+
+.socio .button {
+    background-color: #ff4500;
+    padding: 18px 40px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.socio .button:hover {
+    transform: scale(1.1);
+}
+
+.socio .contenido-izquierdo {
+    width: 50%; /* Toma la otra mitad */
+    background-color: #222; /* Fondo oscuro para diferenciar */
+    height: 100%; /* Asegura que ocupe toda la altura */
+}
+
     </style>
 </head>
+
 <body>
     <!-- Header Principal -->
     <header>
@@ -187,7 +306,7 @@
 
         <nav>
             <a href="#">Inicio</a>
-            <a href="#">Coches</a>                       
+            <a href="#">Coches</a>
             <a href="#">Motos</a>
             <a href="#">Chófers</a>
             <a href="#">Sobre Nosotros</a>
@@ -203,11 +322,12 @@
         <div style="position: relative; z-index: 3;">
             <!-- Texto de bienvenida encima del h1 -->
             <p class="welcome-text">*Bienvenido a LuxeLane</p>
-            <h1>¿Buscas ahorrar más 
-            <br>en tu coche de alquiler?</h1>
-            <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum laudantium illum laborum 
-            <br>  ad nihil exercitationem corporis repellat expedita, repudiandae ipsa ipsam praesentium
-            <br> excepturi temporibus fuga natus quam ducimus? Harum, rerum?
+            <h1>¿Buscas ahorrar más
+                <br>en tu coche de alquiler?
+            </h1>
+            <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum laudantium illum laborum
+                <br> ad nihil exercitationem corporis repellat expedita, repudiandae ipsa ipsam praesentium
+                <br> excepturi temporibus fuga natus quam ducimus? Harum, rerum?
             </h4>
             <!-- Contenedor para los botones -->
             <div class="button-container">
@@ -216,14 +336,19 @@
             </div>
         </div>
     </section>
-    
-    <section class="section">
-        <h2>Tu socio confiable en alquiler de coches</h2>
-        <p>Servicios confiables, precios accesibles y soporte 24/7.</p>
-        <a href="#" class="button button-reservar">Saber más</a>
+
+
+    <section class="socio">
+        <div class="contenido-izquierdo"></div>
+        <div class="contenido-derecho">
+            <h2>Tu socio confiable en 
+            <br>alquiler de coches</h2>
+            <p>Servicios confiables, precios accesibles y soporte 24/7.</p>
+            <a href="#" class="button button-reservar">Saber más</a>
+        </div>
     </section>
-    
-    <section class="section">
+
+    <section class="section1">
         <h2>Explora nuestra gama de servicios</h2>
         <div class="cards">
             <div class="card">Servicio de Chofer</div>
@@ -231,8 +356,8 @@
             <div class="card">Alquiler de Motos</div>
         </div>
     </section>
-    
-    <section class="section">
+
+    <section class="section2">
         <h2>Nuestra flota de vehículos</h2>
         <div class="cards">
             <div class="card">Auto 1 - $100/día</div>
@@ -241,4 +366,5 @@
         </div>
     </section>
 </body>
+
 </html>
