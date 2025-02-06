@@ -26,7 +26,7 @@
         }
 
         /* Header Principal */
-        header {
+        .section {
             background-color: #000;
             display: flex;
             justify-content: center;
@@ -333,11 +333,118 @@
 
 
     </style>
+    <style>
+        /* Reinicio básico */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body {
+          font-family: 'Epilogue', sans-serif;
+          background: #191919;
+          color: white;
+          line-height: 1.6;
+        }
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        .seccion1 {
+          text-align: center;
+          padding: 50px 20px;
+        }
+        .seccion1 .subtitulo {
+          color: #FF3600;
+          font-weight: 600;
+          margin-bottom: 20px;
+          display: inline-block;
+        }
+        .seccion1 h1 {
+          font-size: 44px;
+          line-height: 52.8px;
+          margin-bottom: 20px;
+        }
+        /* Sección de servicios */
+        .services {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+          margin-bottom: 40px;
+        }
+        .card {
+          background: #000;
+          border-radius: 30px;
+          overflow: hidden;
+          width: 300px;
+          transition: transform 0.3s ease, background 0.3s ease;
+        }
+        /* Hover: cuando pases el mouse sobre la tarjeta, cambia el fondo */
+        .card:hover {
+          background: #FF3600;
+          transform: translateY(-5px);
+        }
+        .card-content {
+          padding: 30px 25px;
+          text-align: center;
+        }
+        .card-icon {
+          margin-bottom: 20px;
+        }
+        .card-icon .icon-placeholder {
+          width: 60px;
+          height: 60px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          margin: 0 auto;
+          /* Aquí podrías colocar una imagen o un ícono con background-image */
+        }
+        .card h3 {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        .card p {
+          font-size: 16px;
+          color: #CECECE;
+          margin-bottom: 20px;
+        }
+        .btn {
+          display: inline-block;
+          padding: 10px 20px;
+          border-radius: 100px;
+          background: #FF3600;
+          color: white;
+          text-decoration: none;
+          font-weight: 700;
+          transition: background 0.3s ease;
+        }
+        .btn:hover {
+          background: darkorange;
+        }
+        /* Pie de página */
+        footer {
+          text-align: center;
+          padding: 20px;
+          border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        footer p {
+          font-size: 16px;
+          color: #CECECE;
+          margin-bottom: 20px;
+        }
+        img{
+            height: 62px;
+            width: 52px;
+        }
+      </style>
 </head>
 
 <body>
     <!-- Header Principal -->
-    <header>
+    <header class="section">
         <div class="logo">
             <img src="../img/logo.png" alt="Logo"> <!-- Aquí puedes poner tu logo, si tienes -->
             LuxeLane
@@ -396,12 +503,60 @@
     
 
     <section class="section1">
-        <h2>Explora nuestra gama de servicios</h2>
-        <div class="cards">
-            <div class="card">Servicio de Chofer</div>
-            <div class="card">Alquiler de Coches</div>
-            <div class="card">Alquiler de Motos</div>
-        </div>
+        <div class="container">
+            <!-- Sección de encabezado -->
+            <header class="seccion1">
+              <div class="subtitulo">Nuestros Servicios</div>
+              <h1>Explora nuestra amplia gama<br>de servicios de alquiler</h1>
+            </header>
+        
+            <!-- Sección de tarjetas de servicio -->
+            <section class="services">
+              <!-- Tarjeta 1: Servicios de Chofer -->
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-icon">
+                    <div class="icon-placeholder"><img src="foto.png" alt="Descripción de la imagen">
+                    </div>
+                  </div>
+                  <h3>Servicios de Chofer</h3>
+                  <p>Mejora tu experiencia de alquiler con opciones adicionales.</p>
+                  <a href="#" class="btn">Ver más</a>
+                </div>
+              </div>
+              <!-- Tarjeta 2: Alquiler de Coches -->
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-icon">
+                    <div class="icon-placeholder"><img src="foto.png" alt="Descripción de la imagen"></div>
+                  </div>
+                  <h3>Alquiler de Coches</h3>
+                  <p>Mejora tu experiencia de alquiler con opciones adicionales.</p>
+                  <a href="#" class="btn">Ver más</a>
+                </div>
+              </div>
+              <!-- Tarjeta 3: Alquiler de Motos -->
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-icon">
+                    <div class="icon-placeholder"><img src="foto.png" alt="Descripción de la imagen"></div>
+                  </div>
+                  <h3>Alquiler de Motos</h3>
+                  <p>Mejora tu experiencia de alquiler con opciones adicionales.</p>
+                  <a href="#" class="btn">Ver más</a>
+                </div>
+              </div>
+            </section>
+        
+            <!-- Sección de pie de página -->
+            <footer>
+              <p>
+                Descubre nuestra gama de servicios de alquiler diseñados para satisfacer todas tus necesidades de viaje.
+                Desde una flota diversa de vehículos hasta planes de alquiler flexibles.
+              </p>
+              <a href="#" class="btn">Nuestros Servicios</a>
+            </footer>
+          </div>
     </section>
 
     <section class="section2">
