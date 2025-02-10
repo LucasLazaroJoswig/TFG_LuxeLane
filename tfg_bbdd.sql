@@ -126,9 +126,9 @@ CREATE TABLE Resenas (
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id) ON DELETE CASCADE,
     FOREIGN KEY (coche_id) REFERENCES Coches(id) ON DELETE CASCADE,
     FOREIGN KEY (moto_id) REFERENCES Motos(id) ON DELETE CASCADE,
-    CHECK ((coche_id IS NOT NULL AND moto_id IS NULL) OR (coche_id IS NULL AND moto_id IS NOT NULL)),
-    CHECK (EXISTS (SELECT 1 FROM Reservas WHERE Reservas.usuario_id = Resenas.usuario_id AND Reservas.estado = 'completada'))
+    CHECK ((coche_id IS NOT NULL AND moto_id IS NULL) OR (coche_id IS NULL AND moto_id IS NOT NULL))
 );
+
 
 -- Tabla de Solicitudes de Empleo para Choferes
 CREATE TABLE SolicitudesEmpleo (
