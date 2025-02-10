@@ -13,7 +13,6 @@ CREATE TABLE Usuarios (
     rol ENUM('registrado', 'chofer', 'administrador') NOT NULL,
     foto_perfil TEXT,
     documentos TEXT,
-    estado_verificacion ENUM('pendiente', 'verificado', 'rechazado'),
     enabled ENUM('S','N') DEFAULT 'S',
 
     -- Campos específicos para choferes
