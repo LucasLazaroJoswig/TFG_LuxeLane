@@ -103,9 +103,12 @@ public class Resenas implements Serializable {
 		return serialVersionUID;
 	}
 
+	
+
 	@Override
-	public int hashCode() {
-		return Objects.hash(calificacion, coche, comentario, fecha, id, moto, usuario);
+	public String toString() {
+		return "Resenas [id=" + id + ", usuario=" + usuario + ", coche=" + coche + ", moto=" + moto + ", calificacion="
+				+ calificacion + ", comentario=" + comentario + ", fecha=" + fecha + "]";
 	}
 
 	@Override
@@ -117,28 +120,12 @@ public class Resenas implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Resenas other = (Resenas) obj;
-		return calificacion == other.calificacion && Objects.equals(coche, other.coche)
-				&& Objects.equals(comentario, other.comentario) && Objects.equals(fecha, other.fecha)
-				&& Objects.equals(id, other.id) && Objects.equals(moto, other.moto)
-				&& Objects.equals(usuario, other.usuario);
-	}
-
-	public Resenas(Long id, Usuario usuario, Coches coche, Motos moto, int calificacion, String comentario,
-			Date fecha) {
-		super();
-		this.id = id;
-		this.usuario = usuario;
-		this.coche = coche;
-		this.moto = moto;
-		this.calificacion = calificacion;
-		this.comentario = comentario;
-		this.fecha = fecha;
+		return Objects.equals(id, other.id);
 	}
 
 	@Override
-	public String toString() {
-		return "Resenas [id=" + id + ", usuario=" + usuario + ", coche=" + coche + ", moto=" + moto + ", calificacion="
-				+ calificacion + ", comentario=" + comentario + ", fecha=" + fecha + "]";
+	public int hashCode() {
+		return Objects.hash(id);
 	}
     
     

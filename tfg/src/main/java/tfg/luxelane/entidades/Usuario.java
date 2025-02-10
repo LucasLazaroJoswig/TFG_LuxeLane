@@ -166,10 +166,15 @@ public class Usuario implements Serializable {
 		return serialVersionUID;
 	}
 
+	
+
 	@Override
-	public int hashCode() {
-		return Objects.hash(categoriaLicencia, correo, direccion, documentos, enabled, fechaVencimientoLicencia,
-				fotoPerfil, id, licencia, nombreCompleto, password, rol, telefono);
+	public String toString() {
+		return "Usuario [id=" + id + ", nombreCompleto=" + nombreCompleto + ", correo=" + correo + ", password="
+				+ password + ", telefono=" + telefono + ", direccion=" + direccion + ", rol=" + rol + ", fotoPerfil="
+				+ fotoPerfil + ", documentos=" + documentos + ", enabled=" + enabled + ", licencia=" + licencia
+				+ ", fechaVencimientoLicencia=" + fechaVencimientoLicencia + ", categoriaLicencia=" + categoriaLicencia
+				+ "]";
 	}
 
 	@Override
@@ -181,42 +186,12 @@ public class Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		return Objects.equals(categoriaLicencia, other.categoriaLicencia) && Objects.equals(correo, other.correo)
-				&& Objects.equals(direccion, other.direccion) && Objects.equals(documentos, other.documentos)
-				&& Objects.equals(enabled, other.enabled)
-				&& Objects.equals(fechaVencimientoLicencia, other.fechaVencimientoLicencia)
-				&& Objects.equals(fotoPerfil, other.fotoPerfil) && Objects.equals(id, other.id)
-				&& Objects.equals(licencia, other.licencia) && Objects.equals(nombreCompleto, other.nombreCompleto)
-				&& Objects.equals(password, other.password) && rol == other.rol
-				&& Objects.equals(telefono, other.telefono);
-	}
-
-	public Usuario(Long id, String nombreCompleto, String correo, String password, String telefono, String direccion,
-			Rol rol, String fotoPerfil, String documentos, Boolean enabled, String licencia,
-			Date fechaVencimientoLicencia, String categoriaLicencia) {
-		super();
-		this.id = id;
-		this.nombreCompleto = nombreCompleto;
-		this.correo = correo;
-		this.password = password;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		this.rol = rol;
-		this.fotoPerfil = fotoPerfil;
-		this.documentos = documentos;
-		this.enabled = enabled;
-		this.licencia = licencia;
-		this.fechaVencimientoLicencia = fechaVencimientoLicencia;
-		this.categoriaLicencia = categoriaLicencia;
+		return Objects.equals(correo, other.correo) && Objects.equals(id, other.id);
 	}
 
 	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nombreCompleto=" + nombreCompleto + ", correo=" + correo + ", password="
-				+ password + ", telefono=" + telefono + ", direccion=" + direccion + ", rol=" + rol + ", fotoPerfil="
-				+ fotoPerfil + ", documentos=" + documentos + ", enabled=" + enabled + ", licencia=" + licencia
-				+ ", fechaVencimientoLicencia=" + fechaVencimientoLicencia + ", categoriaLicencia=" + categoriaLicencia
-				+ "]";
+	public int hashCode() {
+		return Objects.hash(correo, id);
 	}
     
     

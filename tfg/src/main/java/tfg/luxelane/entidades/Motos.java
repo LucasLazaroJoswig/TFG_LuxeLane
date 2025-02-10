@@ -272,69 +272,7 @@ public class Motos implements Serializable {
 		return serialVersionUID;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(abs, año, capacidadCargaKg, capacidadCombustible, cilindrada, color, controlTraccion,
-				disponibilidad, encendidoElectronico, id, kilometraje, marca, modelo, placa, potenciaHp, precioPorDia,
-				precioPorHora, tipoFrenoDelantero, tipoFrenoTrasero, tipoMotor, tipoSuspension, tipoVehiculo,
-				transmision);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Motos other = (Motos) obj;
-		return abs == other.abs && año == other.año
-				&& Double.doubleToLongBits(capacidadCargaKg) == Double.doubleToLongBits(other.capacidadCargaKg)
-				&& Double.doubleToLongBits(capacidadCombustible) == Double.doubleToLongBits(other.capacidadCombustible)
-				&& cilindrada == other.cilindrada && Objects.equals(color, other.color)
-				&& controlTraccion == other.controlTraccion && disponibilidad == other.disponibilidad
-				&& encendidoElectronico == other.encendidoElectronico && Objects.equals(id, other.id)
-				&& kilometraje == other.kilometraje && Objects.equals(marca, other.marca)
-				&& Objects.equals(modelo, other.modelo) && Objects.equals(placa, other.placa)
-				&& potenciaHp == other.potenciaHp
-				&& Double.doubleToLongBits(precioPorDia) == Double.doubleToLongBits(other.precioPorDia)
-				&& Double.doubleToLongBits(precioPorHora) == Double.doubleToLongBits(other.precioPorHora)
-				&& tipoFrenoDelantero == other.tipoFrenoDelantero && tipoFrenoTrasero == other.tipoFrenoTrasero
-				&& Objects.equals(tipoMotor, other.tipoMotor) && tipoSuspension == other.tipoSuspension
-				&& tipoVehiculo == other.tipoVehiculo && transmision == other.transmision;
-	}
-
-	public Motos(Long id, String marca, String modelo, int año, double precioPorDia, double precioPorHora,
-			Disponibilidad disponibilidad, String tipoMotor, int cilindrada, int potenciaHp, Transmision transmision,
-			double capacidadCombustible, TipoFreno tipoFrenoDelantero, TipoFreno tipoFrenoTrasero,
-			TipoSuspension tipoSuspension, double capacidadCargaKg, boolean abs, boolean controlTraccion,
-			boolean encendidoElectronico, String color, int kilometraje, String placa, TipoVehiculo tipoVehiculo) {
-		super();
-		this.id = id;
-		this.marca = marca;
-		this.modelo = modelo;
-		this.año = año;
-		this.precioPorDia = precioPorDia;
-		this.precioPorHora = precioPorHora;
-		this.disponibilidad = disponibilidad;
-		this.tipoMotor = tipoMotor;
-		this.cilindrada = cilindrada;
-		this.potenciaHp = potenciaHp;
-		this.transmision = transmision;
-		this.capacidadCombustible = capacidadCombustible;
-		this.tipoFrenoDelantero = tipoFrenoDelantero;
-		this.tipoFrenoTrasero = tipoFrenoTrasero;
-		this.tipoSuspension = tipoSuspension;
-		this.capacidadCargaKg = capacidadCargaKg;
-		this.abs = abs;
-		this.controlTraccion = controlTraccion;
-		this.encendidoElectronico = encendidoElectronico;
-		this.color = color;
-		this.kilometraje = kilometraje;
-		this.placa = placa;
-		this.tipoVehiculo = tipoVehiculo;
-	}
+	
 
 	@Override
 	public String toString() {
@@ -346,6 +284,23 @@ public class Motos implements Serializable {
 				+ ", tipoSuspension=" + tipoSuspension + ", capacidadCargaKg=" + capacidadCargaKg + ", abs=" + abs
 				+ ", controlTraccion=" + controlTraccion + ", encendidoElectronico=" + encendidoElectronico + ", color="
 				+ color + ", kilometraje=" + kilometraje + ", placa=" + placa + ", tipoVehiculo=" + tipoVehiculo + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Motos other = (Motos) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
     
     

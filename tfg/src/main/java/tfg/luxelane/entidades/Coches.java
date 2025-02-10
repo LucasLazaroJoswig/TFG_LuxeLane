@@ -300,40 +300,7 @@ public class Coches implements Serializable {
 		return serialVersionUID;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(abs, airbags, aireAcondicionado, asistenteFrenado, año, bluetooth, camaraReversa,
-				capacidadCombustible, cilindrada, color, controlTraccion, disponibilidad, gps, id, kilometraje, marca,
-				modelo, numeroAsientos, numeroPuertas, placa, potenciaHp, precioPorDia, precioPorHora,
-				sensoresEstacionamiento, tipoMotor, tipoVehiculo, transmision);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Coches other = (Coches) obj;
-		return abs == other.abs && airbags == other.airbags && aireAcondicionado == other.aireAcondicionado
-				&& asistenteFrenado == other.asistenteFrenado && año == other.año && bluetooth == other.bluetooth
-				&& camaraReversa == other.camaraReversa
-				&& Double.doubleToLongBits(capacidadCombustible) == Double.doubleToLongBits(other.capacidadCombustible)
-				&& cilindrada == other.cilindrada && Objects.equals(color, other.color)
-				&& controlTraccion == other.controlTraccion && disponibilidad == other.disponibilidad
-				&& gps == other.gps && Objects.equals(id, other.id) && kilometraje == other.kilometraje
-				&& Objects.equals(marca, other.marca) && Objects.equals(modelo, other.modelo)
-				&& numeroAsientos == other.numeroAsientos && numeroPuertas == other.numeroPuertas
-				&& Objects.equals(placa, other.placa) && potenciaHp == other.potenciaHp
-				&& Double.doubleToLongBits(precioPorDia) == Double.doubleToLongBits(other.precioPorDia)
-				&& Double.doubleToLongBits(precioPorHora) == Double.doubleToLongBits(other.precioPorHora)
-				&& sensoresEstacionamiento == other.sensoresEstacionamiento
-				&& Objects.equals(tipoMotor, other.tipoMotor) && tipoVehiculo == other.tipoVehiculo
-				&& transmision == other.transmision;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Coches [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", año=" + año + ", precioPorDia="
@@ -347,41 +314,24 @@ public class Coches implements Serializable {
 				+ ", kilometraje=" + kilometraje + ", placa=" + placa + ", tipoVehiculo=" + tipoVehiculo + "]";
 	}
 
-	public Coches(Long id, String marca, String modelo, int año, double precioPorDia, double precioPorHora,
-			Disponibilidad disponibilidad, String tipoMotor, int cilindrada, int potenciaHp, Transmision transmision,
-			double capacidadCombustible, int numeroPuertas, int numeroAsientos, boolean aireAcondicionado, boolean gps,
-			boolean bluetooth, boolean camaraReversa, boolean sensoresEstacionamiento, boolean abs, int airbags,
-			boolean controlTraccion, boolean asistenteFrenado, String color, int kilometraje, String placa,
-			TipoVehiculo tipoVehiculo) {
-		super();
-		this.id = id;
-		this.marca = marca;
-		this.modelo = modelo;
-		this.año = año;
-		this.precioPorDia = precioPorDia;
-		this.precioPorHora = precioPorHora;
-		this.disponibilidad = disponibilidad;
-		this.tipoMotor = tipoMotor;
-		this.cilindrada = cilindrada;
-		this.potenciaHp = potenciaHp;
-		this.transmision = transmision;
-		this.capacidadCombustible = capacidadCombustible;
-		this.numeroPuertas = numeroPuertas;
-		this.numeroAsientos = numeroAsientos;
-		this.aireAcondicionado = aireAcondicionado;
-		this.gps = gps;
-		this.bluetooth = bluetooth;
-		this.camaraReversa = camaraReversa;
-		this.sensoresEstacionamiento = sensoresEstacionamiento;
-		this.abs = abs;
-		this.airbags = airbags;
-		this.controlTraccion = controlTraccion;
-		this.asistenteFrenado = asistenteFrenado;
-		this.color = color;
-		this.kilometraje = kilometraje;
-		this.placa = placa;
-		this.tipoVehiculo = tipoVehiculo;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Coches other = (Coches) obj;
+		return Objects.equals(id, other.id);
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+
     
     
 }
