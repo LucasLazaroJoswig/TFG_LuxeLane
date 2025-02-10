@@ -14,17 +14,12 @@ CREATE TABLE Usuarios (
     foto_perfil TEXT,
     documentos TEXT,
     estado_verificacion ENUM('pendiente', 'verificado', 'rechazado'),
-    enabled ENUM('S','N') DEFAULT 'S'
-);
+    enabled ENUM('S','N') DEFAULT 'S',
 
--- Tabla Choferes (Usuarios con rol 'chofer')
-CREATE TABLE Choferes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT UNIQUE NOT NULL,
-    licencia VARCHAR(50) NOT NULL,
-    fecha_vencimiento_licencia DATE NOT NULL,
-    categoria_licencia VARCHAR(50) NOT NULL,
-    FOREIGN KEY (usuario_id) REFERENCES Usuarios(id) ON DELETE CASCADE
+    -- Campos específicos para choferes
+    licencia VARCHAR(50),
+    fecha_vencimiento_licencia DATE,
+    categoria_licencia VARCHAR(50)
 );
 
 -- Tabla Coches
@@ -115,7 +110,7 @@ CREATE TABLE Reservas (
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id) ON DELETE CASCADE,
     FOREIGN KEY (coche_id) REFERENCES Coches(id) ON DELETE CASCADE,
     FOREIGN KEY (moto_id) REFERENCES Motos(id) ON DELETE CASCADE,
-    FOREIGN KEY (chofer_id) REFERENCES Choferes(id) ON DELETE SET NULL,
+    FOREIGN KEY (chofer_id) REFERENCES Usuarios(id) ON DELETE SET NULL,
     CHECK ((coche_id IS NOT NULL AND moto_id IS NULL) OR (coche_id IS NULL AND moto_id IS NOT NULL))
 );
 
