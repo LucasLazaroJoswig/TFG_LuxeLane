@@ -1,66 +1,50 @@
 package tfg.luxelane.dao;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import tfg.luxelane.entidades.Coche;
 import tfg.luxelane.entidades.Coches;
-import tfg.luxelane.entidades.enums.Disponibilidad;
+import tfg.luxelane.repositorio.CochesRepository;
 
 import java.util.List;
 
 @Repository
-@Transactional
 public class CochesDaoImpl implements CochesDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @Autowired
+    private CochesRepository cochesRepository;
 
     @Override
-    public Coches findById(Long id) {
-        return entityManager.find(Coches.class, id);
+    public Coches buscarPorId(Long id) {
+        return cochesRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Coches> findByDisponibilidad(Disponibilidad disponibilidad) {
-        return entityManager.createQuery("SELECT c FROM Coche c WHERE c.disponibilidad = :disponibilidad", Coche.class)
-                .setParameter("disponibilidad", disponibilidad)
-                .getResultList();
+    public List<Coches> buscarPorMarca(String marca) {
+        return cochesRepository.findByMarca(marca);
     }
 
     @Override
-    public List<Coches> findAll() {
-        return entityManager.createQuery("SELECT c FROM Coche c", Coches.class).getResultList();
+    public List<Coches> buscarPorDisponibilidad(String disponibilidad) {
+        return cochesRepository.findByDisponibilidad(disponibilidad);
     }
 
     @Override
-    public void save(Coches coche) {
-        entityManager.persist(coche);
+    public List<Coches> buscarPorTipoVehiculo(String tipoVehiculo) {
+        return cochesRepository.findByTipoVehiculo(tipoVehiculo);
     }
 
     @Override
-    public void update(Coches coche) {
-        entityManager.merge(coche);
+    public void guardar(Coches coche) {
+        cochesRepository.save(coche);
     }
 
     @Override
-    public void delete(Long id) {
-        Coches coche = findById(id);
-        if (coche != null) {
-            entityManager.remove(coche);
-        }
+    public void actualizar(Coches coche) {
+        cochesRepository.save(coche); // Para actualizar simplemente guardamos, ya que JPA maneja eso internamente
     }
 
-	@Override
-	public void save(Coches coche) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update(Coches coche) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void eliminar(Long id) {
+        cochesRepository.deleteById(id);
+    }
 }
