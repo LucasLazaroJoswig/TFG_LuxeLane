@@ -2,12 +2,14 @@ package tfg.luxelane.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.repositorio.CochesRepository;
 
 import java.util.List;
 
-@Repository
+@Service
 public class CochesDaoImpl implements CochesDao {
 
     @Autowired

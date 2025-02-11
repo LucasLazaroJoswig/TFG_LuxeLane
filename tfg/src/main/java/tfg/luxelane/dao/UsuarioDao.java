@@ -18,4 +18,6 @@ public interface UsuarioDao {
     void actualizar(Usuario usuario);
 
     void eliminar(Long id);
+    
+    Usuario login(String correo, String contrasena);
 }
