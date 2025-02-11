@@ -457,7 +457,8 @@ footer p {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
 }
 .image-title-2 {
-  position: absolute; /* Posiciona el título en relación al contenedor */
+  position: absolute; /* Posiciona el tí
+  tulo en relación al contenedor */
   top: 40px; /* Alinea el título a la parte superior */
   right: 210px; /* Alinea el título a la parte derecha */
   color: white; /* Color del texto */
