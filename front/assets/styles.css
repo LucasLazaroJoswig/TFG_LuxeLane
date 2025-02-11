@@ -507,8 +507,8 @@ body {
 
 /* Estilo para las imágenes */
 .section3 .gallery-image {
-  width: 467.5px;
-  height: 645px;
+  width: 440.5px;
+  height: 600px;
   object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
   display: block; /* Elimina el espacio debajo de la imagen */
 }
