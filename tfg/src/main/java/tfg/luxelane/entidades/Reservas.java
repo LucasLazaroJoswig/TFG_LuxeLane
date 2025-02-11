@@ -131,40 +131,7 @@ public class Reservas implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Reservas(Long id, Usuario usuario, Coches coche, Motos moto, Usuario chofer, Date fechaInicio, Date fechaFin,
-			EstadoReserva estado, double precioTotal) {
-		super();
-		this.id = id;
-		this.usuario = usuario;
-		this.coche = coche;
-		this.moto = moto;
-		this.chofer = chofer;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
-		this.estado = estado;
-		this.precioTotal = precioTotal;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(chofer, coche, estado, fechaFin, fechaInicio, id, moto, precioTotal, usuario);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Reservas other = (Reservas) obj;
-		return Objects.equals(chofer, other.chofer) && Objects.equals(coche, other.coche) && estado == other.estado
-				&& Objects.equals(fechaFin, other.fechaFin) && Objects.equals(fechaInicio, other.fechaInicio)
-				&& Objects.equals(id, other.id) && Objects.equals(moto, other.moto)
-				&& Double.doubleToLongBits(precioTotal) == Double.doubleToLongBits(other.precioTotal)
-				&& Objects.equals(usuario, other.usuario);
-	}
+	
 
 	@Override
 	public String toString() {

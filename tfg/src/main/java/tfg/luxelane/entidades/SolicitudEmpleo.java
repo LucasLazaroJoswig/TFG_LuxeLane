@@ -52,9 +52,11 @@ public class SolicitudEmpleo {
 		this.estado = estado;
 	}
 
+	
+
 	@Override
-	public int hashCode() {
-		return Objects.hash(estado, id, usuario);
+	public String toString() {
+		return "SolicitudEmpleo [id=" + id + ", usuario=" + usuario + ", estado=" + estado + "]";
 	}
 
 	@Override
@@ -66,19 +68,12 @@ public class SolicitudEmpleo {
 		if (getClass() != obj.getClass())
 			return false;
 		SolicitudEmpleo other = (SolicitudEmpleo) obj;
-		return estado == other.estado && Objects.equals(id, other.id) && Objects.equals(usuario, other.usuario);
-	}
-
-	public SolicitudEmpleo(Long id, Usuario usuario, EstadoVerificacion estado) {
-		super();
-		this.id = id;
-		this.usuario = usuario;
-		this.estado = estado;
+		return Objects.equals(id, other.id);
 	}
 
 	@Override
-	public String toString() {
-		return "SolicitudEmpleo [id=" + id + ", usuario=" + usuario + ", estado=" + estado + "]";
+	public int hashCode() {
+		return Objects.hash(id);
 	}
     
     
