@@ -3,7 +3,6 @@ body {
     color: white;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
 /* Header Principal */
@@ -101,7 +100,7 @@ nav a:hover {
 }
 
 nav {
-    font-family: DM Sans, sans-serif;
+    font-family: sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 27px;
@@ -209,107 +208,10 @@ h4 {
     border-radius: 10px;
 }
 
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.card {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    width: 200px;
-}
-
-.socio {
-background-color: #000;
-color: white;
-padding: 100px 20px;
-margin-top: 50px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-text-align: right;
-}
-
-.socio .contenido-derecho {
-width: 50%; /* Toma la mitad del espacio */
-margin-right: 475px;
-margin-bottom: 200px;
-}
-
-.socio h2 {
-font-size: 44px;
-margin-bottom: 30px;
-color: rgb(255, 255, 255);
-line-height: 53px;
-font-weight: 700;
-font-family: Epilogue, sans-serif;
-}
-.socio h4 {
-font-size: 20px;
-color: rgb(255, 255, 255);
-line-height: 24px;
-font-weight: 600;
-font-family: Epilogue, sans-serif;
-margin: 0; /* Elimina márgenes adicionales */
-margin-right: 250px;
-}
-
-.socio h5 {
-font-size: 16px;
-color: rgb(206, 206, 206);
-line-height: 27px;
-font-weight: 400;
-font-family: DM Sans, sans-serif;
-margin-top: 10px; /* Espacio entre h4 y h5 */
-margin-right: 100px;
-}
-
-.socio p {
-font-size: 16px;
-font-weight: 400;
-line-height: 27px;
-color: rgb(206, 206, 206);
-font-family: DM Sans, sans-serif;
-}
-
-.socio .button {
-background-color: #ff4500;
-padding: 18px 40px;
-border-radius: 25px;
-text-decoration: none;
-color: white;
-transition: transform 0.3s ease;
-}
-
-.socio .button:hover {
-transform: scale(1.1);
-}
-
-.socio .contenido-izquierdo {
-width: 50%; /* Toma la otra mitad */
-background-color: #222; /* Fondo oscuro para diferenciar */
-height: 100%; /* Asegura que ocupe toda la altura */
-}
-.socio img {
-width: 110px; /* Tamaño de la imagen */
-height: auto; /* Mantiene la proporción original */
-}
 
 
-.socio .image-text-container {
-display: flex;
-align-items: flex-start; /* Alinea la imagen y el texto verticalmente al principio */
-gap: 20px; /* Espacio entre la imagen y el contenedor de los textos */
-}
-.socio .text-container {
-display: flex;
-flex-direction: column; /* Apila el h4 y h5 en una columna */
-justify-content: flex-start; /* Alinea los elementos al principio */
-color: white;
-}
+
+
 
 /* Reinicio básico */
 * {
@@ -319,39 +221,40 @@ color: white;
 }
 body {
   font-family: 'Epilogue', sans-serif;
-  background: #191919;
   color: white;
   line-height: 1.6;
 }
-.container {
-  max-width: 1200px;
+.section1 .container {
+  max-width: 1700px;
+  background: #191919;
+  border-radius: 65px; 
   margin: 0 auto;
   padding: 20px;
 }
-.seccion1 {
+.section1 {
   text-align: center;
   padding: 50px 20px;
 }
-.seccion1 .subtitulo {
+.section1 .subtitulo {
   color: #FF3600;
   font-weight: 600;
   margin-bottom: 20px;
   display: inline-block;
 }
-.seccion1 h1 {
+.section1 h1 {
   font-size: 44px;
   line-height: 52.8px;
   margin-bottom: 20px;
 }
 /* Sección de servicios */
-.services {
+.section1 .services {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   margin-bottom: 40px;
 }
-.card {
+.section1 .card {
   background: #000;
   border-radius: 30px;
   overflow: hidden;
@@ -359,36 +262,29 @@ body {
   transition: transform 0.3s ease, background 0.3s ease;
 }
 /* Hover: cuando pases el mouse sobre la tarjeta, cambia el fondo */
-.card:hover {
+.section1 .card:hover {
   background: #FF3600;
   transform: translateY(-5px);
 }
-.card-content {
+.section1 .card-content {
   padding: 30px 25px;
   text-align: center;
 }
-.card-icon {
+.section1 .card-icon {
   margin-bottom: 20px;
 }
-.card-icon .icon-placeholder {
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  margin: 0 auto;
-  /* Aquí podrías colocar una imagen o un ícono con background-image */
-}
-.card h3 {
+
+.section1 .card h3 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 10px;
 }
-.card p {
+.section1 .card p {
   font-size: 16px;
   color: #CECECE;
   margin-bottom: 20px;
 }
-.btn {
+.section1 .btn {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 100px;
@@ -398,21 +294,209 @@ body {
   font-weight: 700;
   transition: background 0.3s ease;
 }
-.btn:hover {
+.section1 .btn:hover {
   background: darkorange;
 }
 /* Pie de página */
-footer {
+.section1 footer {
   text-align: center;
   padding: 20px;
   border-top: 1px solid rgba(255,255,255,0.1);
 }
-footer p {
+.section1 footer p {
   font-size: 16px;
   color: #CECECE;
   margin-bottom: 20px;
 }
-img{
+.section1 img{
     height: 62px;
     width: 52px;
+}
+
+.socio .container {
+  width: 1920px;
+  height: 871.69px;
+  padding: 0 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido */
+.socio .content {
+  width: 1300px;
+  padding: 100px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Panel Izquierdo */
+.socio .left-panel {
+  width: 650px;
+  height: 671.69px;
+  position: relative;
+}
+
+/* SVG decorativo */
+.socio .svg-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Círculo decorativo */
+.socio .circle-wrapper {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.socio .circle {
+  width: 410px;
+  height: 561.69px;
+  border-radius: 200px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Panel Derecho */
+.socio .right-panel {
+  width: 650px;
+  height: 599.91px;
+  position: relative;
+}
+
+/* Encabezado */
+.socio .header-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 19.19px;
+  display: flex;
+  align-items: center;
+}
+
+.socio .header-title {
+  padding-left: 25px;
+  font-size: 16px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 600;
+  line-height: 19.2px;
+  color: #FF3600;
+}
+
+/* Título principal */
+.socio .main-title {
+  position: absolute;
+  top: 43.19px;
+  left: 10px;
+  height: 106.59px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.socio .main-title-line {
+  font-size: 44px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  line-height: 52.8px;
+}
+
+/* Descripción */
+.socio .description {
+  position: absolute;
+  top: 169.78px;
+  left: 10px;
+  height: 74.38px;
+  padding-bottom: 20px;
+}
+
+.socio .description p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #CECECE;
+}
+
+/* Sección de características */
+.socio .features {
+  position: absolute;
+  top: 264.16px;
+  height: 257.75px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 30px;
+}
+
+.socio .feature-block {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 31px;
+}
+
+.socio .feature-icon {
+  position: relative;
+  padding: 8.19px 30px 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socio .icon-bg {
+  width: 60px;
+  height: 60px;
+  background: white;
+  opacity: 0.1;
+  border-radius: 30px;
+  position: absolute;
+}
+
+
+
+.socio .feature-text h3 {
+  font-size: 20px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.socio .feature-text p {
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #CECECE;
+}
+
+/* Botón de llamada a la acción */
+.socio .cta {
+  position: absolute;
+  top: 560px;
+  left: 10px;
+  height: 48px;
+}
+
+.socio .cta button {
+  padding: 16px 25px;
+  background: #FF3600;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
 }
