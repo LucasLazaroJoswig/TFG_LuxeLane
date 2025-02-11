@@ -1,0 +1,17 @@
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-image: url(/img/fondo\ login.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.93); /* Fondo negro con 50% de opacidad */
+    z-index: 1; /* Colocamos la capa por encima del video, pero por debajo del contenido */
+}
