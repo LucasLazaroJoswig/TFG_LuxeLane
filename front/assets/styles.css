@@ -412,7 +412,83 @@ footer p {
   color: #CECECE;
   margin-bottom: 20px;
 }
-img{
-    height: 62px;
-    width: 52px;
+/* Estilo para la galería */
+.section3 {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px; /* Espacio entre las imágenes */
+  justify-content: center; /* Centra las imágenes */
+}
+
+/* Contenedor para cada imagen */
+.image-wrapper {
+  position: relative; /* Permite posicionar elementos dentro de este contenedor */
+}
+
+/* Estilo para las imágenes */
+.gallery-image {
+  width: 467.5px;
+  height: 645px;
+  object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
+  display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+/* Estilo para la flecha */
+.flecha {
+  position: absolute; /* Posiciona la flecha dentro del contenedor */
+  bottom: 25px; /* Alinea la flecha a la parte inferior */
+  right: 35px; /* Alinea la flecha a la parte derecha */
+  width: 50px; /* Tamaño de la flecha (ajústalo a tus necesidades) */
+  height: auto; /* Mantiene la proporción de la imagen */
+  z-index: 2; /* Asegura que la flecha esté por encima de la imagen */
+}
+
+/* Estilo para el título de la imagen */
+.image-title-1 {
+  position: absolute; /* Posiciona el título en relación al contenedor */
+  top: 40px; /* Alinea el título a la parte superior */
+  right: 250px; /* Alinea el título a la parte derecha */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: 600;
+  z-index: 3; /* Asegura que el título esté por encima de la imagen */
+  font-family: Epilogue, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}
+.image-title-2 {
+  position: absolute; /* Posiciona el título en relación al contenedor */
+  top: 40px; /* Alinea el título a la parte superior */
+  right: 210px; /* Alinea el título a la parte derecha */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: 600;
+  z-index: 3; /* Asegura que el título esté por encima de la imagen */
+  font-family: Epilogue, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}
+.image-title-3 {
+  position: absolute; /* Posiciona el título en relación al contenedor */
+  top: 40px; /* Alinea el título a la parte superior */
+  right: 325px; /* Alinea el título a la parte derecha */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: 600;
+  z-index: 3; /* Asegura que el título esté por encima de la imagen */
+  font-family: Epilogue, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}
+.image-title-4 {
+  position: absolute; /* Posiciona el título en relación al contenedor */
+  top: 40px; /* Alinea el título a la parte superior */
+  right: 280px; /* Alinea el título a la parte derecha */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: 600;
+  z-index: 3; /* Asegura que el título esté por encima de la imagen */
+  font-family: Epilogue, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
 }
