@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Coches - LuxeLane</title>
+    <link rel="stylesheet" href="assets/catalogo.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <!-- Header Principal -->
+  <header class="header">
+    <div class="logo">
+      <img src="fotos/logo.png" alt="Logo"> <!-- Aquí puedes poner tu logo, si tienes -->
+      LuxeLane
+    </div>
+
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Coches</a>
+      <a href="#">Motos</a>
+      <a href="#">Chófers</a>
+      <a href="#">Sobre Nosotros</a>
+      <a href="#">Contáctanos</a>
+    </nav>
+  </header>
+
+    <!-- Banner con fondo de coches -->
+    <section class="banner">
+        <div class="banner-text">
+            <h1>Coches</h1>
+            <p>Explora nuestra selección de vehículos disponibles</p>
+        </div>
+    </section>
+
+    <!-- Filtro -->
+    <section class="filtro">
+        <div class="filtro-options">
+            <select>
+                <option value="tipo">Tipo de coche</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="deportivo">Deportivo</option>
+            </select>
+            <select>
+                <option value="marca">Marca y modelo</option>
+                <option value="honda">Honda</option>
+                <option value="opel">Opel</option>
+                <option value="bmw">BMW</option>
+            </select>
+            <select>
+                <option value="precio">Precio</option>
+                <option value="menos">Menos de $200</option>
+                <option value="medio">De $200 a $400</option>
+                <option value="alto">Más de $400</option>
+            </select>
+            <button>Filtrar</button>
+        </div>
+    </section>
+
+    <!-- Sección de los coches -->
+    <section class="catalogo">
+        <div class="vehiculos">
+            <!-- Vehículo 1 -->
+            <div class="vehiculo">
+                <img src="https://via.placeholder.com/400x200" alt="Omada Hybrid">
+                <h3>Omada S Hybrid</h3>
+                <p>5 Puertas | Gasolina/Electrico</p>
+                <span>$248 / Día</span>
+                <button class="btn-reservar">Reservar</button>
+            </div>
+            <!-- Vehículo 2 -->
+            <div class="vehiculo">
+                <img src="https://via.placeholder.com/400x200" alt="Honda CRV">
+                <h3>Honda CRV</h3>
+                <p>5 Puertas | Diesel</p>
+                <span>$219 / Día</span>
+                <button class="btn-reservar">Reservar</button>
+            </div>
+            <!-- Vehículo 3 -->
+            <div class="vehiculo">
+                <img src="https://via.placeholder.com/400x200" alt="Opel Astra">
+                <h3>Opel Astra</h3>
+                <p>5 Puertas | Diesel</p>
+                <span>$169 / Día</span>
+                <button class="btn-reservar">Reservar</button>
+            </div>
+            <!-- Vehículo 4 -->
+            <div class="vehiculo">
+                <img src="https://via.placeholder.com/400x200" alt="Jaguar XF">
+                <h3>Jaguar XF</h3>
+                <p>4 Puertas | Gasolina</p>
+                <span>$139 / Día</span>
+                <button class="btn-reservar">Reservar</button>
+            </div>
+            <!-- Vehículo 5 -->
+            <div class="vehiculo">
+                <img src="https://via.placeholder.com/400x200" alt="BMW M3">
+                <h3>BMW M3</h3>
+                <p>5 Puertas | Gasolina</p>
+                <span>$339 / Día</span>
+                <button class="btn-reservar">Reservar</button>
+            </div>
+            <!-- Vehículo 6 -->
+            <div class="vehiculo">
+                <img src="https://via.placeholder.com/400x200" alt="Golf GT">
+                <h3>Golf GT</h3>
+                <p>5 Puertas | Gasolina</p>
+                <span>$259 / Día</span>
+                <button class="btn-reservar">Reservar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 LuxeLane - Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política Legal</a>
+                <a href="#">Términos & Condiciones</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="newsletter">
+                <label for="email">Suscríbete al boletín:</label>
+                <input type="email" id="email" placeholder="Correo electrónico">
+                <button class="btn-suscribir">Suscribirse</button>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
