@@ -25,10 +25,10 @@ public class UsuarioDaoImpl implements UsuarioDao {
         return usuarioRepository.findByCorreo(correo);
     }
 
-    @Override
+    /**@Override
     public List<Usuario> buscarPorRol(String rol) {
         return usuarioRepository.findByRol(rol);
-    }
+    }**/
 
     @Override
     public List<Usuario> buscarPorEstado(String enabled) {

@@ -9,7 +9,7 @@ public interface UsuarioDao {
 
     Usuario buscarPorCorreo(String correo);
 
-    List<Usuario> buscarPorRol(String rol);
+    /*List<Usuario> buscarPorRol(String rol);*/
 
     List<Usuario> buscarPorEstado(String enabled);
 
