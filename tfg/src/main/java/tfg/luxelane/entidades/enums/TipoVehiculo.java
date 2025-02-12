@@ -12,9 +12,9 @@ public enum TipoVehiculo {
 
     // Tipos de Coches
     SUV,
-    SEDAN,
-    DEPORTIVO,
-    CONVERTIBLE,
-    HATCHBACK,
-    COUPE
+    sedan,
+    deportivo,
+    convertible,
+    hatchback,
+    coupe
 }

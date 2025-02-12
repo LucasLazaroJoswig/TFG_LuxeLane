@@ -76,12 +76,12 @@ public class Coches implements Serializable {
 
     // Información adicional
     @Enumerated(EnumType.STRING)
-    private EtiquetaMedioambiental etiquetaMedioambietal;
+    private EtiquetaMedioambiental etiquetaMedioambiental;
     private String color;
     private int kilometraje;
 
     @Column(unique = true, nullable = false, length = 20)
-    private String placa;
+    private String matricula;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

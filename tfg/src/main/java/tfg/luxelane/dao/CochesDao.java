@@ -1,6 +1,8 @@
 package tfg.luxelane.dao;
 
 import tfg.luxelane.entidades.Coches;
+import tfg.luxelane.entidades.enums.Disponibilidad;
+
 import java.util.List;
 
 public interface CochesDao {
@@ -11,7 +13,7 @@ public interface CochesDao {
 
     List<Coches> buscarPorMarca(String marca);
 
-    List<Coches> buscarPorDisponibilidad(String disponibilidad);
+    List<Coches> buscarPorDisponibilidad(Disponibilidad disponible);
 
     List<Coches> buscarPorTipoVehiculo(String tipoVehiculo);
 
