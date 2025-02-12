@@ -30,7 +30,7 @@ CREATE TABLE Coches (
     año INT NOT NULL,
     precio_por_dia DECIMAL(10,2) NOT NULL,
     precio_por_hora DECIMAL(10,2) NOT NULL,
-    disponibilidad VARCHAR(255),
+    disponibilidad VARCHAR(255) not null,
 
     -- Especificaciones técnicas
     tipo_motor VARCHAR(50),

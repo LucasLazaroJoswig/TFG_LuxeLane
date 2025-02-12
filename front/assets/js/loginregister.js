@@ -70,12 +70,12 @@ $(document).ready(function() {
                 contrasena: contrasena
             },
             success: function(response) {
-                // Verifica si la respuesta es 1 (éxito)
                 if (response === 1) {
                     toastr.success("Login exitoso. ¡Bienvenido!");
-                    window.location.href = "./areaPersonal.html"; // Redirige a la página principal
+                    // Guardar en localStorage o sessionStorage para mantener la sesión
+                    localStorage.setItem('userLoggedIn', true); // Puedes guardar un valor booleano o el token si lo recibes del backend.
+                    window.location.href = "../../areaPersonal.html"; // Redirige a la página principal
                 } else {
-                    // Si la respuesta es un mensaje de error (que es un string)
                     toastr.error("El correo o la contraseña no son correctos");
                 }
             },
@@ -83,6 +83,16 @@ $(document).ready(function() {
                 toastr.error("Error en la solicitud: " + error);
             }
         });
-    });    
+    });
+    
+    $('#butLogout').on('click', function(e) {
+        e.preventDefault();
+        
+        // Eliminar el token o cualquier valor en localStorage que indique que el usuario está autenticado
+        localStorage.removeItem('userLoggedIn');
+        // Redirigir a la página de login
+        window.location.href = "../../login.html";
+    });
+    
   });
   

@@ -1,4 +1,4 @@
-INSERT INTO Coches (marca, modelo, año, precio_por_dia, precio_por_hora, disponibilidad, tipo_motor, cilindrada, potencia_hp, transmision, capacidad_combustible, etiqueta_medioambiental, numero_puertas, numero_asientos, aire_acondicionado, gps, bluetooth, camara_reversa, sensores_estacionamiento, abs, airbags, control_traccion, asistente_frenado, color, kilometraje, placa, tipo_vehiculo)
+INSERT INTO Coches (marca, modelo, año, precio_por_dia, precio_por_hora, disponibilidad, tipo_motor, cilindrada, potencia_hp, transmision, capacidad_combustible, etiqueta_medioambiental, numero_puertas, numero_asientos, aire_acondicionado, gps, bluetooth, camara_reversa, sensores_estacionamiento, abs, airbags, control_traccion, asistente_frenado, color, kilometraje, matricula, tipo_vehiculo)
 VALUES
 ('Toyota', 'Corolla', 2020, 50.00, 10.00, 'disponible', 'Gasolina', 1800, 140, 'manual', 50.00, 'C', 4, 5, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Blanco', 30000, 'ABC1234', 'sedan'),
 ('Honda', 'Civic', 2019, 55.00, 12.00, 'disponible', 'Gasolina', 2000, 160, 'automática', 55.00, 'C', 4, 5, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Negro', 25000, 'DEF5678', 'sedan'),
@@ -15,7 +15,7 @@ VALUES
 ('Jeep', 'Grand Cherokee', 2021, 95.00, 24.00, 'disponible', 'Gasolina', 3000, 250, 'automática', 80.00,'C', 5, 5, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 8, TRUE, TRUE, 'Turquesa', 7000, 'KLM9012', 'SUV'),
 ('Land Rover', 'Range Rover', 2022, 120.00, 30.00, 'disponible', 'Diesel', 3500, 300, 'CVT', 90.00,'C', 5, 5, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 8, TRUE, TRUE, 'Beige', 6000, 'NOP3456', 'SUV'),
 ('Porsche', 'Macan', 2021, 150.00, 35.00, 'disponible', 'Gasolina', 3000, 350, 'automática', 80.00, 'C',5, 5, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 8, TRUE, TRUE, 'Negro', 5000, 'QRS7890', 'SUV');
-INSERT INTO Coches (marca, modelo, año, precio_por_dia, precio_por_hora, disponibilidad, tipo_motor, cilindrada, potencia_hp, transmision, capacidad_combustible, etiqueta_medioambiental, numero_puertas, numero_asientos, aire_acondicionado, gps, bluetooth, camara_reversa, sensores_estacionamiento, abs, airbags, control_traccion, asistente_frenado, color, kilometraje, placa, tipo_vehiculo)
+INSERT INTO Coches (marca, modelo, año, precio_por_dia, precio_por_hora, disponibilidad, tipo_motor, cilindrada, potencia_hp, transmision, capacidad_combustible, etiqueta_medioambiental, numero_puertas, numero_asientos, aire_acondicionado, gps, bluetooth, camara_reversa, sensores_estacionamiento, abs, airbags, control_traccion, asistente_frenado, color, kilometraje, matricula, tipo_vehiculo)
 VALUES
 ('BMW', 'Serie 3', 2020, 120.00, 30.00, 'disponible', 'Gasolina', 2000, 180, 'automática', 60.00, 'C', 4, 5, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Negro', 15000, 'BME2020', 'sedan'),
 ('Audi', 'A6', 2021, 130.00, 32.00, 'disponible', 'Diesel', 2500, 220, 'automática', 70.00, 'B', 4, 5, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Blanco', 12000, 'AUD2021', 'sedan'),
@@ -28,7 +28,7 @@ VALUES
 ('Ferrari', 'Portofino', 2022, 400.00, 100.00, 'disponible', 'Gasolina', 3000, 600, 'automática', 90.00, 'C', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Amarillo', 1000, 'FER2022', 'deportivo'),
 ('Lamborghini', 'Huracán', 2020, 450.00, 110.00, 'disponible', 'Gasolina', 5000, 640, 'automática', 100.00, 'C', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Verde', 1500, 'LAM2020', 'deportivo');
 
-INSERT INTO Coches (marca, modelo, año, precio_por_dia, precio_por_hora, disponibilidad, tipo_motor, cilindrada, potencia_hp, transmision, capacidad_combustible, etiqueta_medioambiental, numero_puertas, numero_asientos, aire_acondicionado, gps, bluetooth, camara_reversa, sensores_estacionamiento, abs, airbags, control_traccion, asistente_frenado, color, kilometraje, placa, tipo_vehiculo)
+INSERT INTO Coches (marca, modelo, año, precio_por_dia, precio_por_hora, disponibilidad, tipo_motor, cilindrada, potencia_hp, transmision, capacidad_combustible, etiqueta_medioambiental, numero_puertas, numero_asientos, aire_acondicionado, gps, bluetooth, camara_reversa, sensores_estacionamiento, abs, airbags, control_traccion, asistente_frenado, color, kilometraje, matricula, tipo_vehiculo)
 VALUES
 ('Ferrari', '488 GTB', 2020, 150.00, 40.00, 'disponible', 'Gasolina', 3900, 670, 'automática', 78.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Rojo', 5000, 'FER4880', 'deportivo'),
 ('Lamborghini', 'Huracán EVO', 2021, 180.00, 45.00, 'disponible', 'Gasolina', 5200, 640, 'automática', 85.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Amarillo', 3000, 'LAMBHURACAN', 'deportivo'),

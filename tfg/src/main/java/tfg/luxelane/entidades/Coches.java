@@ -54,8 +54,8 @@ public class Coches implements Serializable {
     private int cilindrada;
     private int potenciaHp;
 
-    @Enumerated(EnumType.STRING)
-    private Transmision transmision;
+
+    private String transmision;
 
     private double capacidadCombustible;
 
@@ -83,8 +83,7 @@ public class Coches implements Serializable {
     @Column(unique = true, nullable = false, length = 20)
     private String matricula;
 
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TipoVehiculo tipoVehiculo;
+    private String tipoVehiculo;
 
 }
