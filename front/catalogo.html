@@ -30,6 +30,26 @@
       </div>
     </nav>
   </header>
+    <!-- Incluir toastr -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header class="header">
+        <div class="logo">
+            <img src="fotos/logo.png" alt="Logo">
+            LuxeLane
+        </div>
+
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Coches</a>
+            <a href="#">Motos</a>
+            <a href="#">Chófers</a>
+            <a href="#">Sobre Nosotros</a>
+            <a href="#">Contáctanos</a>
+        </nav>
+    </header>
 
     <!-- Banner con fondo de coches -->
     <section class="banner">
@@ -42,79 +62,26 @@
     <!-- Filtro -->
     <section class="filtro">
         <div class="filtro-options">
-            <select>
-                <option value="tipo">Tipo de coche</option>
-                <option value="sedan">Sedan</option>
-                <option value="suv">SUV</option>
-                <option value="deportivo">Deportivo</option>
+            <select id="tipoVehiculo">
+                <option value="">Tipo de coche</option>
             </select>
-            <select>
-                <option value="marca">Marca y modelo</option>
-                <option value="honda">Honda</option>
-                <option value="opel">Opel</option>
-                <option value="bmw">BMW</option>
+            <select id="marca">
+                <option value="">Marca y modelo</option>
             </select>
-            <select>
-                <option value="precio">Precio</option>
-                <option value="menos">Menos de $200</option>
+            <select id="precio">
+                <option value="">Precio</option>
+                <option value="bajo">Menos de $200</option>
                 <option value="medio">De $200 a $400</option>
                 <option value="alto">Más de $400</option>
             </select>
-            <button>Filtrar</button>
+            <button id="filtrarBtn">Filtrar</button>
         </div>
     </section>
 
     <!-- Sección de los coches -->
     <section class="catalogo">
-        <div class="vehiculos">
-            <!-- Vehículo 1 -->
-            <div class="vehiculo">
-                <img src="https://via.placeholder.com/400x200" alt="Omada Hybrid">
-                <h3>Omada S Hybrid</h3>
-                <p>5 Puertas | Gasolina/Electrico</p>
-                <span>$248 / Día</span>
-                <button class="btn-reservar">Reservar</button>
-            </div>
-            <!-- Vehículo 2 -->
-            <div class="vehiculo">
-                <img src="https://via.placeholder.com/400x200" alt="Honda CRV">
-                <h3>Honda CRV</h3>
-                <p>5 Puertas | Diesel</p>
-                <span>$219 / Día</span>
-                <button class="btn-reservar">Reservar</button>
-            </div>
-            <!-- Vehículo 3 -->
-            <div class="vehiculo">
-                <img src="https://via.placeholder.com/400x200" alt="Opel Astra">
-                <h3>Opel Astra</h3>
-                <p>5 Puertas | Diesel</p>
-                <span>$169 / Día</span>
-                <button class="btn-reservar">Reservar</button>
-            </div>
-            <!-- Vehículo 4 -->
-            <div class="vehiculo">
-                <img src="https://via.placeholder.com/400x200" alt="Jaguar XF">
-                <h3>Jaguar XF</h3>
-                <p>4 Puertas | Gasolina</p>
-                <span>$139 / Día</span>
-                <button class="btn-reservar">Reservar</button>
-            </div>
-            <!-- Vehículo 5 -->
-            <div class="vehiculo">
-                <img src="https://via.placeholder.com/400x200" alt="BMW M3">
-                <h3>BMW M3</h3>
-                <p>5 Puertas | Gasolina</p>
-                <span>$339 / Día</span>
-                <button class="btn-reservar">Reservar</button>
-            </div>
-            <!-- Vehículo 6 -->
-            <div class="vehiculo">
-                <img src="https://via.placeholder.com/400x200" alt="Golf GT">
-                <h3>Golf GT</h3>
-                <p>5 Puertas | Gasolina</p>
-                <span>$259 / Día</span>
-                <button class="btn-reservar">Reservar</button>
-            </div>
+        <div class="vehiculos" id="vehiculos-container">
+            <!-- Los coches serán cargados aquí con JavaScript -->
         </div>
     </section>
 
@@ -134,5 +101,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- Incluir script del catalogo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/catalogo.js"></script>
 </body>
 </html>
