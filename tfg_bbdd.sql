@@ -5,12 +5,13 @@ USE sistema_reservas;
 -- Tabla Usuarios (Clientes, Choferes y Administradores)
 CREATE TABLE Usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_completo VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    apellidos varchar(255) not null,
     correo VARCHAR(255) UNIQUE NOT NULL,
-    contraseña_hash TEXT NOT NULL, -- Contraseña encriptada
-    telefono VARCHAR(20) CHECK (telefono REGEXP '^[0-9]+$'), 
+    contrasena VARCHAR(255) NOT NULL, -- Contraseña encriptada
+    telefono VARCHAR(20), 
     direccion TEXT,
-    rol ENUM('registrado', 'chofer', 'administrador') NOT NULL,
+    rol varchar(255) NOT NULL,
     foto_perfil TEXT,
     documentos TEXT,
     enabled ENUM('S','N') DEFAULT 'S',
