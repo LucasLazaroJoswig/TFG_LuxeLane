@@ -49,4 +49,10 @@ public class CochesDaoImpl implements CochesDao {
     public void eliminar(Long id) {
         cochesRepository.deleteById(id);
     }
+
+	@Override
+	public List<Coches> buscarTodos() {
+		// TODO Auto-generated method stub
+		return cochesRepository.findAll();
+	}
 }

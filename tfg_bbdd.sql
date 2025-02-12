@@ -38,7 +38,7 @@ CREATE TABLE Coches (
     potencia_hp INT,
     transmision VARCHAR(255),
     capacidad_combustible DECIMAL(5,2),
-    etiqueta_medioambiental VARCHAR(255)
+    etiqueta_medioambiental VARCHAR(255),
 
     -- Características del vehículo
     numero_puertas INT CHECK (numero_puertas BETWEEN 2 AND 5),
@@ -94,7 +94,7 @@ CREATE TABLE Motos (
     color VARCHAR(50),
     kilometraje INT DEFAULT 0,
     matricula VARCHAR(20) UNIQUE NOT NULL,
-    tipo_vehiculo VARCHAR(255) 
+    tipo_vehiculo VARCHAR(255), 
     etiqueta_medioambiental VARCHAR(255)
 );
 
