@@ -95,7 +95,8 @@ CREATE TABLE Motos (
     kilometraje INT DEFAULT 0,
     matricula VARCHAR(20) UNIQUE NOT NULL,
     tipo_vehiculo VARCHAR(255), 
-    etiqueta_medioambiental VARCHAR(255)
+    etiqueta_medioambiental VARCHAR(255),
+    imagen VARCHAR(255)
 );
 
 -- Tabla de Reservas
