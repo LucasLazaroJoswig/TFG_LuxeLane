@@ -14,7 +14,7 @@ import tfg.luxelane.entidades.enums.Rol;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "correo")
+@EqualsAndHashCode(of = {"correo","id"})
 @Builder
 @Entity
 @Table(name = "usuarios")

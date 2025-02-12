@@ -5,6 +5,8 @@ import java.util.List;
 
 public interface CochesDao {
 
+	List<Coches> buscarTodos();
+	
     Coches buscarPorId(Long id);
 
     List<Coches> buscarPorMarca(String marca);
