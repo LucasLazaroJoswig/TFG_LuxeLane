@@ -10,7 +10,8 @@ import tfg.luxelane.entidades.Usuario;
 import java.util.List;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-
+	
+	@Query("SELECT u FROM Usuario u WHERE u.correo = ?1")
     Usuario findByCorreo(String correo);
     
 	@Query("SELECT u FROM Usuario u WHERE u.correo = ?1 AND u.password = ?2 AND u.enabled = 'S'")
