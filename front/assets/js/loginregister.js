@@ -52,37 +52,37 @@ $(document).ready(function() {
   
   
     $('#butlogin').on('click', function(e) {
-      e.preventDefault();
-  
-      var email     = $('#email').val().trim();
-      var contrasena = $('#contrasena').val().trim();
-  
-      if(email === "" || contrasena === "") {
-        toastr.error("Por favor, complete todos los campos.");
-        return;
-      }
-  
-  
-      $.ajax({
-        url: "http://localhost:8087/login",
-        type: "POST",
-        data: {
-          email: email,
-          contrasena: contrasena
-        },
-        success: function(response) {
-          if(response.statusCode == 200) {
-            window.location.href = "home";
-          } else if(response.statusCode == 201) {
-            toastr.error("Correo o contraseña inválidos.");
-          } else {
-            toastr.error("Error desconocido.");
-          }
-        },
-        error: function(xhr, status, error) {
-          toastr.error("Error en la solicitud: " + error);
+        e.preventDefault();
+    
+        var correo     = $('#email').val().trim();
+        var contrasena = $('#contrasena').val().trim();
+    
+        if(correo === "" || contrasena === "") {
+            toastr.error("Por favor, complete todos los campos.");
+            return;
         }
-      });
-    });
+    
+        $.ajax({
+            url: "http://localhost:8087/login",
+            type: "POST",
+            data: {
+                correo: correo,
+                contrasena: contrasena
+            },
+            success: function(response) {
+                // Verifica si la respuesta es 1 (éxito)
+                if (response === 1) {
+                    toastr.success("Login exitoso. ¡Bienvenido!");
+                    window.location.href = "./areaPersonal.html"; // Redirige a la página principal
+                } else {
+                    // Si la respuesta es un mensaje de error (que es un string)
+                    toastr.error("El correo o la contraseña no son correctos");
+                }
+            },
+            error: function(xhr, status, error) {
+                toastr.error("Error en la solicitud: " + error);
+            }
+        });
+    });    
   });
   
