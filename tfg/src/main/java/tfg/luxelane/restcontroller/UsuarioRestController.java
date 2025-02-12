@@ -22,11 +22,12 @@ public class UsuarioRestController {
 	
 	
 	@PostMapping("/login")
-	public boolean login(@RequestParam String correo, @RequestParam String contrasena){
+	public ResponseEntity<?> login(@RequestParam String correo, @RequestParam String contrasena){
+		System.out.println(userService.login(correo, contrasena));
 		if (userService.login(correo, contrasena)!=null) {
-			return true;
+			return ResponseEntity.status(HttpStatus.OK).body(1);
 		} else {
-			return false;
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad Credentials");
 		}
 	}
 	

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import tfg.luxelane.dao.CochesDao;
 import tfg.luxelane.entidades.Coches;
+import tfg.luxelane.entidades.enums.Disponibilidad;
 import tfg.luxelane.repositorio.CochesRepository;
 
 @RestController
@@ -29,7 +30,7 @@ public class CochesRestController {
 	
 	@GetMapping("/")
 	public List<Coches> todosCoches() {
-		return cocheService.buscarTodos();
+		return cocheService.buscarPorDisponibilidad(Disponibilidad.disponible);
 	}
 	
 	@GetMapping("/filtrar")

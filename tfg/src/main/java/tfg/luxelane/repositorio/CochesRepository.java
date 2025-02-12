@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import tfg.luxelane.entidades.Coches;
+import tfg.luxelane.entidades.enums.Disponibilidad;
+
 import java.util.List;
 
 public interface CochesRepository extends JpaRepository<Coches, Long> {
@@ -22,7 +24,7 @@ public interface CochesRepository extends JpaRepository<Coches, Long> {
 	
     List<Coches> findByMarca(String marca);
 
-    List<Coches> findByDisponibilidad(String disponibilidad);
+    List<Coches> findByDisponibilidad(Disponibilidad disponibilidad);
 
     List<Coches> findByTipoVehiculo(String tipoVehiculo);
 
