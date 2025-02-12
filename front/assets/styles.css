@@ -6,7 +6,7 @@ body {
 }
 
 /* Header Principal */
-.section {
+.header {
     background-color: #000;
     display: flex;
     justify-content: center;
@@ -28,7 +28,7 @@ body {
     align-items: center;
     margin-right: 50px;
     /* Separación entre el logo y el menú */
-    font-family: 'Separat-Regular', cursive;
+    font-family: 'Montserrat', serif;
 }
 
 .logo img {
@@ -36,7 +36,7 @@ body {
     /* Aumenté el tamaño de la imagen */
     height: 70px;
     /* Aumenté el tamaño de la imagen */
-    margin-right: 10px;
+    margin-right: 5px;
     /* Espacio entre el logo y el nombre */
 }
 
@@ -104,6 +104,14 @@ nav {
     font-weight: 600;
     font-size: 16px;
     line-height: 27px;
+    background-color: #000;
+}
+.button-container-nav{
+  margin-left: 60px;
+  margin-top: 10px;
+}
+.button-container-nav :hover{
+  color: white;
 }
 
 /* Capa de fondo negro sobre el video */
@@ -144,6 +152,7 @@ h4 {
     font-family: DM Sans, sans-serif;
     line-height: 31px;
     font-weight: 400;
+    text-align: center;
 }
 
 /* Estilo para el texto "*Bienvenido a LuxeLane" */
@@ -156,6 +165,7 @@ h4 {
     /* Negrita */
     line-height: 19px;
     font-family: Epilogue, sans-serif;
+    margin-left: 330px;
 }
 
 /* Contenedor de los botones */
@@ -166,6 +176,7 @@ h4 {
     /* Espacio entre los botones */
     position: relative;
     z-index: 2;
+    margin-top: 20px;
 }
 
 /* Estilo para los botones */
@@ -307,7 +318,7 @@ body {
 }
 
 .socio .container {
-  width: 1920px;
+  width: 1820px;
   height: 871.69px;
   padding: 0 310px;
   display: flex;
