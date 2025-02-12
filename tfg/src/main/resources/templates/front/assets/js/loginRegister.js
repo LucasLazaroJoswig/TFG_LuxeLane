@@ -29,8 +29,7 @@ $(document).ready(function() {
       $.ajax({
         url: "http://localhost:8087/register",
         type: "POST",
-        dataType: "json",
-        data: {
+        data:{
           nombre: nombre,
           apellidos: apellidos,
           correo: email,
@@ -40,29 +39,17 @@ $(document).ready(function() {
         success: function(response) {
           if(response.statusCode == 200) {
             toastr.success("Registro exitoso. ¡Por favor, inicia sesión!");
-
             $('#registerForm')[0].reset();
-
             loginTab.click();
-          }
-          else if(response.statusCode == 201) {
-            toastr.error("El correo electrónico ya existe.");
-          }
-          else if(response.statusCode == 202) {
-            toastr.error("El nombre de usuario ya existe.");
-          }
-          else if(response.statusCode == 203) {
-            toastr.error("No se pudo insertar el registro.");
-          }
-          else {
-            toastr.error("Error desconocido.");
+          } else {
+            toastr.error("Error en el registro.");
           }
         },
         error: function(xhr, status, error) {
           toastr.error("Error en la solicitud: " + error);
         }
       });
-    });
+      
     
 
     $('#butlogin').on('click', function(e) {
@@ -79,8 +66,7 @@ $(document).ready(function() {
       $.ajax({
         url: "http://localhost:8087/login", 
         type: "POST",
-        dataType: "json",
-        data: {
+          data:{
           email: email,
           contrasena: contrasena
         },
@@ -102,4 +88,4 @@ $(document).ready(function() {
       });
     });
     
-  });
+  })})

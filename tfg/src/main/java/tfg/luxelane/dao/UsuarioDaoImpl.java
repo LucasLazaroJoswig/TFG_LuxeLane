@@ -31,7 +31,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
     }
 
     @Override
-    public List<Usuario> buscarPorEstado(Boolean enabled) {
+    public List<Usuario> buscarPorEstado(String enabled) {
         return usuarioRepository.findByEnabled(enabled);
     }
 
