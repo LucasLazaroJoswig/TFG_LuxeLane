@@ -43,7 +43,7 @@ body {
     align-items: center;
     margin-right: 50px;
     /* Separación entre el logo y el menú */
-    font-family: 'Separat-Regular', cursive;
+    font-family: 'Montserrat', serif;
 }
 
 .logo img {
@@ -79,6 +79,21 @@ nav a {
 
 nav a:hover {
     color: rgb(255, 54, 0);
+}
+.button-container-nav{
+    margin-left: 60px;
+    margin-top: 10px;
+  }
+  .button-container-nav :hover{
+    color: white;
+  }
+  .button {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    /* Aumento del borde redondeado */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: #ff4500;
 }
 
 /* Estilos para los menús desplegables */
