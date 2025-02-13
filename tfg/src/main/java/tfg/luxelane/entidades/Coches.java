@@ -85,5 +85,8 @@ public class Coches implements Serializable {
 
     @Column(nullable = false)
     private String tipoVehiculo;
+    
+    @Column(nullable = false)
+    private String imagen;
 
 }
