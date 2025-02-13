@@ -5,15 +5,16 @@ USE sistema_reservas;
 -- Tabla Usuarios (Clientes, Choferes y Administradores)
 CREATE TABLE Usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_completo VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    apellidos varchar(255) not null,
     correo VARCHAR(255) UNIQUE NOT NULL,
-    contraseña_hash TEXT NOT NULL, -- Contraseña encriptada
-    telefono VARCHAR(20) CHECK (telefono REGEXP '^[0-9]+$'), 
+    contrasena VARCHAR(255) NOT NULL, -- Contraseña encriptada
+    telefono VARCHAR(20), 
     direccion TEXT,
-    rol ENUM('registrado', 'chofer', 'administrador') NOT NULL,
+    rol varchar(255) NOT NULL,
     foto_perfil TEXT,
     documentos TEXT,
-    enabled ENUM('S','N') DEFAULT 'S',
+    enabled VARCHAR(255),
 
     -- Campos específicos para choferes
     licencia VARCHAR(50),
@@ -29,14 +30,15 @@ CREATE TABLE Coches (
     año INT NOT NULL,
     precio_por_dia DECIMAL(10,2) NOT NULL,
     precio_por_hora DECIMAL(10,2) NOT NULL,
-    disponibilidad ENUM('disponible', 'no disponible') NOT NULL,
+    disponibilidad VARCHAR(255) not null,
 
     -- Especificaciones técnicas
     tipo_motor VARCHAR(50),
     cilindrada INT,
     potencia_hp INT,
-    transmision ENUM('manual', 'automática', 'CVT'),
+    transmision VARCHAR(255),
     capacidad_combustible DECIMAL(5,2),
+    etiqueta_medioambiental VARCHAR(255),
 
     -- Características del vehículo
     numero_puertas INT CHECK (numero_puertas BETWEEN 2 AND 5),
@@ -56,8 +58,9 @@ CREATE TABLE Coches (
     -- Información adicional
     color VARCHAR(50),
     kilometraje INT DEFAULT 0,
-    placa VARCHAR(20) UNIQUE NOT NULL,
-    tipo_vehiculo ENUM('SUV', 'sedan', 'deportivo', 'convertible', 'hatchback', 'coupe') NOT NULL
+    matricula VARCHAR(20) UNIQUE NOT NULL,
+    tipo_vehiculo VARCHAR(255),
+    imagen varchar(255)
 );
 
 -- Tabla Motos
@@ -68,19 +71,19 @@ CREATE TABLE Motos (
     año INT NOT NULL,
     precio_por_dia DECIMAL(10,2) NOT NULL,
     precio_por_hora DECIMAL(10,2) NOT NULL,
-    disponibilidad ENUM('disponible', 'no disponible') NOT NULL,
+    disponibilidad VARCHAR(255),
 
     -- Especificaciones técnicas
     tipo_motor VARCHAR(50),
     cilindrada INT,
     potencia_hp INT,
-    transmision ENUM('manual', 'automática'),
+    transmision VARCHAR(255),
     capacidad_combustible DECIMAL(5,2),
 
     -- Características del vehículo
-    tipo_freno_delantero ENUM('disco', 'tambor'),
-    tipo_freno_trasero ENUM('disco', 'tambor'),
-    tipo_suspension ENUM('telescópica', 'monoamortiguador', 'doble amortiguador'),
+    tipo_freno_delantero VARCHAR(255),
+    tipo_freno_trasero VARCHAR(255),
+    tipo_suspension VARCHAR(255),
     capacidad_carga_kg DECIMAL(5,2),
 
     -- Seguridad
@@ -91,8 +94,10 @@ CREATE TABLE Motos (
     -- Información adicional
     color VARCHAR(50),
     kilometraje INT DEFAULT 0,
-    placa VARCHAR(20) UNIQUE NOT NULL,
-    tipo_vehiculo ENUM('deportiva', 'cruiser', 'naked', 'touring', 'trail', 'street', 'custom') NOT NULL
+    matricula VARCHAR(20) UNIQUE NOT NULL,
+    tipo_vehiculo VARCHAR(255), 
+    etiqueta_medioambiental VARCHAR(255),
+    imagen VARCHAR(255)
 );
 
 -- Tabla de Reservas
@@ -104,7 +109,7 @@ CREATE TABLE Reservas (
     chofer_id INT NULL,
     fecha_inicio DATETIME NOT NULL,
     fecha_fin DATETIME NOT NULL,
-    estado ENUM('pendiente', 'confirmada', 'cancelada', 'completada') NOT NULL,
+    estado VARCHAR(255),
     precio_total DECIMAL(10,2) NOT NULL, -- Precio total de la reserva
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id) ON DELETE CASCADE,
     FOREIGN KEY (coche_id) REFERENCES Coches(id) ON DELETE CASCADE,
@@ -133,6 +138,6 @@ CREATE TABLE Resenas (
 CREATE TABLE SolicitudesEmpleo (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
-    estado ENUM('pendiente', 'aceptada', 'rechazada') NOT NULL,
+    estado VARCHAR(255),
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id) ON DELETE CASCADE
 );

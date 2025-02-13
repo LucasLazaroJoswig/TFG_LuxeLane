@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tfg.luxelane.entidades.enums.Disponibilidad;
+import tfg.luxelane.entidades.enums.EtiquetaMedioambiental;
 import tfg.luxelane.entidades.enums.TipoFreno;
 import tfg.luxelane.entidades.enums.TipoSuspension;
 import tfg.luxelane.entidades.enums.TipoVehiculo;
@@ -74,6 +75,8 @@ public class Motos implements Serializable {
     private boolean encendidoElectronico;
 
     // Información adicional
+    @Enumerated(EnumType.STRING)
+    private EtiquetaMedioambiental etiquetaMedioambietal;
     private String color;
     private int kilometraje;
 

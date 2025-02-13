@@ -9,9 +9,9 @@ public interface UsuarioDao {
 
     Usuario buscarPorCorreo(String correo);
 
-    List<Usuario> buscarPorRol(String rol);
+    /*List<Usuario> buscarPorRol(String rol);*/
 
-    List<Usuario> buscarPorEstado(Boolean enabled);
+    List<Usuario> buscarPorEstado(String enabled);
 
     void guardar(Usuario usuario);
 

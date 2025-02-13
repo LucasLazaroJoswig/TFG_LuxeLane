@@ -1,0 +1,586 @@
+body {
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Principal */
+.header {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    /* Centrado del contenido */
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo y nombre de LuxeLane */
+.logo {
+    font-size: 30px;
+    /* Aumenté el tamaño del texto */
+    font-weight: bold;
+    color: #ff4500;
+    /* Naranja para el logo */
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    /* Separación entre el logo y el menú */
+    font-family: 'Montserrat', serif;
+}
+
+.logo img {
+    width: 100px;
+    /* Aumenté el tamaño de la imagen */
+    height: 70px;
+    /* Aumenté el tamaño de la imagen */
+    margin-right: 5px;
+    /* Espacio entre el logo y el nombre */
+}
+
+/* Menú de navegación */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* Elementos del menú */
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: rgb(255, 54, 0);
+}
+
+/* Estilos para los menús desplegables */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.hero {
+    position: relative;
+    height: 75vh;
+    /* Aumenté la altura del encabezado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+    /* Espacio entre el borde del contenedor y el video */
+    background-color: #000;
+    /* Color de fondo para que se vea alrededor del video */
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    /* Ajusté el tamaño del video */
+    height: 95%;
+    object-fit: cover;
+    border-radius: 20px;
+    /* Bordes redondeados de 20px */
+    margin: 5px;
+    /* Separación más sutil entre el video y el borde */
+    opacity: 0.7;
+    /* Opacidad del video */
+}
+
+nav {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+    background-color: #000;
+}
+.button-container-nav{
+  margin-left: 60px;
+  margin-top: 10px;
+}
+.button-container-nav :hover{
+  color: white;
+}
+
+/* Capa de fondo negro sobre el video */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Fondo negro con 50% de opacidad */
+    z-index: 1;
+    /* Colocamos la capa por encima del video, pero por debajo del contenido */
+}
+
+.hero h1,
+h4,
+.hero .button {
+    position: relative;
+    z-index: 2;
+    /* Aseguramos que el texto y los botones se vean por encima de la capa y el video */
+}
+
+h1 {
+    font-size: 74px;
+    /* Aumenté el tamaño del h1 */
+    font-family: Epilogue, sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    line-height: 89px;
+}
+
+h4 {
+    font-size: 18px;
+    /* Aumenté el tamaño del h4 */
+    color: rgb(206, 206, 206);
+    font-family: DM Sans, sans-serif;
+    line-height: 31px;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Estilo para el texto "*Bienvenido a LuxeLane" */
+.welcome-text {
+    font-size: 16px;
+    /* Tamaño más pequeño */
+    color: rgb(255, 54, 0);
+    /* Color naranja */
+    font-weight: 600;
+    /* Negrita */
+    line-height: 19px;
+    font-family: Epilogue, sans-serif;
+    margin-left: 330px;
+}
+
+/* Contenedor de los botones */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Espacio entre los botones */
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+}
+
+/* Estilo para los botones */
+.button {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    /* Aumento del borde redondeado */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+/* Botón "Reservar ahora" */
+.button-reservar {
+    background-color: #ff4500;
+    color: white;
+}
+
+.button-reservar:hover {
+    background-color: #e63e00;
+}
+
+/* Botón "Más Información" */
+.button-info {
+    background-color: white;
+    color: #111;
+}
+
+.button-info:hover {
+    background-color: #f1f1f1;
+}
+
+.section {
+    padding: 50px 20px;
+    background-color: #222;
+    margin: 20px 0;
+    border-radius: 10px;
+}/* Reinicio básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Epilogue', sans-serif;
+   color: white;
+  line-height: 1.6;
+}
+.section1 .container {
+  max-width: 1700px;
+  background: #191919;
+  border-radius: 65px; 
+  margin: 0 auto;
+  padding: 20px;
+}
+.section1 {
+  text-align: center;
+  padding: 50px 20px;
+}
+.section1 .subtitulo {
+  color: #FF3600;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.section1 h1 {
+  font-size: 44px;
+  line-height: 52.8px;
+  margin-bottom: 20px;
+}
+/* Sección de servicios */
+.section1 .services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.section1 .card {
+  background: #000;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+/* Hover: cuando pases el mouse sobre la tarjeta, cambia el fondo */
+.section1 .card:hover {
+  background: #FF3600;
+  transform: translateY(-5px);
+}
+.section1 .card-content {
+  padding: 30px 25px;
+  text-align: center;
+}
+.section1 .card-icon {
+  margin-bottom: 20px;
+}
+
+.section1 .card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.section1 .card p {
+  font-size: 16px;
+  color: #CECECE;
+  margin-bottom: 20px;
+}
+.section1 .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: #FF3600;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.3s ease;
+}
+.section1 .btn:hover {
+  background: darkorange;
+}
+/* Pie de página */
+.section1 footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.section1 footer p {
+  font-size: 16px;
+  color: #CECECE;
+  margin-bottom: 20px;
+}
+.section1 img{
+    height: 62px;
+    width: 52px;
+}
+
+.socio .container {
+  width: 1820px;
+  height: 871.69px;
+  padding: 0 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido */
+.socio .content {
+  width: 1300px;
+  padding: 100px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Panel Izquierdo */
+.socio .left-panel {
+  width: 650px;
+  height: 671.69px;
+  position: relative;
+}
+
+/* SVG decorativo */
+.socio .svg-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Círculo decorativo */
+.socio .circle-wrapper {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.socio .circle {
+  width: 410px;
+  height: 561.69px;
+  border-radius: 200px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Panel Derecho */
+.socio .right-panel {
+  width: 650px;
+  height: 599.91px;
+  position: relative;
+}
+
+/* Encabezado */
+.socio .header-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 19.19px;
+  display: flex;
+  align-items: center;
+}
+
+.socio .header-title {
+  padding-left: 25px;
+  font-size: 16px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 600;
+  line-height: 19.2px;
+  color: #FF3600;
+}
+
+/* Título principal */
+.socio .main-title {
+  position: absolute;
+  top: 43.19px;
+  left: 10px;
+  height: 106.59px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.socio .main-title-line {
+  font-size: 44px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  line-height: 52.8px;
+}
+
+/* Descripción */
+.socio .description {
+  position: absolute;
+  top: 169.78px;
+  left: 10px;
+  height: 74.38px;
+  padding-bottom: 20px;
+}
+
+.socio .description p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #CECECE;
+}
+
+/* Sección de características */
+.socio .features {
+  position: absolute;
+  top: 264.16px;
+  height: 257.75px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 30px;
+}
+
+.socio .feature-block {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 31px;
+}
+
+.socio .feature-icon {
+  position: relative;
+  padding: 8.19px 30px 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socio .icon-bg {
+  width: 60px;
+  height: 60px;
+  background: white;
+  opacity: 0.1;
+  border-radius: 30px;
+  position: absolute;
+}
+
+
+
+.socio .feature-text h3 {
+  font-size: 20px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.socio .feature-text p {
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #CECECE;
+}
+
+/* Botón de llamada a la acción */
+.socio .cta {
+  position: absolute;
+  top: 560px;
+  left: 10px;
+  height: 48px;
+}
+
+.socio .cta button {
+  padding: 16px 25px;
+  background: #FF3600;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.section3 {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px; /* Espacio entre las imágenes */
+  justify-content: center; /* Centra las imágenes */
+}
+
+/* Contenedor para cada imagen */
+.section3 .image-wrapper {
+  position: relative; /* Permite posicionar elementos dentro de este contenedor */
+}
+
+/* Estilo para las imágenes */
+.section3 .gallery-image {
+  width: 440.5px;
+  height: 600px;
+  object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
+  display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+/* Estilo para la flecha */
+.section3 .flecha {
+  position: absolute; /* Posiciona la flecha dentro del contenedor */
+  bottom: 25px; /* Alinea la flecha a la parte inferior */
+  right: 35px; /* Alinea la flecha a la parte derecha */
+  width: 50px; /* Tamaño de la flecha (ajústalo a tus necesidades) */
+  height: auto; /* Mantiene la proporción de la imagen */
+  z-index: 2; /* Asegura que la flecha esté por encima de la imagen */
+}
+
+/* Estilo para el título de la imagen */
+.section3 .image-title-1 {
+  position: absolute; /* Posiciona el título en relación al contenedor */
+  top: 40px; /* Alinea el título a la parte superior */
+  right: 250px; /* Alinea el título a la parte derecha */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: 600;
+  z-index: 3; /* Asegura que el título esté por encima de la imagen */
+  font-family: Epilogue, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}
+.section3 .image-title-2 {
+  position: absolute; /* Posiciona el tí
+  tulo en relación al contenedor */
+  top: 40px; /* Alinea el título a la parte superior */
+  right: 210px; /* Alinea el título a la parte derecha */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: 600;
+  z-index: 3; /* Asegura que el título esté por encima de la imagen */
+  font-family: Epilogue, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}
+.section3 .image-title-3 {
+  position: absolute; /* Posiciona el título en relación al contenedor */
+  top: 40px; /* Alinea el título a la parte superior */
+  right: 325px; /* Alinea el título a la parte derecha */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: 600;
+  z-index: 3; /* Asegura que el título esté por encima de la imagen */
+  font-family: Epilogue, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}
+.section3 .image-title-4 {
+  position: absolute; /* Posiciona el título en relación al contenedor */
+  top: 40px; /* Alinea el título a la parte superior */
+  right: 280px; /* Alinea el título a la parte derecha */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: 600;
+  z-index: 3; /* Asegura que el título esté por encima de la imagen */
+  font-family: Epilogue, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}

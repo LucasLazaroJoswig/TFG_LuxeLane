@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import tfg.luxelane.entidades.Coches;
+import tfg.luxelane.entidades.enums.Disponibilidad;
 import tfg.luxelane.repositorio.CochesRepository;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class CochesDaoImpl implements CochesDao {
     }
 
     @Override
-    public List<Coches> buscarPorDisponibilidad(String disponibilidad) {
+    public List<Coches> buscarPorDisponibilidad(Disponibilidad disponibilidad) {
         return cochesRepository.findByDisponibilidad(disponibilidad);
     }
 
@@ -49,4 +50,10 @@ public class CochesDaoImpl implements CochesDao {
     public void eliminar(Long id) {
         cochesRepository.deleteById(id);
     }
+
+	@Override
+	public List<Coches> buscarTodos() {
+		// TODO Auto-generated method stub
+		return cochesRepository.findAll();
+	}
 }
