@@ -5,17 +5,18 @@ import tfg.luxelane.entidades.enums.Disponibilidad;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+
 public interface CochesDao {
 
 	List<Coches> buscarTodos();
 	
     Coches buscarPorId(Long id);
 
-    List<Coches> buscarPorMarca(String marca);
 
     List<Coches> buscarPorDisponibilidad(Disponibilidad disponible);
 
-    List<Coches> buscarPorTipoVehiculo(String tipoVehiculo);
+    List<String> findModelosByMarca(String marca);
 
     void guardar(Coches coche);
 
