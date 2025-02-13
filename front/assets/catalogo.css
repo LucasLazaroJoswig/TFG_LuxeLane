@@ -47,35 +47,6 @@ body {
     gap: 20px; /* Espacio entre las celdas del grid */
 }
 
-<<<<<<< HEAD
-=======
-/* ========== NAVEGACIÓN SUPERIOR ========== */
-.header {
-    grid-area: he;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    /* Centrado del contenido */
-    align-items: center;
-    padding: 10px 20px;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-/* Logo y nombre de LuxeLane */
-.logo {
-    font-size: 30px;
-    /* Aumenté el tamaño del texto */
-    font-weight: bold;
-    color: #ff4500;
-    /* Naranja para el logo */
-    display: flex;
-    align-items: center;
-    margin-right: 50px;
-    /* Separación entre el logo y el menú */
-    font-family: 'Montserrat', serif;
-}
-
->>>>>>> a392c433744e98dd799c43619fad6a4dd4a940a5
 .logo img {
     width: 100px;
     /* Aumenté el tamaño de la imagen */
