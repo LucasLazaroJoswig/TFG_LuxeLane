@@ -140,9 +140,9 @@ $(document).ready(function() {
                       <li class="flex justify-between gap-2">
                           <div class="flex gap-3">
                               <img src="./assets/iconos/puerta.svg">
-                              ${coche.numeroPuertas}
-                          </div>
-                          4
+                              Puertas
+                            </div>
+                            ${coche.numeroPuertas}
                       </li>
                       <li class="flex justify-between gap-2">
                           <div class="flex gap-3">
@@ -161,7 +161,7 @@ $(document).ready(function() {
                   </ul>
                   <div class="flex items-center justify-between mt-4">
                   <div>
-                      <span class="text-2xl font-bold">&euro;219</span>
+                      <span class="text-2xl font-bold">&euro;${coche.precioPorDia}</span>
                       <span class="text-sm text-gray-400">/Por Día</span>
                   </div>
                       <img class="hover:scale-[1.1] transition transition-all ease-in-out" src="./fotos/flecha.svg">
