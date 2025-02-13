@@ -68,5 +68,25 @@ public class Usuario implements Serializable {
 		this.correo = correo;
 		this.password = password;
 		this.telefono = telefono;
-	}    
+	}
+
+	public Rol getRol() {
+		return rol;
+	}
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
+
+	public String getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(String enabled) {
+		this.enabled = enabled;
+	}
+
+
+
+	
 }

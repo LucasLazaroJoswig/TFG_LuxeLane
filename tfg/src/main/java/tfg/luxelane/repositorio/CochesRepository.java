@@ -34,6 +34,16 @@ public interface CochesRepository extends JpaRepository<Coches, Long> {
 
     @Query("SELECT DISTINCT c.marca FROM Coches c")
     List<String> findDistinctMarcas();
+    
+    @Query("SELECT DISTINCT c.tipoVehiculo FROM Coches c")
+    List<String> findDistinctTiposVehiculo();
+    
+    @Query("SELECT DISTINCT c.tipoMotor FROM Coches c")
+    List<String> findDistinctTiposCombustible();
+
+    @Query("SELECT DISTINCT c.transmision FROM Coches c")
+    List<String> findDistinctTransmisiones();
+
 
 
 }

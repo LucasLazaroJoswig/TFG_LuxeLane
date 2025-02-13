@@ -74,6 +74,21 @@ public class CochesRestController {
 	    return cochesRepository.findDistinctMarcas();
 	}
 
+	@GetMapping("/tiposCoche")
+	public List<String> obtenerTiposCoche() {
+	    return cochesRepository.findDistinctTiposVehiculo();
+	}
+
+	@GetMapping("/tiposCombustible")
+	public List<String> obtenerTiposCombustible() {
+	    return cochesRepository.findDistinctTiposCombustible();
+	}
+
+	@GetMapping("/tiposTransmision")
+	public List<String> obtenerTiposTransmision() {
+	    return cochesRepository.findDistinctTransmisiones();
+	}
+
 	
 }
 
