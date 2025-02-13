@@ -14,7 +14,7 @@ $(document).ready(function() {
                 coches.forEach(function(coche) {
                     var cocheHTML = `
                     <div class="max-w-sm bg-[#191919] text-white rounded-2xl p-5 shadow-lg space-y-4">
-                        <img src="./fotos/fotos_coches/${coche.imagen}" alt="Honda CRV" class="w-full rounded-xl" />
+                        <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="w-full rounded-xl" />
                         <div class="text-xs bg-gray-800 px-2 py-1 rounded-full w-max">${coche.tipoVehiculo}</div>
                         <h2 class="text-2xl font-bold text-left">${coche.marca} ${coche.modelo}</h2>
                         <ul class="space-y-1">
