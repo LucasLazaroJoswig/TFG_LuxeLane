@@ -21,20 +21,7 @@ public class CochesDaoImpl implements CochesDao {
         return cochesRepository.findById(id).orElse(null);
     }
 
-    @Override
-    public List<Coches> buscarPorMarca(String marca) {
-        return cochesRepository.findByMarca(marca);
-    }
-
-    @Override
-    public List<Coches> buscarPorDisponibilidad(Disponibilidad disponibilidad) {
-        return cochesRepository.findByDisponibilidad(disponibilidad);
-    }
-
-    @Override
-    public List<Coches> buscarPorTipoVehiculo(String tipoVehiculo) {
-        return cochesRepository.findByTipoVehiculo(tipoVehiculo);
-    }
+    
 
     @Override
     public void guardar(Coches coche) {
@@ -55,5 +42,21 @@ public class CochesDaoImpl implements CochesDao {
 	public List<Coches> buscarTodos() {
 		// TODO Auto-generated method stub
 		return cochesRepository.findAll();
+	}
+
+
+
+	@Override
+	public List<String> findModelosByMarca(String marca) {
+		// TODO Auto-generated method stub
+		return cochesRepository.findModelosByMarca(marca);
+	}
+
+
+
+	@Override
+	public List<Coches> buscarPorDisponibilidad(Disponibilidad disponible) {
+		// TODO Auto-generated method stub
+		return cochesRepository.findByDisponibilidad(disponible);
 	}
 }
