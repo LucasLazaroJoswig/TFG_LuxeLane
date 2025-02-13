@@ -14,7 +14,7 @@ $(document).ready(function() {
                 coches.forEach(function(coche) {
                     var cocheHTML = `
                         <div class="vehiculo">
-                            <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}">
+                            <img src="./fotos/${coche.imagenUrl}" alt="${coche.marca} ${coche.modelo}">
                             <h3>${coche.marca} ${coche.modelo}</h3>
                             <p>${coche.tipoVehiculo} | ${coche.tipoCombustible}</p>
                             <span>${coche.precioPorDia} / Día</span>

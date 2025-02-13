@@ -38,17 +38,17 @@ public class CochesRestController {
         @RequestParam(required = false) String tipoVehiculo,
         @RequestParam(required = false) String marca,
         @RequestParam(required = false) String modelo,
-        @RequestParam(required = false) double precioMin,
-        @RequestParam(required = false) double precioMax,
+        @RequestParam(required = false) String precioMax,
         @RequestParam(required = false) String tipoCombustible,
         @RequestParam(required = false) String transmision
     ) {
+		Double precioMaxParse = (precioMax != null && !precioMax.trim().isEmpty()) ? Double.parseDouble(precioMax) : Double.MAX_VALUE;
+		System.out.println(tipoVehiculo + marca+  modelo+ precioMax+ tipoCombustible+ transmision);
         return cochesRepository.buscarCochesFiltrados(
             tipoVehiculo, 
             marca, 
-            modelo, 
-            precioMin, 
-            precioMax, 
+            modelo,
+            precioMaxParse, 
             tipoCombustible, 
             transmision
         );
@@ -59,6 +59,21 @@ public class CochesRestController {
 		return cocheService.buscarPorId(id);
 	}
 	
+	@GetMapping("/modelos/{marca}")
+	public List<String> modelosPorMarca(@PathVariable String marca) {
+		return cocheService.findModelosByMarca(marca);
+	}
+	
+	@GetMapping("/precioMaximo")
+	public Double obtenerPrecioMaximo() {
+	    return cochesRepository.findMaxPrice();
+	}
+
+	@GetMapping("/marcas")
+	public List<String> obtenerMarcas() {
+	    return cochesRepository.findDistinctMarcas();
+	}
+
 	
 }
 

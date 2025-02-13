@@ -1,4 +1,63 @@
 $(document).ready(function() {
+
+  $.ajax({
+    url: 'http://localhost:8087/coches/precioMaximo',
+    method: 'GET',
+    success: function(precioMax) {
+      // Establecer el valor máximo del slider al precio máximo
+      $('#precioRange').attr('max', precioMax).val(precioMax);
+      $('#precioValue').text(precioMax);
+    },
+    error: function() {
+      console.log("No se pudo obtener el precio máximo.");
+    }
+  });
+
+  // Función para mostrar el precio en el slider
+  $('#precioRange').on('input', function() {
+    const maxPrice = $(this).val();
+    $('#precioValue').text(maxPrice);
+  });
+
+  $.ajax({
+    url: 'http://localhost:8087/coches/marcas',
+    method: 'GET',
+    success: function(marcas) {
+      $('#marca').empty().append('<option value="">Seleccionar Marca</option>');
+      marcas.forEach(function(marca) {
+        $('#marca').append(`<option value="${marca}">${marca}</option>`);
+      });
+    },
+    error: function() {
+      console.log("No se pudieron cargar las marcas.");
+    }
+  });
+
+  $('#marca').on('change', function() {
+    const selectedBrand = $(this).val();
+    $('#modelo').prop('disabled', !selectedBrand);
+
+    // Limpiar y cargar modelos según la marca seleccionada
+    if (selectedBrand) {
+      $.ajax({
+        url: `http://localhost:8087/coches/modelos/${selectedBrand}`,
+        method: 'GET',
+        success: function(models) {
+          $('#modelo').empty().append('<option value="">Seleccionar Modelo</option>');
+          models.forEach(function(model) {
+            $('#modelo').append(`<option value="${model}">${model}</option>`);
+          });
+        },
+        error: function() {
+          $('#modelo').empty().append('<option value="">No se encontraron modelos</option>');
+        }
+      });
+    } else {
+      // Si la marca está vacía, también vaciamos el modelo
+      $('#modelo').empty().append('<option value="">Seleccionar Modelo</option>').prop('disabled', true);
+    }
+  });
+
     // Función para mostrar/ocultar acordeones
     $('.accordion-item button').on('click', function() {
       const target = $(this).data('toggle');
@@ -42,21 +101,24 @@ $(document).ready(function() {
       e.preventDefault();
       
       const filtros = {};
-  
+    
       // Recoger los valores de los filtros
-      const filters = {
-        tipoVehiculo: $('#tipoVehiculo').val(),
-        marca: $('#marca').val(),
-        modelo: $('#modelo').val(),
-        precioMin: 0,  // Precio mínimo siempre es 0
-        precioMax: $('#precioRange').val(),  // Tomamos el valor máximo del deslizador
-        tipoCombustible: $('#tipoCombustible').val(),
-        transmision: $('#transmisionSelect').val()
-      };
-  
-      // Filtramos los valores vacíos y los agregamos a la variable `filtros`
-      console.log(filters)
-  
+      filtros.tipoVehiculo = $('#tipoVehiculo').val() || null;
+      filtros.marca = $('#marca').val() || null;
+      filtros.modelo = $('#modelo').val() || null;
+      filtros.precioMax = $('#precioRange').val() || null;
+      filtros.tipoCombustible = $('#tipoCombustible').val() || null;
+      filtros.transmision = $('#transmisionSelect').val() || null;
+    
+      // Filtrar los valores vacíos y eliminarlos de `filtros`
+      Object.keys(filtros).forEach(key => {
+        if (filtros[key] === "" || filtros[key] === null) {
+          delete filtros[key];  // Eliminar filtros vacíos
+        }
+      });
+    
+      console.log(filtros);  // Verifica los valores antes de la solicitud
+    
       // Realizar la solicitud AJAX con los filtros
       $.ajax({
         url: 'http://localhost:8087/coches/filtrar',  // Cambia esta URL si es necesario
@@ -71,6 +133,7 @@ $(document).ready(function() {
         }
       });
     });
+    
   
     // Mostrar los resultados de los coches
     function displayCarResults(cars) {
