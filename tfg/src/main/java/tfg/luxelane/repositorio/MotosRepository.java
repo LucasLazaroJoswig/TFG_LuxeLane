@@ -1,8 +1,11 @@
 package tfg.luxelane.repositorio;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import tfg.luxelane.entidades.Motos;
 import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import tfg.luxelane.entidades.Motos;
+
 
 public interface MotosRepository extends JpaRepository<Motos, Long> {
 
@@ -11,5 +14,6 @@ public interface MotosRepository extends JpaRepository<Motos, Long> {
     List<Motos> findByDisponibilidad(String disponibilidad);
 
     List<Motos> findByTipoVehiculo(String tipoVehiculo);
+
 
 }

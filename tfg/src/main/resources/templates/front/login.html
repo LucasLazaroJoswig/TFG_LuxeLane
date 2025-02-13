@@ -32,35 +32,38 @@
       </button>
     </div>
 
+    <!-- Formulario de Login -->
     <form id="loginForm" method="post" class="space-y-4 transition duration-700 ease-in-out">
       <div>
         <label for="login-email" class="block text-gray-300 mb-1">Correo Electrónico</label>
-        <input type="email" id="login-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <input name="email" type="email" id="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
       </div>
       <div>
         <label for="login-password" class="block text-gray-300 mb-1">Contraseña</label>
-        <input type="password" id="login-password" placeholder="Contraseña" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
       </div>
+      <!-- Si se necesita enlace para "olvidé mi contraseña", se puede habilitar -->
       <!-- <div class="text-right">
         <a href="#" id="forgotPasswordLink" class="text-sm text-[#ff3600] hover:underline">¿Olvidaste tu contraseña?</a>
       </div> -->
-      <button type="submit" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
+      <button type="submit" id="butlogin" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
         Iniciar Sesión
       </button>
     </form>
 
+    <!-- Formulario de Registro -->
     <form id="registerForm" method="post" class="space-y-4 hidden transition duration-700 ease-in-out">
       <div>
-        <label for="reg-nombre" class="block text-gray-300 mb-1">Nombre</label>
-        <input type="text" id="reg-nombre" placeholder="Tu nombre" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <label for="nombre" class="block text-gray-300 mb-1">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
       </div>
       <div>
-        <label for="reg-apellidos" class="block text-gray-300 mb-1">Apellidos</label>
-        <input type="text" id="reg-apellidos" placeholder="Tus apellidos" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <label for="apellidos" class="block text-gray-300 mb-1">Apellidos</label>
+        <input type="text" name="apellidos" id="apellidos" placeholder="Tus apellidos" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
       </div>
       <div>
         <label for="reg-email" class="block text-gray-300 mb-1">Correo Electrónico</label>
-        <input type="email" id="reg-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <input type="email" name="reg-email" id="reg-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
       </div>
       <div>
         <label for="reg-contraseña" class="block text-gray-300 mb-1">Contraseña</label>
@@ -70,26 +73,14 @@
         <label for="reg-telefono" class="block text-gray-300 mb-1">Teléfono</label>
         <input type="text" id="reg-telefono" placeholder="Número de teléfono" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
       </div>        
-      <button type="submit" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
+      <button type="submit" id="butsave" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
         Registrarse
       </button>
     </form>
-    <!-- <div id="forgotPasswordForm" class="space-y-4 hidden fade-enter">
-      <div>
-        <label for="forgot-email" class="block text-gray-300 mb-1">Correo Electrónico</label>
-        <input type="email" id="forgot-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
-      </div>
-      <p class="text-gray-400 text-sm">Te enviaremos un enlace para restablecer tu contraseña.</p>
-      <button class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e12d00] transition">
-        Enviar Enlace
-      </button>
-      <button id="backToLogin" class="w-full py-2 bg-gray-700 rounded-full text-white font-bold hover:bg-gray-600 transition">
-        Volver al Inicio de Sesión
-      </button>
-    </div> -->
+    <!-- El bloque para "olvidé mi contraseña" se encuentra comentado -->
   </div>
 
-  <!-- Script -->
+  <!-- Script para el cambio de formularios (no modificado) -->
   <script>
     const loginTab = document.getElementById('loginTab');
     const registerTab = document.getElementById('registerTab');
@@ -121,10 +112,12 @@
     //   loginForm.classList.add('hidden');
     // });
 
-    backToLogin.addEventListener('click', () => {
-      showForm(loginForm);
-      forgotPasswordForm.classList.add('hidden');
-    });
+    if(backToLogin){
+      backToLogin.addEventListener('click', () => {
+        showForm(loginForm);
+        forgotPasswordForm.classList.add('hidden');
+      });
+    }
 
     function showForm(form) {
       form.classList.remove('hidden');
@@ -132,5 +125,12 @@
       setTimeout(() => form.classList.remove('fade-enter'), 10);
     }
   </script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- Toastr JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="./assets/js/loginRegister.js"></script>
 </body>
 </html>
