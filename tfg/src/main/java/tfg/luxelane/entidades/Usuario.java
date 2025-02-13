@@ -68,9 +68,5 @@ public class Usuario implements Serializable {
 		this.correo = correo;
 		this.password = password;
 		this.telefono = telefono;
-	}
-
-	
-    
-    
+	}    
 }
