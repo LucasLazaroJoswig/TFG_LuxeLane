@@ -59,7 +59,8 @@ CREATE TABLE Coches (
     color VARCHAR(50),
     kilometraje INT DEFAULT 0,
     matricula VARCHAR(20) UNIQUE NOT NULL,
-    tipo_vehiculo VARCHAR(255)
+    tipo_vehiculo VARCHAR(255),
+    imagen varchar(255)
 );
 
 -- Tabla Motos
