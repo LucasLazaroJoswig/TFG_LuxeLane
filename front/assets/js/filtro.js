@@ -133,6 +133,49 @@ $(document).ready(function() {
         }
       });
     });
+      // Obtener todos los tipos de coche al cargar la página
+      $.ajax({
+        url: 'http://localhost:8087/coches/tiposCoche',
+        method: 'GET',
+        success: function(tiposCoche) {
+          $('#tipoVehiculo').empty().append('<option value="">Seleccionar Tipo de Coche</option>');
+          tiposCoche.forEach(function(tipo) {
+            $('#tipoVehiculo').append(`<option value="${tipo}">${tipo}</option>`);
+          });
+        },
+        error: function() {
+          console.log("No se pudieron cargar los tipos de coche.");
+        }
+      });
+
+      $.ajax({
+        url: 'http://localhost:8087/coches/tiposCombustible',
+        method: 'GET',
+        success: function(tiposCombustible) {
+          $('#tipoCombustible').empty().append('<option value="">Seleccionar Tipo de Combustible</option>');
+          tiposCombustible.forEach(function(tipo) {
+            $('#tipoCombustible').append(`<option value="${tipo}">${tipo}</option>`);
+          });
+        },
+        error: function() {
+          console.log("No se pudieron cargar los tipos de combustible.");
+        }
+      });
+
+      $.ajax({
+        url: 'http://localhost:8087/coches/tiposTransmision',
+        method: 'GET',
+        success: function(tiposTransmision) {
+          $('#transmisionSelect').empty().append('<option value="">Seleccionar Transmisión</option>');
+          tiposTransmision.forEach(function(tipo) {
+            $('#transmisionSelect').append(`<option value="${tipo}">${tipo}</option>`);
+          });
+        },
+        error: function() {
+          console.log("No se pudieron cargar los tipos de transmisión.");
+        }
+      });
+    
     
   
     // Mostrar los resultados de los coches
