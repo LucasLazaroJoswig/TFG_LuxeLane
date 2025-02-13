@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área Personal - LuxeLane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/area_personal.css">
 </head>
+
 <body>
-    <h1>HOLA</h1>
+  <!-- Header Principal -->
+  <header class="header">
+    <div class="logo">
+      <img src="../front/fotos/logo.png" alt="LuxeLane Logo">
+      <p>
+        <span style="color: rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
+      </p>
+    </div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Coches</a>
+      <a href="#">Motos</a>
+      <a href="#">Chófers</a>
+      <a href="#">Sobre Nosotros</a>
+      <a href="#">Contáctanos</a>
+      <div class="button-container-nav">
+        <a href="area-personal.html" class="button button-reservar">Área Personal</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sección Área Personal -->
+  <section class="area-personal">
+    <div class="container">
+      <h1>Bienvenido, Juan Pérez</h1>
+      <p>En esta sección podrás ver y gestionar tus reservas, así como actualizar tu perfil.</p>
+
+      <!-- Resumen de Reservas -->
+      <div class="reservas">
+        <h2>Tus Reservas Actuales</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Coche</th>
+              <th>Fecha de Inicio</th>
+              <th>Fecha de Fin</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BMW X5</td>
+              <td>15 de Febrero, 2025</td>
+              <td>20 de Febrero, 2025</td>
+              <td>Confirmada</td>
+            </tr>
+            <tr>
+              <td>Audi A3</td>
+              <td>10 de Marzo, 2025</td>
+              <td>15 de Marzo, 2025</td>
+              <td>Pendiente</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="#" class="button button-reservar">Ver todas tus reservas</a>
+      </div>
+
+      <!-- Actualizar Perfil -->
+      <div class="perfil">
+        <h2>Actualizar Datos de Perfil</h2>
+        <form>
+          <label for="nombre">Nombre Completo:</label>
+          <input type="text" id="nombre" name="nombre" value="Juan Pérez">
+
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" value="juanperez@email.com">
+
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" value="123-456-7890">
+
+          <button type="submit" class="button button-info">Actualizar Perfil</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 LuxeLane. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
+
 </html>
