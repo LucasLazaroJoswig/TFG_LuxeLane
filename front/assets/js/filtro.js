@@ -146,9 +146,10 @@ $(document).ready(function() {
           resultsHtml += `
             <div class="bg-gray-800 text-white p-4 rounded-lg">
               <h3 class="text-xl font-bold">${car.marca} ${car.modelo}</h3>
+              <img src="./fotos/fotos_coches/${car.imagen}" alt="${car.marca} ${car.modelo}">
               <p>Tipo: ${car.tipoVehiculo}</p>
-              <p>Precio: $${car.precio}</p>
-              <p>Combustible: ${car.tipoCombustible}</p>
+              <p>Precio: $${car.precioPorDia}/dia</p>
+              <p>Combustible: ${car.tipoMotor}</p>
               <p>Transmisión: ${car.transmision}</p>
             </div>
           `;
