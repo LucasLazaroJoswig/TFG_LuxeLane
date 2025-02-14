@@ -10,14 +10,15 @@ import java.util.List;
 
 public interface CochesRepository extends JpaRepository<Coches, Long> {
 
-    @Query("SELECT c FROM Coches c WHERE " +
+	@Query("SELECT c FROM Coches c WHERE " +
             "(?1 IS NULL OR c.tipoVehiculo = ?1) AND " +
             "(?2 IS NULL OR c.marca LIKE %?2%) AND " +
             "(?3 IS NULL OR c.modelo LIKE %?3%) AND " +
-            "(c.precioPorDia >= 0) AND " + // Filtro para precio mínimo
-            "(?4 IS NULL OR c.precioPorDia <= ?4) AND " + // Filtro para precio máximo
+            "(c.precioPorDia >= 0) AND " +
+            "(?4 IS NULL OR c.precioPorDia <= ?4) AND " +
             "(?5 IS NULL OR c.tipoMotor LIKE %?5%) AND " +
-            "(?6 IS NULL OR c.transmision = ?6)")
+            "(?6 IS NULL OR c.transmision = ?6) AND " +
+            "c.disponibilidad = disponible") 
     List<Coches> buscarCochesFiltrados(String tipoVehiculo, String marca, String modelo, 
                                       double precioMax, 
                                       String tipoCombustible, String transmision);
