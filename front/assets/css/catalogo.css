@@ -168,7 +168,7 @@ nav a:hover {
 .catalogo {
     grid-area: ca;
     margin: 100px auto 50px;
-    width: 70%;
+    width: 90%;
     text-align: center;
 }
 
