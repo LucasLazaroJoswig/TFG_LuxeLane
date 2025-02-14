@@ -1,0 +1,40 @@
+Toyota - Corolla (2020) S
+Honda - Civic (2019)S
+Ford - Focus (2021)S
+BMW - X5 (2022)S
+Audi - A4 (2020)S
+Mercedes-Benz - Clase C (2021)S
+Nissan - Altima (2019)S
+Chevrolet - Malibu (2020)S
+Hyundai - Sonata (2021)S
+Kia - Optima (2020)S
+Mazda - 6 (2021)S
+Subaru - Outback (2022)S
+Jeep - Grand Cherokee (2021)S
+Land Rover - Range Rover (2022)S
+Porsche - Macan (2021)S
+BMW - Serie 3 (2020)S
+Audi - A6 (2021)S
+Mercedes-Benz - Clase E (2022)S
+Maserati - Levante (2020)S
+Lexus - RX (2021)S
+Aston Martin - DB11 (2022)S
+Bentley - Continental GT (2020)S
+Rolls-Royce - Phantom (2021)S
+Ferrari - Portofino (2022)S 
+Lamborghini - Huracán (2020)S
+Ferrari - 488 GTB (2020)S
+Lamborghini - Huracán EVO (2021)S
+Porsche - 911 Turbo S (2022)S
+Aston Martin - DB11 (2020)S
+Bentley - Continental GT (2021)S
+Rolls-Royce - Wraith (2020)S
+Maserati - GranTurismo (2021)S
+Jaguar - F-Type (2020)S
+McLaren - 720S (2021)S
+Bugatti - Chiron (2022)S
+Pagani - Huayra (2020)S
+Koenigsegg - Agera RS (2021)S
+Ferrari - LaFerrari (2020)S
+Lamborghini - Aventador SVJ (2021)S
+Porsche - 918 Spyder (2020)S
