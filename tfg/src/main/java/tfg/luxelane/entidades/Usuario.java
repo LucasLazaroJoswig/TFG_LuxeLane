@@ -85,8 +85,5 @@ public class Usuario implements Serializable {
 	public void setEnabled(String enabled) {
 		this.enabled = enabled;
 	}
-
-
-
 	
 }

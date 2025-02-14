@@ -363,3 +363,30 @@ input{
     height: 45px;
     width: 45px;
 }
+/* Estilo para el botón "Mostrar más coches" */
+#mostrar-mas-coches {
+    display: none; /* Inicialmente oculto */
+    background-color: #ff4500; /* Color de fondo, igual que otros botones */
+    color: white; /* Texto blanco */
+    padding: 16px 25px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 100px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: 700; /* Fuente en negrita */
+    font-family: 'DM Sans', sans-serif; /* Mantener la misma tipografía */
+    cursor: pointer; /* Cambiar el cursor cuando el mouse pasa sobre el botón */
+    text-align: center; /* Centrar el texto */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+    width: auto;
+    margin: 10px 0; /* Espaciado superior e inferior */
+    display: block; /* Asegurarse de que el botón sea un bloque */
+    margin-left: auto; /* Centrar el botón a la izquierda */
+    margin-right: auto; /* Centrar el botón a la derecha */
+}
+
+
+/* Estilo para cuando el mouse pasa sobre el botón */
+#mostrar-mas-coches:hover {
+    background-color: #e63e00; /* Color de fondo en hover (más oscuro) */
+    transform: scale(1.05); /* Aumento de tamaño al pasar el ratón */
+}

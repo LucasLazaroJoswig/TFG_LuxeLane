@@ -1,12 +1,17 @@
 $(document).ready(function() {
-    // Obtener coches al cargar la página
+    let pageCoches = 1; // Página de coches
+    const cochesPorPagina = 10; // Número de coches a cargar por página
+
+    // Función para obtener coches
     function obtenerCoches() {
         $.ajax({
-            url: "http://localhost:8087/coches/", // Ruta al endpoint del backend
+            url: `http://localhost:8087/coches/?page=${pageCoches}&limit=${cochesPorPagina}`, // Endpoint para obtener coches con paginación
             type: "GET",
-            success: function(coches) {
-                // Limpiar el contenedor antes de agregar los coches
-                $('#vehiculos-container').html('');
+            success: function(response) {
+                console.log('Respuesta del servidor:', response); // Verificar la respuesta
+
+                // Asegurarse de que el contenido es un array de coches
+                const coches = response.content; // Obtener la lista de coches de la propiedad 'content'
 
                 // Recorrer los coches y mostrarlos
                 coches.forEach(function(coche) {
@@ -29,9 +34,8 @@ $(document).ready(function() {
                             <li class="flex justify-between gap-2">
                                 <div class="flex gap-3">
                                     <img src="./assets/iconos/pasajeros.svg">
-                                    Pasajeros
+                                    ${coche.numeroAsientos} Pasajeros
                                 </div>
-                                ${coche.numeroAsientos}
                             </li>
                             <li class="flex justify-between gap-2">
                                 <div class="flex gap-3">
@@ -61,6 +65,12 @@ $(document).ready(function() {
                     var cocheId = $(this).data('id');
                     window.location.href = `../../cocheDetalles.html?id=${cocheId}`;
                 });
+                // Mostrar el botón "Mostrar más coches" solo si hay más coches para cargar
+                if (coches.length === cochesPorPagina) {
+                    $('#mostrar-mas-coches').show();
+                } else {
+                    $('#mostrar-mas-coches').hide();
+                }
             },
             error: function(xhr, status, error) {
                 toastr.error("Error al obtener los coches: " + error);
@@ -71,4 +81,27 @@ $(document).ready(function() {
     // Llamar a la función para cargar los coches inicialmente
     obtenerCoches();
 
+    // Asegurarse de que el botón "Mostrar más" esté oculto al inicio
+    $('#mostrar-mas-coches').hide();
+
+    // Evento al hacer clic en el botón de "Mostrar más coches"
+    $('#mostrar-mas-coches').on('click', function() {
+        pageCoches++; // Incrementar la página
+        obtenerCoches(); // Obtener más coches
+    });
+
+    // Evento al hacer clic en el botón de filtro
+    $('#filtrarBtn').on('click', function(e) { // Asegúrate de que el ID coincida
+        e.preventDefault(); // Evitar el comportamiento por defecto del formulario
+        $('#vehiculos-container').html(''); // Limpiar el contenedor de vehículos
+        pageCoches = 1; // Resetear la página
+        obtenerCoches(); // Obtener coches con los filtros aplicados
+    });
+
+    // Manejo de la acción de reserva de un coche
+    $(document).on('click', '.btn-reservar', function() {
+        var cocheId = $(this).data('id');
+        toastr.success("Coche " + cocheId + " reservado exitosamente.");
+        // Aquí puedes hacer una nueva llamada AJAX para procesar la reserva si lo necesitas
+    });
 });
