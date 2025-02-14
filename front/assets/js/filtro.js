@@ -166,7 +166,7 @@ $(document).ready(function() {
                             <span class="text-2xl font-bold">&euro;${coche.precioPorDia}</span>
                             <span class="text-sm text-gray-400">/Por Día</span>
                         </div>
-                            <img class="hover:scale-[1.1] transition transition-all ease-in-out flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}">
+                        <img class="hover:scale-[1.1] transition transition-all ease-in-out flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}">
                         </div>
                         </div>
                     </div>
@@ -224,31 +224,10 @@ $(document).ready(function() {
           console.log("No se pudieron cargar los tipos de transmisión.");
         }
       });
-    
-    
-  
-    // Mostrar los resultados de los coches
-    function displayCarResults(cars) {
-      $('#carResults').empty();
-      if (cars.length === 0) {
-        $('#carResults').html('<p class="text-white">No se encontraron coches.</p>');
-      } else {
-        let resultsHtml = '<div class="grid grid-cols-1 gap-4">';
-        cars.forEach(car => {
-          resultsHtml += `
-            <div class="bg-gray-800 text-white p-4 rounded-lg">
-              <h3 class="text-xl font-bold">${car.marca} ${car.modelo}</h3>
-              <img src="./fotos/fotos_coches/${car.imagen}" alt="${car.marca} ${car.modelo}">
-              <p>Tipo: ${car.tipoVehiculo}</p>
-              <p>Precio: $${car.precioPorDia}/dia</p>
-              <p>Combustible: ${car.tipoMotor}</p>
-              <p>Transmisión: ${car.transmision}</p>
-            </div>
-          `;
-        });
-        resultsHtml += '</div>';
-        $('#carResults').html(resultsHtml);
-      }
-    }
+
+    $('.flecha-btn').on('click', function() {
+      var cocheId = $(this).data('id');
+      window.location.href = `../../cocheDetalles.html?id=${cocheId}`;
+  });
   });
   
