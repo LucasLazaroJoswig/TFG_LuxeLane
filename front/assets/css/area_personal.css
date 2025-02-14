@@ -202,19 +202,110 @@ nav a:hover {
 }
 
 /* Footer */
-.footer {
-    background-color: #1a1a1a;
+footer {
+    grid-area: fo;
+    background-color: #111;
     padding: 30px;
-    color: #fff;
+    margin-top: 50px;
     text-align: center;
-    font-size: 16px;
 }
 
-.footer a {
-    color: #fff;
+footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+footer .footer-links a {
+    color: white;
     text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-bottom: 25px;
+    margin-right: 30px;
+    font-family: Epilogue, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+  
 }
 
-.footer a:hover {
-    color: #ff3600;
+footer .footer-links a:hover {
+color: #FF3600;
+  
+}#links_hover:hover{
+    color: white !important;
+}
+footer #links_hover{
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+}
+
+footer .newsletter input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #222;
+    color: white;
+    margin-right: 10px;
+}
+
+footer .btn-suscribir {
+    background-color: #ff4500;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.logo-footer{
+    font-size: 50px;
+    /* Aumenté el tamaño del texto */
+    font-weight: bold;
+    color: #ff4500;
+    /* Naranja para el logo */
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    /* Separación entre el logo y el menú */
+    font-family: 'Montserrat', serif;
+    margin-left: 200px;
+    margin-bottom: 200px;
+    
+    
+}
+
+footer .btn-suscribir:hover {
+    background-color: #ff6700;
+}
+hr {
+    border: none; /* Elimina el borde predeterminado */
+    height: 3px; /* Grosor de la línea */
+    background-color: #1c1c1c; /* Color de la línea */
+    margin: 20px 0; /* Espaciado arriba y abajo */
+    margin-left: 200px;
+    margin-right: 200px;
+
+}
+.copy{
+    margin-right:55%;
+    color: grey;
+}
+.newsletter{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 80px;
+    margin-right: 200px ;
+}
+input{
+    border-radius: 110px;
+}
+.flecha{
+    height: 45px;
+    width: 45px;
 }

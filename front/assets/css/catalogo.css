@@ -31,22 +31,6 @@
     /* Separación entre el logo y el menú */
     font-family: 'Montserrat', serif;
 }
-.logo-footer{
-    font-size: 50px;
-    /* Aumenté el tamaño del texto */
-    font-weight: bold;
-    color: #ff4500;
-    /* Naranja para el logo */
-    display: flex;
-    align-items: center;
-    margin-right: 50px;
-    /* Separación entre el logo y el menú */
-    font-family: 'Montserrat', serif;
-    margin-left: 200px;
-    margin-bottom: 200px;
-    
-    
-}
 
 body {
     font-family: "Arial", sans-serif;
@@ -335,6 +319,22 @@ footer .btn-suscribir {
 
 footer .btn-suscribir:hover {
     background-color: #ff6700;
+}
+.logo-footer{
+    font-size: 50px;
+    /* Aumenté el tamaño del texto */
+    font-weight: bold;
+    color: #ff4500;
+    /* Naranja para el logo */
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    /* Separación entre el logo y el menú */
+    font-family: 'Montserrat', serif;
+    margin-left: 200px;
+    margin-bottom: 200px;
+    
+    
 }
 hr {
     border: none; /* Elimina el borde predeterminado */
