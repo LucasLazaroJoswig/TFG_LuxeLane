@@ -70,14 +70,29 @@ $(document).ready(function() {
                 contrasena: contrasena
             },
             success: function(response) {
-                if (response === 1) {
-                    toastr.success("Login exitoso. ¡Bienvenido!");
-                    // Guardar en localStorage o sessionStorage para mantener la sesión
-                    localStorage.setItem('userLoggedIn', true); // Puedes guardar un valor booleano o el token si lo recibes del backend.
-                    window.location.href = "areaPersonal.html"; // Redirige a la página principal
-                } else {
-                    toastr.error("El correo o la contraseña no son correctos");
+              if (response) {
+                toastr.success("Login exitoso. ¡Bienvenido!");
+                // Asumiendo que el objeto "response" contiene los datos del usuario
+                localStorage.setItem('userLoggedIn', true);
+                localStorage.setItem('userId', response.id);  
+                localStorage.setItem('userName', response.nombre);  
+                localStorage.setItem('userApellidos', response.apellidos);  
+                localStorage.setItem('userCorreo', response.correo);  
+                localStorage.setItem('userTelefono', response.telefono);  
+                
+                // Guarda el nombre del usuario (ajusta según la estructura de tu objeto Usuario)
+                if (response.rol === "Chofer") {
+                  window.location.href = "areaPersonalChofer.html"; // Redirige a la página principal  
                 }
+                else if (response.rol === "Admin") {
+                  window.location.href = "areaPersonalAdmin.html"; // Redirige a la página principal  
+                }
+                else{ 
+                  window.location.href = "areaPersonal.html"; // Redirige a la página principal  
+                }
+            } else {
+                toastr.error("El correo o la contraseña no son correctos");
+            }
             },
             error: function(xhr, status, error) {
                 toastr.error("Error en la solicitud: " + error);

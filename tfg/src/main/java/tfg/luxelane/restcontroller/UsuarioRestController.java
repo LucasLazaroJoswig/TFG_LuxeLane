@@ -23,12 +23,17 @@ public class UsuarioRestController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestParam String correo, @RequestParam String contrasena){
-		System.out.println(userService.login(correo, contrasena));
-		if (userService.login(correo, contrasena)!=null) {
-			return ResponseEntity.status(HttpStatus.OK).body(1);
-		} else {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad Credentials");
-		}
+	    // Llamamos al servicio para obtener los detalles del usuario
+	    Usuario usuario = userService.login(correo, contrasena);
+	    System.out.println(usuario);
+	    // Verificamos si el usuario es válido
+	    if (usuario != null) {
+	        // Retornamos una respuesta exitosa con el usuario
+	        return ResponseEntity.status(HttpStatus.OK).body(usuario);
+	    } else {
+	        // Si no es válido, retornamos un error
+	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad Credentials");
+	    }
 	}
 	
 	
@@ -53,5 +58,23 @@ public class UsuarioRestController {
 
 	    return ResponseEntity.status(HttpStatus.OK).body(1);
 	}
-
+	// Método para actulizar y para guardar el evento
+		@PostMapping("/modificar/{idUsuario}")
+		public ResponseEntity<?> guardar(@RequestBody Usuario usuario, @PathVariable long idUsuario) {
+			// Llamamos al servicio para obtener los detalles del usuario
+		    Usuario usuario2 = userService.buscarPorId(idUsuario);
+		    // Verificamos si el usuario es válido
+		    if (usuario2 != null) {
+		    	usuario2.setNombre(usuario.getNombre());
+			    usuario2.setApellidos(usuario.getApellidos());
+			    usuario2.setTelefono(usuario.getTelefono());
+			    usuario2.setCorreo(usuario.getCorreo());
+		    	userService.actualizar(usuario2);
+			    //System.out.println(usuario2);
+		    	return ResponseEntity.status(HttpStatus.OK).body(usuario2);
+		    } else {
+		        // Si no es válido, retornamos un error
+		        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad Credentials");
+		    }
+		}
 }
