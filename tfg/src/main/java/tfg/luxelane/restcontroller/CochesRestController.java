@@ -41,6 +41,11 @@ public class CochesRestController {
         return cochesRepository.findAll(pageRequest);
     }
 
+    @GetMapping("/todos")
+    public List<Coches> mostrarTodos(){
+    	return cocheService.buscarPorDisponibilidad(Disponibilidad.disponible);
+    }
+    
     @GetMapping("/filtrar")
     public List<Coches> obtenerCochesFiltrados(
         @RequestParam(required = false) String tipoVehiculo,

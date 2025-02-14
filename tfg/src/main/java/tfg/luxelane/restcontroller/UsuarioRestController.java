@@ -31,6 +31,8 @@ public class UsuarioRestController {
 		}
 	}
 	
+	
+	
 	@PostMapping("/register")
 	public ResponseEntity<?> registro(@RequestParam String correo, @RequestParam String nombre, @RequestParam String apellidos,
 	                                  @RequestParam String contrasena, @RequestParam String telefono) {
