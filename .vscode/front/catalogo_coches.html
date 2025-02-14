@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Coches - LuxeLane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://c.webfontfree.com/c.js?f=Separat-Regular" type="text/javascript"></script>
+    <link rel="stylesheet" href="assets/css/catalogo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <!-- Header Principal -->
+    <header class="header">
+        <div class="logo">
+          <img src="./fotos/logo.png" alt="Logo"> <!-- Aquí puedes poner tu logo, si tienes -->
+          <p>
+            <span style="color:  rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
+          </p>
+        </div>
+    
+        <nav>
+          <a href="./index.html">Inicio</a>
+          <a href="#">Coches</a>
+          <a href="#">Motos</a>
+          <a href="#">Chófers</a>
+          <a href="#">Sobre Nosotros</a>
+          <a href="#">Contáctanos</a>
+          <div class="button-container-nav">
+            <a href="../front/login.html" class="button button-reservar">Area Personal</a>
+          </div>
+        </nav>
+      </header>
+
+    <!-- Banner con fondo de coches -->
+    <section class="banner">
+        <div class="banner-text">
+            <h1>Coches</h1>
+            <p>Explora nuestra selección de vehículos disponibles</p>
+        </div>
+    </section>
+
+    <!-- Filtro -->
+    <section class="filtro">
+      <div class="ml-7 mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-full max-w-md z-10">
+        <div class="text-center mb-6">
+          <h2 class="text-3xl text-white font-bold">Filtrar Vehículos</h2>
+          <p class="text-gray-400 mt-1">Aplica los filtros para encontrar el coche perfecto</p>
+        </div>
+    
+        <form id="filtersForm" class="space-y-4">
+          <!-- Acordeón: Tipo de coche -->
+          <div class="accordion-item bg-gray-800 rounded-lg">
+            <button type="button" class="w-full px-4 py-2 text-white font-bold flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ff3600]" data-toggle="tipoCoche">
+              Tipo de Coche
+              <span id="tipoCocheArrow" class="transition-transform transform rotate-0">▼</span>
+            </button>
+            <div id="tipoCoche" class="hidden px-4 py-2 bg-gray-700">
+              <select id="tipoVehiculo" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]">
+    
+              </select>
+            </div>
+          </div>
+    
+          <!-- Acordeón: Marca y Modelo -->
+          <div class="accordion-item bg-gray-800 rounded-lg">
+            <button type="button" class="w-full px-4 py-2 text-white font-bold flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ff3600]" data-toggle="marcaModelo">
+              Marca y Modelo
+              <span id="marcaModeloArrow" class="transition-transform transform rotate-0">▼</span>
+            </button>
+            <div id="marcaModelo" class="hidden px-4 py-2 bg-gray-700">
+              <select id="marca" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]">
+              </select>
+              <select id="modelo" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" disabled>
+                <option value="">Seleccionar Modelo</option>
+              </select>
+            </div>
+          </div>
+    
+          <!-- Acordeón: Rango de Precio -->
+          <div class="accordion-item bg-gray-800 rounded-lg">
+            <button type="button" class="w-full px-4 py-2 text-white font-bold flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ff3600]" data-toggle="precio">
+              Precio
+              <span id="precioArrow" class="transition-transform transform rotate-0">▼</span>
+            </button>
+            <div id="precio" class="hidden px-4 py-2 bg-gray-700">
+              <input type="range" id="precioRange" min="0" max="1000" step="1" value="1000" class="w-full" />
+              <div class="flex justify-between text-white">
+                <span>0</span><span id="precioValue">1000</span>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Acordeón: Tipo de Combustible -->
+          <div class="accordion-item bg-gray-800 rounded-lg">
+            <button type="button" class="w-full px-4 py-2 text-white font-bold flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ff3600]" data-toggle="combustible">
+              Tipo de Combustible
+              <span id="combustibleArrow" class="transition-transform transform rotate-0">▼</span>
+            </button>
+            <div id="combustible" class="hidden px-4 py-2 bg-gray-700">
+              <select id="tipoCombustible" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]">
+    
+              </select>
+            </div>
+          </div>
+    
+          <!-- Acordeón: Transmisión -->
+          <div class="accordion-item bg-gray-800 rounded-lg">
+            <button type="button" class="w-full px-4 py-2 text-white font-bold flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ff3600]" data-toggle="transmision">
+              Transmisión
+              <span id="transmisionArrow" class="transition-transform transform rotate-0">▼</span>
+            </button>
+            <div id="transmision" class="hidden px-4 py-2 bg-gray-700">
+              <select id="transmisionSelect" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]">
+                <option value="">Seleccionar</option>
+                <option value="Manual">Manual</option>
+                <option value="Automática">Automática</option>
+              </select>
+            </div>
+          </div>
+    
+          <button type="submit" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
+            Filtrar Coches
+          </button>
+        </form>
+    </section>
+
+    <!-- Sección de los coches -->
+    <section class="catalogo">
+        <div class="vehiculos" id="vehiculos-container">
+            <!-- Los coches serán cargados aquí con JavaScript -->
+
+            
+        </div>
+    </section>
+    
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+          <div class="logo-footer">
+              <span style="color:  rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
+            </p>
+          </div>
+            <div class="footer-links">
+                <a href="#" id="links_hover">Política Legal</a>
+                <a href="#">Términos & Condiciones</a>
+                <a href="#">Contacto</a>
+                <a href="#">Noticia Legal</a>
+                <a href="#">Accesibilidad</a>
+            </div>
+            <div class="footer-links">
+              <a href="#" id="links_hover">Links</a>
+              <a href="#">Inicio</a>
+              <a href="#">Sobre Nosotros</a>
+              <a href="#">Coches</a>
+              <a href="#">Motos</a>
+              <a href="#">Contáctanos</a>
+          </div>
+            <div class="newsletter">
+                <label for="email" id="links_hover">Suscríbete al boletín:</label>
+                <input type="email" id="email" placeholder="Correo electrónico">
+                <button class="btn-suscribir">Suscribirse</button>
+            </div>
+        </div>
+        <hr>
+       <p class="copy">&copy;2024 LuxeLane. Derechos Resevados</p>
+        
+    </footer>
+
+
+    <!-- Incluir script del catalogo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/catalogo.js"></script>
+    <script src="assets/js/filtro.js"></script>
+</body>
+</html>

@@ -163,34 +163,6 @@ nav a:hover {
     text-transform: uppercase;
 }
 
-/* ========== FILTRO LATERAL ========== */
-.filtro {
-    grid-area: fi;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-}
-
-.filtro select, .filtro button {
-    width: 100%;
-    padding: 10px;
-    background-color: #222;
-    color: white;
-    border: 1px solid #444;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.filtro button {
-    background-color: #ff4500;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.filtro button:hover {
-    background-color: #ff6700;
-}
 
 /* ========== CATÁLOGO DE VEHÍCULOS ========== */
 .catalogo {
@@ -299,10 +271,31 @@ footer .footer-content {
 }
 
 footer .footer-links a {
-    color: #ff4500;
+    color: white;
     text-decoration: none;
-    margin-left: 15px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-bottom: 25px;
+    margin-right: 30px;
+    font-family: Epilogue, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+  
+}
+
+footer .footer-links a:hover {
+color: #FF3600;
+  
+}#links_hover:hover{
+    color: white !important;
+}
+footer #links_hover{
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
 }
 
 footer .newsletter input {
@@ -326,4 +319,74 @@ footer .btn-suscribir {
 
 footer .btn-suscribir:hover {
     background-color: #ff6700;
+}
+.logo-footer{
+    font-size: 50px;
+    /* Aumenté el tamaño del texto */
+    font-weight: bold;
+    color: #ff4500;
+    /* Naranja para el logo */
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    /* Separación entre el logo y el menú */
+    font-family: 'Montserrat', serif;
+    margin-left: 200px;
+    margin-bottom: 200px;
+    
+    
+}
+hr {
+    border: none; /* Elimina el borde predeterminado */
+    height: 3px; /* Grosor de la línea */
+    background-color: #1c1c1c; /* Color de la línea */
+    margin: 20px 0; /* Espaciado arriba y abajo */
+    margin-left: 200px;
+    margin-right: 200px;
+
+}
+.copy{
+    margin-right:55%;
+    color: grey;
+}
+.newsletter{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 80px;
+    margin-right: 200px ;
+}
+input{
+    border-radius: 110px;
+}
+.flecha{
+    height: 45px;
+    width: 45px;
+}
+/* Estilo para el botón "Mostrar más coches" */
+#mostrar-mas-coches {
+    display: none; /* Inicialmente oculto */
+    background-color: #ff4500; /* Color de fondo, igual que otros botones */
+    color: white; /* Texto blanco */
+    padding: 16px 25px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 100px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: 700; /* Fuente en negrita */
+    font-family: 'DM Sans', sans-serif; /* Mantener la misma tipografía */
+    cursor: pointer; /* Cambiar el cursor cuando el mouse pasa sobre el botón */
+    text-align: center; /* Centrar el texto */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+    width: auto;
+    margin: 10px 0; /* Espaciado superior e inferior */
+    display: block; /* Asegurarse de que el botón sea un bloque */
+    margin-left: auto; /* Centrar el botón a la izquierda */
+    margin-right: auto; /* Centrar el botón a la derecha */
+}
+
+
+/* Estilo para cuando el mouse pasa sobre el botón */
+#mostrar-mas-coches:hover {
+    background-color: #e63e00; /* Color de fondo en hover (más oscuro) */
+    transform: scale(1.05); /* Aumento de tamaño al pasar el ratón */
 }
