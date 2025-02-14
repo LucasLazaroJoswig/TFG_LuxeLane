@@ -34,7 +34,7 @@ INSERT INTO Coches (marca, modelo, año, precio_por_dia, precio_por_hora, dispon
 VALUES
 ('Ferrari', '488 GTB', 2020, 150.00, 40.00, 'disponible', 'Gasolina', 3900, 670, 'automática', 78.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Rojo', 5000, 'FER4880', 'deportivo', 'Ferrari488GTB.png'),
 ('Lamborghini', 'Huracán EVO', 2021, 180.00, 45.00, 'disponible', 'Gasolina', 5200, 640, 'automática', 85.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Amarillo', 3000, 'LAMBHURACAN', 'deportivo', 'LamboHuracánEVO.png'),
-('Porsche', '911 Turbo S', 2022, 200.00, 50.00, 'disponible', 'Gasolina', 3800, 640, 'automática', 70.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Negro', 2000, 'POR9110', 'deportivo', 'Porsche911S.png'),
+('Porsche', '911 Turbo S Mansory', 2022, 1000.00, 300.00, 'disponible', 'Gasolina', 3800, 640, 'automática', 70.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Negro', 2000, 'POR9110', 'deportivo', 'Porsche911S.png'),
 ('Aston Martin', 'DB11', 2020, 220.00, 55.00, 'disponible', 'Gasolina', 4000, 503, 'automática', 80.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Plata', 4000, 'ASTB110', 'deportivo', 'AstonMartinDB112022.png'),
 ('Bentley', 'Continental GT', 2021, 250.00, 60.00, 'disponible', 'Gasolina', 6000, 626, 'automática', 90.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Azul', 3000, 'BEN8000', 'deportivo', 'BentleyContinentalGT2021.png'),
 ('Rolls-Royce', 'Wraith', 2020, 300.00, 75.00, 'disponible', 'Gasolina', 6200, 624, 'automática', 100.00, 'ECO', 2, 2, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, 6, TRUE, TRUE, 'Negro', 2000, 'ROL3000', 'deportivo', 'RRoyceWraith.png'),
