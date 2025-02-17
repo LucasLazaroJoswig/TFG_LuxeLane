@@ -24,7 +24,11 @@ public class UsuarioDaoImpl implements UsuarioDao {
     public Usuario buscarPorCorreo(String correo) {
         return usuarioRepository.findByCorreo(correo);
     }
-
+    @Override
+	public List<Usuario> buscarTodos() {
+		// TODO Auto-generated method stub
+		return usuarioRepository.findAll();
+	}
     /**@Override
     public List<Usuario> buscarPorRol(String rol) {
         return usuarioRepository.findByRol(rol);

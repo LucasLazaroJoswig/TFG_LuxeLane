@@ -79,6 +79,7 @@ CREATE TABLE Motos (
     potencia_hp INT,
     transmision VARCHAR(255),
     capacidad_combustible DECIMAL(5,2),
+    etiqueta_medioambiental VARCHAR(255),
 
     -- Características del vehículo
     tipo_freno_delantero VARCHAR(255),
@@ -96,7 +97,6 @@ CREATE TABLE Motos (
     kilometraje INT DEFAULT 0,
     matricula VARCHAR(20) UNIQUE NOT NULL,
     tipo_vehiculo VARCHAR(255), 
-    etiqueta_medioambiental VARCHAR(255),
     imagen VARCHAR(255)
 );
 

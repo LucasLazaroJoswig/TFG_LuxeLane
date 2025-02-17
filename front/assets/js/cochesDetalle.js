@@ -308,48 +308,6 @@ $(document).ready(function() {
                               </details>
                             </div>
                           </div>
-
-                          <div id="reservarModal" class="fixed inset-0 bg-[#111] bg-opacity-50 flex items-center justify-center hidden">
-                          <div class="bg-[#202020] rounded-xl shadow-xl p-8 w-full max-w-md z-10">
-                              <h2 class="text-3xl text-white font-bold mb-6">Reservar Coche</h2>
-                              <form id="reservarForm" class="space-y-6">
-                                  <div>
-                                      <label for="usuario_id" class="block text-gray-300 mb-1">Usuario ID</label>
-                                      <input type="number" id="usuario_id" name="usuario_id" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
-                                  </div>
-                                  <div>
-                                      <label for="coche_id" class="block text-gray-300 mb-1">Coche ID</label>
-                                      <input type="number" id="coche_id" name="coche_id" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
-                                  </div>
-                                  <div>
-                                      <label for="chofer_id" class="block text-gray-300 mb-1">Chofer ID</label>
-                                      <input type="number" id="chofer_id" name="chofer_id" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
-                                  </div>
-                                  <div>
-                                      <label for="fecha_inicio" class="block text-gray-300 mb-1">Fecha Inicio</label>
-                                      <input type="datetime-local" id="fecha_inicio" name="fecha_inicio" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
-                                  </div>
-                                  <div>
-                                      <label for="fecha_fin" class="block text-gray-300 mb-1">Fecha Fin</label>
-                                      <input type="datetime-local" id="fecha_fin" name="fecha_fin" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
-                                  </div>
-                                  <div>
-                                      <label for="estado" class="block text-gray-300 mb-1">Estado</label>
-                                      <input type="text" id="estado" name="estado" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
-                                  </div>
-                                  <div>
-                                      <label for="precio_total" class="block text-gray-300 mb-1">Precio Total</label>
-                                      <input type="number" step="0.01" id="precio_total" name="precio_total" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
-                                  </div>
-                                  <div class="flex justify-end">
-                                      <button type="button" id="closeModal" class="bg-gray-500 text-white px-4 py-2 rounded-lg mr-2">Cancelar</button>
-                                      <button type="submit" class="bg-[#ff3600] text-white px-4 py-2 rounded-lg hover:bg-[#e10000]">Reservar</button>
-                                  </div>
-                              </form>
-                          </div>
-                      </div>
-                      
-            
                       </section>
                       
                       
@@ -389,6 +347,17 @@ $(document).ready(function() {
                 
                 
                 `);
+                const reservarBtn = document.getElementById('reservarBtn');
+        if (reservarBtn) {
+            reservarBtn.addEventListener('click', function() {
+                const cocheId = this.getAttribute('data-id');
+                console.log(cocheId);
+                const tipoVehiculo = 'coche';
+                window.location.href = `formReservas.html?id=${cocheId}&tipoVehiculo=${tipoVehiculo}`;
+            });
+        } else {
+            console.error('No se encontró el botón de reservar');
+        }
             },
             error: function(xhr, status, error) {
                 toastr.error("Error al obtener los detalles del coche: " + error);
@@ -398,6 +367,7 @@ $(document).ready(function() {
 
     // Llamar a la función para obtener los detalles del coche
     obtenerDetallesCoche(cocheId);
+
 
     
 })
@@ -410,4 +380,5 @@ document.addEventListener('click', function (event) {
       if (el !== accordion && el.open) el.open = false;
     });
   });
+
 

@@ -80,14 +80,13 @@ $(document).ready(function() {
                 localStorage.setItem('userCorreo', response.correo);  
                 localStorage.setItem('userTelefono', response.telefono);  
                 
-                // Guarda el nombre del usuario (ajusta según la estructura de tu objeto Usuario)
-                if (response.rol === "Chofer") {
+                const rol = response.rol.toLowerCase(); // Convierte el rol a minúsculas
+
+                if (rol === "chofer") {
                   window.location.href = "areaPersonalChofer.html"; // Redirige a la página principal  
-                }
-                else if (response.rol === "Admin") {
+                } else if (rol === "admin") {
                   window.location.href = "areaPersonalAdmin.html"; // Redirige a la página principal  
-                }
-                else{ 
+                } else {
                   window.location.href = "areaPersonal.html"; // Redirige a la página principal  
                 }
             } else {
