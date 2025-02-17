@@ -225,9 +225,12 @@ $(document).ready(function() {
         }
       });
 
-    $('.flecha-btn').on('click', function() {
-      var cocheId = $(this).data('id');
-      window.location.href = `../../cocheDetalles.html?id=${cocheId}`;
   });
-  });
+// Evento para los botones con la clase .flecha-btn
+$(document).on('click', '.flecha-btn', function() {
+  // Obtener el ID del coche desde el atributo data-id
+  var cocheId = $(this).data('id');
   
+  // Redirigir a la página de detalles del coche con el ID en la URL
+  window.location.href = `./cocheDetalles.html?id=${cocheId}`;
+});

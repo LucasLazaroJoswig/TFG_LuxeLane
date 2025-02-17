@@ -26,24 +26,22 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   <script src="assets/js/cochesDetalle.js"></script>
+  <script src="assets/js/reserva.js"></script>
+<style>
+  details[data-accordion] summary {
+    transition: background-color 0.3s ease;
+  }
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const accordions = document.querySelectorAll('details[data-accordion]');
-        accordions.forEach((detail) => {
-          detail.addEventListener('toggle', function () {
-            if (this.open) {
-              // Cierra los demás
-              accordions.forEach((other) => {
-                if (other !== this) {
-                  other.open = false;
-                }
-              });
-            }
-          });
-        });
-      });
-    </script>
+  details[data-accordion] div {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  details[data-accordion][open] div {
+    max-height: 1000px; /* Ajusta este valor según sea necesario */
+  }
+</style>
 </head>
 <body>
 

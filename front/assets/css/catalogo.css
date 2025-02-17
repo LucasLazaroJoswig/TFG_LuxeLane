@@ -158,9 +158,9 @@ nav a:hover {
 }
 
 .banner-text h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 74px;
+    font-family: Epilogue, sans-serif;
+    font-weight: 700;
 }
 
 
