@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login / Registro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Multi-paso</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/x-icon" href="./fotos/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,24 +16,39 @@
   <!-- Iconos CSS-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/login.css">
+
 </head>
 <body class="min-h-screen bg-[#111] flex items-center justify-center">
-
   <div class="bg-[#202020] rounded-xl shadow-xl p-8 w-full max-w-md z-10">
-    <div class="flex justify-center mb-4">
-      <img src="./fotos/logo.png" alt="Logo" class="h-16">
+    <!-- Barra de progreso -->
+    <div class="flex justify-between items-center mb-6">
+      <div id="step1Indicator" class="flex flex-col items-center">
+        <span class="text-lg font-bold">1</span>
+        <span class="text-xs">Login / Registro</span>
+      </div>
+      <div id="step2Indicator" class="flex flex-col items-center text-gray-400">
+        <span class="text-lg font-bold">2</span>
+        <span class="text-xs">Datos de la Reserva</span>
+      </div>
+      <div id="step3Indicator" class="flex flex-col items-center text-gray-400">
+        <span class="text-lg font-bold">3</span>
+        <span class="text-xs">Documentación</span>
+      </div>
     </div>
 
+
+    
+<div id="step1">
     <div class="text-center mb-6">
       <h2 class="text-3xl text-white font-bold">Accede o Regístrate</h2>
       <p class="text-gray-400 mt-1">Ingresa tus datos para continuar</p>
     </div>
 
     <div class="flex justify-center mb-6 space-x-6">
-      <button id="loginTab" class="text-white font-semibold pb-1 border-b-2 border-transparent focus:outline-none transition ">
+      <button id="loginTab" class="border-b-2 border-[#ff3600] text-white font-semibold pb-1 focus:outline-none transition ">
         Iniciar Sesión
       </button>
-      <button id="registerTab" class="text-white font-semibold pb-1 border-b-2 border-transparent focus:outline-none transition">
+      <button id="registerTab" class="text-white font-semibold pb-1 focus:outline-none transition">
         Registrarse
       </button>
     </div>
@@ -61,33 +76,69 @@
     <form id="registerForm" method="post" class="space-y-4 hidden transition duration-700 ease-in-out">
       <div>
         <label for="nombre" class="block text-gray-300 mb-1">Nombre</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" required/>
       </div>
       <div>
         <label for="apellidos" class="block text-gray-300 mb-1">Apellidos</label>
-        <input type="text" name="apellidos" id="apellidos" placeholder="Tus apellidos" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <input type="text" name="apellidos" id="apellidos" placeholder="Tus apellidos" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" required/>
       </div>
       <div>
         <label for="reg-email" class="block text-gray-300 mb-1">Correo Electrónico</label>
-        <input type="email" name="reg-email" id="reg-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <input type="email" name="reg-email" id="reg-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" required/>
       </div>
       <div>
         <label for="reg-contraseña" class="block text-gray-300 mb-1">Contraseña</label>
-        <input type="password" id="reg-contraseña" placeholder="Contraseña" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <input type="password" id="reg-contraseña" placeholder="Contraseña" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" required/>
       </div>
       <div>
         <label for="reg-telefono" class="block text-gray-300 mb-1">Teléfono</label>
-        <input type="text" id="reg-telefono" placeholder="Número de teléfono" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
+        <input type="text" id="reg-telefono" placeholder="Número de teléfono" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" required/>
       </div>        
       <button type="button" id="butsave" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
         Registrarse
       </button>
     </form>
-    <!-- El bloque para "olvidé mi contraseña" se encuentra comentado -->
+</div>
+    <!-- Paso 1: Login/Registro -->
+
+    <!-- Paso 2: Reserva de Vehículo -->
+    <form id="step2" class="space-y-4 hidden">
+        <h2 class="text-xl font-bold">Datos de la Reserva</h2>
+        <div class="flex space-x-4">
+            <div class="w-1/2">
+                <label for="fecha_inicio" class="block text-gray-300 mb-1">Fecha de inicio</label>
+                <input type="date" name="fecha_inicio" placeholder="Fecha de Comienzo" class="w-full px-4 py-2 rounded bg-gray-700">
+            </div>
+            <div class="w-1/2">
+                <label for="fecha_fin" class="block text-gray-300 mb-1">Fecha de fin</label>
+                <input type="date" name="fecha_fin" placeholder="Fecha de Fin" class="w-full px-4 py-2 rounded bg-gray-700">
+            </div>
+        </div>
+        <label for="direccion" class="block text-gray-300 mb-1">Dirección</label>
+        <input type="text" name="direccion" placeholder="Dirección" class="w-full px-4 py-2 rounded bg-gray-700">
+        <div class="flex justify-between">
+            <button type="button" class="py-2 px-4 bg-gray-600 rounded-full text-white font-bold previousBtn">Atrás</button>
+            <button type="button" class="py-2 px-4 bg-[#ff3600] rounded-full text-white font-bold nextBtn">Continuar</button>
+        </div>
+    </form>
+      
+
+    <!-- Paso 3: Subida de Documentación -->
+    <form id="step3" class="space-y-4 hidden">
+      <h2 class="text-xl font-bold">Subir Carnet de Conducir</h2>
+      <input type="file" class="w-full px-4 py-2 rounded bg-gray-700">
+      <div class="flex justify-between">
+        <button type="button" class="py-2 px-4 bg-gray-600 rounded-full text-white font-bold previousBtn">Atrás</button>
+        <button type="submit" class="py-2 px-4 bg-green-500 rounded-full text-white font-bold">Finalizar</button>
+      </div>
+    </form>
   </div>
 
-  <!-- Script para el cambio de formularios (no modificado) -->
   <script>
+
+  </script>
+
+<script>
     const loginTab = document.getElementById('loginTab');
     const registerTab = document.getElementById('registerTab');
     const loginForm = document.getElementById('loginForm');
@@ -132,11 +183,12 @@
     }
   </script>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <!-- Toastr JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="./assets/js/loginregister.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!-- Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="./assets/js/formReservas.js"></script>
+
 </body>
 </html>
