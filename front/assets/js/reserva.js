@@ -1,4 +1,14 @@
 $(document).ready(function() {
+
+    document.addEventListener('click', function (event) {
+        if (event.target.closest('#reservarBtn')) {
+            $('#reservarModal').removeClass('hidden');
+        }
+    
+        if (event.target.closest('#closeModal')) {
+            $('#reservarModal').addClass('hidden');
+        }
+    });
     // Obtener los datos del formulario
     $('#reserva-form').on('submit', function(e) {
         e.preventDefault();
@@ -35,4 +45,4 @@ $(document).ready(function() {
             }
         });
     });
-}
+}); 
