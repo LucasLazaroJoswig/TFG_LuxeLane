@@ -12,6 +12,8 @@ public interface UsuarioDao {
     /*List<Usuario> buscarPorRol(String rol);*/
 
     List<Usuario> buscarPorEstado(String enabled);
+    
+    List<Usuario> buscarTodos();
 
     void guardar(Usuario usuario);
 
