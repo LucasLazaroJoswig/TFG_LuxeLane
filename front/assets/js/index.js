@@ -24,7 +24,7 @@ function mostrarCoches() {
                     let isActive = index === 0 ? 'active' : ''; // Solo el primer grupo debe estar activo
                     let cochesHTML = grupo.map(coche => `
                         <div class="col-lg-3 col-md-4 col-6"> <!-- 4 en pantallas grandes, 3 en medianas, 2 en móviles -->
-                            <div class="card bg-dark text-white rounded-2xl p-4 shadow-lg " style="height: 450px; width: 100%;"> <!-- Aumento de altura -->
+                            <div class="card bg-dark text-white rounded-2xl p-4 shadow-lg " style="height: 500px; width: 100%;"> <!-- Aumento de altura -->
                                 <div class="w-100 " style="height: 165px;">
                                     <!-- Imagen ajustada a un tamaño fijo -->
                                     <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="d-block w-100" style="height: 100%; object-fit: cover; border-radius: 1rem;">
@@ -69,7 +69,7 @@ function mostrarCoches() {
 
                 // Insertar el carrusel en el DOM con los ajustes de tamaño y centrado
                 $('#vehiculos-container').html(`
-                <div id="carCarousel" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 80%;"> <!-- Añadir max-width aquí para reducir el tamaño -->
+                <div id="carCarousel" class="carousel slide mx-auto" data-bs-ride="false" style="max-width: 80%;"> <!-- Se elimina el auto-ride -->
                     <div class="carousel-inner">${carouselInnerHTML}</div>
                     <div class="carousel-controls">
                         <!-- Botón de control personalizado anterior -->
@@ -83,7 +83,6 @@ function mostrarCoches() {
                     </div>
                 </div>
             `);
-
 
                 // Evento para los botones de detalles
                 $('.flecha-btn').on('click', function() {
@@ -103,3 +102,4 @@ function mostrarCoches() {
 
 // Llamar a la función para cargar los coches
 mostrarCoches();
+
