@@ -37,7 +37,7 @@ $(document).ready(function() {
                 <!-- Banner con fondo de coches -->
                 <section class="banner">
                     <div class="banner-text">
-                        <h1>${coche.marca} ${coche.modelo}</h1>
+                        <h1 font-['Epilogue']>${coche.marca} ${coche.modelo}</h1>
                     </div>
                 </section>
             
@@ -125,7 +125,7 @@ $(document).ready(function() {
                             <div class="text-left w-full my-2">
                               <div class="text-white text-[44px] font-bold font-['Epilogue']">Conoce a cerca de nuestros servicios</div>
                             </div>
-                            <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left">Lorem pretium fermentum quam, sit amet cursus ante sollicitudin velen morbi consesua the miss sustion<br/>consation porttitor orci sit amet iaculis nisan. Lorem pretium fermentum quam sit amet cursus ante sollicitudin<br/>velen fermen morbinetion consesua the risus consequation the porttiton.</div>
+                            <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left">Conduce el ${coche.marca} ${coche.modelo} y experimenta un viaje de lujo, confort y seguridad. Nuestro servicio está diseñado para que disfrutes al máximo, con beneficios exclusivos que garantizan tu tranquilidad.</div>
                             <div class="h-[105.77px] left-0 top-[190.55px] absolute flex-col justify-start items-start gap-[19px] inline-flex">
                               <div class="self-stretch pb-[0.59px] justify-start items-end gap-2.5 inline-flex">
                                 <img src="./assets/iconos/tick naranja.svg" alt="Check Icono" width="24" height="24" />
@@ -150,7 +150,7 @@ $(document).ready(function() {
                             <div class="text-left w-full my-2">
                               <div class="text-white text-[44px] font-bold font-['Epilogue']">Servicios y características premium</div>
                             </div>
-                            <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left my-3">Lorem pretium fermentum quam, sit amet cursus ante sollicitudin velen morbi consesua the miss sustion<br/>consation porttitor orci sit amet iaculis nisan. Lorem pretium fermentum quam sit amet cursus ante sollicitudin<br/>velen fermen morbinetion consesua the risus consequation the porttiton.</div>
+                            <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left my-3">Este ${coche.marca} ${coche.modelo} está equipado con las últimas innovaciones y comodidades, pensado para cubrir todas tus necesidades durante el viaje:</div>
                             <div class="w-[836.66px] h-[126.39px] relative my-3">
                                 <div class="w-[200px] left-0 top-[-0.10px] absolute justify-start items-center gap-2.5 inline-flex ">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
@@ -195,7 +195,7 @@ $(document).ready(function() {
                               </div>
                         </div>
             
-                        <div class="my-7 h-[384.33px] relative border-b border-white/10">
+                        <div class="my-7 relative border-b border-white/10">
                             <div class="w-full text-left flex flex-wrap space-x-1 items-center mb-2">
                               <img src="./assets/iconos/asterisco.svg" alt="Icono Información" width="19" height="19" />
                               <div class="text-[#ff3600] text-base font-semibold font-['Epilogue'] leading-tight">
@@ -208,7 +208,6 @@ $(document).ready(function() {
                                 Políticas y Acuerdo
                               </div>
                             </div>
-                        
                             <div class="space-y-2 max-w-3xl">
                               <!-- Ítem 1 (abierto por defecto) -->
                               <details open data-accordion class="group border border-white/10 rounded-xl overflow-hidden">
@@ -221,7 +220,7 @@ $(document).ready(function() {
                                   <span class="text-2xl leading-none hidden group-open:inline">–</span>
                                 </summary>
                                 <div class="p-4 text-sm bg-[#ff3600] transition-all duration-300 ease-in-out text-left font-['DM Sans']">
-                                  Es un hecho bien establecido que un lector se distraerá con el contenido legible...
+                                Para poder alquilar uno de nuestros vehículos, es imprescindible presentar una licencia de conducir válida y vigente, emitida por una autoridad competente. Esta licencia debe ser acorde al tipo de vehículo alquilado y cumplir con las regulaciones legales nacionales e internacionales. Además, será necesario presentar un documento de identidad oficial. Nos reservamos el derecho de rechazar reservas si la documentación no es correcta o está caducada.
                                 </div>
                               </details>
                               
@@ -237,7 +236,7 @@ $(document).ready(function() {
                                   <span class="text-2xl leading-none hidden group-open:inline">–</span>
                                 </summary>
                                 <div class="p-4 text-sm bg-[#ff3600] text-left font-['DM Sans']">
-                                  Aquí el contenido de la Póliza de Seguro y Cobertura...
+                                Todos nuestros alquileres incluyen una cobertura básica que protege ante daños a terceros y responsabilidad civil. Para mayor tranquilidad, ofrecemos opciones de seguros adicionales que cubren daños al vehículo, robo y accidentes. Recomendamos contratar la protección completa para evitar cargos imprevistos en caso de incidentes. Las condiciones específicas de cada seguro se detallan en el contrato.
                                 </div>
                               </details>
                         
@@ -252,7 +251,7 @@ $(document).ready(function() {
                                   <span class="text-2xl leading-none hidden group-open:inline">–</span>
                                 </summary>
                                 <div class="p-4 text-sm bg-[#ff3600] text-left font-['DM Sans']">
-                                  Aquí el contenido de Métodos de Pago Disponibles...
+                                Aceptamos diversas formas de pago para tu comodidad: tarjetas de crédito, débito y transferencias bancarias. Además, es posible abonar el importe al momento de recoger el vehículo. El titular de la tarjeta debe coincidir con el titular del contrato de alquiler. Para garantizar tu reserva, podemos solicitar una preautorización o depósito según el tipo de vehículo y la duración del alquiler.
                                 </div>
                               </details>
                         
@@ -267,7 +266,8 @@ $(document).ready(function() {
                                   <span class="text-2xl leading-none hidden group-open:inline">–</span>
                                 </summary>
                                 <div class="p-4 text-sm bg-[#ff3600] text-left font-['DM Sans']">
-                                  Aquí el contenido de la Política de Cancelación y Modificación...
+                                Cancelaciones: Puedes cancelar tu reserva sin coste hasta 24 horas antes de la hora de inicio del alquiler. Las cancelaciones posteriores pueden estar sujetas a cargos.
+                                Modificaciones: Los cambios de fecha son posibles sin penalización, siempre sujetos a la disponibilidad de vehículos. Te recomendamos gestionar cualquier cambio lo antes posible para garantizar tu reserva.
                                 </div>
                               </details>
                         
@@ -282,7 +282,10 @@ $(document).ready(function() {
                                   <span class="text-2xl leading-none hidden group-open:inline">–</span>
                                 </summary>
                                 <div class="p-4 text-sm bg-[#ff3600] text-left font-['DM Sans']">
-                                  Aquí el contenido de Políticas de Mascotas y de Fumar...
+                                <ul>
+                                  <li><span class="font-bold">Mascotas:</span> Son bienvenidas, siempre que viajen en un transportín adecuado para proteger el interior del vehículo. El cliente será responsable de cualquier daño o limpieza especial derivada del transporte de mascotas. <br></li>
+                                  <li><span class="font-bold">Fumar:</span> Está estrictamente prohibido fumar dentro de los vehículos. Esta política busca mantener un ambiente limpio y saludable para futuros clientes. En caso de incumplimiento, se aplicará un cargo adicional por limpieza profunda.</li>
+                                </ul>
                                 </div>
                               </details>
                         
@@ -297,7 +300,10 @@ $(document).ready(function() {
                                   <span class="text-2xl leading-none hidden group-open:inline">–</span>
                                 </summary>
                                 <div class="p-4 text-sm bg-[#ff3600] text-left font-['DM Sans']">
-                                  Aquí el contenido de Requisitos de Edad Mínima...
+                                <ul>
+                                  <li><span class="font-bold">Edad Mínima:</span> Para alquilar un vehículo, debes tener al menos 25 años.</li>
+                                  <li><span class="font-bold">Conductores jóvenes (21-24 años):</span> Pueden alquilar con un cargo adicional por conductor joven. Este recargo compensa el mayor riesgo asociado a la menor experiencia al volante. Es posible que se apliquen restricciones en ciertos modelos de vehículos.</li>
+                                </ul>
                                 </div>
                               </details>
                             </div>
@@ -354,3 +360,12 @@ $(document).ready(function() {
 
     
 })
+//haz que se cierren los elementos abiertos del acordeon cada vez que se abra uno nuvo
+document.addEventListener('click', function (event) {
+    if (!event.target.closest('[data-accordion]')) return;
+    const accordion = event.target.closest('[data-accordion]');
+    const open = accordion.open;
+    document.querySelectorAll('[data-accordion]').forEach((el) => {
+      if (el !== accordion && el.open) el.open = false;
+    });
+  });

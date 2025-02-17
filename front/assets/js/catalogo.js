@@ -63,7 +63,7 @@ $(document).ready(function() {
                 // Agregar evento click a los botones de flecha
                 $('.flecha-btn').on('click', function() {
                     var cocheId = $(this).data('id');
-                    window.location.href = `../../cocheDetalles.html?id=${cocheId}`;
+                    window.location.href = `./cocheDetalles.html?id=${cocheId}`;
                 });
                 // Mostrar el botón "Mostrar más coches" solo si hay más coches para cargar
                 if (coches.length === cochesPorPagina) {
