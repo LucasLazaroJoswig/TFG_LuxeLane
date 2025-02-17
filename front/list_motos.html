@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Motos - LuxeLane</title>
+  <link rel="stylesheet" href="assets/css/list.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header Principal -->
+  <header class="header">
+    <div class="logo">
+      <img src="../front/fotos/logo.png" alt="LuxeLane Logo">
+      <p><span style="color: rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span></p>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="list_coches.html">Coches</a>
+      <a href="list_motos.html">Motos</a>
+      <a href="list_reservas.html">Reservas</a>
+      <a href="#">Usuarios</a>
+      <div class="button-container-nav">
+        <a href="login.html" class="button button-logout">Logout</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CRUD de Motos -->
+  <section class="crud-motos">
+    <div class="container">
+      <h1>Gestión de Motos</h1>
+      <button id="btnAdd" class="button">Añadir Nueva Moto</button>
+      
+      <!-- Tabla de Motos -->
+      <table id="motosTable" class="table-coches">
+        <thead>
+          <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Disponibilidad</th>
+            <th>Precio Hora</th>
+            <th>Precio Día</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se mostrarán las motos desde la base de datos -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Script para manejar las motos -->
+  <script src="assets/js/list_motos.js"></script>
+</body>
+
+</html>

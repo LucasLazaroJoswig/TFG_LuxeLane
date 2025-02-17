@@ -2,7 +2,7 @@ package tfg.luxelane.entidades.enums;
 
 public enum TipoVehiculo {
     // Tipos de Motos
-    DEPORTIVA,
+    DEPORTIVO,
     CRUISER,
     NAKED,
     TOURING,
@@ -16,5 +16,14 @@ public enum TipoVehiculo {
     deportivo,
     convertible,
     hatchback,
-    coupe
+    coupe,
+    //Tipos de motos
+    DEPORTIVA,
+    deportiva,
+    naked,
+    touring,
+    cruiser,
+    trail,
+    street,
+    custom;
 }
