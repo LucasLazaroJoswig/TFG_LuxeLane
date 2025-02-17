@@ -50,7 +50,7 @@ function mostrarCoches() {
                                     <div class="d-flex justify-content-between align-items-center mt-4">
                                         <div>
                                             <span class="fs-4 fw-bold">&euro;${coche.precioPorDia}</span>
-                                            <span class="text-muted small">/Por Día</span>
+                                            <span class="text small">/Por Día</span>
                                         </div>
                                         <img class="flecha-btn w-6 h-6" src="./fotos/flecha.svg" data-id="${coche.id}">
                                     </div>
