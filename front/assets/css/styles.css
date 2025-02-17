@@ -611,7 +611,10 @@ body {
     height: 50px; /* Alto de las imágenes */
 }
 
-.carousel-control-prev:hover,
+.carousel-control-prev:hover{
+  background-color: transparent; /* Eliminamos cualquier efecto hover */
+    transform: translateY(-50%); /* Mantén el centrado en el hover */
+}
 .carousel-control-next:hover {
     background-color: transparent; /* Eliminamos cualquier efecto hover */
     transform: translateY(-50%); /* Mantén el centrado en el hover */
