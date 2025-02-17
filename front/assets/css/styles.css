@@ -137,11 +137,11 @@ h4,
 }
 
 h1 {
-    font-size: 74px;
+    font-size: 74px !important;
     /* Aumenté el tamaño del h1 */
     font-family: Epilogue, sans-serif;
     color: rgb(255, 255, 255);
-    font-weight: 700;
+    font-weight: 700 !important;
     line-height: 89px;
 }
 
@@ -583,4 +583,36 @@ body {
   z-index: 3; /* Asegura que el título esté por encima de la imagen */
   font-family: Epilogue, sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute; /* Los posicionamos en relación al contenedor del carrusel */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centrarlos */
+    background-color: transparent; /* Sin fondo */
+    border: none; /* Sin bordes */
+    padding: 0; /* Sin relleno */
+}
+
+.carousel-control-prev {
+    left: -150px; /* Aumentar la separación de la flecha anterior */
+    position: absolute;
+}
+
+.carousel-control-next {
+    right: -150px; /* Aumentar la separación de la flecha siguiente */
+    position: absolute;
+}
+
+.carousel-control-prev img,
+.carousel-control-next img {
+    display: block; /* Asegura que las imágenes estén bloqueadas */
+    width: 50px; /* Ancho de las imágenes */
+    height: 50px; /* Alto de las imágenes */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: transparent; /* Eliminamos cualquier efecto hover */
+    transform: translateY(-50%); /* Mantén el centrado en el hover */
 }
