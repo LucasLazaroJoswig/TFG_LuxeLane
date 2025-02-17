@@ -1,9 +1,12 @@
 package tfg.luxelane.restcontroller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import tfg.luxelane.dao.UsuarioDao;
+import tfg.luxelane.entidades.Motos;
 import tfg.luxelane.entidades.Usuario;
+import tfg.luxelane.entidades.enums.Disponibilidad;
 import tfg.luxelane.entidades.enums.Rol;
 
 
@@ -37,8 +42,15 @@ public class UsuarioRestController {
 	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad Credentials");
 	    }
 	}
+	@GetMapping("/usuarios/todos")
+    public List<Usuario> mostrarTodos(){
+    	return userService.buscarTodos();
+    }
 	
-	
+	@GetMapping("/activos")
+    public List<Usuario> mostrarActivos(){
+    	return userService.buscarPorEstado("S");
+    }
 	
 	@PostMapping("/register")
 	public ResponseEntity<?> registro(@RequestParam String correo, @RequestParam String nombre, @RequestParam String apellidos,

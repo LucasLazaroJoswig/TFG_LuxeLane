@@ -5,6 +5,6 @@ public enum EtiquetaMedioambiental {
 	B,
 	C,
 	CERO,
-	ECO
+	ECO,
 	
 }

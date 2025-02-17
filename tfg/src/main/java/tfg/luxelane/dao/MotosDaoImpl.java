@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import tfg.luxelane.entidades.Motos;
+import tfg.luxelane.entidades.enums.Disponibilidad;
 import tfg.luxelane.repositorio.MotosRepository;
 
 import java.util.List;
@@ -19,6 +20,11 @@ public class MotosDaoImpl implements MotosDao {
     public Motos buscarPorId(Long id) {
         return motosRepository.findById(id).orElse(null);
     }
+    @Override
+	public List<Motos> buscarTodos() {
+		// TODO Auto-generated method stub
+		return motosRepository.findAll();
+	}
 
     @Override
     public List<Motos> buscarPorMarca(String marca) {
@@ -26,7 +32,7 @@ public class MotosDaoImpl implements MotosDao {
     }
 
     @Override
-    public List<Motos> buscarPorDisponibilidad(String disponibilidad) {
+    public List<Motos> buscarPorDisponibilidad(Disponibilidad disponibilidad) {
         return motosRepository.findByDisponibilidad(disponibilidad);
     }
 

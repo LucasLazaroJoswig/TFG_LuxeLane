@@ -1,15 +1,19 @@
 package tfg.luxelane.dao;
 
 import tfg.luxelane.entidades.Motos;
+import tfg.luxelane.entidades.enums.Disponibilidad;
+
 import java.util.List;
 
 public interface MotosDao {
+
+	List<Motos> buscarTodos();
 
     Motos buscarPorId(Long id);
 
     List<Motos> buscarPorMarca(String marca);
 
-    List<Motos> buscarPorDisponibilidad(String disponibilidad);
+    List<Motos> buscarPorDisponibilidad(Disponibilidad disponibilidad);
 
     List<Motos> buscarPorTipoVehiculo(String tipoVehiculo);
 

@@ -1,0 +1,128 @@
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuentes */
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Principal */
+.header {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo y nombre de LuxeLane */
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff4500;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    font-family: 'Montserrat', serif;
+}
+
+.logo img {
+    width: 100px;
+    height: 70px;
+    margin-right: 5px;
+}
+
+/* Menú de navegación */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* Elementos del menú */
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: rgb(255, 54, 0);
+}
+
+/* Estilos para los menús desplegables */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.button-container-nav a {
+    background-color: #ff3600;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/* Estilos para la tabla */
+.table-coches {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-coches th,
+  .table-coches td {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table-coches th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .table-coches tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+  }
+  
+  .table-coches tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .table-coches td button {
+    padding: 8px 15px;
+    margin: 5px;
+    background-color: #ff3600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .table-coches td button:hover {
+    background-color: #e53e00;
+  }
+  
+  .table-coches td button:active {
+    background-color: #cc2e00;
+  }
+  
