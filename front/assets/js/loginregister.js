@@ -62,7 +62,6 @@ $(document).ready(function() {
       });
     });
   
-  
     $('#butlogin').on('click', function(e) {
         e.preventDefault();
     
@@ -93,52 +92,23 @@ $(document).ready(function() {
                 localStorage.setItem('userTelefono', response.telefono);
                 localStorage.setItem('userCarnet', response.documentos);
                 
-                const rol = response.rol.toLowerCase(); // Convierte el rol a minúsculas
+                const rol = response.rol.toLowerCase(); // Aquí agregamos la coma al final
 
-    $butlogin.on('click', function(e) {
-      e.preventDefault();
-      var correo = $('#email').val().trim(),
-          contrasena = $('#contrasena').val().trim();
-
-      if (correo === "" || contrasena === "") {
-        toastr.error("Por favor, complete todos los campos.");
-        return;
-      }
-
-      $.ajax({
-        url: "http://localhost:8087/login",
-        type: "POST",
-        data: {
-          correo: correo,
-          contrasena: contrasena
-        },
-        success: function(response) {
-          if (response) {
-            toastr.success("Login exitoso. ¡Bienvenido!");
-            localStorage.setItem('userLoggedIn', true);
-            localStorage.setItem('userId', response.id);  
-            localStorage.setItem('userName', response.nombre);  
-            localStorage.setItem('userApellidos', response.apellidos);  
-            localStorage.setItem('userCorreo', response.correo);  
-            localStorage.setItem('userTelefono', response.telefono);  
-            
-            const rol = response.rol.toLowerCase();
-
-            if (rol === "chofer") {
-              window.location.href = "areaPersonalChofer.html";
-            } else if (rol === "admin") {
-              window.location.href = "areaPersonalAdmin.html";
-            } else {
-              window.location.href = "areaPersonal.html";
+                if (rol === "chofer") {
+                  window.location.href = "areaPersonalChofer.html";
+                } else if (rol === "admin") {
+                  window.location.href = "areaPersonalAdmin.html";
+                } else {
+                  window.location.href = "areaPersonal.html";
+                }
+              } else {
+                toastr.error("El correo o la contraseña no son correctos");
+              }
+            },
+            error: function(xhr, status, error) {
+              toastr.error("Error en la solicitud: " + error);
             }
-          } else {
-            toastr.error("El correo o la contraseña no son correctos");
-          }
-        },
-        error: function(xhr, status, error) {
-          toastr.error("Error en la solicitud: " + error);
-        }
-      });
+        });
     });
     
     $('#butLogout').on('click', function(e) {
@@ -155,16 +125,13 @@ $(document).ready(function() {
       
       // Redirigir a la página de login
       window.location.href = "login.html";
-  });
+    });
 
-  $('#butHome').on('click', function(e) {
-    e.preventDefault();
-    
-    // Redirigir a la página de inicio
-    window.location.href = "index.html";
-    
-  })
-
-    
-  }});
-
+    $('#butHome').on('click', function(e) {
+      e.preventDefault();
+      
+      // Redirigir a la página de inicio
+      window.location.href = "index.html";
+    });
+  }
+});
