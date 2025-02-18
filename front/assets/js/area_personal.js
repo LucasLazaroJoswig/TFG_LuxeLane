@@ -4,6 +4,7 @@ $(document).ready(function() {
     var apellidos = localStorage.getItem('userApellidos');
     var correo = localStorage.getItem('userCorreo');
     var telefono = localStorage.getItem('userTelefono');
+    var carnet = localStorage.getItem('userCarnet');
 
     // Mostrar el nombre de usuario en el HTML
     if (nombre && apellidos) {
@@ -28,6 +29,9 @@ $(document).ready(function() {
     }
     if (telefono) {
         $('#telefono').val(telefono);
+    }
+    if (carnet) {
+        $('#carnet').html(`<img src="${carnet}" alt="Carnet de conducir" class="w-[50px] h-[50px"]>`);
     }
 
     // Evento cuando se hace clic en el botón "Guardar cambios"
@@ -91,10 +95,19 @@ $(document).ready(function() {
             }
         });
     });
-    $('#btnlogout').on('click', function(e) {
-        e.preventDefault(); 
+    $('#butLogout').on('click', function(e) {
+        e.preventDefault();
+        
+        // Eliminar todos los valores en localStorage que indican que el usuario está autenticado
+        localStorage.removeItem('userLoggedIn');
         localStorage.removeItem('userId');
-        window.location.href = "login.html";  
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userApellidos');
+        localStorage.removeItem('userCorreo');
+        localStorage.removeItem('userTelefono');
+        localStorage.removeItem('userCarnet');
+        
+        // Redirigir a la página de login
+        window.location.href = "login.html";
     });
-    
 });

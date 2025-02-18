@@ -45,8 +45,9 @@ $(document).ready(function() {
           telefono: telefono
         },
         success: function(response) {
-          if (response === 1) {
+          if(response) {
             toastr.success("Registro exitoso. ¡Por favor, inicia sesión!");
+            
             $('#registerForm')[0].reset();
             loginTab.click();
           } else if (response === 0) {
@@ -60,6 +61,39 @@ $(document).ready(function() {
         }
       });
     });
+  
+  
+    $('#butlogin').on('click', function(e) {
+        e.preventDefault();
+    
+        var correo     = $('#email').val().trim();
+        var contrasena = $('#contrasena').val().trim();
+    
+        if(correo === "" || contrasena === "") {
+            toastr.error("Por favor, complete todos los campos.");
+            return;
+        }
+    
+        $.ajax({
+            url: "http://localhost:8087/login",
+            type: "POST",
+            data: {
+                correo: correo,
+                contrasena: contrasena
+            },
+            success: function(response) {
+              if (response) {
+                toastr.success("Login exitoso. ¡Bienvenido!");
+                // Asumiendo que el objeto "response" contiene los datos del usuario
+                localStorage.setItem('userLoggedIn', true);
+                localStorage.setItem('userId', response.id);  
+                localStorage.setItem('userName', response.nombre);  
+                localStorage.setItem('userApellidos', response.apellidos);  
+                localStorage.setItem('userCorreo', response.correo);  
+                localStorage.setItem('userTelefono', response.telefono);
+                localStorage.setItem('userCarnet', response.documentos);
+                
+                const rol = response.rol.toLowerCase(); // Convierte el rol a minúsculas
 
     $butlogin.on('click', function(e) {
       e.preventDefault();
@@ -106,11 +140,31 @@ $(document).ready(function() {
         }
       });
     });
-
-    $butLogout.on('click', function(e) {
+    
+    $('#butLogout').on('click', function(e) {
       e.preventDefault();
+      
+      // Eliminar todos los valores en localStorage que indican que el usuario está autenticado
       localStorage.removeItem('userLoggedIn');
-      window.location.href = "../../login.html";
-    });
-  }
-});
+      localStorage.removeItem('userId');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('userApellidos');
+      localStorage.removeItem('userCorreo');
+      localStorage.removeItem('userTelefono');
+      localStorage.removeItem('userCarnet');
+      
+      // Redirigir a la página de login
+      window.location.href = "login.html";
+  });
+
+  $('#butHome').on('click', function(e) {
+    e.preventDefault();
+    
+    // Redirigir a la página de inicio
+    window.location.href = "index.html";
+    
+  })
+
+    
+  }});
+

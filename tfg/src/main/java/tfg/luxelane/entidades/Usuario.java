@@ -53,12 +53,9 @@ public class Usuario implements Serializable {
     private String enabled; // Debe ser 'S' o 'N'
 
     // Campos específicos para choferes
-    private String licencia;
+    private String tipoCarnet;
 
-    @Temporal(TemporalType.DATE)
-    private Date fechaVencimientoLicencia;
 
-    private String categoriaLicencia;
 
 	public Usuario(Long id, String nombre, String apellidos, String correo, String password, String telefono) {
 		super();
