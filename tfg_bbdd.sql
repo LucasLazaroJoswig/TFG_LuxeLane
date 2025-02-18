@@ -17,9 +17,7 @@ CREATE TABLE Usuarios (
     enabled VARCHAR(255),
 
     -- Campos específicos para choferes
-    licencia VARCHAR(50),
-    fecha_vencimiento_licencia DATE,
-    categoria_licencia VARCHAR(50)
+    tipo_carnet VARCHAR(50)
 );
 
 -- Tabla Coches
