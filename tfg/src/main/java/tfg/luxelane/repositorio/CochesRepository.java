@@ -46,10 +46,8 @@ public interface CochesRepository extends JpaRepository<Coches, Long> {
     List<String> findDistinctTransmisiones();
     
     @Query("SELECT c FROM Coches c WHERE " +
-    	       "(:palabra IS NULL OR " +
-    	       "LOWER(c.marca) LIKE LOWER(CONCAT('%', :palabra, '%')) OR " +
-    	       "LOWER(c.modelo) LIKE LOWER(CONCAT('%', :palabra, '%')))")
-    	List<Coches> buscarPorMarcaModelo(@Param("palabra") String palabra);
+    	       "LOWER(CONCAT(c.marca, ' ', c.modelo)) LIKE LOWER(CONCAT('%', :palabra, '%'))")
+    	List<Coches> buscarPorMarcaModelo(String palabra);
 
 }
 

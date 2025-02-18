@@ -106,11 +106,6 @@ public class CochesRestController {
     
     @GetMapping("/buscador")
     public List<Coches> buscar(@RequestParam String palabra) {
-        String[] palabras = palabra.split(" ");
-        List<Coches> resultado = new ArrayList();
-        for (String p : palabras) {
-            resultado.addAll(cochesRepository.buscarPorMarcaModelo(p));
-        }
-        return resultado.stream().distinct().collect(Collectors.toList());
+        return cochesRepository.buscarPorMarcaModelo(palabra);
     }
 }
