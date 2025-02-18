@@ -27,6 +27,7 @@ import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.Motos;
 import tfg.luxelane.entidades.Reservas;
 import tfg.luxelane.entidades.Usuario;
+import tfg.luxelane.entidades.enums.Disponibilidad;
 import tfg.luxelane.entidades.enums.EstadoReserva;
 
 @RestController
@@ -85,22 +86,33 @@ public class ReservasController {
             // Diferenciar entre reservas de coche y moto
             if (tipo_vehiculo.equals("coche")) {
                 Coches coche = cocheService.buscarPorId(vehiculo_id);
-                double precioTotal = coche.getPrecioPorDia() * diasEntre;
-                Reservas reserva = new Reservas(null, usuario, coche, null, fechaInicio, fechaFin, EstadoReserva.PENDIENTE, precioTotal);
-                if (reservaService.guardar(reserva)) {
-                    return ResponseEntity.status(HttpStatus.OK).body(1);
-                } else {
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error en la reserva");
-                }
+                if (coche.getDisponibilidad()==Disponibilidad.disponible) {
+					coche.setDisponibilidad(Disponibilidad.NO_DISPONIBLE);
+					double precioTotal = coche.getPrecioPorDia() * diasEntre;
+	                Reservas reserva = new Reservas(null, usuario, coche, null, fechaInicio, fechaFin, EstadoReserva.PENDIENTE, precioTotal);
+	                if (reservaService.guardar(reserva)) {
+	                    return ResponseEntity.status(HttpStatus.OK).body(usuario);
+	                } else {
+	                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error en la reserva");
+	                }
+				} else {
+					return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Coche No disponible");
+				}
+                
             } else {
                 Motos moto = motoService.buscarPorId(vehiculo_id);
-                double precioTotal = moto.getPrecioPorDia() * diasEntre;
-                Reservas reserva = new Reservas(null, usuario, null, moto, fechaInicio, fechaFin, EstadoReserva.CONFIRMADA, precioTotal);
-                if (reservaService.guardar(reserva)) {
-                    return ResponseEntity.status(HttpStatus.OK).body(1);
-                } else {
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error en la reserva");
-                }
+                if (moto.getDisponibilidad()==Disponibilidad.disponible) {
+                	moto.setDisponibilidad(Disponibilidad.NO_DISPONIBLE);
+	                double precioTotal = moto.getPrecioPorDia() * diasEntre;
+	                Reservas reserva = new Reservas(null, usuario, null, moto, fechaInicio, fechaFin, EstadoReserva.CONFIRMADA, precioTotal);
+	                if (reservaService.guardar(reserva)) {
+	                    return ResponseEntity.status(HttpStatus.OK).body(usuario);
+	                } else {
+	                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error en la reserva");
+	                }
+                }else {
+	                	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Moto No disponible");
+	                }
             }
 
         } catch (IOException ex) {

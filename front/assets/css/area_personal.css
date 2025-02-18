@@ -235,13 +235,12 @@ footer {
   footer .footer-links a:hover {
   color: #FF3600;
   
-  }#links_hover:hover{
-    color: white !important;
   }
   footer #links_hover{
     font-size: 20px;
     line-height: 24px;
     font-weight: bold;
+    color: white !important;
   }
   
   footer .newsletter input {

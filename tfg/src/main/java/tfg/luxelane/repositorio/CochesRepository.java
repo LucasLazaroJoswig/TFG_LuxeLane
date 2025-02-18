@@ -1,13 +1,14 @@
 package tfg.luxelane.repositorio;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository; 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.enums.Disponibilidad;
 
 import java.util.List;
-
+ 
 public interface CochesRepository extends JpaRepository<Coches, Long> {
 
     @Query("SELECT c FROM Coches c WHERE " +
@@ -43,8 +44,12 @@ public interface CochesRepository extends JpaRepository<Coches, Long> {
 
     @Query("SELECT DISTINCT c.transmision FROM Coches c")
     List<String> findDistinctTransmisiones();
-
-
+    
+    @Query("SELECT c FROM Coches c WHERE " +
+    	       "(:palabra IS NULL OR " +
+    	       "LOWER(c.marca) LIKE LOWER(CONCAT('%', :palabra, '%')) OR " +
+    	       "LOWER(c.modelo) LIKE LOWER(CONCAT('%', :palabra, '%')))")
+    	List<Coches> buscarPorMarcaModelo(@Param("palabra") String palabra);
 
 }
 

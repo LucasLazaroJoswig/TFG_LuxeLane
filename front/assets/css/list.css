@@ -5,6 +5,38 @@
     box-sizing: border-box;
 }
 
+    .input-group {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-container {
+        display: flex;
+    }
+
+    .form-input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 8px 0 0 8px; /* Borde redondeado solo a la izquierda */
+        width: 250px;
+    }
+
+    .submit-btn {
+        padding: 8px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 0 8px 8px 0; /* Borde redondeado solo a la derecha */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: #0056b3; /* Cambio de color al pasar el cursor */
+    }
+
+
 /* Fuentes */
 body {
     font-family: 'DM Sans', sans-serif;

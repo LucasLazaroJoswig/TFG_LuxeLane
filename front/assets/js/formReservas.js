@@ -42,7 +42,6 @@ $(document).ready(function() {
           localStorage.setItem('userCorreo', response.correo);  
           localStorage.setItem('userTelefono', response.telefono);
           localStorage.setItem('userRol', response.rol.toLowerCase());
-
           nextStep();
         } else {
           toastr.error(response === 0 ? "El correo ya está registrado." : "Error en el registro.");
@@ -76,7 +75,6 @@ $(document).ready(function() {
               localStorage.setItem('userApellidos', response.apellidos);  
               localStorage.setItem('userCorreo', response.correo);  
               localStorage.setItem('userTelefono', response.telefono);
-              localStorage.setItem('userCarnet', response.documentos);
               localStorage.setItem('userRol',response.rol.toLowerCase());
               toastr.success("Login exitoso. ¡Bienvenido!");
               nextStep();
@@ -134,6 +132,7 @@ $(document).ready(function() {
     formData.append('tipo_vehiculo', tipoVehiculo);
     formData.append('tipoCarnet', $('#tipoCarnet').val());
     
+
     console.log("FormData contents:");
 for (let [key, value] of formData.entries()) {
     console.log(`${key}: ${value}`);

@@ -5,7 +5,7 @@ $(document).ready(function() {
     var correo = localStorage.getItem('userCorreo');
     var telefono = localStorage.getItem('userTelefono');
     var carnet = localStorage.getItem('userCarnet');
-
+    console.log(carnet);
     // Mostrar el nombre de usuario en el HTML
     if (nombre && apellidos) {
         $('h1').text('Bienvenido, ' + nombre + ' ' + apellidos);

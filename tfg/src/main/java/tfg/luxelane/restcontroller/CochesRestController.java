@@ -1,6 +1,8 @@
 package tfg.luxelane.restcontroller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -100,5 +102,15 @@ public class CochesRestController {
     @GetMapping("/tiposTransmision")
     public List<String> obtenerTiposTransmision() {
         return cochesRepository.findDistinctTransmisiones();
+    }
+    
+    @GetMapping("/buscador")
+    public List<Coches> buscar(@RequestParam String palabra) {
+        String[] palabras = palabra.split(" ");
+        List<Coches> resultado = new ArrayList();
+        for (String p : palabras) {
+            resultado.addAll(cochesRepository.buscarPorMarcaModelo(p));
+        }
+        return resultado.stream().distinct().collect(Collectors.toList());
     }
 }
