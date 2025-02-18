@@ -91,4 +91,10 @@ $(document).ready(function() {
             }
         });
     });
+    $('#btnlogout').on('click', function(e) {
+        e.preventDefault(); 
+        localStorage.removeItem('userId');
+        window.location.href = "login.html";  
+    });
+    
 });

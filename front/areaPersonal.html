@@ -10,21 +10,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/area_personal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"> -->
-  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <!-- Iconos CSS-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <!-- Cargar Toastr -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
 </head>
 
 <body>
   <!-- Header Principal -->
-  <header class="header">
+  <header class="header2">
     <div class="logo">
       <img src="../front/fotos/logo.png" alt="LuxeLane Logo">
       <p>
@@ -32,15 +30,15 @@
       </p>
     </div>
     <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Coches</a>
-      <a href="#">Motos</a>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo_coches.html">Coches</a>
+      <a href="catalogo_motos.html">Motos</a>
       <a href="#">Chófers</a>
-      <a href="#">Sobre Nosotros</a>
-      <a href="#">Contáctanos</a>
+      <a href="sobre_nosotros.html">Sobre Nosotros</a>
+      <a href="contactanos.html">Contáctanos</a>
       <div class="button-container-nav">
         <!-- <a href="area-personal.html" class="button button-reservar">Área Personal</a> -->
-        <a href="login.html" class="button button-logout">Logout</a>
+        <a href="login.html" class="button button-logout" id="btnlogout">Logout</a>
       </div>
     </nav>
   </header>
@@ -107,10 +105,9 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 LuxeLane. Todos los derechos reservados.</p>
   </footer>
   <script src="./assets/js/area_personal.js"></script>
-
+  <script src="assets/js/header_footer.js"></script>
 </body>
 
 </html>

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       <td>
                           <button class="button">Ver detalle</button>
                           <button class="button">Modificar</button>
-                          <button class="button">Eliminar</button>
+                          <button class="button">Desactivar</button>
                       </td>
                   `;
                   usuariosTable.appendChild(row);

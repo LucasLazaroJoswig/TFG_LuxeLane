@@ -19,7 +19,6 @@ $(document).ready(function() {
             <td>
               <button class="button">Ver detalle</button>
               <button class="button">Modificar</button>
-              <button class="button">Eliminar</button>
             </td>
           </tr>
             `);
