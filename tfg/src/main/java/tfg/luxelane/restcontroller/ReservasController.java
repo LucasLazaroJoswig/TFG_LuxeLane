@@ -46,7 +46,7 @@ public class ReservasController {
     @Autowired
     private UsuarioDao usuarioService;
 
-    private final Path fileStorageLocation = Paths.get("../front/assets/uploads").toAbsolutePath().normalize();
+    private final Path fileStorageLocation = Paths.get("../front/assets/uploads").normalize();
 
     @PostMapping("/crear")
     public ResponseEntity<?> hacerReserva(
@@ -56,7 +56,8 @@ public class ReservasController {
             @RequestParam String fecha_inicio,
             @RequestParam String fecha_fin,
             @RequestParam String direccion,
-            @RequestParam MultipartFile documentacion
+            @RequestParam MultipartFile documentacion,
+            @RequestParam String tipoCarnet
     ) throws ParseException {
 
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -79,6 +80,7 @@ public class ReservasController {
             Usuario usuario = usuarioService.buscarPorId(usuario_id);
             usuario.setDireccion(direccion);
             usuario.setDocumentos(targetLocation.toString());
+            usuario.setTipoCarnet(tipoCarnet);
 
             // Diferenciar entre reservas de coche y moto
             if (tipo_vehiculo.equals("coche")) {

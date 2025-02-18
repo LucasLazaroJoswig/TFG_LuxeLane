@@ -70,7 +70,7 @@ public class UsuarioRestController {
 	    userService.guardar(user);
 	    
 
-	    return ResponseEntity.status(HttpStatus.OK).body(1);
+	    return ResponseEntity.status(HttpStatus.OK).body(user);
 	}
 	// Método para actulizar y para guardar el evento
 		@PostMapping("/modificar/{idUsuario}")

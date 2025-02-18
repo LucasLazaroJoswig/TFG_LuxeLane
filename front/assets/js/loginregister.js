@@ -38,8 +38,9 @@ $(document).ready(function() {
           telefono: telefono
         },
         success: function(response) {
-          if(response === 1) {
+          if(response) {
             toastr.success("Registro exitoso. ¡Por favor, inicia sesión!");
+            
             $('#registerForm')[0].reset();
             loginTab.click();
           } else if(response === 0) {
@@ -82,7 +83,8 @@ $(document).ready(function() {
                 localStorage.setItem('userName', response.nombre);  
                 localStorage.setItem('userApellidos', response.apellidos);  
                 localStorage.setItem('userCorreo', response.correo);  
-                localStorage.setItem('userTelefono', response.telefono);  
+                localStorage.setItem('userTelefono', response.telefono);
+                localStorage.setItem('userCarnet', response.documentos);
                 
                 const rol = response.rol.toLowerCase(); // Convierte el rol a minúsculas
 
@@ -104,16 +106,29 @@ $(document).ready(function() {
     });
     
     $('#butLogout').on('click', function(e) {
-        e.preventDefault();
-        
-        // Eliminar el token o cualquier valor en localStorage que indique que el usuario está autenticado
-        localStorage.removeItem('userLoggedIn');
-        // Redirigir a la página de login
-        window.location.href = "../../login.html";
-    });
+      e.preventDefault();
+      
+      // Eliminar todos los valores en localStorage que indican que el usuario está autenticado
+      localStorage.removeItem('userLoggedIn');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('userApellidos');
+      localStorage.removeItem('userCorreo');
+      localStorage.removeItem('userTelefono');
+      localStorage.removeItem('userCarnet');
+      
+      // Redirigir a la página de login
+      window.location.href = "login.html";
+  });
+
+  $('#butHome').on('click', function(e) {
+    e.preventDefault();
     
-  }
+    // Redirigir a la página de inicio
+    window.location.href = "index.html";
+    
+  })
 
     
-  });
+  }});
   

@@ -4,9 +4,11 @@ $(document).ready(function() {
   var id = parseInt(urlParams.get('id'));
   var tipoVehiculo = urlParams.get('tipoVehiculo');
 
+
+
   //Hazme una comprobacion de todos los campos del formulario de datos de reserva y avisa al usuario si hay algun campo vacio e indica cual con toastr
   $('#datosReservaBtn').on('click', function() {
-    if('#fecha_inicio' == '' || '#fecha_fin' == '' || '#direccion' == '' || '#documentacion' == '') {
+    if($('#fecha_inicio').val().trim() == '' || $('#fecha_fin').val().trim() == '' || $('#direccion').val().trim() == '') {
       toastr.error('Por favor, complete todos los campos.');
     }else {
       nextStep();
@@ -31,9 +33,16 @@ $(document).ready(function() {
       type: "POST",
       data: { correo: email, nombre, apellidos, contrasena: password, telefono },
       success: function(response) {
-        if(response === 1) {
+        if(response) {
           toastr.success("Registro exitoso.");
-          localStorage.setItem('userId', response.id);
+          localStorage.setItem('userLoggedIn', true);
+          localStorage.setItem('userId', response.id);  
+          localStorage.setItem('userName', response.nombre);  
+          localStorage.setItem('userApellidos', response.apellidos);  
+          localStorage.setItem('userCorreo', response.correo);  
+          localStorage.setItem('userTelefono', response.telefono);
+          localStorage.setItem('userRol', response.rol.toLowerCase());
+
           nextStep();
         } else {
           toastr.error(response === 0 ? "El correo ya está registrado." : "Error en el registro.");
@@ -61,7 +70,14 @@ $(document).ready(function() {
           data: { correo, contrasena },
           success: function(response) {
             if (response) {
-              localStorage.setItem('userId', response.id);
+              localStorage.setItem('userLoggedIn', true);
+              localStorage.setItem('userId', response.id);  
+              localStorage.setItem('userName', response.nombre);  
+              localStorage.setItem('userApellidos', response.apellidos);  
+              localStorage.setItem('userCorreo', response.correo);  
+              localStorage.setItem('userTelefono', response.telefono);
+              localStorage.setItem('userCarnet', response.documentos);
+              localStorage.setItem('userRol',response.rol.toLowerCase());
               toastr.success("Login exitoso. ¡Bienvenido!");
               nextStep();
             } else {
@@ -130,9 +146,16 @@ for (let [key, value] of formData.entries()) {
         processData: false, // No procesar los datos
         contentType: false, // No establecer el tipo de contenido
         success: function(response) {
-            if(response && response.id) {
+            if(response) {
                 toastr.success("Reserva creada exitosamente.");
-                nextStep();
+                localStorage.setItem('userCarnet', response.documentos);
+                if (localStorage.getItem('rol') === "chofer") {
+                  window.location.href = "areaPersonalChofer.html"; // Redirige a la página principal  
+                } else if (localStorage.getItem('rol') === "admin") {
+                  window.location.href = "areaPersonalAdmin.html"; // Redirige a la página principal  
+                } else {
+                  window.location.href = "areaPersonal.html"; // Redirige a la página principal  
+                }
             } else {
                 toastr.error("Error al crear la reserva.");
             }
@@ -142,4 +165,15 @@ for (let [key, value] of formData.entries()) {
         }
     });
   });
+
+
+  if (localStorage.getItem('userLoggedIn')) {
+    $('#step1').addClass('hidden'); // Ocultar el paso de login/registro
+    nextStep();
+    $(`#step2`).removeClass('hidden');
+    updateIndicators();
+    $('#prevBtnDatos').addClass('hidden');;
+  }
+
+
 });
