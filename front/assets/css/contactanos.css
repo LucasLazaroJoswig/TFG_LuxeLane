@@ -260,12 +260,12 @@ h4 {
 }
 
 .seccion1_container {
-  max-width: 900px;
+  max-width: 770px;
   background-color: black;
   border-radius: 65px;
   margin-left: 50px;
   padding: 20px 20px;
-  max-height: 800px;
+  max-height: 700px;
   overflow: hidden;
 }
 
@@ -289,7 +289,7 @@ h4 {
 .seccion1_iconos img {
   width: 50px;
   height: auto;
-}
+} 
 
 .fuentes-iconos {
   font-family: DM sans, sans-serif;
@@ -316,7 +316,7 @@ h4 {
 
 .circulo_grande {
   display: inline-block;
-  margin-left: 500px; /* Un pequeño margen a la izquierda para separación */
+  margin-left: 400px; /* Un pequeño margen a la izquierda para separación */
 }
 
 .circulo_grande img {
@@ -324,3 +324,158 @@ h4 {
   height: auto;
 }
 
+/* Contenedor principal (Flexbox) */
+.seccion1_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px; /* Espaciado entre elementos */
+}
+
+/* Información de contacto (Izquierda) */
+.info-contacto {
+  flex: 1; /* Ocupa espacio disponible */
+  max-width: 40%;
+}
+
+/* Formulario (Derecha) */
+.formulario-contacto {
+  flex: 1;
+  max-width: 50%;
+}
+
+/* Estilos del formulario */
+.contact-form {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Input oscuro */
+.input-dark {
+  border-radius: 5px;
+  background-color: #191919;
+  border-color: #191919;
+}
+
+.input-dark::placeholder {
+  color: #bbb;
+}
+
+/* Botón */
+.btn-submit {
+  background-color: #ff3600;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #ff6700;
+}
+
+/* Diseño responsivo */
+@media (max-width: 992px) {
+  .seccion1_container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-contacto, .formulario-contacto {
+    max-width: 100%;
+  }
+}
+.contact-form {
+  flex: 1;
+  max-width: 50%; /* Mantener el ancho del formulario */
+  margin-left: auto; /* Alinea el formulario hacia la derecha */
+  margin-right: auto; /* Centra el formulario en el espacio disponible */
+  padding: 20px; /* Asegura que el formulario tenga un poco de espacio interno */
+  margin-bottom: 240px;
+}
+
+.seccion1 {
+  display: flex;
+  justify-content: space-between; /* Espaciado entre los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+  flex-wrap: wrap; /* Evitar solapamiento en pantallas pequeñas */
+  flex-direction: row-reverse; /* Invierte el orden: formulario a la derecha, info a la izquierda */
+}
+
+.seccion1_container {
+  flex: 1;
+  max-width: 40%;
+  margin-left: 20px;
+}
+
+.input-dark {
+  background-color: #191919;
+  border: none; /* Eliminar el borde completo */
+  border-bottom: 1px solid white; /* Solo una línea en la parte inferior */
+  color: white;
+  padding: 10px 5px; /* Ajusta el padding para que el texto esté centrado */
+  border-radius: 0; /* Elimina los bordes redondeados */
+}
+
+.input-dark::placeholder {
+  color: #bbb;
+}
+
+.input-dark:focus {
+  outline: none; /* Elimina el borde de foco predeterminado del navegador */
+  border-bottom: 2px solid #ff6700; /* Cambia el color de la línea inferior cuando se enfoca */
+  box-shadow: none; /* Elimina cualquier sombra al enfocar */
+  background-color: #191919;
+  color: white;
+}
+.form-label {
+  text-align: left; /* Alinea el texto a la izquierda */
+  margin-right: 350px; /* Asegura que no haya margen izquierdo extra */
+  font-size: 16px; /* Puedes ajustar el tamaño si lo deseas */
+  font-weight: 700 !important;
+}
+.form-label-mensaje{
+  text-align: left; /* Alinea el texto a la izquierda */
+  margin-right: 750px; /* Asegura que no haya margen izquierdo extra */
+  font-size: 16px; /* Puedes ajustar el tamaño si lo deseas */
+  font-weight: 700 !important;
+}
+.contact-form .row.mt-4 {
+  display: flex;
+  justify-content: flex-start; /* Esto moverá el botón hacia la izquierda */
+}
+
+.contact-form .btn-submit {
+  margin-right: 700px; /* Asegura que no haya margen a la izquierda extra */
+  border-radius: 40px;
+}
+.section2 h1 {
+  font-size: 44px !important;
+  line-height: 52.8px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  margin-left: 630px;
+  font-family: Epilogue, sans-serif;
+}
+.section2 h2 {
+  font-size: 20px !important;
+  line-height: 19.2px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  margin-left: 890px;
+  font-family: Epilogue, sans-serif;
+  color: #FF3600;
+}
+.section2 iframe {
+  display: block;
+  margin: 0 auto; /* Centra el iframe horizontalmente */
+  width: 100%; /* Ajusta el iframe al 100% de su contenedor */
+  max-width: 1200px; /* Limita el ancho máximo */
+  height: 450px; /* Mantén la altura que prefieras */
+  border: #FF3600 2px solid;
+  border-radius: 20px;
+}
