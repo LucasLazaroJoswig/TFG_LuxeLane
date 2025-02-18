@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+  if (localStorage.getItem('userId')!=null) {
+    window.location.href = "areaPersonal.html"; // Redirige a la página principal
+  } else {
     $('#butsave').on('click', function(e) {
       e.preventDefault(); 
   
@@ -107,6 +111,9 @@ $(document).ready(function() {
         // Redirigir a la página de login
         window.location.href = "../../login.html";
     });
+    
+  }
+
     
   });
   

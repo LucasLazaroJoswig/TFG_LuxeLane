@@ -46,8 +46,8 @@ public class ReservasDaoImpl implements ReservasDao {
     }
 
     @Override
-    public void guardar(Reservas reserva) {
-        reservasRepository.save(reserva);
+    public boolean guardar(Reservas reserva) {
+        return (reservasRepository.save(reserva)!=null) ? true : false;
     }
 
     @Override

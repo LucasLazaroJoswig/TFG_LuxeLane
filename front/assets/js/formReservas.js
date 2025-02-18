@@ -1,9 +1,17 @@
 $(document).ready(function() {
 
   var urlParams = new URLSearchParams(window.location.search);
-  var id = urlParams.get('id');
-  var tipoVehiculo = urlParams.get('tipo');
+  var id = parseInt(urlParams.get('id'));
+  var tipoVehiculo = urlParams.get('tipoVehiculo');
 
+  //Hazme una comprobacion de todos los campos del formulario de datos de reserva y avisa al usuario si hay algun campo vacio e indica cual con toastr
+  $('#datosReservaBtn').on('click', function() {
+    if('#fecha_inicio' == '' || '#fecha_fin' == '' || '#direccion' == '' || '#documentacion' == '') {
+      toastr.error('Por favor, complete todos los campos.');
+    }else {
+      nextStep();
+    }
+  });
   $('#butsave').on('click', function(e) {
     e.preventDefault();
 
@@ -100,20 +108,27 @@ $(document).ready(function() {
         toastr.error("Debe iniciar sesión para realizar la reserva.");
         return;
     }
-    const reservaData = {
-        usuario_id: userId,
-        fecha_inicio: $('#fecha_inicio').val(),
-        fecha_fin: $('#fecha_fin').val(),
-        direccion: $('#direccion').val(),
-        vehiculo_id: id,
-        tipo_vehiculo: tipoVehiculo
-    };
+    const formData = new FormData();
+    formData.append('usuario_id', userId);
+    formData.append('fecha_inicio', $('#fecha_inicio').val());
+    formData.append('fecha_fin', $('#fecha_fin').val());
+    formData.append('direccion', $('#direccion').val());
+    formData.append('documentacion', $('#documentacion')[0].files[0]); // Agregar archivo
+    formData.append('vehiculo_id', id);
+    formData.append('tipo_vehiculo', tipoVehiculo);
+    formData.append('tipoCarnet', $('#tipoCarnet').val());
+    
+    console.log("FormData contents:");
+for (let [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+}
 
     $.ajax({
-        url: `${apiUrl}/reservas`,
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(reservaData),
+        url: 'http://localhost:8087/reservas/crear',
+        type: 'POST',
+        data: formData,
+        processData: false, // No procesar los datos
+        contentType: false, // No establecer el tipo de contenido
         success: function(response) {
             if(response && response.id) {
                 toastr.success("Reserva creada exitosamente.");
