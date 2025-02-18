@@ -24,12 +24,12 @@ function mostrarCoches() {
                     let isActive = index === 0 ? 'active' : ''; // Solo el primer grupo debe estar activo
                     let cochesHTML = grupo.map(coche => `
                         <div class="col-lg-3 col-md-4 col-6"> <!-- 4 en pantallas grandes, 3 en medianas, 2 en móviles -->
-                            <div class="card bg-dark text-white rounded-2xl p-4 shadow-lg " style="height: 500px; width: 100%;"> <!-- Aumento de altura -->
-                                <div class="w-100 " style="height: 165px;">
+                            <div class="card text-white p-4 shadow-lg" style="height: 500px; width: 90%; margin: 0 auto; background-color: #191919; border-radius: 25px;"> <!-- Ancho ajustado al 80% y centrado -->
+                                <div class="w-100" style="height: 160px; position: relative;">
                                     <!-- Imagen ajustada a un tamaño fijo -->
-                                    <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="d-block w-100" style="height: 100%; object-fit: cover; border-radius: 1rem;">
+                                    <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="d-block w-100" style="height: 100%; object-fit: cover; border-radius: 25px;">
                                 </div>
-                                <div class="card-body" style="height: 250px; overflow-y: auto;"> <!-- Aumento de altura del contenido -->
+                                <div class="card-body" style="height: 230px;  position: relative;"> <!-- Aumento de altura del contenido -->
                                     <span class="badge bg-secondary">${coche.tipoVehiculo}</span>
                                     <h2 class="card-title fs-4">${coche.marca} ${coche.modelo}</h2>
                                     <ul class="list-unstyled text-md">
@@ -47,12 +47,12 @@ function mostrarCoches() {
                                             </div>
                                         </li>   
                                     </ul>
-                                    <div class="d-flex justify-content-between align-items-center mt-4">
+                                    <div class="d-flex justify-content-between align-items-center mt-4" style="position: absolute; bottom: 10px; width: 100%;">
                                         <div>
                                             <span class="fs-4 fw-bold">&euro;${coche.precioPorDia}</span>
                                             <span class="text small">/Por Día</span>
                                         </div>
-                                        <img class="flecha-btn w-6 h-6" src="./fotos/flecha.svg" data-id="${coche.id}">
+                                        <img class="flecha-btn w-5 h-5" src="./fotos/flecha.svg" data-id="${coche.id}" style="position: absolute; bottom: 10px; right: 10px;">
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@ function mostrarCoches() {
 
                 // Insertar el carrusel en el DOM con los ajustes de tamaño y centrado
                 $('#vehiculos-container').html(`
-                <div id="carCarousel" class="carousel slide mx-auto" data-bs-ride="false" style="max-width: 80%;"> <!-- Se elimina el auto-ride -->
+                <div id="carCarousel" class="carousel slide mx-auto" data-bs-ride="false" style="max-width: 87%;"> <!-- Se elimina el auto-ride -->
                     <div class="carousel-inner">${carouselInnerHTML}</div>
                     <div class="carousel-controls">
                         <!-- Botón de control personalizado anterior -->
@@ -87,7 +87,7 @@ function mostrarCoches() {
                 // Evento para los botones de detalles
                 $('.flecha-btn').on('click', function() {
                     var cocheId = $(this).data('id');
-                    window.location.href = `../../cocheDetalles.html?id=${cocheId}`;
+                    window.location.href = `cocheDetalles.html?id=${cocheId}`;
                 });
 
             } else {
@@ -102,4 +102,3 @@ function mostrarCoches() {
 
 // Llamar a la función para cargar los coches
 mostrarCoches();
-

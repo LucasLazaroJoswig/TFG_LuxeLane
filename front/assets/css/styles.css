@@ -38,6 +38,7 @@ footer .footer-links a {
 footer .footer-links a:hover {
 color: #FF3600;
 
+
 }#links_hover:hover{
   color: white !important;
 }
@@ -345,6 +346,7 @@ body {
   overflow: hidden;
   width: 300px;
   transition: transform 0.3s ease, background 0.3s ease;
+  color: white;
 }
 /* Hover: cuando pases el mouse sobre la tarjeta, cambia el fondo */
 .section1 .card:hover {
