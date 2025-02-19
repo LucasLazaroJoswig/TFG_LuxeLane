@@ -14,10 +14,11 @@ $(document).ready(function() {
         }
 
         .navbar {
+            width:80%;
             background-color: #000;
             color: white;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             padding: 10px 20px;
             position: relative;
