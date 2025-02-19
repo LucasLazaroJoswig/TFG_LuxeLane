@@ -3,193 +3,89 @@ $(document).ready(function() {
   $('head').append(`
       <style>
         /* Estilos básicos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-}
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-/* Header */
-.header {
-    background-color: #000;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    grid-area: he;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        .navbar {
+            background-color: #000;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative;
+        }
 
-.navbar {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4500;
+        }
 
-/* Logo */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
 
-.logo img {
-    width: 100px;
-    height: 70px;
-    transition: transform 0.3s ease;
-}
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-.logo p {
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Montserrat', serif;
-    margin: 0;
-}
+        .menu a:hover {
+            color: #ff4500;
+        }
 
-.logo p span:first-child {
-    color: #ff4500;
-}
+        .menu-toggle {
+                display: none;
+                font-size: 28px;
+                cursor: pointer;
+                color: white;
+                
+            }
 
-.logo p span:last-child {
-    color: white;
-}
+        
+        .menu-toggle:hover {
+                color: #ff4500;
+            }
 
-.logo:hover {
-    transform: scale(1.05);
-}
+        /* Menú desplegable */
+        .mobile-menu {
+                display: none;
+                flex-direction: column;
+                background-color: #000;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 20px;
+                border-radius: 8px;
+                z-index: 1000;
+            }
 
-.logo:hover img {
-    transform: rotate(-5deg);
-}
+        .menu.mobile a {
+            margin-bottom: 10px;
+        }
 
-/* Menú */
-.menu {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
+        
 
-.menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
 
-.menu a:hover {
-    color: #ff4500;
-    background-color: rgba(255, 69, 0, 0.1);
-    transform: translateY(-3px);
-}
-
-/* Botón de Perfil */
-.button-container-nav .button {
-    padding: 12px 25px;
-    background: #ff4500;
-    border: none;
-    border-radius: 50px;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
-}
-
-.button-container-nav .button:hover {
-    background-color: #e63e00;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.5);
-    color: white;
-}
-
-/* Menú Toggle (Mobile) */
-.menu-toggle {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: white;
-    transition: color 0.3s ease;
-}
-
-.menu-toggle:hover {
-    color: #ff4500;
-}
-
-/* Menú Mobile */
-.mobile-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #000;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.mobile-menu a {
-    margin-bottom: 10px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.mobile-menu a:hover {
-    color: #ff4500;
-    background-color: rgba(255, 69, 0, 0.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .menu {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .mobile-menu {
-        display: flex;
-    }
-
-    .navbar {
-        padding: 10px;
-    }
-
-    .logo img {
-        width: 80px;
-        height: 60px;
-    }
-
-    .logo p {
-        font-size: 24px;
-    }
-}
+            .menu-toggle {
+                display: block;
+            }
+        }
             /* Footer General */
 footer {
     grid-area: fo;
@@ -450,7 +346,7 @@ hr {
       </div>
   </div>
   <hr>
-  <p class="copy">&copy;2024 LuxeLane Derechos Reservados</p>`);
+  <p class="copy">&copy;2024 LuxeLane. Derechos Reservados</p>`);
 
   // Script para el menú desplegable
   const menuToggle = document.querySelector('.menu-toggle');
