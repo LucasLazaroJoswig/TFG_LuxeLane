@@ -17,6 +17,7 @@ body {
     background-color: #000;
     display: flex;
     justify-content: center;
+    /* Centrado del contenido */
     align-items: center;
     padding: 10px 20px;
     color: white;
@@ -26,18 +27,24 @@ body {
 /* Logo y nombre de LuxeLane */
 .logo {
     font-size: 30px;
+    /* Aumenté el tamaño del texto */
     font-weight: bold;
     color: #ff4500;
+    /* Naranja para el logo */
     display: flex;
     align-items: center;
     margin-right: 50px;
+    /* Separación entre el logo y el menú */
     font-family: 'Montserrat', serif;
 }
 
 .logo img {
     width: 100px;
+    /* Aumenté el tamaño de la imagen */
     height: 70px;
+    /* Aumenté el tamaño de la imagen */
     margin-right: 5px;
+    /* Espacio entre el logo y el nombre */
 }
 
 /* Menú de navegación */
@@ -52,6 +59,7 @@ nav a {
     color: white;
     font-size: 16px;
     font-weight: 600;
+    position: relative;
     padding: 10px;
     transition: color 0.3s ease;
 }
@@ -60,21 +68,27 @@ nav a:hover {
     color: rgb(255, 54, 0);
 }
 
+
 /* Estilos para los menús desplegables */
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
-.button-container-nav a {
-    background-color: #ff3600;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
+nav {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+    background-color: #000;
 }
+.button-container-nav{
+  margin-left: 60px;
+  margin-top: 10px;
+}
+.button-container-nav :hover{
+  color: white;
+}
+
 
 /* Estilo para la sección del área personal */
 .area-personal {
@@ -149,6 +163,7 @@ nav a:hover {
     border-radius: 5px;
     text-align: center;
     margin-top: 20px;
+    transition: all ease-in-out 250ms;
 }
 
 /* Estilos para actualizar perfil */
@@ -269,7 +284,7 @@ footer {
     background-color: #ff6700;
   }
   .reservas .button-reservar:hover  {
-    background-color: #ff6700;
+    background-color: #9e2200;
   }
   .logo-footer{
     font-size: 50px;
@@ -315,20 +330,22 @@ input{
     width: 45px;
 }
 /* Estilos para el botón de Logout */
-.button-logout {
-    background-color: #ff3600; /* Mismo color que el botón principal */
-    padding: 10px 20px;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
+.button {
+    padding: 12px 25px;
     text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 25px;
+    /* Aumento del borde redondeado */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-logout {
+    background-color: #ff4500;
+    color: white;
+}
+
+.button-logout:hover {
+    background-color: #9e2200;
+    cursor: pointer;
 }
 
 /* Efecto de hover para el botón Logout */
-.button-logout:hover {
-    background-color: #d14e3a; /* Color más oscuro al pasar el cursor */
-    color: black;
-}

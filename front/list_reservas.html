@@ -5,14 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Reservas - LuxeLane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/area_personal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <!-- Iconos CSS-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Cargar Toastr -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <link rel="stylesheet" href="assets/css/list.css">
+  
 </head>
 
 <body>
   <!-- Header Principal -->
-  <header class="header">
+  <header class="header2">
     <div class="logo">
       <img src="../front/fotos/logo.png" alt="LuxeLane Logo">
       <p><span style="color: rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span></p>
@@ -33,13 +44,21 @@
   <section class="crud-reservas">
     <div class="container">
       <h1>Lista de Reservas</h1>
+
+      <div class="input-group">
+        <form id="searchForm" class="form-container">
+            <input type="text" id="searchInput" class="form-input" name="palabra" placeholder="Buscar...">
+            <button class="submit-btn" type="submit">Buscar</button>
+        </form>
+      </div>
       
-      <table id="reservasTable">
+      <table id="reservasTable" class="table-coches">
         <thead>
           <tr>
-            <th>Cliente</th>
-            <th>Vehículo</th>
-            <th>Fecha</th>
+            <th>Coche</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
+            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -51,7 +70,7 @@
   </section>
 
   <!-- Script para manejar las reservas -->
-  <script src="assets/js/list_reservas.js"></script>
+  <script src="assets/js/areaPersonal/list_reservas.js"></script>
 </body>
 
 </html>

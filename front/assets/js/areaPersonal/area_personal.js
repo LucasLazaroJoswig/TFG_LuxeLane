@@ -124,9 +124,9 @@ $(document).ready(function() {
         url: url,
         type: "GET",
         success: function(response) {
-            if(response) {
+            if (response && response.length > 0) {
                 var html = '';
-                response.forEach(reserva => {
+                response.slice(0, 3).forEach(reserva => {
                     html += `
                     <tr>
                         <td>${reserva.coche.marca} ${reserva.coche.modelo}</td>
@@ -138,7 +138,15 @@ $(document).ready(function() {
                 });
                 $('tbody').html(html);
             } else {
-                toastr.error("No hay reservas.");
+                var html = `
+                <h2>Tus Reservas Actuales</h2>
+                <table>
+                    <tr>
+                        <td>No hay reservas.</td>
+                    </tr>
+                </table>
+                `;
+                    $('.reservas').html(html);
             }
         },
         error: function(xhr, status, error) {
