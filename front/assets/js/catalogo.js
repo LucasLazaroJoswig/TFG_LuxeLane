@@ -236,50 +236,10 @@ $(document).ready(function() {
         dataType: "json",
         data: filtros,
         success: function(coches) {
+          cochesFiltrados = coches; // Actualizamos la lista filtrada
+          pageCoches = 1;
           $('#vehiculos-container').html('');
-          coches.forEach(function(coche) {
-            const cocheHTML = `
-              <div class="max-w-sm bg-[#191919] text-white rounded-2xl p-5 shadow-lg space-y-4 flex flex-wrap justify-between flex-col">
-                <div class="w-100">
-                  <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="w-full rounded-xl" />
-                </div>
-                <div class="w-full">
-                  <div class="text-xs bg-gray-800 px-2 py-1 rounded-full w-max">${coche.tipoVehiculo}</div>
-                  <h2 class="text-2xl font-bold text-left">${coche.marca} ${coche.modelo}</h2>
-                  <ul class="space-y-1">
-                    <li class="flex justify-between gap-2">
-                      <div class="flex gap-3">
-                        <img src="./assets/iconos/puerta.svg">
-                        Puertas
-                      </div>
-                      ${coche.numeroPuertas}
-                    </li>
-                    <li class="flex justify-between gap-2">
-                      <div class="flex gap-3">
-                        <img src="./assets/iconos/pasajeros.svg">
-                        ${coche.numeroAsientos} Pasajeros
-                      </div>
-                    </li>
-                    <li class="flex justify-between gap-2">
-                      <div class="flex gap-3">
-                        <img src="./assets/iconos/gasolina.svg">
-                        ${coche.tipoMotor}
-                      </div>
-                      <img src="./assets/iconos/done.svg">
-                    </li>
-                  </ul>
-                  <div class="flex items-center justify-between mt-4">
-                    <div>
-                      <span class="text-2xl font-bold">&euro;${coche.precioPorDia}</span>
-                      <span class="text-sm text-gray-400">/Por Día</span>
-                    </div>
-                    <img class="hover:scale-[1.1] transition transition-all ease-in-out flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}">
-                  </div>
-                </div>
-              </div>
-            `;
-            $('#vehiculos-container').append(cocheHTML);
-          });
+          mostrarCoches();
         },
         error: function(xhr, status, error) {
           toastr.error("Error al obtener los coches: " + error);
