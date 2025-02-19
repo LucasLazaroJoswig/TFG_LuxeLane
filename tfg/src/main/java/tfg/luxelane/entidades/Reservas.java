@@ -13,6 +13,8 @@ import java.util.Objects;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -42,14 +44,16 @@ public class Reservas implements Serializable {
     @JoinColumn(name = "chofer_id")
     private Usuario chofer;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_inicio", nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "d 'de' MMMM 'de' yyyy", locale = "es_ES")
     private Date fechaInicio;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_fin", nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MMMM-dd")
+    @JsonFormat(pattern = "d 'de' MMMM 'de' yyyy", locale = "es_ES")
     private Date fechaFin;
 
     @Enumerated(EnumType.STRING)

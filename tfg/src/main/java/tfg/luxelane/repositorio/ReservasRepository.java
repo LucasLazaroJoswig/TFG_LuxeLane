@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ReservasRepository extends JpaRepository<Reservas, Long> {
 
+	
+	
     List<Reservas> findByUsuarioId(Long usuarioId);
 
     List<Reservas> findByCocheId(Long cocheId);

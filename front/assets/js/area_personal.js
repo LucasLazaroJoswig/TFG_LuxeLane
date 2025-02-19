@@ -1,4 +1,11 @@
 $(document).ready(function() {
+
+    function capitalizarPrimeraLetra(texto) {
+        if (texto && texto.length > 0) {
+            return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
+        }
+        return texto;
+    }    
     var id = localStorage.getItem('userId');
     var nombre = localStorage.getItem('userName');
     var apellidos = localStorage.getItem('userApellidos');
@@ -109,5 +116,33 @@ $(document).ready(function() {
         
         // Redirigir a la página de login
         window.location.href = "login.html";
+    });
+
+    //cargar reservas
+    var url = `http://localhost:8087/reservas/${id}`;
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(response) {
+            if(response) {
+                var html = '';
+                response.forEach(reserva => {
+                    html += `
+                    <tr>
+                        <td>${reserva.coche.marca} ${reserva.coche.modelo}</td>
+                        <td>${reserva.fechaInicio}</td>
+                        <td>${reserva.fechaFin}</td>
+                        <td>${capitalizarPrimeraLetra(reserva.estado)}</td>
+                    </tr>
+                    `;
+                });
+                $('tbody').html(html);
+            } else {
+                toastr.error("No hay reservas.");
+            }
+        },
+        error: function(xhr, status, error) {
+            toastr.error("Error en la solicitud: " + error);
+        }
     });
 });

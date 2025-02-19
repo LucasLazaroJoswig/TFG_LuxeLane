@@ -105,8 +105,8 @@ CREATE TABLE Reservas (
     coche_id INT NULL,
     moto_id INT NULL,
     chofer_id INT NULL,
-    fecha_inicio DATETIME NOT NULL,
-    fecha_fin DATETIME NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL,
     estado VARCHAR(255),
     precio_total DECIMAL(10,2) NOT NULL, -- Precio total de la reserva
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id) ON DELETE CASCADE,
