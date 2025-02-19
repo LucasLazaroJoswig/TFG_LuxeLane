@@ -1,22 +1,34 @@
 $(document).ready(function() {
-    let pageCoches = 1; // Página de coches
-    const cochesPorPagina = 10; // Número de coches a cargar por página
+    let coches = []; // Guardar todos los coches
+    let pageCoches = 1; // Página actual
+    const cochesPorPagina = 10; // Número de coches por página
 
-    // Función para obtener coches
-    function obtenerCoches() {
+    // Obtener todos los coches desde el backend
+    function obtenerTodosCoches() {
         $.ajax({
-            url: `http://localhost:8087/coches/?page=${pageCoches}&limit=${cochesPorPagina}`, // Endpoint para obtener coches con paginación
+            url: "http://localhost:8087/coches/", // Ahora obtenemos todos los coches sin paginación
             type: "GET",
             success: function(response) {
-                console.log('Respuesta del servidor:', response); // Verificar la respuesta
+                coches = response; // Guardamos todos los coches
+                pageCoches = 1; // Reseteamos la página
+                $('#vehiculos-container').empty(); // Limpiamos el contenedor
+                mostrarCoches(); // Mostramos los primeros coches
+            },
+            error: function(xhr, status, error) {
+                toastr.error("Error al obtener los coches: " + error);
+            }
+        });
+    }
 
-                // Asegurarse de que el contenido es un array de coches
-                const coches = response.content; // Obtener la lista de coches de la propiedad 'content'
+    // Función para mostrar coches paginados
+    function mostrarCoches() {
+        const inicio = (pageCoches - 1) * cochesPorPagina;
+        const fin = pageCoches * cochesPorPagina;
+        const cochesAMostrar = coches.slice(inicio, fin);
 
-                // Recorrer los coches y mostrarlos
-                coches.forEach(function(coche) {
-                    var cocheHTML = `
-                    <div class="max-w-sm bg-[#191919] text-white rounded-2xl p-5 shadow-lg space-y-4 flex flex-wrap justify-between flex-col">
+        cochesAMostrar.forEach(function(coche) {
+            const cocheHTML = `
+                <div class="max-w-sm bg-[#191919] text-white rounded-2xl p-5 shadow-lg space-y-4 flex flex-wrap justify-between flex-col">
                     <div class="w-100">
                         <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="w-full rounded-xl" />
                     </div>
@@ -46,62 +58,54 @@ $(document).ready(function() {
                             </li>
                         </ul>
                         <div class="flex items-center justify-between mt-4">
-                        <div>
-                            <span class="text-2xl font-bold">&euro;${coche.precioPorDia}</span>
-                            <span class="text-sm text-gray-400">/Por Día</span>
-                        </div>
-                            <img class="hover:scale-[1.1] transition transition-all ease-in-out flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}">
-                        </div>
+                            <div>
+                                <span class="text-2xl font-bold">&euro;${coche.precioPorDia}</span>
+                                <span class="text-sm text-gray-400">/Por Día</span>
+                            </div>
+                            <img class="hover:scale-[1.1] transition-all ease-in-out flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}">
                         </div>
                     </div>
-                        
-                        
-                    `;
-                    $('#vehiculos-container').append(cocheHTML);
-                });
-
-                // Agregar evento click a los botones de flecha
-                $('.flecha-btn').on('click', function() {
-                    var cocheId = $(this).data('id');
-                    window.location.href = `./cocheDetalles.html?id=${cocheId}`;
-                });
-                // Mostrar el botón "Mostrar más coches" solo si hay más coches para cargar
-                if (coches.length === cochesPorPagina) {
-                    $('#mostrar-mas-coches').show();
-                } else {
-                    $('#mostrar-mas-coches').hide();
-                }
-            },
-            error: function(xhr, status, error) {
-                toastr.error("Error al obtener los coches: " + error);
-            }
+                </div>
+            `;
+            $('#vehiculos-container').append(cocheHTML);
         });
+
+        // Agregar evento click a los botones de flecha
+        $('.flecha-btn').on('click', function() {
+            const cocheId = $(this).data('id');
+            window.location.href = `./cocheDetalles.html?id=${cocheId}`;
+        });
+
+        // Mostrar o ocultar el botón "Mostrar más"
+        if (fin < coches.length) {
+            $('#mostrar-mas-coches').show();
+        } else {
+            $('#mostrar-mas-coches').hide();
+        }
     }
 
-    // Llamar a la función para cargar los coches inicialmente
-    obtenerCoches();
-
-    // Asegurarse de que el botón "Mostrar más" esté oculto al inicio
-    $('#mostrar-mas-coches').hide();
-
-    // Evento al hacer clic en el botón de "Mostrar más coches"
+    // Evento al hacer clic en el botón "Mostrar más coches"
     $('#mostrar-mas-coches').on('click', function() {
-        pageCoches++; // Incrementar la página
-        obtenerCoches(); // Obtener más coches
+        pageCoches++;
+        mostrarCoches();
     });
 
     // Evento al hacer clic en el botón de filtro
-    $('#filtrarBtn').on('click', function(e) { // Asegúrate de que el ID coincida
-        e.preventDefault(); // Evitar el comportamiento por defecto del formulario
-        $('#vehiculos-container').html(''); // Limpiar el contenedor de vehículos
-        pageCoches = 1; // Resetear la página
-        obtenerCoches(); // Obtener coches con los filtros aplicados
+    $('#filtrarBtn').on('click', function(e) {
+        e.preventDefault();
+        const filtro = $('#filtroInput').val().toLowerCase(); // Ejemplo de filtro por texto
+
+        const cochesFiltrados = coches.filter(coche => {
+            return coche.marca.toLowerCase().includes(filtro) ||
+                   coche.modelo.toLowerCase().includes(filtro);
+        });
+
+        $('#vehiculos-container').empty(); // Limpiar el contenedor
+        pageCoches = 1; // Reiniciar página
+        coches = cochesFiltrados; // Actualizar la lista con los coches filtrados
+        mostrarCoches();
     });
 
-    // Manejo de la acción de reserva de un coche
-    $(document).on('click', '.btn-reservar', function() {
-        var cocheId = $(this).data('id');
-        toastr.success("Coche " + cocheId + " reservado exitosamente.");
-        // Aquí puedes hacer una nueva llamada AJAX para procesar la reserva si lo necesitas
-    });
+    // Llamada inicial para obtener y mostrar los coches
+    obtenerTodosCoches();
 });
