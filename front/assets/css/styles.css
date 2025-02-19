@@ -3,6 +3,7 @@ body {
     color: white;
     margin: 0;
     padding: 0;
+    max-width: 1875px;
 }
 
 footer {
@@ -38,12 +39,9 @@ footer .footer-links a {
 footer .footer-links a:hover {
 color: #FF3600;
 
-<<<<<<< HEAD
-=======
 
 }#links_hover:hover{
   color: white !important;
->>>>>>> cf0423f9e7fe66c75232d13f2c9c248fdf7053a1
 }
 footer #links_hover{
   font-size: 20px;
