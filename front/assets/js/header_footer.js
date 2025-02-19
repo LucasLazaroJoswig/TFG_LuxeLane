@@ -450,7 +450,7 @@ hr {
       </div>
   </div>
   <hr>
-  <p class="copy">&copy;2024 LuxeLane. Derechos Reservados</p>`);
+  <p class="copy">&copy;2024 LuxeLane Derechos Reservados</p>`);
 
   // Script para el menú desplegable
   const menuToggle = document.querySelector('.menu-toggle');
