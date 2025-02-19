@@ -1,7 +1,8 @@
 $(document).ready(function() {
-    let coches = []; // Guardar todos los coches
+    let coches = []; // Lista completa de coches
+    let cochesFiltrados = []; // Lista de coches filtrados
     let pageCoches = 1; // Página actual
-    const cochesPorPagina = 10; // Número de coches por página
+    const cochesPorPagina = 9; // Límite cambiado a 9
 
     // Obtener todos los coches desde el backend
     function obtenerTodosCoches() {
@@ -10,6 +11,7 @@ $(document).ready(function() {
             type: "GET",
             success: function(response) {
                 coches = response; // Guardamos todos los coches
+                cochesFiltrados = [...coches]; // Inicialmente, cochesFiltrados es igual a todos los coches
                 pageCoches = 1; // Reseteamos la página
                 $('#vehiculos-container').empty(); // Limpiamos el contenedor
                 mostrarCoches(); // Mostramos los primeros coches
@@ -20,11 +22,11 @@ $(document).ready(function() {
         });
     }
 
-    // Función para mostrar coches paginados
+    // Función para mostrar coches paginados (aplicando paginación a cochesFiltrados)
     function mostrarCoches() {
         const inicio = (pageCoches - 1) * cochesPorPagina;
         const fin = pageCoches * cochesPorPagina;
-        const cochesAMostrar = coches.slice(inicio, fin);
+        const cochesAMostrar = cochesFiltrados.slice(inicio, fin);
 
         cochesAMostrar.forEach(function(coche) {
             const cocheHTML = `
@@ -77,7 +79,7 @@ $(document).ready(function() {
         });
 
         // Mostrar o ocultar el botón "Mostrar más"
-        if (fin < coches.length) {
+        if (fin < cochesFiltrados.length) {
             $('#mostrar-mas-coches').show();
         } else {
             $('#mostrar-mas-coches').hide();
@@ -95,15 +97,15 @@ $(document).ready(function() {
         e.preventDefault();
         const filtro = $('#filtroInput').val().toLowerCase(); // Ejemplo de filtro por texto
 
-        const cochesFiltrados = coches.filter(coche => {
+        // Filtrar coches por marca o modelo
+        cochesFiltrados = coches.filter(coche => {
             return coche.marca.toLowerCase().includes(filtro) ||
                    coche.modelo.toLowerCase().includes(filtro);
         });
 
+        pageCoches = 1; // Reiniciar la paginación al aplicar filtro
         $('#vehiculos-container').empty(); // Limpiar el contenedor
-        pageCoches = 1; // Reiniciar página
-        coches = cochesFiltrados; // Actualizar la lista con los coches filtrados
-        mostrarCoches();
+        mostrarCoches(); // Mostrar coches filtrados
     });
 
     // Llamada inicial para obtener y mostrar los coches
