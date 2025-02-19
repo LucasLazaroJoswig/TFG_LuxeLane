@@ -390,3 +390,86 @@ input{
     background-color: #e63e00; /* Color de fondo en hover (más oscuro) */
     transform: scale(1.05); /* Aumento de tamaño al pasar el ratón */
 }
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1224px) {
+    body {
+        font-family: "Arial", sans-serif;
+        background-color: #000; /* Fondo negro */
+        color: white;
+        display: grid;
+        grid-template-columns: 1fr 80%; /* 1fr para la columna izquierda y 80% para la derecha */
+        grid-template-rows: auto auto auto 1fr; /* Filas automáticas */
+        grid-template-areas: 
+            "he he" /* El header ocupa ambas columnas */
+            "ba ba" /* El banner ocupa ambas columnas */
+            "fi ca" /* El filtro está en la columna izquierda, y el catálogo en la derecha */
+            "fo fo"; /* El footer ocupa ambas columnas */
+        gap: 20px; /* Espacio entre las celdas del grid */}
+
+    .vehiculos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+    }
+
+    .banner-text h1 {
+        font-size: 36px;
+    }
+
+    .vehiculos {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-text p {
+        display: none;
+    }
+
+    .catalogo {
+        width: 100%;
+    }
+}
+
+/* Estilo para el botón "Mostrar más coches" */
+#mostrar-mas-coches {
+    display: block;
+    background-color: #ff4500;
+    color: white;
+    padding: 16px 25px;
+    border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px auto;
+}
+
+#mostrar-mas-coches:hover {
+    background-color: #e63e00;
+    transform: scale(1.05);
+}
