@@ -38,7 +38,7 @@ $(document).ready(function() {
     e.preventDefault();
     let searchTerm = $('#searchInput').val().trim();
     $.ajax({
-        url: 'http://localhost:8087/coches/buscador', // Cambia esto por tu API que devuelve los coches
+        url: 'http://localhost:8087/coches/buscador',
         method: 'GET',
         data: { palabra:searchTerm },
         success: function(data) {
