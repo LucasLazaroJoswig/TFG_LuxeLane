@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Vehículo</title>
+  <!-- CDN de Bootstrap sin el atributo integrity -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+  <style>
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #007bff;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    .form-label {
+      font-weight: 600;
+      color: #555;
+    }
+    .card-header {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+    .btn-custom:hover {
+      background-color: #0056b3;
+    }
+    .section {
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Formulario de Vehículo</h2>
+    <form id="formularioVehiculo">
+	<div class="card">
+        <div class="card-header text-center">
+          <strong>Datos del Vehículo</strong>
+        </div>
+        <div class="card-body">
+          <input type="hidden" name="id" id="id">
+
+          <!-- Especificaciones Técnicas -->
+          <div class="section">
+            <h5 class="section-title">Especificaciones Técnicas</h5>
+            <div class="mb-3">
+              <label for="marca" class="form-label">Marca</label>
+              <input type="text" class="form-control" id="marca" name="marca" required>
+            </div>
+            <div class="mb-3">
+              <label for="modelo" class="form-label">Modelo</label>
+              <input type="text" class="form-control" id="modelo" name="modelo" required>
+            </div>
+            <div class="mb-3">
+              <label for="ano" class="form-label">Año</label>
+              <input type="number" class="form-control" id="ano" name="ano" required>
+            </div>
+            <div class="mb-3">
+              <label for="cilindrada" class="form-label">Cilindrada (cc)</label>
+              <input type="number" class="form-control" id="cilindrada" name="cilindrada" required>
+            </div>
+            <div class="mb-3">
+              <label for="potenciaHp" class="form-label">Potencia (HP)</label>
+              <input type="number" class="form-control" id="potenciaHp" name="potenciaHp" required>
+            </div>
+            <div class="mb-3">
+              <label for="capacidadCombustible" class="form-label">Capacidad del Combustible (L)</label>
+              <input type="number" class="form-control" id="capacidadCombustible" name="capacidadCombustible" required>
+            </div>
+          </div>
+
+          <!-- Características del Vehículo -->
+          <div class="section">
+            <h5 class="section-title">Características del Vehículo</h5>
+            <div class="mb-3">
+              <label for="transmision" class="form-label">Transmisión</label>
+              <input type="text" class="form-control" id="transmision" name="transmision" required>
+            </div>
+            <div class="mb-3">
+              <label for="numeroPuertas" class="form-label">Número de Puertas</label>
+              <input type="number" class="form-control" id="numeroPuertas" name="numeroPuertas" required>
+            </div>
+            <div class="mb-3">
+              <label for="numeroAsientos" class="form-label">Número de Asientos</label>
+              <input type="number" class="form-control" id="numeroAsientos" name="numeroAsientos" required>
+            </div>
+            <div class="mb-3">
+              <label for="color" class="form-label">Color</label>
+              <input type="text" class="form-control" id="color" name="color" required>
+            </div>
+          </div>
+
+          <!-- Seguridad -->
+          <div class="section">
+            <h5 class="section-title">Seguridad</h5>
+            <div class="mb-3">
+              <label for="airbags" class="form-label">Airbags</label>
+              <input type="number" class="form-control" id="airbags" name="airbags" required>
+            </div>
+            <div class="mb-3">
+              <label for="abs" class="form-label">ABS</label>
+              <select class="form-select" id="abs" name="abs" required>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="controlTraccion" class="form-label">Control de Tracción</label>
+              <select class="form-select" id="controlTraccion" name="controlTraccion" required>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="asistenteFrenado" class="form-label">Asistente de Frenado</label>
+              <select class="form-select" id="asistenteFrenado" name="asistenteFrenado" required>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Información adicional -->
+          <div class="section">
+            <h5 class="section-title">Información Adicional</h5>
+            <div class="mb-3">
+              <label for="kilometraje" class="form-label">Kilometraje</label>
+              <input type="number" class="form-control" id="kilometraje" name="kilometraje" required>
+            </div>
+            <div class="mb-3">
+              <label for="matricula" class="form-label">Matrícula</label>
+              <input type="text" class="form-control" id="matricula" name="matricula" required>
+            </div>
+            <div class="mb-3">
+              <label for="tipoVehiculo" class="form-label">Tipo de Vehículo</label>
+              <input type="text" class="form-control" id="tipoVehiculo" name="tipoVehiculo" required>
+            </div>
+            <div class="mb-3">
+              <label for="imagen" class="form-label">Imagen</label>
+              <input type="text" class="form-control" id="imagen" name="imagen" required>
+            </div>
+            <div class="mb-3">
+              <label for="precioPorDia" class="form-label">Precio por Día</label>
+              <input type="number" class="form-control" id="precioPorDia" name="precioPorDia" required>
+            </div>
+            <div class="mb-3">
+              <label for="precioPorHora" class="form-label">Precio por Hora</label>
+              <input type="number" class="form-control" id="precioPorHora" name="precioPorHora" required>
+            </div>
+            <div class="mb-3">
+              <label for="disponibilidad" class="form-label">Disponibilidad</label>
+              <select class="form-select" id="disponibilidad" name="disponibilidad" required>
+                <option value="disponible">Disponible</option>
+                <option value="NO_DISPONIBLE">NO_DISPONIBLE</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-custom">Guardar</button>
+          <a href="/" class="btn btn-secondary">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="assets/js/areaPersonal/form.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    document.getElementById('marca').value = urlParams.get('marca') || '';
+    document.getElementById('modelo').value = urlParams.get('modelo') || '';
+    document.getElementById('ano').value = urlParams.get('año') || '';
+    document.getElementById('cilindrada').value = urlParams.get('cilindrada') || '';
+    document.getElementById('potenciaHp').value = urlParams.get('potenciaHp') || '';
+    document.getElementById('capacidadCombustible').value = urlParams.get('capacidadCombustible') || '';
+    document.getElementById('transmision').value = urlParams.get('transmision') || '';
+    document.getElementById('numeroPuertas').value = urlParams.get('numeroPuertas') || '';
+    document.getElementById('numeroAsientos').value = urlParams.get('numeroAsientos') || '';
+    document.getElementById('color').value = urlParams.get('color') || '';
+    document.getElementById('airbags').value = urlParams.get('airbags') || '';
+    document.getElementById('abs').value = urlParams.get('abs') || '';
+    document.getElementById('controlTraccion').value = urlParams.get('controlTraccion') || '';
+    document.getElementById('asistenteFrenado').value = urlParams.get('asistenteFrenado') || '';
+    document.getElementById('kilometraje').value = urlParams.get('kilometraje') || '';
+    document.getElementById('matricula').value = urlParams.get('matricula') || '';
+    document.getElementById('tipoVehiculo').value = urlParams.get('tipoVehiculo') || '';
+    document.getElementById('imagen').value = urlParams.get('imagen') || '';
+    document.getElementById('precioPorDia').value = urlParams.get('precioPorDia') || '';
+    document.getElementById('precioPorHora').value = urlParams.get('precioPorHora') || '';
+    document.getElementById('disponibilidad').value = urlParams.get('disponibilidad') || 'disponible';
+    document.getElementById('id').value = urlParams.get('id') || '2'; // Default ID
+  </script>
+  
+    
+</body>
+</html>

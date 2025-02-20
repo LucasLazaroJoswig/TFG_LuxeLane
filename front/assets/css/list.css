@@ -147,14 +147,16 @@ nav a:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
   }
   
   .table-coches td button:hover {
     background-color: #e53e00;
+    color: white;
   }
   
   .table-coches td button:active {
     background-color: #cc2e00;
+    color: white;
   }
   
