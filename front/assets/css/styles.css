@@ -221,7 +221,7 @@ h4,
 }
 
 h1 {
-    font-size: 74px !important;
+    font-size: 64px !important;
     /* Aumenté el tamaño del h1 */
     font-family: Epilogue, sans-serif;
     color: rgb(255, 255, 255);
@@ -249,7 +249,7 @@ h4 {
     /* Negrita */
     line-height: 19px;
     font-family: Epilogue, sans-serif;
-    margin-left: 330px;
+    margin-left: 660px;
 }
 
 /* Contenedor de los botones */
@@ -703,4 +703,310 @@ body {
 .carousel-control-next:hover {
     background-color: transparent; /* Eliminamos cualquier efecto hover */
     transform: translateY(-50%); /* Mantén el centrado en el hover */
+}
+.section2 .flota{
+  margin-left: 730px;
+}
+@media (max-width:1440px) {
+  h1 {
+    font-size: 44px !important;
+    margin-left: 10px;
+}
+.welcome-text {
+  font-size: 14px;
+  margin-left: 450px;
+}
+h4 {
+  font-size: 14px;
+  
+}
+.section2 .h2{
+  margin-left: 100px;
+}
+.section2 .flota{
+  margin-left: 510px;
+}
+.section3 .gallery-image {
+  width: 320.5px;
+  height: 460px;
+  object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
+  display: block; /* Elimina el espacio debajo de la imagen */
+}
+.section3 .image-title-1 {
+  top: 20px; /* Alinea el título a la parte superior */
+  right: 130px; /* Alinea el título a la parte derecha */
+ 
+}
+.section3 .image-title-2 {
+  top: 20px; /* Alinea el título a la parte superior */
+  right: 110px; /* Alinea el título a la parte derecha */
+
+}
+.section3 .image-title-3 {
+
+  top: 20px; /* Alinea el título a la parte superior */
+  right: 200px; /* Alinea el título a la parte derecha */
+  
+}
+.section3 .image-title-4 {
+
+  top: 20px; /* Alinea el título a la parte superior */
+  right: 185px; /* Alinea el título a la parte derecha */
+  
+
+}
+@media (max-width: 720px){
+  body {
+    max-width: 720px;
+}
+  h1 {
+    font-size: 24px !important;
+    margin-left: 15px;
+}
+.welcome-text {
+  font-size: 14px;
+  margin-left: 240px;
+}
+h4 {
+  font-size: 14px;
+  
+}
+/* Contenido */
+.socio .content {
+  width: 600px;
+
+}
+
+/* Panel Izquierdo */
+.socio .left-panel {
+  width: 650px;
+  height: 671.69px;
+
+}
+
+/* SVG decorativo */
+.socio .svg-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+.left-panel{
+  display: none;
+}
+
+/* Círculo decorativo */
+.socio .circle-wrapper {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.socio .circle {
+  width: 410px;
+  height: 561.69px;
+  border-radius: 200px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Panel Derecho */
+.socio .right-panel {
+  width: 650px;
+  height: 599.91px;
+  position: relative;
+}
+
+/* Encabezado */
+.socio .header-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 19.19px;
+  display: flex;
+  align-items: center;
+}
+
+.socio .header-title {
+  padding-left: 25px;
+  font-size: 16px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 600;
+  line-height: 19.2px;
+  color: #FF3600;
+}
+
+/* Título principal */
+.socio .main-title {
+  position: absolute;
+  top: 43.19px;
+  left: 10px;
+  height: 106.59px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.socio .main-title-line {
+  font-size: 44px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  line-height: 52.8px;
+}
+
+/* Descripción */
+.socio .description {
+  position: absolute;
+  top: 169.78px;
+  left: 10px;
+  height: 74.38px;
+  padding-bottom: 20px;
+}
+
+.socio .description p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #CECECE;
+}
+
+/* Sección de características */
+.socio .features {
+  position: absolute;
+  top: 264.16px;
+  height: 257.75px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 30px;
+}
+
+.socio .feature-block {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 31px;
+}
+
+.socio .feature-icon {
+  position: relative;
+  padding: 8.19px 30px 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socio .icon-bg {
+  width: 60px;
+  height: 60px;
+  background: white;
+  opacity: 0.1;
+  border-radius: 30px;
+  position: absolute;
+}
+
+
+
+.socio .feature-text h3 {
+  font-size: 20px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.socio .feature-text p {
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #CECECE;
+}
+
+/* Botón de llamada a la acción */
+.socio .cta {
+  position: absolute;
+  top: 560px;
+  left: 10px;
+  height: 48px;
+}
+
+.socio .cta button {
+  padding: 16px 25px;
+  background: #FF3600;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.section2 .flota{
+  margin-left: 170px;
+}
+.section3 .gallery-image {
+  width: 141.5px;
+  height: 210px;
+  border-radius: 20px;
+}
+.section3 .image-title-1 {
+  top: 10px; /* Alinea el título a la parte superior */
+  right: 35px; /* Alinea el título a la parte derecha */
+  font-size: 16px;
+ 
+}
+.section3 .image-title-2 {
+  top: 10px; /* Alinea el título a la parte superior */
+  right: 22px; /* Alinea el título a la parte derecha */
+  font-size: 16px;
+
+}
+.section3 .image-title-3 {
+
+  top: 10px; /* Alinea el título a la parte superior */
+  right: 80px; /* Alinea el título a la parte derecha */
+  font-size: 16px;
+  
+}
+.section3 .image-title-4 {
+
+  top: 10px; /* Alinea el título a la parte superior */
+  right: 60px; /* Alinea el título a la parte derecha */
+  font-size: 16px;
+}
+.section3 .flecha {
+
+  bottom: 15px; /* Alinea la flecha a la parte inferior */
+  right: 12px; /* Alinea la flecha a la parte derecha */
+  width: 30px; /* Tamaño de la flecha (ajústalo a tus necesidades) */
+}
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute; /* Los posicionamos en relación al contenedor del carrusel */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centrarlos */
+    background-color: transparent; /* Sin fondo */
+    border: none; /* Sin bordes */
+    padding: 0; /* Sin relleno */
+}
+
+.carousel-control-prev {
+    left: -50px; /* Aumentar la separación de la flecha anterior */
+    position: absolute;
+}
+
+.carousel-control-next {
+    right: -50px; /* Aumentar la separación de la flecha siguiente */
+    position: absolute;
+}
+
+}
 }
