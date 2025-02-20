@@ -36,11 +36,6 @@ public class CochesRestController {
     		return cocheService.buscarPorDisponibilidad(Disponibilidad.disponible);
     }
 
-    @GetMapping("/todos")
-    public List<Coches> mostrarTodos(){
-    	return cocheService.buscarPorDisponibilidad(Disponibilidad.disponible);
-    }
-    
     @GetMapping("/filtrar")
     public List<Coches> obtenerCochesFiltrados(
         @RequestParam(required = false) String tipoVehiculo,
@@ -96,9 +91,10 @@ public class CochesRestController {
     public List<String> obtenerTiposTransmision() {
         return cochesRepository.findDistinctTransmisiones();
     }
-    
+
     @GetMapping("/buscador")
     public List<Coches> buscar(@RequestParam String palabra) {
         return cochesRepository.buscarPorMarcaModelo(palabra);
     }
 }
+
