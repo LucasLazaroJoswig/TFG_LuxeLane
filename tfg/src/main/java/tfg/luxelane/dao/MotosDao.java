@@ -15,7 +15,6 @@ public interface MotosDao {
 
     List<Motos> buscarPorDisponibilidad(Disponibilidad disponibilidad);
 
-    List<Motos> buscarPorTipoVehiculo(String tipoVehiculo);
 
     void guardar(Motos moto);
 

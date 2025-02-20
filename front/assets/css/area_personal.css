@@ -1,4 +1,8 @@
 /* Reset de márgenes y padding */
+html, body {
+    width: 100%!important;
+    overflow-x: hidden!important;
+}
 * {
     margin: 0;
     padding: 0;

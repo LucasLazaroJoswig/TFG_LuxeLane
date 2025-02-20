@@ -3,8 +3,6 @@ package tfg.luxelane.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,35 +21,78 @@ import tfg.luxelane.repositorio.MotosRepository;
 public class MotosRestController {
 
     @Autowired
-    private MotosDao Motoservice;
+    private MotosDao motoService;
 
     @Autowired
-    private MotosRepository MotosRepository;
+    private MotosRepository motosRepository;
 
-    // Endpoint para obtener Motos con paginación
     @GetMapping("/")
-    public Page<Motos> obtenerMotos(
-        @RequestParam(defaultValue = "1") int page,  // Número de página (default: 1)
-        @RequestParam(defaultValue = "10") int limit  // Número de Motos por página (default: 10)
-    ) {
-        // Crear el objeto PageRequest para la paginación
-        PageRequest pageRequest = PageRequest.of(page - 1, limit);  // page - 1 porque la paginación en Spring comienza desde 0
-
-        // Devolver la lista paginada de Motos
-        return MotosRepository.findAll(pageRequest);
+    public List<Motos> obtenerMotos(){
+        return motoService.buscarPorDisponibilidad(Disponibilidad.disponible);
     }
 
     @GetMapping("/todos")
-    public List<Motos> mostrarTodos(){
-    	return Motoservice.buscarPorDisponibilidad(Disponibilidad.disponible);
+    public List<Motos> mostrarTodas(){
+        return motoService.buscarPorDisponibilidad(Disponibilidad.disponible);
     }
     
-    
+    @GetMapping("/filtrar")
+    public List<Motos> obtenerMotosFiltradas(
+        @RequestParam(required = false) String tipoVehiculo,
+        @RequestParam(required = false) String marca,
+        @RequestParam(required = false) String modelo,
+        @RequestParam(required = false) String precioMax,
+        @RequestParam(required = false) String tipoCombustible,
+        @RequestParam(required = false) String transmision
+    ) {
+        Double precioMaxParse = (precioMax != null && !precioMax.trim().isEmpty()) ? Double.parseDouble(precioMax) : Double.MAX_VALUE;
+        return motosRepository.buscarMotosFiltradas(
+            tipoVehiculo, 
+            marca, 
+            modelo,
+            precioMaxParse, 
+            tipoCombustible, 
+            transmision
+        );
+    }
 
     @GetMapping("/verDetalle/{id}")
     public Motos verDetalle(@PathVariable long id) {
-        return Motoservice.buscarPorId(id);
+        return motoService.buscarPorId(id);
     }
 
+    @GetMapping("/modelos/{marca}")
+    public List<String> modelosPorMarca(@PathVariable String marca) {
+        return motosRepository.findModelosByMarca(marca);
+    }
+
+    @GetMapping("/precioMaximo")
+    public Double obtenerPrecioMaximo() {
+        return motosRepository.findMaxPrice();
+    }
+
+    @GetMapping("/marcas")
+    public List<String> obtenerMarcas() {
+        return motosRepository.findDistinctMarcas();
+    }
+
+    @GetMapping("/tiposMoto")
+    public List<String> obtenerTiposMoto() {
+        return motosRepository.findDistinctTiposVehiculo();
+    }
+
+    @GetMapping("/tiposCombustible")
+    public List<String> obtenerTiposCombustible() {
+        return motosRepository.findDistinctTiposCombustible();
+    }
+
+    @GetMapping("/tiposTransmision")
+    public List<String> obtenerTiposTransmision() {
+        return motosRepository.findDistinctTransmisiones();
+    }
     
+    @GetMapping("/buscador")
+    public List<Motos> buscar(@RequestParam String palabra) {
+        return motosRepository.buscarPorMarcaModelo(palabra);
+    }
 }

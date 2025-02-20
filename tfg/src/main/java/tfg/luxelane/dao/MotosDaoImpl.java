@@ -28,7 +28,7 @@ public class MotosDaoImpl implements MotosDao {
 
     @Override
     public List<Motos> buscarPorMarca(String marca) {
-        return motosRepository.findByMarca(marca);
+        return motosRepository.buscarPorMarcaModelo(marca);
     }
 
     @Override
@@ -36,10 +36,6 @@ public class MotosDaoImpl implements MotosDao {
         return motosRepository.findByDisponibilidad(disponibilidad);
     }
 
-    @Override
-    public List<Motos> buscarPorTipoVehiculo(String tipoVehiculo) {
-        return motosRepository.findByTipoVehiculo(tipoVehiculo);
-    }
 
     @Override
     public void guardar(Motos moto) {
