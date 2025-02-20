@@ -66,7 +66,7 @@
 
         <!-- Tarjeta de Vehículo -->
         <section class="filtro">
-            <div class="ml-[100px] mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-[375px] max-w-md z-10">
+            <div class="ml-[100px] mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-[375px] max-w-md z-10 sticky z-99 top-[20px]">
               <div class="text-left mb-6">
                 <h1 class="text-[50px] font-bold" style="font-family: DM sans;">€248 <span class="text-[16px] font-normal">/dia</span></h1>
                 <hr class="bg-[#2c2c2c] my-2 h-[2px]">
@@ -231,21 +231,20 @@
             
                 <div class="space-y-2 max-w-3xl">
                   <!-- Ítem 1 (abierto por defecto) -->
-                  <details open data-accordion class="group border border-white/10 rounded overflow-hidden">
+                  <details open data-accordion class="group border border-white/10 rounded overflow-hidden transition-all duration-300 ease-in-out">
                     <summary
                       class="py-3 px-4 cursor-pointer text-lg font-semibold flex justify-between items-center
-                             bg-[#252525] group-open:bg-[#ff3600]"
+                             bg-[#252525] group-open:bg-[#ff3600] transition-all duration-300 ease-in-out"
                     >
                       Requisitos de Licencia de Conducir
-                      <!-- Ícono + (por defecto), e ícono - (cuando está abierto) -->
                       <span class="text-2xl leading-none group-open:hidden">+</span>
                       <span class="text-2xl leading-none hidden group-open:inline">–</span>
                     </summary>
-                    <div class="p-4 text-sm bg-[#ff3600]">
-                      Es un hecho bien establecido que un lector se distraerá con el contenido
-                      legible de una página al mirar su diseño. El propósito de usar Lorem Ipsum...
+                    <div class="p-4 text-sm bg-[#ff3600] transition-all duration-300 ease-in-out">
+                      Es un hecho bien establecido que un lector se distraerá con el contenido legible...
                     </div>
                   </details>
+                  
             
                   <!-- Ítem 2 -->
                   <details data-accordion class="group border border-white/10 rounded overflow-hidden">
@@ -327,28 +326,6 @@
           </section>
           
           
-
-        <!-- Servicios -->
-        <section class="mt-8">
-            <h2 class="text-3xl font-bold mb-4">Servicios y características premium</h2>
-            <ul class="grid grid-cols-2 gap-4">
-                <li>Entrega a domicilio</li>
-                <li>Asistencia 24/7</li>
-                <li>Seguro incluido</li>
-                <li>Bluetooth y GPS</li>
-            </ul>
-        </section>
-
-        <!-- Políticas -->
-        <section class="mt-8">
-            <h2 class="text-3xl font-bold mb-4">Políticas y Acuerdo</h2>
-            <div class="space-y-2">
-                <button class="w-full text-left bg-orange-500 px-4 py-2 rounded">Requisitos de Licencia</button>
-                <button class="w-full text-left bg-gray-700 px-4 py-2 rounded">Política de Cancelación</button>
-                <button class="w-full text-left bg-gray-700 px-4 py-2 rounded">Seguros y Cobertura</button>
-            </div>
-        </section>
-
     <!-- Footer -->
     <footer class="bg-gray-900 p-4 text-center">
         <p>&copy; 2025 LuxeLane. Todos los derechos reservados.</p>

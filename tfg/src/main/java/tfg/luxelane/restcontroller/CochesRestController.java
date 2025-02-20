@@ -3,15 +3,15 @@ package tfg.luxelane.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import tfg.luxelane.dao.CochesDao;
 import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.enums.Disponibilidad;
@@ -22,18 +22,26 @@ import tfg.luxelane.repositorio.CochesRepository;
 @RequestMapping("/coches")
 public class CochesRestController {
 
-	@Autowired
-	private CochesDao cocheService;
-	
-	@Autowired
+    @Autowired
+    private CochesDao cocheService;
+
+    @Autowired
     private CochesRepository cochesRepository;
-	
-	@GetMapping("/")
-	public List<Coches> todosCoches() {
-		return cocheService.buscarPorDisponibilidad(Disponibilidad.disponible);
-	}
-	
-	@GetMapping("/filtrar")
+
+    // Endpoint para obtener coches con paginación
+    @GetMapping("/")
+    public Page<Coches> obtenerCoches(
+        @RequestParam(defaultValue = "1") int page,  // Número de página (default: 1)
+        @RequestParam(defaultValue = "10") int limit  // Número de coches por página (default: 10)
+    ) {
+        // Crear el objeto PageRequest para la paginación
+        PageRequest pageRequest = PageRequest.of(page - 1, limit);  // page - 1 porque la paginación en Spring comienza desde 0
+
+        // Devolver la lista paginada de coches
+        return cochesRepository.findAll(pageRequest);
+    }
+
+    @GetMapping("/filtrar")
     public List<Coches> obtenerCochesFiltrados(
         @RequestParam(required = false) String tipoVehiculo,
         @RequestParam(required = false) String marca,
@@ -42,8 +50,8 @@ public class CochesRestController {
         @RequestParam(required = false) String tipoCombustible,
         @RequestParam(required = false) String transmision
     ) {
-		Double precioMaxParse = (precioMax != null && !precioMax.trim().isEmpty()) ? Double.parseDouble(precioMax) : Double.MAX_VALUE;
-		System.out.println(tipoVehiculo + marca+  modelo+ precioMax+ tipoCombustible+ transmision);
+        Double precioMaxParse = (precioMax != null && !precioMax.trim().isEmpty()) ? Double.parseDouble(precioMax) : Double.MAX_VALUE;
+        System.out.println(tipoVehiculo + marca+ modelo+ precioMax+ tipoCombustible+ transmision);
         return cochesRepository.buscarCochesFiltrados(
             tipoVehiculo, 
             marca, 
@@ -53,42 +61,39 @@ public class CochesRestController {
             transmision
         );
     }
-	
-	@GetMapping("/verDetalle/{id}")
-	public Coches verDetalle(@PathVariable long id) {
-		return cocheService.buscarPorId(id);
-	}
-	
-	@GetMapping("/modelos/{marca}")
-	public List<String> modelosPorMarca(@PathVariable String marca) {
-		return cocheService.findModelosByMarca(marca);
-	}
-	
-	@GetMapping("/precioMaximo")
-	public Double obtenerPrecioMaximo() {
-	    return cochesRepository.findMaxPrice();
-	}
 
-	@GetMapping("/marcas")
-	public List<String> obtenerMarcas() {
-	    return cochesRepository.findDistinctMarcas();
-	}
+    @GetMapping("/verDetalle/{id}")
+    public Coches verDetalle(@PathVariable long id) {
+        return cocheService.buscarPorId(id);
+    }
 
-	@GetMapping("/tiposCoche")
-	public List<String> obtenerTiposCoche() {
-	    return cochesRepository.findDistinctTiposVehiculo();
-	}
+    @GetMapping("/modelos/{marca}")
+    public List<String> modelosPorMarca(@PathVariable String marca) {
+        return cocheService.findModelosByMarca(marca);
+    }
 
-	@GetMapping("/tiposCombustible")
-	public List<String> obtenerTiposCombustible() {
-	    return cochesRepository.findDistinctTiposCombustible();
-	}
+    @GetMapping("/precioMaximo")
+    public Double obtenerPrecioMaximo() {
+        return cochesRepository.findMaxPrice();
+    }
 
-	@GetMapping("/tiposTransmision")
-	public List<String> obtenerTiposTransmision() {
-	    return cochesRepository.findDistinctTransmisiones();
-	}
+    @GetMapping("/marcas")
+    public List<String> obtenerMarcas() {
+        return cochesRepository.findDistinctMarcas();
+    }
 
-	
+    @GetMapping("/tiposCoche")
+    public List<String> obtenerTiposCoche() {
+        return cochesRepository.findDistinctTiposVehiculo();
+    }
+
+    @GetMapping("/tiposCombustible")
+    public List<String> obtenerTiposCombustible() {
+        return cochesRepository.findDistinctTiposCombustible();
+    }
+
+    @GetMapping("/tiposTransmision")
+    public List<String> obtenerTiposTransmision() {
+        return cochesRepository.findDistinctTransmisiones();
+    }
 }
-
