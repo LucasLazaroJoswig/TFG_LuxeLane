@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // Función para cargar los coches desde la base de datos
+
   function loadCoches() {
     $.ajax({
       url: 'http://localhost:8087/coches/todos', // Cambia esto por tu API que devuelve los coches
@@ -16,6 +16,7 @@ $(document).ready(function() {
               <td>${coche.disponibilidad ? 'Disponible' : 'No disponible'}</td>
               <td>${coche.precioPorHora} €</td>
               <td>${coche.precioPorDia} €</td>
+              <td>${coche.disponibilidad} </td>
               <td>
                 <button class="btn btn-info btn-sm verDetalleBtn" data-id="${coche.id}">Ver detalle</button>
                 <button class="btn btn-info btn-sm modificarBtn" data-id="${coche.id}">Modificar</button>                          
@@ -28,6 +29,10 @@ $(document).ready(function() {
         $('.verDetalleBtn').on('click', function() {
           const cocheId = $(this).data('id');
           loadCocheDetails(cocheId);
+        });
+        $('.modificarBtn').on('click', function() {
+          const cocheId = $(this).data('id');
+          redirigirConDatos(cocheId);
         });
       }
     });
@@ -54,34 +59,25 @@ $('#searchForm').on('submit', function(e) {
                     <td>${coche.precioPorHora} €</td>
                     <td>${coche.precioPorDia} €</td>
                     <td>
-                        <button class="button verDetalle" data-id="${coche.id}">Ver detalle</button>
-                        <button class="button">Modificar</button>
+                      <button class="btn btn-info btn-sm verDetalleBtn" data-id="${coche.id}">Ver detalle</button>
+                      <button class="btn btn-info btn-sm modificarBtn" data-id="${coche.id}">Modificar</button>                          
                     </td>
                 </tr>
                 `);
             });
 
             // Manejador de evento para el botón "Ver detalle"
-            $('.verDetalle').on('click', function() {
-                let cocheId = $(this).data('id'); // Obtener el ID del coche desde el atributo data-id
-                $.ajax({
-                    url: `http://localhost:8087/coches/verDetalle/${cocheId}`, // URL con el ID del coche
-                    method: 'GET',
-                    success: function(response) {
-                        // Aquí puedes manejar la respuesta de la solicitud
-                        console.log(response);  // Ejemplo: Mostrar los detalles del coche en la consola
-                        // Puedes redirigir o mostrar la información en una ventana modal, etc.
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error al obtener el detalle del coche:", error);
-                    }
-                });
+            $('.verDetalleBtn').on('click', function() {
+              const cocheId = $(this).data('id');
+              loadCocheDetails(cocheId);
+            });
+            $('.modificarBtn').on('click', function() {
+              const cocheId = $(this).data('id');
+              redirigirConDatos(cocheId);
             });
         }
     });
 });
-  
-
 function loadCocheDetails(cocheId) {
   $.ajax({
     url: `http://localhost:8087/coches/verDetalle/${cocheId}`, // Aquí se pasa el id del coche
@@ -91,63 +87,79 @@ function loadCocheDetails(cocheId) {
       const modalBody = $('#detalleModalBody');
       modalBody.html(`
         <div class="container">
-          <div class="row">
-            <!-- Foto del coche en la primera fila con tamaño ajustado -->
+          <div class="row justify-content-center">
+            <!-- Foto del coche -->
             <div class="col-12 text-center mb-4">
-              <img src="fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="img-fluid" style="max-width: 400px;">
+              <img src="fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="img-fluid rounded shadow" style="max-width: 400px;">
             </div>
           </div>
 
-          <!-- Especificaciones técnicas -->
           <div class="row">
-            <div class="col-md-6">
-              <h5><strong>Especificaciones Técnicas</strong></h5>
-              <ul>
-                <li><strong>Motor:</strong> ${coche.tipoMotor}</li>
-                <li><strong>Cilindrada:</strong> ${coche.cilindrada} cc</li>
-                <li><strong>Potencia:</strong> ${coche.potenciaHp} HP</li>
-                <li><strong>Transmisión:</strong> ${coche.transmision}</li>
-                <li><strong>Capacidad de Combustible:</strong> ${coche.capacidadCombustible} L</li>
-                <li><strong>Etiqueta Medioambiental:</strong> ${coche.etiquetaMedioambiental}</li>
-              </ul>
+            <!-- Especificaciones Técnicas -->
+            <div class="col-md-6 mb-4">
+              <div class="card shadow-sm h-100">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Especificaciones Técnicas</strong></h5>
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-cogs"></i> <strong>Motor:</strong> ${coche.tipoMotor}</li>
+                    <li><i class="fas fa-tachometer-alt"></i> <strong>Cilindrada:</strong> ${coche.cilindrada} cc</li>
+                    <li><i class="fas fa-bolt"></i> <strong>Potencia:</strong> ${coche.potenciaHp} HP</li>
+                    <li><i class="fas fa-cogs"></i> <strong>Transmisión:</strong> ${coche.transmision}</li>
+                    <li><i class="fas fa-gas-pump"></i> <strong>Capacidad de Combustible:</strong> ${coche.capacidadCombustible} L</li>
+                    <li><i class="fas fa-leaf"></i> <strong>Etiqueta Medioambiental:</strong> ${coche.etiquetaMedioambiental}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <!-- Características del vehículo -->
-            <div class="col-md-6">
-              <h5><strong>Características del Vehículo</strong></h5>
-              <ul>
-                <li><strong>Puertas:</strong> ${coche.numeroPuertas}</li>
-                <li><strong>Asientos:</strong> ${coche.numeroAsientos}</li>
-                <li><strong>Aire Acondicionado:</strong> ${coche.aireAcondicionado ? 'Sí' : 'No'}</li>
-                <li><strong>GPS:</strong> ${coche.gps ? 'Sí' : 'No'}</li>
-                <li><strong>Bluetooth:</strong> ${coche.bluetooth ? 'Sí' : 'No'}</li>
-                <li><strong>Cámara Reversa:</strong> ${coche.camaraReversa ? 'Sí' : 'No'}</li>
-                <li><strong>Sensores de Estacionamiento:</strong> ${coche.sensoresEstacionamiento ? 'Sí' : 'No'}</li>
-              </ul>
+            <!-- Características del Vehículo -->
+            <div class="col-md-6 mb-4">
+              <div class="card shadow-sm h-100">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Características del Vehículo</strong></h5>
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-door-open"></i> <strong>Puertas:</strong> ${coche.numeroPuertas}</li>
+                    <li><i class="fas fa-cogs"></i> <strong>Asientos:</strong> ${coche.numeroAsientos}</li>
+                    <li><i class="fas fa-snowflake"></i> <strong>Aire Acondicionado:</strong> ${coche.aireAcondicionado ? 'Sí' : 'No'}</li>
+                    <li><i class="fas fa-location-arrow"></i> <strong>GPS:</strong> ${coche.gps ? 'Sí' : 'No'}</li>
+                    <li><i class="fas fa-bluetooth"></i> <strong>Bluetooth:</strong> ${coche.bluetooth ? 'Sí' : 'No'}</li>
+                    <li><i class="fas fa-camera-retro"></i> <strong>Cámara Reversa:</strong> ${coche.camaraReversa ? 'Sí' : 'No'}</li>
+                    <li><i class="fas fa-parking"></i> <strong>Sensores de Estacionamiento:</strong> ${coche.sensoresEstacionamiento ? 'Sí' : 'No'}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Seguridad -->
           <div class="row">
-            <div class="col-md-6">
-              <h5><strong>Seguridad</strong></h5>
-              <ul>
-                <li><strong>ABS:</strong> ${coche.abs ? 'Sí' : 'No'}</li>
-                <li><strong>Airbags:</strong> ${coche.airbags}</li>
-                <li><strong>Control de Tracción:</strong> ${coche.controlTraccion ? 'Sí' : 'No'}</li>
-                <li><strong>Asistente de Frenado:</strong> ${coche.asistenteFrenado ? 'Sí' : 'No'}</li>
-              </ul>
+            <!-- Seguridad -->
+            <div class="col-md-6 mb-4">
+              <div class="card shadow-sm h-100">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Seguridad</strong></h5>
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-shield-alt"></i> <strong>ABS:</strong> ${coche.abs ? 'Sí' : 'No'}</li>
+                    <li><i class="fas fa-cogs"></i> <strong>Airbags:</strong> ${coche.airbags}</li>
+                    <li><i class="fas fa-tachometer-alt"></i> <strong>Control de Tracción:</strong> ${coche.controlTraccion ? 'Sí' : 'No'}</li>
+                    <li><i class="fas fa-car-crash"></i> <strong>Asistente de Frenado:</strong> ${coche.asistenteFrenado ? 'Sí' : 'No'}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <!-- Información adicional -->
-            <div class="col-md-6">
-              <h5><strong>Información Adicional</strong></h5>
-              <ul>
-                <li><strong>Color:</strong> ${coche.color}</li>
-                <li><strong>Kilometraje:</strong> ${coche.kilometraje} km</li>
-                <li><strong>Matrícula:</strong> ${coche.matricula}</li>
-                <li><strong>Tipo de Vehículo:</strong> ${coche.tipoVehiculo}</li>
-              </ul>
+            <div class="col-md-6 mb-4">
+              <div class="card shadow-sm h-100">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Información Adicional</strong></h5>
+                  <ul class="list-unstyled">
+                    <li><i class="fas fa-paint-brush"></i> <strong>Color:</strong> ${coche.color}</li>
+                    <li><i class="fas fa-road"></i> <strong>Kilometraje:</strong> ${coche.kilometraje} km</li>
+                    <li><i class="fas fa-car"></i> <strong>Matrícula:</strong> ${coche.matricula}</li>
+                    <li><i class="fas fa-car-side"></i> <strong>Tipo de Vehículo:</strong> ${coche.tipoVehiculo}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -155,20 +167,29 @@ function loadCocheDetails(cocheId) {
 
       // Mostrar el modal
       $('#detalleModal').modal('show');
-    }});
-
-$('#btnAdd').click(function() {
-  // Función para cargar los detalles de un coche
-  
+    }
+  });
+}
+function redirigirConDatos(cocheId) {
+    $.ajax({
+      url: `http://localhost:8087/coches/verDetalle/${cocheId}`,
+      method: 'GET',
+      success: function(coche) {
+        // Crear los parámetros de la URL
+        const url = `form.html?imagen=${encodeURIComponent(coche.imagen)}&marca=${encodeURIComponent(coche.marca)}&modelo=${encodeURIComponent(coche.modelo)}&año=${coche.año}&cilindrada=${coche.cilindrada}&potenciaHp=${coche.potenciaHp}&capacidadCombustible=${coche.capacidadCombustible}&transmision=${encodeURIComponent(coche.transmision)}&numeroPuertas=${coche.numeroPuertas}&numeroAsientos=${coche.numeroAsientos}&color=${encodeURIComponent(coche.color)}&airbags=${coche.airbags}&abs=${coche.abs}&controlTraccion=${coche.controlTraccion}&asistenteFrenado=${coche.asistenteFrenado}&kilometraje=${coche.kilometraje}&matricula=${coche.matricula}&tipoVehiculo=${encodeURIComponent(coche.tipoVehiculo)}&precioPorDia=${coche.precioPorDia}&precioPorHora=${coche.precioPorHora}&disponibilidad=${coche.disponibilidad ? 'disponible' : 'noDisponible'}&id=${encodeURIComponent(coche.id)}`;
+        
+        // Redirigir a form.html con los parámetros
+        window.location.href = url;
+      }
     });
   }
 
 
-
 $('#btnAdd').click(function() {
-    // Aquí puedes abrir un formulario para agregar un coche
-    alert("Añadir coche");
-  });
+  // Aquí puedes abrir un formulario para agregar un coche
+  window.location.href = "form.html";
+});
+
   // Cargar los coches al cargar la página
   loadCoches();
 });

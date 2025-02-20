@@ -157,5 +157,6 @@ nav a:hover {
   
   .table-coches td button:active {
     background-color: #cc2e00;
+    color: white;
   }
   

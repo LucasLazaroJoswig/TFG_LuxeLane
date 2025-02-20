@@ -111,24 +111,6 @@ height: 70px;
 margin-right: 5px;
 }
 
-nav {
-display: flex;
-gap: 20px;
-}
-
-nav a {
-text-decoration: none;
-color: white;
-font-size: 16px;
-font-weight: 600;
-position: relative;
-padding: 10px;
-transition: color 0.3s ease;
-}
-
-nav a:hover {
-color: rgb(255, 54, 0);
-}
 
 /* Estilos para los menús desplegables */
 .dropdown {
@@ -285,6 +267,7 @@ align-items: flex-start;
 gap: 40px;
 margin-left: 20px;
 margin-bottom: 40px;
+margin-right: 287px;
 }
 
 .seccion1_iconos img {
@@ -313,16 +296,6 @@ display: flex;
 align-items: center;
 justify-content: flex-start;
 margin: 10px;
-}
-
-.circulo_grande {
-display: inline-block;
-margin-left: 400px;
-}
-
-.circulo_grande img {
-width: 400px;
-height: auto;
 }
 
 /* Contenedor principal (Flexbox) */
@@ -383,17 +356,6 @@ transition: 0.3s;
 background-color: #ff6700;
 }
 
-/* Diseño responsivo */
-@media (max-width: 992px) {
-.seccion1_container {
-  flex-direction: column;
-  align-items: center;
-}
-
-.info-contacto, .formulario-contacto {
-  max-width: 100%;
-}
-}
 
 .contact-form {
 flex: 1;
@@ -492,19 +454,6 @@ border-radius: 20px;
   margin-bottom: 240px;
 }
 
-.contact-form {
-  margin-left: 0; /* Elimina el margen derecho y ajusta la posición hacia la izquierda */
-  max-width: 50%; /* Mantiene el ancho del formulario */
-  padding: 20px; /* Asegura que el formulario tenga un poco de espacio interno */
-  margin-bottom: 240px;
-}
-
-.contact-form {
-  margin-left: 0; /* Elimina cualquier margen izquierdo del formulario */
-  max-width: 50%; /* Ajusta el ancho del formulario */
-  padding: 20px; /* Añade padding interno */
-  margin-bottom: 240px;
-}
 
 .seccion1_container {
   margin-right: 100px;
@@ -514,5 +463,124 @@ border-radius: 20px;
   margin-right: 120px;
   margin-top: 10px;
 }
+/* Estilo para pantallas grandes */
+@media (max-width: 1440px) {
 
+  /* Aseguramos que los elementos se coloquen en orden invertido */
+  .seccion1 {
+    flex-direction: column-reverse; /* Invertir el orden: formulario abajo, info arriba */
+    align-items: center; /* Centra los elementos */
+    justify-content: center;
+  }
 
+  .section1 .container {
+    max-width: 1100px;
+    padding: 30px;
+    
+  }
+
+  /* Ajustamos los contenedores para que se vean mejor */
+  .seccion1_container {
+    padding: 50px;
+    max-width: 2000px;
+    display: flex;
+    flex-direction: column; /* Los elementos dentro de .seccion1_container se dispondrán en columna */
+    align-items: center;
+  }
+
+  .seccion1_iconos {
+    gap: 30px; /* Aumenta el espacio entre los iconos para pantallas más grandes */
+    display: flex;
+    flex-direction: column; /* Los iconos se mostrarán verticalmente */
+    align-items: center; /* Centra los iconos dentro del contenedor */
+    justify-content: center; /* Asegura que los iconos estén bien alineados */
+    text-align: center; /* Centra el texto */
+    margin-top: 20px; /* Opcional: Espacio superior entre los iconos y el contenido superior */
+  }
+
+  .seccion1_iconos img {
+    width: 51px; /* Aumenta el tamaño de los iconos en pantallas más grandes */
+  }
+
+  /* Ajuste específico para los contenedores */
+  .info-contacto {
+    order: 1; /* Asegura que la información de contacto esté arriba */
+  }
+
+  .formulario-contacto {
+    order: 2; /* El formulario estará debajo de la información de contacto */
+  }
+
+  /* Mejorar los márgenes */
+  .seccion1_container {
+    margin-top: 50px;
+  }
+
+  /* Ajustes del formulario */
+  .contact-form {
+    max-width: 50%; /* Ajuste de la anchura del formulario */
+    margin-left: 0;
+    margin-right: 0;
+    padding: 40px;
+    margin-top: 20px; /* Separar el formulario de la parte superior */
+  }
+  .seccion1 form{
+    margin-top: 70px;
+    margin-left: 40px;
+}
+.section2 h2 {
+  margin-left: 600px;
+  }
+  .section2 h1 {
+    font-size: 40px !important;
+    margin-left: 380px;
+    }
+}
+@media (max-width: 720px){
+    
+    .banner-text h1 {
+    font-size: 44px !important;
+    font-weight: 700;
+    }
+    .section1 .container {
+      max-width: 1100px;
+      padding: 30px;
+    }
+    .seccion1_container {
+
+      max-width: 500px;
+      margin-right: 400px;
+    }
+    .h1-contacto {
+      text-align: left;
+      font-size: 34px !important;
+      margin-right: 20px;
+      }
+      .seccion1_iconos img {
+        width: 41px; /* Aumenta el tamaño de los iconos en pantallas más grandes */
+      }
+      .contact-form {
+
+        max-width: 20%; /* Mantiene el ancho del formulario */
+        padding: 10px; /* Asegura que el formulario tenga un poco de espacio interno */
+        margin-bottom: 240px;
+      }
+      .input-dark{
+        max-width: 500px;
+        padding: 30px;
+      }
+      .section2 h2 {
+        font-size: 15px;
+        margin-left: 280px;
+        }
+        .section2 h1 {
+          font-size: 25px !important;
+          margin-left: 150px;
+          }
+          .section2 iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 450px;
+    
+}
+}
