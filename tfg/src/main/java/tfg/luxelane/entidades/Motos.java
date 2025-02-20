@@ -86,6 +86,9 @@ public class Motos implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TipoVehiculo tipoVehiculo;
+    
+    @Column(nullable = false)
+    private String imagen;
 
 	public Long getId() {
 		return id;

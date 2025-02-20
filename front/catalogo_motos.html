@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Coches - LuxeLane</title>
+    <title>Catálogo de motos - LuxeLane</title>
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +20,10 @@
         
     </header>
 
-    <!-- Banner con fondo de coches -->
+    <!-- Banner con fondo de motos -->
     <section class="banner">
         <div class="banner-text">
-            <h1>Coches</h1>
+            <h1>Motos</h1>
             <p>Explora nuestra selección de vehículos disponibles</p>
         </div>
     </section>
@@ -33,17 +33,17 @@
       <div class="ml-7 mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-full max-w-md z-10 sticky z-99 top-[20px]">
         <div class="text-center mb-6">
           <h2 class="text-3xl text-white font-bold">Filtrar Vehículos</h2>
-          <p class="text-gray-400 mt-1">Aplica los filtros para encontrar el coche perfecto</p>
+          <p class="text-gray-400 mt-1">Aplica los filtros para encontrar el Moto perfecto</p>
         </div>
     
         <form id="filtersForm" class="space-y-4">
-          <!-- Acordeón: Tipo de coche -->
+          <!-- Acordeón: Tipo de Moto -->
           <div class="accordion-item bg-gray-800 rounded-lg">
-            <button type="button" class="w-full px-4 py-2 text-white font-bold flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ff3600]" data-toggle="tipoCoche">
-              Tipo de Coche
-              <span id="tipoCocheArrow" class="transition-transform transform rotate-0">▼</span>
+            <button type="button" class="w-full px-4 py-2 text-white font-bold flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ff3600]" data-toggle="tipoMoto">
+              Tipo de Moto
+              <span id="tipoMotoArrow" class="transition-transform transform rotate-0">▼</span>
             </button>
-            <div id="tipoCoche" class="hidden px-4 py-2 bg-gray-700">
+            <div id="tipoMoto" class="hidden px-4 py-2 bg-gray-700">
               <select id="tipoVehiculo" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]">
     
               </select>
@@ -82,7 +82,7 @@
           <!-- Acordeón: Tipo de Combustible -->
           <div class="accordion-item bg-gray-800 rounded-lg">
             <button type="button" class="w-full px-4 py-2 text-white font-bold flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[#ff3600]" data-toggle="combustible">
-              Tipo de Combustible
+              Tipo de Motor
               <span id="combustibleArrow" class="transition-transform transform rotate-0">▼</span>
             </button>
             <div id="combustible" class="hidden px-4 py-2 bg-gray-700">
@@ -108,18 +108,18 @@
           </div>
     
           <button type="submit" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
-            Filtrar Coches
+            Filtrar motos
           </button>
         </form>
     </section>
 
-    <!-- Sección de los coches -->
+    <!-- Sección de los motos -->
     <section class="catalogo">
         <div class="vehiculos" id="vehiculos-container">
-            <!-- Los coches serán cargados aquí con JavaScript -->
+            <!-- Los motos serán cargados aquí con JavaScript -->
         </div>
-        <!-- Botón Mostrar más coches -->
-        <button id="mostrar-mas-coches" style="display: none;">Mostrar más</button>
+        <!-- Botón Mostrar más motos -->
+        <button id="mostrar-mas-motos" style="display: none;">Mostrar más</button>
     </section>
 
     <!-- Footer -->
@@ -130,7 +130,7 @@
 
     <!-- Incluir script del catalogo -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="assets/js/coches/catalogo.js"></script>
+    <script src="assets/js/motos/catalogo_motos.js"></script>
     <script src="assets/js/header_footer.js"></script>
 </body>
 </html>

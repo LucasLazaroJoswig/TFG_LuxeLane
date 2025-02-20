@@ -69,7 +69,7 @@ $(document).ready(function() {
         // Realizar la solicitud AJAX para modificar el usuario
         $.ajax({
             url: url,
-            type: "POST",
+            type: "PUT",
             data: {
                 correo: correo,
                 nombre: nombre,

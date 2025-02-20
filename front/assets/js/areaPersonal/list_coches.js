@@ -38,8 +38,8 @@ $(document).ready(function() {
     });
   }
 
-
-  $('#searchForm').on('submit', function(e) {
+loadCoches();
+$('#searchForm').on('submit', function(e) {
     e.preventDefault();
     let searchTerm = $('#searchInput').val().trim();
     $.ajax({
