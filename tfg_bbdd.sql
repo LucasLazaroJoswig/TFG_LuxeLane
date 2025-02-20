@@ -17,9 +17,7 @@ CREATE TABLE Usuarios (
     enabled VARCHAR(255),
 
     -- Campos específicos para choferes
-    licencia VARCHAR(50),
-    fecha_vencimiento_licencia DATE,
-    categoria_licencia VARCHAR(50)
+    tipo_carnet VARCHAR(50)
 );
 
 -- Tabla Coches
@@ -79,6 +77,7 @@ CREATE TABLE Motos (
     potencia_hp INT,
     transmision VARCHAR(255),
     capacidad_combustible DECIMAL(5,2),
+    etiqueta_medioambiental VARCHAR(255),
 
     -- Características del vehículo
     tipo_freno_delantero VARCHAR(255),
@@ -96,7 +95,6 @@ CREATE TABLE Motos (
     kilometraje INT DEFAULT 0,
     matricula VARCHAR(20) UNIQUE NOT NULL,
     tipo_vehiculo VARCHAR(255), 
-    etiqueta_medioambiental VARCHAR(255),
     imagen VARCHAR(255)
 );
 
@@ -107,8 +105,8 @@ CREATE TABLE Reservas (
     coche_id INT NULL,
     moto_id INT NULL,
     chofer_id INT NULL,
-    fecha_inicio DATETIME NOT NULL,
-    fecha_fin DATETIME NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL,
     estado VARCHAR(255),
     precio_total DECIMAL(10,2) NOT NULL, -- Precio total de la reserva
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id) ON DELETE CASCADE,

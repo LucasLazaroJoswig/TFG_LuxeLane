@@ -17,7 +17,7 @@ public interface ReservasDao {
 
     List<Reservas> buscarPorEstado(String estado);
 
-    void guardar(Reservas reserva);
+    boolean guardar(Reservas reserva);
 
     void actualizar(Reservas reserva);
 

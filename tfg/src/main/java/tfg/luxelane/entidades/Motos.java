@@ -76,12 +76,12 @@ public class Motos implements Serializable {
 
     // Información adicional
     @Enumerated(EnumType.STRING)
-    private EtiquetaMedioambiental etiquetaMedioambietal;
+    private EtiquetaMedioambiental etiquetaMedioambiental;
     private String color;
     private int kilometraje;
 
     @Column(unique = true, nullable = false, length = 20)
-    private String placa;
+    private String matricula;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -255,12 +255,12 @@ public class Motos implements Serializable {
 		this.kilometraje = kilometraje;
 	}
 
-	public String getPlaca() {
-		return placa;
+	public String getmatricula() {
+		return matricula;
 	}
 
-	public void setPlaca(String placa) {
-		this.placa = placa;
+	public void setmatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	public TipoVehiculo getTipoVehiculo() {
@@ -286,7 +286,7 @@ public class Motos implements Serializable {
 				+ ", tipoFrenoDelantero=" + tipoFrenoDelantero + ", tipoFrenoTrasero=" + tipoFrenoTrasero
 				+ ", tipoSuspension=" + tipoSuspension + ", capacidadCargaKg=" + capacidadCargaKg + ", abs=" + abs
 				+ ", controlTraccion=" + controlTraccion + ", encendidoElectronico=" + encendidoElectronico + ", color="
-				+ color + ", kilometraje=" + kilometraje + ", placa=" + placa + ", tipoVehiculo=" + tipoVehiculo + "]";
+				+ color + ", kilometraje=" + kilometraje + ", matricula=" + matricula + ", tipoVehiculo=" + tipoVehiculo + "]";
 	}
 
 	@Override

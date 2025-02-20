@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,31 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área Personal - LuxeLane</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-      rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://c.webfontfree.com/c.js?f=Separat-Regular" type="text/javascript"></script>
-    <link rel="stylesheet" href="assets/css/area_personal.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/area_personal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <!-- Iconos CSS-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Cargar Toastr -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  
 </head>
 
 <body>
   <!-- Header Principal -->
-  <header class="header">
+  <header class="header2">
     <div class="logo">
       <img src="../front/fotos/logo.png" alt="LuxeLane Logo">
       <p>
@@ -38,14 +31,15 @@
       </p>
     </div>
     <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Coches</a>
-      <a href="#">Motos</a>
+      <a href="index.html">Inicio</a>
+      <a href="catalogo_coches.html">Coches</a>
+      <a href="catalogo_motos.html">Motos</a>
       <a href="#">Chófers</a>
-      <a href="#">Sobre Nosotros</a>
-      <a href="#">Contáctanos</a>
+      <a href="sobre_nosotros.html">Sobre Nosotros</a>
+      <a href="contactanos.html">Contáctanos</a>
       <div class="button-container-nav">
-        <a href="area-personal.html" class="button button-reservar">Área Personal</a>
+        <!-- <a href="area-personal.html" class="button button-reservar">Área Personal</a> -->
+        <a class="button button-logout" id="butLogout">Logout</a>
       </div>
     </nav>
   </header>
@@ -69,29 +63,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>BMW X5</td>
-              <td>15 de Febrero, 2025</td>
-              <td>20 de Febrero, 2025</td>
-              <td>Confirmada</td>
-            </tr>
-            <tr>
-              <td>Audi A3</td>
-              <td>10 de Marzo, 2025</td>
-              <td>15 de Marzo, 2025</td>
-              <td>Pendiente</td>
-            </tr>
+            
           </tbody>
         </table>
-        <a href="#" class="button button-reservar">Ver todas tus reservas</a>
+        <a href="list_reservas.html" id="verReservasBtn" class="button button-reservar">Ver todas tus reservas</a>
       </div>
-
       <!-- Actualizar Perfil -->
       <div class="perfil">
         <h2>Actualizar Datos de Perfil</h2>
         <form>
-          <label for="nombre">Nombre Completo:</label>
+          <input type="hidden" id="id" name="id" value="1">
+
+          <label for="nombre">Nombre:</label>
           <input type="text" id="nombre" name="nombre" value="Juan Pérez">
+          
+          <label for="apellidos">Apellidos:</label>
+          <input type="text" id="apellidos" name="apellidos" value="Juan Pérez">
 
           <label for="email">Correo Electrónico:</label>
           <input type="email" id="email" name="email" value="juanperez@email.com">
@@ -99,7 +86,7 @@
           <label for="telefono">Teléfono:</label>
           <input type="tel" id="telefono" name="telefono" value="123-456-7890">
 
-          <button type="submit" class="button button-info">Actualizar Perfil</button>
+          <button type="submit" id="butsave" class="button button-info">Actualizar Perfil</button>
         </form>
       </div>
     </div>
@@ -107,37 +94,9 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="logo-footer">
-          <span style="color:  rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
-        </p>
-      </div>
-        <div class="footer-links">
-            <a href="#" id="links_hover">Política Legal</a>
-            <a href="#">Términos & Condiciones</a>
-            <a href="#">Contacto</a>
-            <a href="#">Noticia Legal</a>
-            <a href="#">Accesibilidad</a>
-        </div>
-        <div class="footer-links">
-          <a href="#" id="links_hover">Links</a>
-          <a href="#">Inicio</a>
-          <a href="#">Sobre Nosotros</a>
-          <a href="#">Coches</a>
-          <a href="#">Motos</a>
-          <a href="#">Contáctanos</a>
-      </div>
-        <div class="newsletter">
-            <label for="email" id="links_hover">Suscríbete al boletín:</label>
-            <input type="email" id="email" placeholder="Correo electrónico">
-            <button class="btn-suscribir">Suscribirse</button>
-        </div>
-    </div>
-    <hr>
-   <p class="copy">&copy;2024 LuxeLane. Derechos Resevados</p>
-    
   </footer>
-
+  <script src="./assets/js/areaPersonal/area_personal.js"></script>
+  <script src="assets/js/header_footer.js"></script>
 </body>
 
 </html>

@@ -3,6 +3,90 @@ body {
     color: white;
     margin: 0;
     padding: 0;
+    max-width: 1875px;
+}
+
+footer {
+  grid-area: fo;
+  background-color: #111;
+  padding: 30px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+footer .footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+footer .footer-links a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin-bottom: 25px;
+  margin-right: 30px;
+  font-family: Epilogue, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+
+}
+
+footer .footer-links a:hover {
+color: #FF3600;
+
+
+}#links_hover:hover{
+  color: white !important;
+}
+footer #links_hover{
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+footer .newsletter input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+  margin-right: 10px;
+}
+
+footer .btn-suscribir {
+  background-color: #ff4500;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+footer .btn-suscribir:hover {
+  background-color: #ff6700;
+}
+.logo-footer{
+  font-size: 50px;
+  /* Aumenté el tamaño del texto */
+  font-weight: bold;
+  color: #ff4500;
+  /* Naranja para el logo */
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+  /* Separación entre el logo y el menú */
+  font-family: 'Montserrat', serif;
+  margin-left: 200px;
+  margin-bottom: 200px;
+  
+  
 }
 
 /* Header Principal */
@@ -137,11 +221,11 @@ h4,
 }
 
 h1 {
-    font-size: 74px;
+    font-size: 74px !important;
     /* Aumenté el tamaño del h1 */
     font-family: Epilogue, sans-serif;
     color: rgb(255, 255, 255);
-    font-weight: 700;
+    font-weight: 700 !important;
     line-height: 89px;
 }
 
@@ -264,6 +348,7 @@ body {
   overflow: hidden;
   width: 300px;
   transition: transform 0.3s ease, background 0.3s ease;
+  color: white;
 }
 /* Hover: cuando pases el mouse sobre la tarjeta, cambia el fondo */
 .section1 .card:hover {
@@ -583,4 +668,39 @@ body {
   z-index: 3; /* Asegura que el título esté por encima de la imagen */
   font-family: Epilogue, sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Borde de sombra alrededor del texto */
+}
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute; /* Los posicionamos en relación al contenedor del carrusel */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centrarlos */
+    background-color: transparent; /* Sin fondo */
+    border: none; /* Sin bordes */
+    padding: 0; /* Sin relleno */
+}
+
+.carousel-control-prev {
+    left: -150px; /* Aumentar la separación de la flecha anterior */
+    position: absolute;
+}
+
+.carousel-control-next {
+    right: -150px; /* Aumentar la separación de la flecha siguiente */
+    position: absolute;
+}
+
+.carousel-control-prev img,
+.carousel-control-next img {
+    display: block; /* Asegura que las imágenes estén bloqueadas */
+    width: 50px; /* Ancho de las imágenes */
+    height: 50px; /* Alto de las imágenes */
+}
+
+.carousel-control-prev:hover{
+  background-color: transparent; /* Eliminamos cualquier efecto hover */
+    transform: translateY(-50%); /* Mantén el centrado en el hover */
+}
+.carousel-control-next:hover {
+    background-color: transparent; /* Eliminamos cualquier efecto hover */
+    transform: translateY(-50%); /* Mantén el centrado en el hover */
 }

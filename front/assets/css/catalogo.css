@@ -5,12 +5,105 @@
     box-sizing: border-box;
 }
 
-.header {
+body {
+    font-family: Arial, sans-serif;
     background-color: #000;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 80%;
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-areas: 
+        "he he"
+        "ba ba"
+        "fi ca"
+        "fo fo";
+    gap: 20px;
+}
+
+footer {
+    grid-area: fo;
+    background-color: #111;
+    padding: 30px;
+    margin-top: 50px;
+    text-align: center;
+    }
+    
+    footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    }
+    
+    footer .footer-links a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-right: 30px;
+    font-family: Epilogue, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    }
+    
+    footer .footer-links a:hover {
+    color: #FF3600;
+    }
+    
+    #links_hover:hover {
+    color: white !important;
+    }
+    
+    footer #links_hover {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+    }
+    
+    footer .newsletter input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #222;
+    color: white;
+    margin-right: 10px;
+    }
+    
+    footer .btn-suscribir {
+    background-color: #ff4500;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    }
+    
+    footer .btn-suscribir:hover {
+    background-color: #ff6700;
+    }
+    
+    .logo-footer {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ff4500;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    font-family: 'Montserrat', serif;
+    margin-left: 200px;
+    margin-bottom: 200px;
+    }
+    
+
+.header {
+    background: #000;
     width: 100%;
     display: flex;
     justify-content: center;
-    /* Centrado del contenido */
     align-items: center;
     padding: 10px 20px;
     color: white;
@@ -18,122 +111,64 @@
     grid-area: he;
 }
 
-/* Logo y nombre de LuxeLane */
-.logo {
+.logo, .logo-footer {
     font-size: 30px;
-    /* Aumenté el tamaño del texto */
     font-weight: bold;
     color: #ff4500;
-    /* Naranja para el logo */
     display: flex;
     align-items: center;
     margin-right: 50px;
-    /* Separación entre el logo y el menú */
     font-family: 'Montserrat', serif;
-}
-
-body {
-    font-family: "Arial", sans-serif;
-    background-color: #000; /* Fondo negro */
-    color: white;
-    display: grid;
-    grid-template-columns: 1fr 80%; /* 1fr para la columna izquierda y 80% para la derecha */
-    grid-template-rows: auto auto auto 1fr; /* Filas automáticas */
-    grid-template-areas: 
-        "he he" /* El header ocupa ambas columnas */
-        "ba ba" /* El banner ocupa ambas columnas */
-        "fi ca" /* El filtro está en la columna izquierda, y el catálogo en la derecha */
-        "fo fo"; /* El footer ocupa ambas columnas */
-    gap: 20px; /* Espacio entre las celdas del grid */
 }
 
 .logo img {
     width: 100px;
-    /* Aumenté el tamaño de la imagen */
     height: 70px;
-    /* Aumenté el tamaño de la imagen */
     margin-right: 5px;
-    /* Espacio entre el logo y el nombre */
 }
 
-/* Menú de navegación */
 nav {
     display: flex;
     gap: 20px;
 }
 
-/* Elementos del menú */
-nav a {
+nav a, .footer-links a {
     text-decoration: none;
     color: white;
     font-size: 16px;
     font-weight: 600;
-    position: relative;
     padding: 10px;
     transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: rgb(255, 54, 0);
-}
-.button-container-nav{
-    margin-left: 60px;
-    margin-top: 10px;
-  }
-  .button-container-nav :hover{
-    color: white;
-  }
-  .button {
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 25px;
-    /* Aumento del borde redondeado */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    background-color: #ff4500;
+.footer-links a:hover {
+    color: #ff3600;
 }
 
-.button-container-nav{
-    margin-left: 60px;
-    margin-top: 10px;
-  }
-  .button-container-nav :hover{
-    color: white;
-  }
-
-  .button-reservar {
-    background-color: #ff4500;
-    color: white;
-}
-
-.button-reservar:hover {
-    background-color: #e63e00;
-}
 .button {
     padding: 16px 25px;
-    background: #FF3600;
+    background: #ff4500;
     border: none;
     border-radius: 100px;
     color: white;
     font-size: 16px;
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
-    text-transform: capitalize;
     cursor: pointer;
-  }
-
-/* Estilos para los menús desplegables */
-.dropdown {
-    position: relative;
-    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* ========== BANNER PRINCIPAL ========== */
+.button:hover {
+    background-color: #e63e00;
+    transform: scale(1.05);
+}
+
 .banner {
     grid-area: ba;
     width: 97%;
-    border-radius: 25px;
     height: 350px;
-    background: url(../../fotos/catalogo_coches/banner.png) no-repeat center center/cover;
+    border-radius: 25px;
+    background: url(../../fotos/catalogo_coches/banner.png) no-repeat center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,10 +180,7 @@ nav a:hover {
 .banner::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0, 0, 0, 0.6);
 }
 
@@ -158,23 +190,16 @@ nav a:hover {
 }
 
 .banner-text h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 74px;
+    font-family: Epilogue, sans-serif;
+    font-weight: 700;
 }
 
-
-/* ========== CATÁLOGO DE VEHÍCULOS ========== */
 .catalogo {
     grid-area: ca;
     margin: 100px auto 50px;
     width: 90%;
     text-align: center;
-}
-
-.catalogo h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
 }
 
 .vehiculos {
@@ -183,9 +208,8 @@ nav a:hover {
     gap: 35px;
 }
 
-/* Tarjetas de coches */
 .vehiculo {
-    background-color: #1c1c1c;
+    background: #1c1c1c;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
@@ -208,20 +232,8 @@ nav a:hover {
     margin-top: 10px;
 }
 
-.vehiculo p {
-    font-size: 0.9rem;
-    color: #bbb;
-}
-
-.vehiculo span {
-    display: block;
-    margin-top: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
 .vehiculo .btn-reservar {
-    background-color: #ff4500;
+    background: #ff4500;
     border: none;
     color: white;
     padding: 10px;
@@ -232,161 +244,58 @@ nav a:hover {
 }
 
 .vehiculo .btn-reservar:hover {
-    background-color: #ff6700;
+    background: #ff6700;
 }
 
-/* ========== PAGINACIÓN ========== */
-.paginacion {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.paginacion a {
-    background-color: #333;
-    color: white;
-    padding: 10px 15px;
-    margin: 5px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.paginacion a:hover {
-    background-color: #ff4500;
-}
-
-/* ========== FOOTER ========== */
-footer {
-    grid-area: fo;
-    background-color: #111;
-    padding: 30px;
-    margin-top: 50px;
-    text-align: center;
-}
-
-footer .footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-footer .footer-links a {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    margin-bottom: 25px;
-    margin-right: 30px;
-    font-family: Epilogue, sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 27px;
-  
-}
-
-footer .footer-links a:hover {
-color: #FF3600;
-  
-}#links_hover:hover{
-    color: white !important;
-}
-footer #links_hover{
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: bold;
-}
-
-footer .newsletter input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background: #222;
-    color: white;
-    margin-right: 10px;
-}
-
-footer .btn-suscribir {
-    background-color: #ff4500;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-footer .btn-suscribir:hover {
-    background-color: #ff6700;
-}
-.logo-footer{
-    font-size: 50px;
-    /* Aumenté el tamaño del texto */
-    font-weight: bold;
-    color: #ff4500;
-    /* Naranja para el logo */
-    display: flex;
-    align-items: center;
-    margin-right: 50px;
-    /* Separación entre el logo y el menú */
-    font-family: 'Montserrat', serif;
-    margin-left: 200px;
-    margin-bottom: 200px;
-    
-    
-}
-hr {
-    border: none; /* Elimina el borde predeterminado */
-    height: 3px; /* Grosor de la línea */
-    background-color: #1c1c1c; /* Color de la línea */
-    margin: 20px 0; /* Espaciado arriba y abajo */
-    margin-left: 200px;
-    margin-right: 200px;
-
-}
-.copy{
-    margin-right:55%;
-    color: grey;
-}
-.newsletter{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 80px;
-    margin-right: 200px ;
-}
-input{
-    border-radius: 110px;
-}
-.flecha{
-    height: 45px;
-    width: 45px;
-}
-/* Estilo para el botón "Mostrar más coches" */
 #mostrar-mas-coches {
-    display: none; /* Inicialmente oculto */
-    background-color: #ff4500; /* Color de fondo, igual que otros botones */
+    display: block;
+    background-color: #ff4500; /* Color principal */
     color: white; /* Texto blanco */
-    padding: 16px 25px; /* Espaciado interno */
+    padding: 14px 30px; /* Espaciado interno */
     border: none; /* Sin borde */
-    border-radius: 100px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de la fuente */
-    font-weight: 700; /* Fuente en negrita */
-    font-family: 'DM Sans', sans-serif; /* Mantener la misma tipografía */
-    cursor: pointer; /* Cambiar el cursor cuando el mouse pasa sobre el botón */
-    text-align: center; /* Centrar el texto */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
-    width: auto;
-    margin: 10px 0; /* Espaciado superior e inferior */
-    display: block; /* Asegurarse de que el botón sea un bloque */
-    margin-left: auto; /* Centrar el botón a la izquierda */
-    margin-right: auto; /* Centrar el botón a la derecha */
+    border-radius: 50px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño del texto */
+    font-weight: 700; /* Negrita */
+    font-family: 'DM Sans', sans-serif; /* Tipografía coherente */
+    cursor: pointer; /* Cursor de mano */
+    text-align: center; /* Texto centrado */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    margin: 20px auto; /* Centrado automático */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+}
+
+#mostrar-mas-coches:hover {
+    background-color: #e63e00; /* Color más oscuro al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+#mostrar-mas-coches:active {
+    transform: translateY(0); /* El botón vuelve al sitio al hacer clic */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra más leve */
 }
 
 
-/* Estilo para cuando el mouse pasa sobre el botón */
-#mostrar-mas-coches:hover {
-    background-color: #e63e00; /* Color de fondo en hover (más oscuro) */
-    transform: scale(1.05); /* Aumento de tamaño al pasar el ratón */
+@media (max-width: 1224px) {
+    .vehiculos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .banner-text h1 {
+        font-size: 36px;
+    }
+
+    .vehiculos {
+        grid-template-columns: 1fr;
+    }
 }

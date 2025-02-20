@@ -1,6 +1,8 @@
 package tfg.luxelane.restcontroller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,15 +32,8 @@ public class CochesRestController {
 
     // Endpoint para obtener coches con paginación
     @GetMapping("/")
-    public Page<Coches> obtenerCoches(
-        @RequestParam(defaultValue = "1") int page,  // Número de página (default: 1)
-        @RequestParam(defaultValue = "10") int limit  // Número de coches por página (default: 10)
-    ) {
-        // Crear el objeto PageRequest para la paginación
-        PageRequest pageRequest = PageRequest.of(page - 1, limit);  // page - 1 porque la paginación en Spring comienza desde 0
-
-        // Devolver la lista paginada de coches
-        return cochesRepository.findAll(pageRequest);
+    public List<Coches> obtenerCoches(){
+    		return cocheService.buscarPorDisponibilidad(Disponibilidad.disponible);
     }
 
     @GetMapping("/filtrar")
@@ -96,4 +91,10 @@ public class CochesRestController {
     public List<String> obtenerTiposTransmision() {
         return cochesRepository.findDistinctTransmisiones();
     }
+
+    @GetMapping("/buscador")
+    public List<Coches> buscar(@RequestParam String palabra) {
+        return cochesRepository.buscarPorMarcaModelo(palabra);
+    }
 }
+

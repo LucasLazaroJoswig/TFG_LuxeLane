@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login / Registro - Estilo Moderno</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Login / Registro</title>
+   <!-- Carga de Tailwind CSS con carga deferida -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
   <link rel="icon" type="image/x-icon" href="./fotos/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="assets/style.css" rel="stylesheet"/>
-  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  <!-- Iconos CSS-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" as="style" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+  <link href="assets/style.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/login.css" />
+
+  <!-- Carga de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 </head>
 <body class="min-h-screen bg-[#111] flex items-center justify-center">
 
@@ -51,8 +52,11 @@
       <!-- <div class="text-right">
         <a href="#" id="forgotPasswordLink" class="text-sm text-[#ff3600] hover:underline">¿Olvidaste tu contraseña?</a>
       </div> -->
-      <button type="submit" id="butlogin" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
+      <button type="button" id="butlogin" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
         Iniciar Sesión
+      </button>
+      <button type="button" id="butHome" class="w-full py-2 bg-gray-500 rounded-full text-white font-bold hover:bg-gray-600 transition">
+        Home
       </button>
     </form>
 
@@ -78,7 +82,7 @@
         <label for="reg-telefono" class="block text-gray-300 mb-1">Teléfono</label>
         <input type="text" id="reg-telefono" placeholder="Número de teléfono" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff3600]" />
       </div>        
-      <button type="submit" id="butsave" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
+      <button type="button" id="butsave" class="w-full py-2 bg-[#ff3600] rounded-full text-white font-bold hover:bg-[#e10000] transition">
         Registrarse
       </button>
     </form>
@@ -132,10 +136,8 @@
   </script>
 
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <!-- Toastr JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="./assets/js/loginregister.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+  <script src="./assets/js/loginregister.js" defer></script>
 </body>
 </html>

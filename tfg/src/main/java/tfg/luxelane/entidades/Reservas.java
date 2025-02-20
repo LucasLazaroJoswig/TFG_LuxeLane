@@ -11,6 +11,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,12 +44,16 @@ public class Reservas implements Serializable {
     @JoinColumn(name = "chofer_id")
     private Usuario chofer;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_inicio", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "d 'de' MMMM 'de' yyyy", locale = "es_ES")
     private Date fechaInicio;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_fin", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MMMM-dd")
+    @JsonFormat(pattern = "d 'de' MMMM 'de' yyyy", locale = "es_ES")
     private Date fechaFin;
 
     @Enumerated(EnumType.STRING)
@@ -138,6 +146,19 @@ public class Reservas implements Serializable {
 		return "Reservas [id=" + id + ", usuario=" + usuario + ", coche=" + coche + ", moto=" + moto + ", chofer="
 				+ chofer + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado
 				+ ", precioTotal=" + precioTotal + "]";
+	}
+
+	public Reservas(Long id, Usuario usuario, Coches coche, Motos moto, Date fechaInicio, Date fechaFin,
+			EstadoReserva estado, double precioTotal) {
+		super();
+		this.id = id;
+		this.usuario = usuario;
+		this.coche = coche;
+		this.moto = moto;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.estado = estado;
+		this.precioTotal = precioTotal;
 	}
     
     
