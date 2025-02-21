@@ -37,20 +37,21 @@
 
   <!-- CRUD de Coches -->
   <section class="crud-coches">
-    <div class="container">
-      <h1>Gestión de Coches</h1>
-
-      <div class="input-group">
-        <form id="searchForm" class="form-container">
-            <input type="text" id="searchInput" class="form-input" name="palabra" placeholder="Buscar...">
+    <div class="container mt-5">
+      <div class="gestion-coches-card">
+        <h1 class="gestion-coches-title">🚗 Gestión de Coches</h1>
+    
+        <!-- Barra de búsqueda -->
+        <div class="input-group search-bar">
+          <form id="searchForm" class="form-container">
+            <input type="text" id="searchInput" class="form-input" name="palabra" placeholder="🔍 Buscar coche..." />
             <button class="submit-btn" type="submit">Buscar</button>
-        </form>
-    </div>
+          </form>
+        </div>
     
-    
-    
-
-      <button id="btnAdd" class="button">Añadir Nuevo Coche</button>
+        <!-- Botón de añadir coche -->
+        <div class="text-center mt-3">
+          <button id="btnAdd" class="btn-add">➕ Añadir Nuevo Coche</button>
 
       <!-- Tabla de Coches -->
       <table id="cochesTable" class="table-coches">
@@ -59,7 +60,6 @@
             <th>Marca</th>
             <th>Modelo</th>
             <th>Año</th>
-            <th>Disponibilidad</th>
             <th>Precio Hora</th>
             <th>Precio Día</th>
             <th>Disponibilidad</th>

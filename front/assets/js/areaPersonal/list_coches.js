@@ -8,15 +8,15 @@ $(document).ready(function() {
         let cochesTable = $('#cochesTable tbody');
         cochesTable.empty();
         data.forEach(coche => {
+          var disponibilidad = coche.disponibilidad.toLowerCase();
           cochesTable.append(`
             <tr>
               <td>${coche.marca}</td>
               <td>${coche.modelo}</td>
               <td>${coche.año}</td>
-              <td>${coche.disponibilidad ? 'Disponible' : 'No disponible'}</td>
               <td>${coche.precioPorHora} €</td>
               <td>${coche.precioPorDia} €</td>
-              <td>${coche.disponibilidad} </td>
+              <td>${disponibilidad} </td>
               <td>
                 <button class="btn btn-info btn-sm verDetalleBtn" data-id="${coche.id}">Ver detalle</button>
                 <button class="btn btn-info btn-sm modificarBtn" data-id="${coche.id}">Modificar</button>                          
@@ -50,14 +50,16 @@ $('#searchForm').on('submit', function(e) {
             let cochesTable = $('#cochesTable tbody');
             cochesTable.empty();
             data.forEach(coche => {
-                cochesTable.append(`
+              var disponibilidad = coche.disponibilidad.toLowerCase();
+              cochesTable.append(`
                 <tr>
                     <td>${coche.marca}</td>
                     <td>${coche.modelo}</td>
                     <td>${coche.año}</td>
-                    <td>${coche.disponibilidad ? 'Disponible' : 'No disponible'}</td>
                     <td>${coche.precioPorHora} €</td>
                     <td>${coche.precioPorDia} €</td>
+                    <td>${disponibilidad}</td>
+
                     <td>
                       <button class="btn btn-info btn-sm verDetalleBtn" data-id="${coche.id}">Ver detalle</button>
                       <button class="btn btn-info btn-sm modificarBtn" data-id="${coche.id}">Modificar</button>                          
@@ -176,7 +178,8 @@ function redirigirConDatos(cocheId) {
       method: 'GET',
       success: function(coche) {
         // Crear los parámetros de la URL
-        const url = `form.html?imagen=${encodeURIComponent(coche.imagen)}&marca=${encodeURIComponent(coche.marca)}&modelo=${encodeURIComponent(coche.modelo)}&año=${coche.año}&cilindrada=${coche.cilindrada}&potenciaHp=${coche.potenciaHp}&capacidadCombustible=${coche.capacidadCombustible}&transmision=${encodeURIComponent(coche.transmision)}&numeroPuertas=${coche.numeroPuertas}&numeroAsientos=${coche.numeroAsientos}&color=${encodeURIComponent(coche.color)}&airbags=${coche.airbags}&abs=${coche.abs}&controlTraccion=${coche.controlTraccion}&asistenteFrenado=${coche.asistenteFrenado}&kilometraje=${coche.kilometraje}&matricula=${coche.matricula}&tipoVehiculo=${encodeURIComponent(coche.tipoVehiculo)}&precioPorDia=${coche.precioPorDia}&precioPorHora=${coche.precioPorHora}&disponibilidad=${coche.disponibilidad ? 'disponible' : 'noDisponible'}&id=${encodeURIComponent(coche.id)}`;
+        var disponibilidad = coche.disponibilidad.toLowerCase();
+        const url = `form.html?imagen=${encodeURIComponent(coche.imagen)}&etiquetaMedioambiental=${encodeURIComponent(coche.etiquetaMedioambiental)}&marca=${encodeURIComponent(coche.marca)}&aireAcondicionado=${encodeURIComponent(coche.aireAcondicionado)}&tipoMotor=${encodeURIComponent(coche.tipoMotor)}&modelo=${encodeURIComponent(coche.modelo)}&año=${coche.año}&cilindrada=${coche.cilindrada}&potenciaHp=${coche.potenciaHp}&capacidadCombustible=${coche.capacidadCombustible}&transmision=${encodeURIComponent(coche.transmision)}&numeroPuertas=${coche.numeroPuertas}&numeroAsientos=${coche.numeroAsientos}&color=${encodeURIComponent(coche.color)}&airbags=${coche.airbags}&abs=${coche.abs}&bluetooth=${coche.bluetooth}&gps=${coche.gps}&sensoresEstacionamiento=${coche.sensoresEstacionamiento}&camaraReversa=${coche.camaraReversa}&controlTraccion=${coche.controlTraccion}&asistenteFrenado=${coche.asistenteFrenado}&kilometraje=${coche.kilometraje}&matricula=${coche.matricula}&tipoVehiculo=${encodeURIComponent(coche.tipoVehiculo)}&precioPorDia=${coche.precioPorDia}&precioPorHora=${coche.precioPorHora}&disponibilidad=${disponibilidad}&id=${encodeURIComponent(coche.id)}`;
         
         // Redirigir a form.html con los parámetros
         window.location.href = url;

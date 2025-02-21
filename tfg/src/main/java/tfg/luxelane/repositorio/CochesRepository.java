@@ -8,6 +8,7 @@ import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.enums.Disponibilidad;
 
 import java.util.List;
+import java.util.Optional;
  
 public interface CochesRepository extends JpaRepository<Coches, Long> {
 
@@ -27,7 +28,7 @@ public interface CochesRepository extends JpaRepository<Coches, Long> {
 	
 
     List<Coches> findByDisponibilidad(Disponibilidad disponibilidad);
-
+   
     
     @Query("SELECT c.modelo FROM Coches c WHERE c.marca = :marca")
     List<String> findModelosByMarca(String marca);
@@ -50,6 +51,10 @@ public interface CochesRepository extends JpaRepository<Coches, Long> {
     @Query("SELECT c FROM Coches c WHERE " +
     	       "LOWER(CONCAT(c.marca, ' ', c.modelo)) LIKE LOWER(CONCAT('%', :palabra, '%'))")
     	List<Coches> buscarPorMarcaModelo(String palabra);
+
+
+
+	Optional<Coches> findByMatricula(String matricula);
 
 }
 

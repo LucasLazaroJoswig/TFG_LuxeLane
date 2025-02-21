@@ -9,6 +9,7 @@ import tfg.luxelane.entidades.enums.Disponibilidad;
 import tfg.luxelane.repositorio.CochesRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CochesDaoImpl implements CochesDao {
@@ -21,16 +22,19 @@ public class CochesDaoImpl implements CochesDao {
         return cochesRepository.findById(id).orElse(null);
     }
 
-    
-
     @Override
-    public void guardar(Coches coche) {
-        cochesRepository.save(coche);
+    public Coches buscarPorMatricula(String matricula) {
+        return ((Optional<Coches>) cochesRepository.findByMatricula(matricula)).orElse(null);
     }
 
     @Override
-    public void actualizar(Coches coche) {
-        cochesRepository.save(coche); // Para actualizar simplemente guardamos, ya que JPA maneja eso internamente
+    public boolean guardar(Coches coche) {
+        return (cochesRepository.save(coche)!=null) ? true : false;
+    }
+
+    @Override
+    public boolean actualizar(Coches coche) {
+        return (cochesRepository.save(coche)!=null) ? true : false;
     }
 
     @Override

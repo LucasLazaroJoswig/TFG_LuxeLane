@@ -12,15 +12,16 @@ public interface CochesDao {
 	List<Coches> buscarTodos();
 	
     Coches buscarPorId(Long id);
-
+    
+    Coches buscarPorMatricula(String matricula);
 
     List<Coches> buscarPorDisponibilidad(Disponibilidad disponible);
 
     List<String> findModelosByMarca(String marca);
 
-    void guardar(Coches coche);
+    boolean guardar(Coches coche);
 
-    void actualizar(Coches coche);
+    boolean actualizar(Coches coche);
 
     void eliminar(Long id);
 }
