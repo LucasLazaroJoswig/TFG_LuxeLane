@@ -95,6 +95,13 @@
   </footer>
   <script src="./assets/js/areaPersonal/area_personal.js"></script>
   <script src="assets/js/header_footer.js"></script>
+  <script>
+    var rol = localStorage.getItem('userRol');
+    
+    if (rol=="ADMIN") {
+        window.location.href = "areaPersonalAdmin.html";
+    }
+  </script>
 </body>
 
 </html>

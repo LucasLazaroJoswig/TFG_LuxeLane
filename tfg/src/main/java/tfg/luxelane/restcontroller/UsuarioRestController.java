@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import tfg.luxelane.dao.UsuarioDao;
+import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.Motos;
 import tfg.luxelane.entidades.Usuario;
 import tfg.luxelane.entidades.enums.Disponibilidad;
 import tfg.luxelane.entidades.enums.Rol;
+import tfg.luxelane.repositorio.UsuarioRepository;
 
 
 @RestController
@@ -27,6 +29,9 @@ public class UsuarioRestController {
 	
 	@Autowired
 	private UsuarioDao userService;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	
 	@PostMapping("/login")
@@ -92,4 +97,9 @@ public class UsuarioRestController {
 		        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad Credentials");
 		    }
 		}
+		
+	    @GetMapping("/usuarios/buscador")
+	    public List<Usuario> buscar(@RequestParam String palabra) {
+	        return usuarioRepository.buscarPorNombreCorreo(palabra);
+	    }
 }

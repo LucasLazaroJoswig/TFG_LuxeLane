@@ -11,8 +11,9 @@ $(document).ready(function() {
     var apellidos = localStorage.getItem('userApellidos');
     var correo = localStorage.getItem('userCorreo');
     var telefono = localStorage.getItem('userTelefono');
-    var carnet = localStorage.getItem('userCarnet');
-    console.log(carnet);
+    var rol = localStorage.getItem('userRol');
+    
+
     // Mostrar el nombre de usuario en el HTML
     if (nombre && apellidos) {
         $('h1').text('Bienvenido, ' + nombre + ' ' + apellidos);
@@ -37,9 +38,7 @@ $(document).ready(function() {
     if (telefono) {
         $('#telefono').val(telefono);
     }
-    if (carnet) {
-        $('#carnet').html(`<img src="${carnet}" alt="Carnet de conducir" class="w-[50px] h-[50px"]>`);
-    }
+
 
     // Evento cuando se hace clic en el botón "Guardar cambios"
     $('#butsave').on('click', function(e) {
@@ -117,53 +116,93 @@ $(document).ready(function() {
         // Redirigir a la página de login
         window.location.href = "login.html";
     });
-
-    //cargar reservas
-    var url = `http://localhost:8087/reservas/${id}`;
-    $.ajax({
-        url: url,
-        type: "GET",
-        success: function(response) {
-            if (response && response.length > 0) {
-                var html = '';
-                response.slice(0, 3).forEach(reserva => {
-                    console.log(reserva);
-                    if (reserva.coche!=null) {
-                        html += `
-                    <tr>
-                        <td>${reserva.coche.marca} ${reserva.coche.modelo}</td>
-                        <td>${reserva.fechaInicio}</td>
-                        <td>${reserva.fechaFin}</td>
-                        <td>${capitalizarPrimeraLetra(reserva.estado)}</td>
-                    </tr>
+    if (rol=="ADMIN") {
+        var url = `http://localhost:8087/activos`;
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function(response) {
+                if (response && response.length > 0) {
+                    var html = '';
+                    response.slice(0, 3).forEach(usuario => {
+                        console.log(usuario);
+                            html += `
+                        <tr>
+                            <td>${usuario.nombre} ${usuario.apellidos}</td>
+                            <td>${usuario.correo} </td>
+                            <td>${usuario.rol}</td>   
+                        </tr>
+                        `;
+                       
+                        
+                    });
+                    $('tbody').html(html);
+                } else {
+                    var html = `
+                    <h2>Usuarios Actuales</h2>
+                    <table>
+                        <tr>
+                            <td>No hay Usuarios.</td>
+                        </tr>
+                    </table>
                     `;
-                    } else {
-                        html += `
-                    <tr>
-                        <td>${reserva.moto.marca} ${reserva.moto.modelo}</td>
-                        <td>${reserva.fechaInicio}</td>
-                        <td>${reserva.fechaFin}</td>
-                        <td>${capitalizarPrimeraLetra(reserva.estado)}</td>
-                    </tr>
-                    `;
-                    }
-                    
-                });
-                $('tbody').html(html);
-            } else {
-                var html = `
-                <h2>Tus Reservas Actuales</h2>
-                <table>
-                    <tr>
-                        <td>No hay reservas.</td>
-                    </tr>
-                </table>
-                `;
-                    $('.reservas').html(html);
+                        $('.reservas').html(html);
+                }
+            },
+            error: function(xhr, status, error) {
+                toastr.error("Error en la solicitud: " + error);
             }
-        },
-        error: function(xhr, status, error) {
-            toastr.error("Error en la solicitud: " + error);
-        }
-    });
+        });
+    } else {
+        var url = `http://localhost:8087/reservas/${id}`;
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function(response) {
+                if (response && response.length > 0) {
+                    var html = '';
+                    response.slice(0, 3).forEach(reserva => {
+                        console.log(reserva);
+                        if (reserva.coche!=null) {
+                            html += `
+                        <tr>
+                            <td>${reserva.coche.marca} ${reserva.coche.modelo}</td>
+                            <td>${reserva.fechaInicio}</td>
+                            <td>${reserva.fechaFin}</td>
+                            <td>${capitalizarPrimeraLetra(reserva.estado)}</td>
+                        </tr>
+                        `;
+                        } else {
+                            html += `
+                        <tr>
+                            <td>${reserva.moto.marca} ${reserva.moto.modelo}</td>
+                            <td>${reserva.fechaInicio}</td>
+                            <td>${reserva.fechaFin}</td>
+                            <td>${capitalizarPrimeraLetra(reserva.estado)}</td>
+                        </tr>
+                        `;
+                        }
+                        
+                    });
+                    $('tbody').html(html);
+                } else {
+                    var html = `
+                    <h2>Tus Reservas Actuales</h2>
+                    <table>
+                        <tr>
+                            <td>No hay reservas.</td>
+                        </tr>
+                    </table>
+                    `;
+                        $('.reservas').html(html);
+                }
+            },
+            error: function(xhr, status, error) {
+                toastr.error("Error en la solicitud: " + error);
+            }
+        });
+    }
+    //cargar reservas
+    
+
 });

@@ -91,7 +91,7 @@ $(document).ready(function() {
                 localStorage.setItem('userCorreo', response.correo);  
                 localStorage.setItem('userTelefono', response.telefono);
                 localStorage.setItem('userCarnet', response.documentos);
-                
+                localStorage.setItem('userRol', response.rol);
                 const rol = response.rol.toLowerCase(); // Aquí agregamos la coma al final
 
                 if (rol === "chofer") {

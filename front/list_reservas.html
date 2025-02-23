@@ -9,28 +9,29 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="assets/css/area_personal.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body style="font-family: Epilogue;">
   <!-- Header Principal -->
-  <header class="header">
+  <header class="header2">
     <div class="logo">
+      <a href="index.html"></a>
       <img src="../front/fotos/logo.png" alt="LuxeLane Logo">
-      <p><span style="color: rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span></p>
+      <p>
+        <span style="color: rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
+      </p>
     </div>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="list_coches.html">Coches</a>
-      <a href="list_motos.html">Motos</a>
-      <a href="list_reservas.html">Reservas</a>
-      <a href="list_usuarios.html">Usuarios</a>
+      <a href="areaPersonal.html">Inicio</a>
+      <a href="list_reservas.html" id="verReservasBtn" class="button button-reservar">Ver todas tus reservas</a>
+
       <div class="button-container-nav">
-        <a href="login.html" class="button button-logout">Logout</a>
+        <!-- <a href="area-personal.html" class="button button-reservar">Área Personal</a> -->
+        <a class="button button-logout" id="butLogout">Logout</a>
       </div>
     </nav>
   </header>
-
   <!-- CRUD de Reservas -->
   <section class="crud-coches">
     <div class="container mt-5">

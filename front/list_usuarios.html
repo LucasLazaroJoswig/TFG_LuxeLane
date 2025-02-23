@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="assets/css/list.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -30,13 +34,23 @@
   </header>
 
   <!-- CRUD de Usuarios -->
-  <section class="crud-usuarios">
-    <div class="container">
-      <h1>Gestión de Usuarios</h1>
-      <button id="btnAdd" class="button">Añadir Nuevo Usuario</button>
+  <section class="crud-coches">
+    <div class="container mt-5">
+      <div class="gestion-coches-card">
+        <h1 class="gestion-coches-title" style="font-family: Epilogue;">Gestión de Usuarios</h1>
+        <!-- Barra de búsqueda -->
+        <div class="input-group search-bar">
+          <form id="searchForm" class="form-container">
+            <input type="text" id="searchInput" class="form-input" name="palabra" placeholder="🔍 Buscar usuario..." />
+            <button class="submit-btn" type="submit">Buscar</button>
+          </form>
+        </div>
+    
+        <!-- Botón de añadir coche -->
+
       
       <!-- Tabla de Usuarios -->
-      <table id="usuariosTable" class="table-coches">
+      <table id="cochesTable" class="table-coches">
         <thead>
           <tr>
             <th>Nombre</th>

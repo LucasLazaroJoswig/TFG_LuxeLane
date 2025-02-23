@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.data.jpa.repository.Query;
 
+import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.Usuario;
 
 import tfg.luxelane.entidades.Usuario;
@@ -20,6 +21,12 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findByRol(String rol);
 
     List<Usuario> findByEnabled(String enabled);
+    
+    @Query("SELECT u FROM Usuario u WHERE " +
+    	       "(LOWER(CONCAT(u.nombre, ' ', u.apellidos)) LIKE LOWER(CONCAT('%', :palabra, '%')) " +
+    	       "OR LOWER(u.correo) LIKE LOWER(CONCAT('%', :palabra, '%')))")
+
+ 	List<Usuario> buscarPorNombreCorreo(String palabra);
 
 
 }
