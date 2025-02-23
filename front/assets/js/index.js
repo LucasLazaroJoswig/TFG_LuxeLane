@@ -25,7 +25,7 @@ function mostrarCoches() {
                     let cochesHTML = grupo.map(coche => `
                         <div class="col-lg-3 col-md-4 col-6"> <!-- 4 en pantallas grandes, 3 en medianas, 2 en móviles -->
                             <div class="card text-white p-4 shadow-lg" style="height: 500px; width: 90%; margin: 0 auto; background-color: #191919; border-radius: 25px;"> <!-- Ancho ajustado al 80% y centrado -->
-                                <div class="w-100" style="height: 160px; position: relative;">
+                                <div class="w-100" style="height: 120px; position: relative;"> <!-- Tamaño reducido -->
                                     <!-- Imagen ajustada a un tamaño fijo -->
                                     <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="d-block w-100" style="height: 100%; object-fit: cover; border-radius: 25px;">
                                 </div>

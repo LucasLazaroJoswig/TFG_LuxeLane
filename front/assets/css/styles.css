@@ -227,6 +227,7 @@ h1 {
     color: rgb(255, 255, 255);
     font-weight: 700 !important;
     line-height: 89px;
+    text-align: center;
 }
 
 h4 {
@@ -249,7 +250,8 @@ h4 {
     /* Negrita */
     line-height: 19px;
     font-family: Epilogue, sans-serif;
-    margin-left: 660px;
+    text-align: center;
+    
 }
 
 /* Contenedor de los botones */
@@ -594,6 +596,7 @@ body {
   display: flex;
   gap: 20px; /* Espacio entre las imágenes */
   justify-content: center; /* Centra las imágenes */
+  border-radius: 20px;
 }
 
 /* Contenedor para cada imagen */
@@ -603,8 +606,8 @@ body {
 
 /* Estilo para las imágenes */
 .section3 .gallery-image {
-  width: 440.5px;
-  height: 600px;
+  width: 350.5px;
+  height: 500px;
   object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
   display: block; /* Elimina el espacio debajo de la imagen */
 }
@@ -623,7 +626,7 @@ body {
 .section3 .image-title-1 {
   position: absolute; /* Posiciona el título en relación al contenedor */
   top: 40px; /* Alinea el título a la parte superior */
-  right: 250px; /* Alinea el título a la parte derecha */
+  right: 158px; /* Alinea el título a la parte derecha */
   color: white; /* Color del texto */
   padding: 5px 10px; /* Espaciado interno */
   font-size: 30px; /* Tamaño del texto */
@@ -636,7 +639,7 @@ body {
   position: absolute; /* Posiciona el tí
   tulo en relación al contenedor */
   top: 40px; /* Alinea el título a la parte superior */
-  right: 210px; /* Alinea el título a la parte derecha */
+  right: 130px; /* Alinea el título a la parte derecha */
   color: white; /* Color del texto */
   padding: 5px 10px; /* Espaciado interno */
   font-size: 30px; /* Tamaño del texto */
@@ -648,7 +651,7 @@ body {
 .section3 .image-title-3 {
   position: absolute; /* Posiciona el título en relación al contenedor */
   top: 40px; /* Alinea el título a la parte superior */
-  right: 325px; /* Alinea el título a la parte derecha */
+  right: 215px; /* Alinea el título a la parte derecha */
   color: white; /* Color del texto */
   padding: 5px 10px; /* Espaciado interno */
   font-size: 30px; /* Tamaño del texto */
@@ -660,7 +663,7 @@ body {
 .section3 .image-title-4 {
   position: absolute; /* Posiciona el título en relación al contenedor */
   top: 40px; /* Alinea el título a la parte superior */
-  right: 280px; /* Alinea el título a la parte derecha */
+  right: 200px; /* Alinea el título a la parte derecha */
   color: white; /* Color del texto */
   padding: 5px 10px; /* Espaciado interno */
   font-size: 30px; /* Tamaño del texto */
@@ -705,7 +708,8 @@ body {
     transform: translateY(-50%); /* Mantén el centrado en el hover */
 }
 .section2 .flota{
-  margin-left: 730px;
+display: flex;
+justify-content: center;
 }
 @media (max-width:1440px) {
   h1 {
@@ -722,6 +726,7 @@ h4 {
 }
 .section2 .h2{
   margin-left: 100px;
+  text-align: center;
 }
 .section2 .flota{
   margin-left: 510px;

@@ -18,37 +18,37 @@ $(document).ready(function() {
                 // Recorrer los coches y mostrarlos
                 coches.forEach(function(coche) {
                     var cocheHTML = `
-                    <div class="max-w-sm bg-[#191919] text-white rounded-2xl p-5 shadow-lg space-y-4">
-                        <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="w-full rounded-xl" />
-                        <div class="text-xs bg-gray-800 px-2 py-1 rounded-full w-max">${coche.tipoVehiculo}</div>
-                        <h2 class="text-2xl font-bold text-left">${coche.marca} ${coche.modelo}</h2>
-                        <ul class="space-y-1">
-                            <li class="flex justify-between gap-2">
-                                <div class="flex gap-3">
-                                    <img src="./assets/iconos/puerta.svg">
+                    <div class="max-w-xs bg-[#191919] text-white rounded-lg p-2 shadow-md space-y-2 caja-coche">
+                        <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="w-3/4 rounded-md contenido-coche mx-auto" />
+                        <div class="text-[8px] bg-gray-800 px-1 py-0.5 rounded-full w-max contenido-coche mx-auto">${coche.tipoVehiculo}</div>
+                        <h2 class="text-sm font-bold text-center contenido-coche">${coche.marca} ${coche.modelo}</h2>
+                        <ul class="space-y-0.5 contenido-coche text-xs">
+                            <li class="flex justify-between gap-1">
+                                <div class="flex gap-1">
+                                    <img src="./assets/iconos/puerta.svg" class="w-3 h-3">
                                     ${coche.numeroPuertas}
                                 </div>
                             </li>
-                            <li class="flex justify-between gap-2">
-                                <div class="flex gap-3">
-                                    <img src="./assets/iconos/pasajeros.svg">
+                            <li class="flex justify-between gap-1">
+                                <div class="flex gap-1">
+                                    <img src="./assets/iconos/pasajeros.svg" class="w-3 h-3">
                                     ${coche.numeroAsientos} Pasajeros
                                 </div>
                             </li>
-                            <li class="flex justify-between gap-2">
-                                <div class="flex gap-3">
-                                    <img src="./assets/iconos/gasolina.svg">
+                            <li class="flex justify-between gap-1">
+                                <div class="flex gap-1">
+                                    <img src="./assets/iconos/gasolina.svg" class="w-3 h-3">
                                     ${coche.tipoMotor}
                                 </div>
-                                <img src="./assets/iconos/done.svg">
+                                <img src="./assets/iconos/done.svg" class="w-3 h-3">
                             </li>
                         </ul>
-                        <div class="flex items-center justify-between mt-4">
-                        <div>
-                            <span class="text-2xl font-bold">&euro;${coche.precioPorDia}</span>
-                            <span class="text-sm text-gray-400">/Por Día</span>
-                        </div>
-                            <img class="hover:scale-[1.1] transition transition-all ease-in-out" src="./fotos/flecha.svg">
+                        <div class="flex items-center justify-between mt-2 contenido-coche text-xs">
+                            <div>
+                                <span class="text-sm font-bold">&euro;${coche.precioPorDia}</span>
+                                <span class="text-xs text-gray-400">/Por Día</span>
+                            </div>
+                            <img class="hover:scale-[1.05] transition transition-all ease-in-out w-4 h-4" src="./fotos/flecha.svg">
                         </div>
                     </div>
                     `;
@@ -67,6 +67,16 @@ $(document).ready(function() {
             }
         });
     }
+
+    // Agregar estilos dinámicos
+    $("head").append(`
+        <style>
+            @media (max-width: 1440px) {
+                .caja-coche { max-width: 120px; padding: 5px; }
+                .contenido-coche { font-size: 10px; }
+            }
+        </style>
+    `);
 
     // Llamar a la función para cargar los coches inicialmente
     obtenerCoches();

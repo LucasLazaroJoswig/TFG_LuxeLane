@@ -175,7 +175,7 @@ nav a, .footer-links a {
     align-items: center;
     text-align: center;
     position: relative;
-    margin: auto;
+    margin-left: 40px;
 }
 
 .banner::before {
@@ -275,15 +275,54 @@ nav a, .footer-links a {
     transform: translateY(0); /* El botón vuelve al sitio al hacer clic */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra más leve */
 }
-
-
-@media (max-width: 1224px) {
+@media (max-width:1440px) {
+    .banner{
+        width: 82%;   
+    }
     .vehiculos {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Reduce a 2 columnas */
+        gap: 25px; /* Reduce el espacio entre los coches */
+    }
+    
+    .catalogo {
+        width: 75%; /* Ajusta el ancho */
+        margin: 50px auto; /* Reduce el margen */
+        margin-left: 110px;
+    }
+
+    .banner {
+        width: 80%; /* Ajusta el tamaño del banner */
+    }
+
+    .vehiculo {
+        padding: 10px; /* Reduce el padding de cada coche */
+        margin-bottom: 20px; /* Ajusta el margen inferior */
+    }
+
+    .vehiculo img {
+        width: 100%; /* Asegura que las imágenes no sean demasiado grandes */
+        height: auto; /* Mantiene las proporciones */
+    }
+
+    .vehiculo h3 {
+        font-size: 1.2rem; /* Reduce el tamaño del título */
+    }
+
+    .button {
+        font-size: 14px; /* Reduce el tamaño del botón */
+        padding: 14px 20px; /* Ajusta el padding */
+    }
+
+    #mostrar-mas-coches {
+        font-size: 16px; /* Ajusta el tamaño del texto en el botón */
+        padding: 12px 25px; /* Ajusta el padding */
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 780px) {
+    .banner{
+        width: 70%;   
+    }
     .navbar {
         width: 80%;
         display: flex;
@@ -299,4 +338,18 @@ nav a, .footer-links a {
     .vehiculos {
         grid-template-columns: 1fr;
     }
+    .vehiculos {
+        grid-template-columns: repeat(1, 1fr); /* Reduce a 2 columnas */
+        gap: 25px; /* Reduce el espacio entre los coches */
+    }
+    .vehiculo img {
+        width: 90%;
+        height: auto;
+        border-radius: 8px; /* Ajustar los bordes */
+    }
+
+    .banner {
+        width: 80%; /* Ajusta el tamaño del banner */
+    }
+
 }
