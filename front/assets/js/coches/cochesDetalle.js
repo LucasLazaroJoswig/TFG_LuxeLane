@@ -11,9 +11,55 @@ $(document).ready(function() {
             success: function(coche) {
                 // Mostrar los detalles del coche en la página
                 $('body').html(`
-                
-                <header class="header">
-                </header>
+                <!-- Barra de navegación -->
+                <!-- Header Principal -->
+                <header class="bg-black shadow-md p-4 w-full header">
+                <div class="flex items-center justify-between w-[90%]">
+                    <!-- Logo y nombre -->
+                    <div class="flex items-center space-x-2">
+                        <img src="./fotos/logo.png" alt="Logo" class="h-[50px]">
+                        <h1 class="text-4xl font-bold font-[Montserrat] text-[#FF3600]">Luxe<span class="text-white">Lane</span></h1>
+                    </div>
+        
+                    <!-- Menú -->
+                    <nav class="hidden md:flex space-x-1 font-[Epilogue]">
+                        <a href="#" class="text-white hover:text-[#FF3600]">Inicio</a>
+                        <a href="#" class="text-white hover:text-[#FF3600]">Coches</a>
+                        <a href="#" class="text-white hover:text-[#FF3600]">Motos</a>
+                        <a href="#" class="text-white hover:text-[#FF3600]">Chófers</a>
+                        <a href="#" class="text-white hover:text-[#FF3600]">Contáctanos</a>
+                        <a href="#" class="bg-[#FF3600] text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">Área personal</a>
+                    </nav>
+        
+                    <!-- Menú móvil (hamburguesa) -->
+                    <div class="md:hidden">
+                        <button id="menuButton" class="text-[#FF3600] focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    
+                </div>
+
+                <div id="overlay" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 hidden"></div>
+
+            <div id="mobileMenu" class="fixed top-0 left-0 w-[100%] h-[100vh] bg-black transform -translate-x-full flex flex-col items-center justify-between space-y-8  z-10 text-white text-2xl font-[Epilogue] transition-transform duration-300 ease-in-out">
+              <button id="cerrarMenuBtn" class="absolute top-5 right-5 text-white text-[50px]">
+                  &times;
+              </button> 
+              <img src="./fotos/logo.png" alt="Logo" class="w-[15%]">
+              <h1 class="text-4xl font-bold font-[Montserrat] text-[#FF3600]">Luxe<span class="text-white">Lane</span></h1>
+              <a href="#" class="hover:text-[#FF3600]">Inicio</a>
+              <a href="#" class="hover:text-[#FF3600]">Coches</a>
+              <a href="#" class="hover:text-[#FF3600]">Motos</a>
+              <a href="#" class="hover:text-[#FF3600]">Chófers</a>
+              <a href="#" class="hover:text-[#FF3600]">Contáctanos</a>
+              <a href="#" class="bg-[#FF3600] text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">Área personal</a>
+            </div>
+            </header>
+            
             
             
             
@@ -29,7 +75,7 @@ $(document).ready(function() {
             
                     <!-- Tarjeta de Vehículo -->
                     <section class="filtro">
-                        <div class="ml-[100px] mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-[375px] max-w-md z-10 sticky z-99 top-[20px]">
+                        <div class="ml-[100px] mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-[375px] max-w-md z-8 sticky z-99 top-[20px]">
                           <div class="text-left mb-6">
                             <h1 class="text-[50px] font-bold" style="font-family: DM sans;">€${coche.precioPorDia} <span class="text-[16px] font-normal">/dia</span></h1>
                             <hr class="bg-[#2c2c2c] my-2 h-[2px]">
@@ -326,9 +372,42 @@ $(document).ready(function() {
                    <p class="copy">&copy;2024 LuxeLane. Derechos Resevados</p>
                     
                 </footer>
+
+                <script>
+                // Obtener los elementos del botón, menú y capa de fondo
+                const menuButton = document.getElementById("menuButton");
+                const mobileMenu = document.getElementById("mobileMenu");
+                const overlay = document.getElementById("overlay");
+                const cerrarMenuBtn = document.getElementById("cerrarMenuBtn");
+                const contenidoSinHeader = document.querySelectorAll('body > *:not(header)');
+
+            
+                // Función para abrir y cerrar el menú
+                menuButton.addEventListener("click", () => {
+                    // Toggle de la clase que mueve el menú
+                    mobileMenu.classList.toggle("-translate-x-full");
+                    // Toggle de la clase que muestra u oculta la capa de fondo
+                    overlay.classList.toggle("hidden");
+                    contenidoSinHeader.classList.toggle("hidden");
+                });
+            
+                // Cerrar el menú si se hace clic en la capa de fondo
+                overlay.addEventListener("click", () => {
+                    mobileMenu.classList.add("-translate-x-full");
+                    overlay.classList.add("hidden");
+                    contenidoSinHeader.classList.toggle("hidden");
+                });
+                cerrarMenuBtn.addEventListener("click", () => {
+                  mobileMenu.classList.add("-translate-x-full");
+                  overlay.classList.add("hidden");
+                  contenidoSinHeader.classList.toggle("hidden");
+              });
+            </script>
                 
-                
-                
+
+
+
+
                 `);
                 const reservarBtn = document.getElementById('reservarBtn');
         if (reservarBtn) {

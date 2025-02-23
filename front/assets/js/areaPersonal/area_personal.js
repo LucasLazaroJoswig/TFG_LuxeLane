@@ -127,7 +127,9 @@ $(document).ready(function() {
             if (response && response.length > 0) {
                 var html = '';
                 response.slice(0, 3).forEach(reserva => {
-                    html += `
+                    console.log(reserva);
+                    if (reserva.coche!=null) {
+                        html += `
                     <tr>
                         <td>${reserva.coche.marca} ${reserva.coche.modelo}</td>
                         <td>${reserva.fechaInicio}</td>
@@ -135,6 +137,17 @@ $(document).ready(function() {
                         <td>${capitalizarPrimeraLetra(reserva.estado)}</td>
                     </tr>
                     `;
+                    } else {
+                        html += `
+                    <tr>
+                        <td>${reserva.moto.marca} ${reserva.moto.modelo}</td>
+                        <td>${reserva.fechaInicio}</td>
+                        <td>${reserva.fechaFin}</td>
+                        <td>${capitalizarPrimeraLetra(reserva.estado)}</td>
+                    </tr>
+                    `;
+                    }
+                    
                 });
                 $('tbody').html(html);
             } else {

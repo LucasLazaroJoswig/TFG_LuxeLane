@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -17,6 +18,7 @@ import tfg.luxelane.dao.ReservasDao;
 import tfg.luxelane.entidades.Reservas;
 import tfg.luxelane.entidades.Usuario;
 import tfg.luxelane.entidades.enums.Disponibilidad;
+import tfg.luxelane.entidades.enums.EstadoReserva;
 import tfg.luxelane.repositorio.ReservasRepository;
 
 @RestController
@@ -64,4 +66,15 @@ public class AreaPersonalRestController {
 		return reservasService.buscarPorId(id);
 	}
 	
+	@PutMapping("/cancelarReserva")
+	public ResponseEntity<?> cancelarReserva(@RequestParam Long id){
+		Reservas reserva = reservasService.buscarPorId(id);
+		if (reserva==null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No existe esta reserva");
+		} else {
+			reserva.setEstado(EstadoReserva.CANCELADA);
+			reservasService.actualizar(reserva);
+			return ResponseEntity.status(HttpStatus.OK).body("Reserva Cancelada");
+		}
+	}
 }

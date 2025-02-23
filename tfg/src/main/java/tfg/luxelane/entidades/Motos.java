@@ -82,10 +82,9 @@ public class Motos implements Serializable {
 
     @Column(unique = true, nullable = false, length = 20)
     private String matricula;
-
-    @Enumerated(EnumType.STRING)
+    
     @Column(nullable = false)
-    private TipoVehiculo tipoVehiculo;
+    private String tipoVehiculo;
     
     @Column(nullable = false)
     private String imagen;
@@ -266,11 +265,11 @@ public class Motos implements Serializable {
 		this.matricula = matricula;
 	}
 
-	public TipoVehiculo getTipoVehiculo() {
+	public String getTipoVehiculo() {
 		return tipoVehiculo;
 	}
 
-	public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+	public void setTipoVehiculo(String tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 	}
 

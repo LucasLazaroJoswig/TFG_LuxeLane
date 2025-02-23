@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Motos - LuxeLane</title>
   <link rel="stylesheet" href="assets/css/list.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
-
-<body>
+<body style="font-family: Epilogue;">
   <!-- Header Principal -->
   <header class="header">
     <div class="logo">
@@ -30,33 +31,65 @@
   </header>
 
   <!-- CRUD de Motos -->
-  <section class="crud-motos">
-    <div class="container">
-      <h1>Gestión de Motos</h1>
-      <button id="btnAdd" class="button">Añadir Nueva Moto</button>
-      
-      <!-- Tabla de Motos -->
-      <table id="motosTable" class="table-coches">
-        <thead>
-          <tr>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Año</th>
-            <th>Disponibilidad</th>
-            <th>Precio Hora</th>
-            <th>Precio Día</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Aquí se mostrarán las motos desde la base de datos -->
-        </tbody>
-      </table>
+  <section class="crud-coches">
+    <div class="container mt-5">
+      <div class="gestion-coches-card">
+        <h1 class="gestion-coches-title" style="font-family: Epilogue;">Gestión de Motos</h1>
+    
+        <!-- Barra de búsqueda -->
+        <div class="input-group search-bar">
+          <form id="searchForm" class="form-container">
+            <input type="text" id="searchInput" class="form-input" name="palabra" placeholder="🔍 Buscar moto..." />
+            <button class="submit-btn" type="submit">Buscar</button>
+          </form>
+        </div>
+    
+        <!-- Botón de añadir moto -->
+        <div class="text-center mt-3">
+          <button id="btnAdd" class="btn-add">+ Añadir Nueva Moto</button>
+        </div>
+        
+        <!-- Tabla de Motos -->
+        <table id="cochesTable" class="table-coches">
+          <thead>
+            <tr>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Año</th>
+              <th>Precio Hora</th>
+              <th>Precio Día</th>
+              <th>Disponibilidad</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí se mostrarán las motos desde la base de datos -->
+          </tbody>
+        </table>
+
+        <!-- Modal de detalle de la moto -->
+        <div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="detalleModalLabel">Detalle de la Moto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="detalleModalBody">
+                <!-- Aquí se cargarán los detalles de la moto -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Agregar Bootstrap JS (con Popper.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
   <!-- Script para manejar las motos -->
   <script src="assets/js/areaPersonal/list_motos.js"></script>
 </body>
-
 </html>

@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.Motos;
 import tfg.luxelane.entidades.enums.Disponibilidad;
 import tfg.luxelane.repositorio.MotosRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MotosDaoImpl implements MotosDao {
@@ -25,6 +27,11 @@ public class MotosDaoImpl implements MotosDao {
 		// TODO Auto-generated method stub
 		return motosRepository.findAll();
 	}
+    
+    @Override
+    public Motos buscarPorMatricula(String matricula) {
+        return ((Optional<Motos>) motosRepository.findByMatricula(matricula)).orElse(null);
+    }
 
     @Override
     public List<Motos> buscarPorMarca(String marca) {
@@ -38,13 +45,14 @@ public class MotosDaoImpl implements MotosDao {
 
 
     @Override
-    public void guardar(Motos moto) {
-        motosRepository.save(moto);
+    public boolean guardar(Motos moto) {
+        return (motosRepository.save(moto)!=null) ? true : false;
     }
 
     @Override
-    public void actualizar(Motos moto) {
-        motosRepository.save(moto);
+    public boolean actualizar(Motos moto) {
+        return (motosRepository.save(moto)!=null) ? true : false;
+
     }
 
     @Override

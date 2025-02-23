@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Vehículo</title>
-  <!-- CDN de Bootstrap sin el atributo integrity -->
+  <title>Formulario de Moto</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <style>
     .section-title {
       font-size: 1.25rem;
@@ -28,9 +29,11 @@
       background-color: #007bff;
       color: white;
       font-weight: bold;
+      transition: all 0.3s ease-in-out;
     }
     .btn-custom:hover {
       background-color: #0056b3;
+      color: white;
     }
     .section {
       padding: 20px;
@@ -42,11 +45,11 @@
 </head>
 <body>
   <div class="container mt-5">
-    <h2 class="text-center mb-4">Formulario de Vehículo</h2>
-    <form id="formularioVehiculo">
-	<div class="card">
+    <h2 class="text-center mb-4">Formulario de Moto</h2>
+    <form id="formularioMoto">
+      <div class="card">
         <div class="card-header text-center">
-          <strong>Datos del Vehículo</strong>
+          <strong>Datos de la Moto</strong>
         </div>
         <div class="card-body">
           <input type="hidden" name="id" id="id">
@@ -75,8 +78,21 @@
               <input type="number" class="form-control" id="potenciaHp" name="potenciaHp" required>
             </div>
             <div class="mb-3">
+              <label for="tipoMotor" class="form-label">Tipo de Motor (gasolina, etc.)</label>
+              <input type="text" class="form-control" id="tipoMotor" name="tipoMotor" required>
+            </div>
+            <div class="mb-3">
               <label for="capacidadCombustible" class="form-label">Capacidad del Combustible (L)</label>
               <input type="number" class="form-control" id="capacidadCombustible" name="capacidadCombustible" required>
+            </div>
+            <div class="mb-3">
+              <label for="etiquetaMedioambiental" class="form-label">Etiqueta Medioambiental</label>
+              <select class="form-select" id="etiquetaMedioambiental" name="etiquetaMedioambiental" required>
+                <option value="C">C</option>
+                <option value="B">B</option>
+                <option value="CERO">CERO</option>
+                <option value="ECO">ECO</option>
+              </select>
             </div>
           </div>
 
@@ -88,26 +104,26 @@
               <input type="text" class="form-control" id="transmision" name="transmision" required>
             </div>
             <div class="mb-3">
-              <label for="numeroPuertas" class="form-label">Número de Puertas</label>
-              <input type="number" class="form-control" id="numeroPuertas" name="numeroPuertas" required>
+              <label for="tipoFrenoDelantero" class="form-label">Tipo de Freno Delantero</label>
+              <input type="text" class="form-control" id="tipoFrenoDelantero" name="tipoFrenoDelantero" required>
             </div>
             <div class="mb-3">
-              <label for="numeroAsientos" class="form-label">Número de Asientos</label>
-              <input type="number" class="form-control" id="numeroAsientos" name="numeroAsientos" required>
+              <label for="tipoFrenoTrasero" class="form-label">Tipo de Freno Trasero</label>
+              <input type="text" class="form-control" id="tipoFrenoTrasero" name="tipoFrenoTrasero" required>
             </div>
             <div class="mb-3">
-              <label for="color" class="form-label">Color</label>
-              <input type="text" class="form-control" id="color" name="color" required>
+              <label for="tipoSuspension" class="form-label">Tipo de Suspensión</label>
+              <input type="text" class="form-control" id="tipoSuspension" name="tipoSuspension" required>
+            </div>
+            <div class="mb-3">
+              <label for="capacidadCargaKg" class="form-label">Capacidad de Carga (kg)</label>
+              <input type="number" class="form-control" id="capacidadCargaKg" name="capacidadCargaKg" required>
             </div>
           </div>
 
           <!-- Seguridad -->
           <div class="section">
             <h5 class="section-title">Seguridad</h5>
-            <div class="mb-3">
-              <label for="airbags" class="form-label">Airbags</label>
-              <input type="number" class="form-control" id="airbags" name="airbags" required>
-            </div>
             <div class="mb-3">
               <label for="abs" class="form-label">ABS</label>
               <select class="form-select" id="abs" name="abs" required>
@@ -123,8 +139,8 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="asistenteFrenado" class="form-label">Asistente de Frenado</label>
-              <select class="form-select" id="asistenteFrenado" name="asistenteFrenado" required>
+              <label for="encendidoElectronico" class="form-label">Encendido Electrónico</label>
+              <select class="form-select" id="encendidoElectronico" name="encendidoElectronico" required>
                 <option value="true">Sí</option>
                 <option value="false">No</option>
               </select>
@@ -134,6 +150,10 @@
           <!-- Información adicional -->
           <div class="section">
             <h5 class="section-title">Información Adicional</h5>
+            <div class="mb-3">
+              <label for="color" class="form-label">Color</label>
+              <input type="text" class="form-control" id="color" name="color" required>
+            </div>
             <div class="mb-3">
               <label for="kilometraje" class="form-label">Kilometraje</label>
               <input type="number" class="form-control" id="kilometraje" name="kilometraje" required>
@@ -162,49 +182,48 @@
               <label for="disponibilidad" class="form-label">Disponibilidad</label>
               <select class="form-select" id="disponibilidad" name="disponibilidad" required>
                 <option value="disponible">Disponible</option>
-                <option value="NO_DISPONIBLE">NO_DISPONIBLE</option>
+                <option value="no_disponible">No Disponible</option>
               </select>
             </div>
           </div>
 
           <button type="submit" class="btn btn-custom">Guardar</button>
-          <a href="/" class="btn btn-secondary">Cancelar</a>
+          <a href="list_motos.html" class="btn btn-secondary">Cancelar</a>
         </div>
       </div>
     </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  <script src="assets/js/areaPersonal/form.js"></script>
+  <script src="assets/js/areaPersonal/formMotos.js"></script>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-
     document.getElementById('marca').value = urlParams.get('marca') || '';
     document.getElementById('modelo').value = urlParams.get('modelo') || '';
     document.getElementById('ano').value = urlParams.get('año') || '';
     document.getElementById('cilindrada').value = urlParams.get('cilindrada') || '';
     document.getElementById('potenciaHp').value = urlParams.get('potenciaHp') || '';
+    document.getElementById('tipoMotor').value = urlParams.get('tipoMotor') || '';
     document.getElementById('capacidadCombustible').value = urlParams.get('capacidadCombustible') || '';
+    document.getElementById('etiquetaMedioambiental').value = urlParams.get('etiquetaMedioambiental') || 'C';
     document.getElementById('transmision').value = urlParams.get('transmision') || '';
-    document.getElementById('numeroPuertas').value = urlParams.get('numeroPuertas') || '';
-    document.getElementById('numeroAsientos').value = urlParams.get('numeroAsientos') || '';
-    document.getElementById('color').value = urlParams.get('color') || '';
-    document.getElementById('airbags').value = urlParams.get('airbags') || '';
+    document.getElementById('tipoFrenoDelantero').value = urlParams.get('tipoFrenoDelantero') || '';
+    document.getElementById('tipoFrenoTrasero').value = urlParams.get('tipoFrenoTrasero') || '';
+    document.getElementById('tipoSuspension').value = urlParams.get('tipoSuspension') || '';
+    document.getElementById('capacidadCargaKg').value = urlParams.get('capacidadCargaKg') || '';
     document.getElementById('abs').value = urlParams.get('abs') || '';
     document.getElementById('controlTraccion').value = urlParams.get('controlTraccion') || '';
-    document.getElementById('asistenteFrenado').value = urlParams.get('asistenteFrenado') || '';
+    document.getElementById('encendidoElectronico').value = urlParams.get('encendidoElectronico') || '';
+    document.getElementById('color').value = urlParams.get('color') || '';
     document.getElementById('kilometraje').value = urlParams.get('kilometraje') || '';
     document.getElementById('matricula').value = urlParams.get('matricula') || '';
     document.getElementById('tipoVehiculo').value = urlParams.get('tipoVehiculo') || '';
     document.getElementById('imagen').value = urlParams.get('imagen') || '';
     document.getElementById('precioPorDia').value = urlParams.get('precioPorDia') || '';
     document.getElementById('precioPorHora').value = urlParams.get('precioPorHora') || '';
-    document.getElementById('disponibilidad').value = urlParams.get('disponibilidad') || 'disponible';
-    document.getElementById('id').value = urlParams.get('id') || '2'; // Default ID
+    document.getElementById('disponibilidad').value = urlParams.get('disponibilidad') || '';
+    document.getElementById('id').value = urlParams.get('id') || '0';
   </script>
-  
-    
 </body>
 </html>

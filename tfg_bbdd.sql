@@ -9,12 +9,12 @@ CREATE TABLE Usuarios (
     apellidos varchar(255) not null,
     correo VARCHAR(255) UNIQUE NOT NULL,
     contrasena VARCHAR(255) NOT NULL, -- Contraseña encriptada
-    telefono VARCHAR(20), 
+    telefono VARCHAR(20) not null, 
     direccion TEXT,
     rol varchar(255) NOT NULL,
     foto_perfil TEXT,
     documentos TEXT,
-    enabled VARCHAR(255),
+    enabled VARCHAR(255) not null,
 
     -- Campos específicos para choferes
     tipo_carnet VARCHAR(50)

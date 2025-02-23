@@ -1,14 +1,7 @@
 package tfg.luxelane.entidades.enums;
 
 public enum TipoVehiculo {
-    // Tipos de Motos
-    DEPORTIVO,
-    CRUISER,
-    NAKED,
-    TOURING,
-    TRAIL,
-    STREET,
-    CUSTOM,
+
 
     // Tipos de Coches
     SUV,

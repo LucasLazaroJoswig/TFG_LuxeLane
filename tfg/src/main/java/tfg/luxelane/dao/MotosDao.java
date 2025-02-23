@@ -1,5 +1,6 @@
 package tfg.luxelane.dao;
 
+import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.Motos;
 import tfg.luxelane.entidades.enums.Disponibilidad;
 
@@ -15,10 +16,11 @@ public interface MotosDao {
 
     List<Motos> buscarPorDisponibilidad(Disponibilidad disponibilidad);
 
+    Motos buscarPorMatricula(String matricula);
 
-    void guardar(Motos moto);
+    boolean guardar(Motos moto);
 
-    void actualizar(Motos moto);
+    boolean actualizar(Motos moto);
 
     void eliminar(Long id);
 }

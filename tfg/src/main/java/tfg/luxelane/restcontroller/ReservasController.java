@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -119,4 +120,21 @@ public class ReservasController {
             return ResponseEntity.status(500).body("Error al guardar el archivo.");
         }
     }
+    
+	@PutMapping("/cancelar")
+	public ResponseEntity<?> cancelarReserva(@RequestParam Long id){
+		Reservas reserva = reservaService.buscarPorId(id);
+		if (reserva==null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No existe esta reserva");
+		} else {
+			reserva.setEstado(EstadoReserva.CANCELADA);
+			reservaService.actualizar(reserva);
+			if (reserva.getCoche()!=null) {
+				reserva.getCoche().setDisponibilidad(Disponibilidad.disponible);
+			} else {
+				reserva.getMoto().setDisponibilidad(Disponibilidad.disponible);
+			}
+			return ResponseEntity.status(HttpStatus.OK).body("Reserva Cancelada");
+		}
+	}
 }

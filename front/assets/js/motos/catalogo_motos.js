@@ -149,24 +149,24 @@ $(document).ready(function() {
             <div class="w-full">
               <div class="text-xs bg-gray-800 px-2 py-1 rounded-full w-max">${moto.tipoVehiculo}</div>
               <h2 class="text-2xl font-bold text-left">${moto.marca} ${moto.modelo}</h2>
+              <hr class="my-2 w-full border-gray-600">
               <ul class="space-y-1">
                 <li class="flex justify-between gap-2">
                   <div class="flex gap-3">
-                    <img src="./assets/iconos/puerta.svg">
+                    
                     Potencia (caballos)
                   </div>
                   ${moto.potenciaHp}
                 </li>
                 <li class="flex justify-between gap-2">
                   <div class="flex gap-3">
-                    <img src="./assets/iconos/puerta.svg">
+
                     Cilindrada (CC)
                   </div>
                   ${moto.cilindrada}
                 </li>
                 <li class="flex justify-between gap-2">
                   <div class="flex gap-3">
-                    <img src="./assets/iconos/gasolina.svg">
                     ${moto.tipoMotor}
                   </div>
                   <img src="./assets/iconos/done.svg">

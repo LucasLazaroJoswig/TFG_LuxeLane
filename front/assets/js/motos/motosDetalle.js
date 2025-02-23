@@ -1,15 +1,15 @@
 $(document).ready(function() {
-    // Obtener el ID del coche de la URL
+    // Obtener el ID del moto de la URL
     var urlParams = new URLSearchParams(window.location.search);
-    var cocheId = urlParams.get('id');
+    var motoId = urlParams.get('id');
 
-    // Función para obtener los detalles del coche
-    function obtenerDetallesCoche(id) {
+    // Función para obtener los detalles del moto
+    function obtenerDetallesmoto(id) {
         $.ajax({
-            url: `http://localhost:8087/coches/verDetalle/${id}`, // Ruta al endpoint del backend
+            url: `http://localhost:8087/motos/verDetalle/${id}`, // Ruta al endpoint del backend
             type: "GET",
-            success: function(coche) {
-                // Mostrar los detalles del coche en la página
+            success: function(moto) {
+                // Mostrar los detalles del moto en la página
                 $('body').html(`
                 <!-- Barra de navegación -->
                 <!-- Header Principal -->
@@ -23,7 +23,7 @@ $(document).ready(function() {
             
                 <nav class="nav-links">
                     <a href="./index.html">Inicio</a>
-                    <a href="#">Coches</a>
+                    <a href="#">motos</a>
                     <a href="#">Motos</a>
                     <a href="#">Chófers</a>
                     <a href="#">Sobre Nosotros</a>
@@ -43,7 +43,7 @@ $(document).ready(function() {
             <div class="mobile-menu" id="mobileMenu">
                 <button class="close-btn" onclick="toggleMenu()">×</button>
                 <a href="./index.html">Inicio</a>
-                <a href="#">Coches</a>
+                <a href="#">motos</a>
                 <a href="#">Motos</a>
                 <a href="#">Chófers</a>
                 <a href="#">Sobre Nosotros</a>
@@ -51,15 +51,12 @@ $(document).ready(function() {
                 <a href="/front/login.html" class="button button-reservar">Área Personal</a>
             </div>
             
-            <!-- Fondo oscuro al abrir el menú -->
-            <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
             
-            
-            
-                <!-- Banner con fondo de coches -->
+                <!-- Banner con fondo de motos -->
                 <section class="banner">
                     <div class="banner-text">
-                        <h1 font-['Epilogue']>${coche.marca} ${coche.modelo}</h1>
+                        <h1 font-['Epilogue']>${moto.marca} ${moto.modelo}</h1>
                     </div>
                 </section>
             
@@ -70,71 +67,66 @@ $(document).ready(function() {
                     <section class="filtro">
                         <div class="ml-[100px] mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-[375px] max-w-md z-10 sticky z-99 top-[20px]">
                           <div class="text-left mb-6">
-                            <h1 class="text-[50px] font-bold" style="font-family: DM sans;">€${coche.precioPorDia} <span class="text-[16px] font-normal">/dia</span></h1>
+                            <h1 class="text-[50px] font-bold" style="font-family: DM sans;">€${moto.precioPorDia} <span class="text-[16px] font-normal">/dia</span></h1>
                             <hr class="bg-[#2c2c2c] my-2 h-[2px]">
                           </div>
                           <div>
+                          
                                     <ul class="space-y-[24.7px]">
                                         <li class="flex justify-between gap-2">
                                             <div class="flex gap-3">
-                                                <img src="./assets/iconos/puerta.svg">
+
                                                 Puertas
                                             </div>
-                                            ${coche.numeroPuertas}
+                                            ${moto.potenciaHp}
                                         </li>
                                         <li class="flex justify-between gap-2">
                                             <div class="flex gap-3">
-                                                <img src="./assets/iconos/pasajeros.svg">
+
                                                 Pasajeros
                                             </div>
-                                            ${coche.numeroAsientos}
+                                            ${moto.cilindrada}
                                         </li>
                                         <li class="flex justify-between gap-2">
                                             <div class="flex gap-3">
-                                                <img src="./assets/iconos/transmision.svg">
+
                                                 Transmisión
                                             </div>
-                                            ${coche.transmision}
+                                            ${moto.transmision}
                                         </li>
                                         <li class="flex justify-between gap-2">
                                             <div class="flex gap-3">
-                                                <img src="./assets/iconos/gasolina.svg">
-                                                ${coche.tipoMotor}
+
+                                                ${moto.tipoMotor}
                                             </div>
                                             <img src="./assets/iconos/done.svg">
                                         </li>
-                                        <li class="flex justify-between gap-2">
-                                            <div class="flex gap-3">
-                                                <img src="./assets/iconos/aire.svg">
-                                                Aire Acondicionado
-                                            </div>
-                                            <img src="./assets/iconos/done.svg">
-                                        </li>
+
                                         <hr class="bg-[#2c2c2c] my-2 h-[2px]">
                                     </ul>
-                                    <div class="flex items-center justify-start mt-[20px] hover:scale-[1.01] transition transition-all ease-in-out" id="reservarBtn" data-id="${coche.id}">
+                                    <div class="flex items-center justify-start mt-[20px] hover:scale-[1.01] transition transition-all ease-in-out" id="reservarBtn" data-id="${moto.id}">
                                         <button class="bg-[#FF3600] rounded-full text-white p-3 text-[16px] font-bold " style="font-family: DM sans;">Reservar</button>
-                                        <img class=" flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}">
+                                        <img class=" flecha-btn" src="./fotos/flecha.svg" data-id="${moto.id}">
                                     </div>
                                     </div>
                           </div>
                         </div>
                       </section>
                       <section class="catalogo pl-7 rounded flex justify-start flex-col">
-                        <img class="h-[480px] w-[800px] rounded-xl" src="fotos/fotos_coche_verDetalle/${coche.imagen}" alt="">
+                        <img class="h-[480px] w-[800px] rounded-xl" src="fotos/img_motos/${moto.imagen}" alt="">
                         <div class="w-[800px] border rounded-xl border-1 border-[#ffffff15] my-5 flex flex-wrap justify-between">
                             <div class="flex flex-wrap justify-start space-x-3 w-[50%] p-4">
                                 <img src="assets/iconos/kilometros.svg" alt="">
                                 <div>
                                     <h3 class="text-[20px] font-semibold text-left" style="font-family: Epilogue;">Kilometraje Ilimitado</h3>
-                                    <p class="text-[16px] font-normal text-left" style="font-family: DM Sans;">Disfruta de tu coche al máximo</p>
+                                    <p class="text-[16px] font-normal text-left" style="font-family: DM Sans;">Disfruta de tu moto al máximo</p>
                                 </div>
                             </div>
                             <div class="flex flex-wrap justify-start space-x-3 w-[50%] p-4">
                                 <img src="assets/iconos/candado.svg" alt="">
                                 <div>
                                     <h3 class="text-[20px] font-semibold text-left" style="font-family: Epilogue;">Seguridad Máxima</h3>
-                                    <p class="text-[16px] font-normal text-left" style="font-family: DM Sans;">Coches súper seguros</p>
+                                    <p class="text-[16px] font-normal text-left" style="font-family: DM Sans;">motos súper seguros</p>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +139,7 @@ $(document).ready(function() {
                             <div class="text-left w-full my-2">
                               <div class="text-white text-[44px] font-bold font-['Epilogue']">Conoce a cerca de nuestros servicios</div>
                             </div>
-                            <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left">Conduce el ${coche.marca} ${coche.modelo} y experimenta un viaje de lujo, confort y seguridad. Nuestro servicio está diseñado para que disfrutes al máximo, con beneficios exclusivos <br> que garantizan tu tranquilidad.</div>
+                            <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left">Conduce el ${moto.marca} ${moto.modelo} y experimenta un viaje de lujo, confort y seguridad. Nuestro servicio está diseñado para que disfrutes al máximo, con beneficios exclusivos <br> que garantizan tu tranquilidad.</div>
                             <div class="h-[105.77px] left-0 top-[190.55px] absolute flex-col justify-start items-start gap-[19px] inline-flex">
                               <div class="self-stretch pb-[0.59px] justify-start items-end gap-2.5 inline-flex">
                                 <img src="./assets/iconos/tick naranja.svg" alt="Check Icono" width="24" height="24" />
@@ -172,7 +164,7 @@ $(document).ready(function() {
                             <div class="text-left w-full my-2">
                               <div class="text-white text-[44px] font-bold font-['Epilogue']">Servicios y características premium</div>
                             </div>
-                            <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left my-3">Este ${coche.marca} ${coche.modelo} está equipado con las últimas innovaciones y comodidades, pensado para cubrir todas tus necesidades durante el viaje:</div>
+                            <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left my-3">Este ${moto.marca} ${moto.modelo} está equipado con las últimas innovaciones y comodidades, pensado para cubrir todas tus necesidades durante el viaje:</div>
                             <div class="w-[836.66px] h-[126.39px] relative my-3">
                                 <div class="w-[200px] left-0 top-[-0.10px] absolute justify-start items-center gap-2.5 inline-flex ">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
@@ -351,7 +343,7 @@ $(document).ready(function() {
                           <a href="#" id="links_hover">Links</a>
                           <a href="#">Inicio</a>
                           <a href="#">Sobre Nosotros</a>
-                          <a href="#">Coches</a>
+                          <a href="#">motos</a>
                           <a href="#">Motos</a>
                           <a href="#">Contáctanos</a>
                       </div>
@@ -372,23 +364,23 @@ $(document).ready(function() {
                 const reservarBtn = document.getElementById('reservarBtn');
         if (reservarBtn) {
             reservarBtn.addEventListener('click', function() {
-                const cocheId = this.getAttribute('data-id');
-                console.log(cocheId);
-                const tipoVehiculo = 'coche';
-                window.location.href = `formReservas.html?id=${cocheId}&tipoVehiculo=${tipoVehiculo}`;
+                const motoId = this.getAttribute('data-id');
+                console.log(motoId);
+                const tipoVehiculo = 'moto';
+                window.location.href = `formReservas.html?id=${motoId}&tipoVehiculo=${tipoVehiculo}`;
             });
         } else {
             console.error('No se encontró el botón de reservar');
         }
             },
             error: function(xhr, status, error) {
-                toastr.error("Error al obtener los detalles del coche: " + error);
+                toastr.error("Error al obtener los detalles del moto: " + error);
             }
         });
     }
 
-    // Llamar a la función para obtener los detalles del coche
-    obtenerDetallesCoche(cocheId);
+    // Llamar a la función para obtener los detalles del moto
+    obtenerDetallesmoto(motoId);
 
 
     

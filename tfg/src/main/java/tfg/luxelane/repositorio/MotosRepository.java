@@ -4,10 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import tfg.luxelane.entidades.Coches;
 import tfg.luxelane.entidades.Motos;
 import tfg.luxelane.entidades.enums.Disponibilidad;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MotosRepository extends JpaRepository<Motos, Long> {
 
@@ -47,4 +49,6 @@ public interface MotosRepository extends JpaRepository<Motos, Long> {
     @Query("SELECT m FROM Motos m WHERE " +
            "LOWER(CONCAT(m.marca, ' ', m.modelo)) LIKE LOWER(CONCAT('%', :palabra, '%'))")
     List<Motos> buscarPorMarcaModelo(@Param("palabra") String palabra);
+    
+	Optional<Motos> findByMatricula(String matricula);
 }
