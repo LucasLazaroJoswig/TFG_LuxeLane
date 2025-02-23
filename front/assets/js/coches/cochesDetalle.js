@@ -11,48 +11,9 @@ $(document).ready(function() {
             success: function(coche) {
                 // Mostrar los detalles del coche en la página
                 $('body').html(`
-                <!-- Barra de navegación -->
-                <!-- Header Principal -->
+                
                 <header class="header">
-                <div class="logo">
-                    <img src="./fotos/logo.png" alt="Logo">
-                    <p>
-                        <span style="color: rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
-                    </p>
-                </div>
-            
-                <nav class="nav-links">
-                    <a href="./index.html">Inicio</a>
-                    <a href="#">Coches</a>
-                    <a href="#">Motos</a>
-                    <a href="#">Chófers</a>
-                    <a href="#">Sobre Nosotros</a>
-                    <a href="#">Contáctanos</a>
-                    <div class="button-container-nav">
-                        <a href="/front/login.html" class="button button-reservar">Área Personal</a>
-                    </div>
-                </nav>
-            
-                <!-- Icono menú hamburguesa -->
-                <div class="menu-toggle" onclick="toggleMenu()">
-                    ☰
-                </div>
-            </header>
-            
-            <!-- Menú lateral para móviles -->
-            <div class="mobile-menu" id="mobileMenu">
-                <button class="close-btn" onclick="toggleMenu()">×</button>
-                <a href="./index.html">Inicio</a>
-                <a href="#">Coches</a>
-                <a href="#">Motos</a>
-                <a href="#">Chófers</a>
-                <a href="#">Sobre Nosotros</a>
-                <a href="#">Contáctanos</a>
-                <a href="/front/login.html" class="button button-reservar">Área Personal</a>
-            </div>
-            
-            <!-- Fondo oscuro al abrir el menú -->
-            <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+                </header>
             
             
             
