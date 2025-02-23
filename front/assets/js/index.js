@@ -4,7 +4,7 @@ const cochesPorSlide = 4; // Cantidad de coches visibles por cada slide del carr
 // Función para obtener y mostrar coches en el carrusel
 function mostrarCoches() {
     $.ajax({
-        url: 'http://localhost:8087/coches/todos', // Endpoint para obtener coches
+        url: 'http://localhost:8087/coches/', // Endpoint para obtener coches
         type: "GET",
         success: function(response) {
             console.log('Respuesta completa del servidor:', response);

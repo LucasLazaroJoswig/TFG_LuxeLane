@@ -221,7 +221,7 @@ h4,
 }
 
 h1 {
-    font-size: 64px !important;
+    font-size: 64px;
     /* Aumenté el tamaño del h1 */
     font-family: Epilogue, sans-serif;
     color: rgb(255, 255, 255);
@@ -403,7 +403,7 @@ body {
 }
 
 .socio .container {
-  width: 1820px;
+  width: 100%;
   height: 871.69px;
   padding: 0 310px;
   display: flex;

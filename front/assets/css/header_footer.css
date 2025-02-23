@@ -1,0 +1,58 @@
+.header {
+    background: #000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    grid-area: he;
+}
+
+.logo, .logo-footer {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff4500;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    font-family: 'Montserrat', serif;
+}
+
+.logo img {
+    width: 100px;
+    height: 70px;
+    margin-right: 5px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a, .footer-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ff3600;
+}
+
+.button {
+    padding: 16px 25px;
+    background: #ff4500;
+    border: none;
+    border-radius: 100px;
+    color: white;
+    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}

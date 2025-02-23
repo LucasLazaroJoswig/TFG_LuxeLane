@@ -31,6 +31,11 @@ public class AreaPersonalRestController {
 	@Autowired
 	private ReservasRepository reservasRepository;
 	
+	@GetMapping("/todasReservas")
+	public List<Reservas> getTodasReservas(){
+		return reservasRepository.findAll();
+	}
+	
 	@GetMapping("/reservas/{id}")
 	public List<Reservas> getReservasPorUsuario(@PathVariable Long id) {
 		return reservasRepository.findByNotCancelada(id);
