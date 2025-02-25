@@ -14,7 +14,6 @@ CREATE TABLE Usuarios (
     rol varchar(255) NOT NULL,
     foto_perfil TEXT,
     documentos TEXT,
-    enabled VARCHAR(255) not null,
 
     -- Campos específicos para choferes
     tipo_carnet VARCHAR(50)

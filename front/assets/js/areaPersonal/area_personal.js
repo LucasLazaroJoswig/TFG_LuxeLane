@@ -101,10 +101,10 @@ $(document).ready(function() {
             }
         });
     });
-    $('#butLogout').on('click', function(e) {
-        e.preventDefault();
+    $('.button-logout').on('click', function(e) {
+        e.preventDefault(); // Evita la navegación predeterminada
         
-        // Eliminar todos los valores en localStorage que indican que el usuario está autenticado
+        // Eliminar datos de sesión
         localStorage.removeItem('userLoggedIn');
         localStorage.removeItem('userId');
         localStorage.removeItem('userName');
@@ -112,9 +112,10 @@ $(document).ready(function() {
         localStorage.removeItem('userCorreo');
         localStorage.removeItem('userTelefono');
         localStorage.removeItem('userCarnet');
-        
-        // Redirigir a la página de login
+    
+        // Redirigir al login
         window.location.href = "login.html";
+    
     });
     if (rol=="ADMIN") {
         var url = `http://localhost:8087/activos`;
