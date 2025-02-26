@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>${usuario.apellidos}</td>
                     <td>${usuario.correo}</td>
                     <td>${usuario.telefono}</td>
-                    <td>${usuario.rol} €</td>
-                    <td>${usuario.estado}</td>
+                    <td>${usuario.rol}</td>
+                    <td>${usuario.enabled}</td>
 
                     <td>
                       <button class="btn btn-info btn-sm verDetalleBtn" data-id="${usuario.id}">Ver detalle</button>
