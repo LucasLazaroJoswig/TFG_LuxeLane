@@ -24,7 +24,7 @@ function mostrarCoches() {
                     let isActive = index === 0 ? 'active' : ''; // Solo el primer grupo debe estar activo
                     let cochesHTML = grupo.map(coche => `
                         <div class="col-lg-3 col-md-4 col-6"> <!-- 4 en pantallas grandes, 3 en medianas, 2 en móviles -->
-                            <div class="card text-white p-4 shadow-lg" style="height: 500px; width: 90%; margin: 0 auto; background-color: #191919; border-radius: 25px;"> <!-- Ancho ajustado al 80% y centrado -->
+                            <div class="card text-white p-4 shadow-lg" style="height: 400px; width: 270px; margin: 0 auto; background-color: #191919; border-radius: 25px;"> <!-- Ancho ajustado al 80% y centrado -->
                                 <div class="w-100" style="height: 120px; position: relative;"> <!-- Tamaño reducido -->
                                     <!-- Imagen ajustada a un tamaño fijo -->
                                     <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="d-block w-100" style="height: 100%; object-fit: cover; border-radius: 25px;">
@@ -52,7 +52,8 @@ function mostrarCoches() {
                                             <span class="fs-4 fw-bold">&euro;${coche.precioPorDia}</span>
                                             <span class="text small">/Por Día</span>
                                         </div>
-                                        <img class="flecha-btn w-5 h-5" src="./fotos/flecha.svg" data-id="${coche.id}" style="position: absolute; bottom: 10px; right: 10px;">
+                                        <img class="flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}" 
+                                        style="width: 40px; height: 40px; cursor: pointer; display: block; margin-left:auto;">
                                     </div>
                                 </div>
                             </div>

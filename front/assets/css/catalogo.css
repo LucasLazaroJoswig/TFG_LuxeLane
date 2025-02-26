@@ -275,6 +275,33 @@ nav a, .footer-links a {
     transform: translateY(0); /* El botón vuelve al sitio al hacer clic */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra más leve */
 }
+#mostrar-mas-motos {
+    display: block;
+    background-color: #ff4500; /* Color principal */
+    color: white; /* Texto blanco */
+    padding: 14px 30px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 50px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño del texto */
+    font-weight: 700; /* Negrita */
+    font-family: 'DM Sans', sans-serif; /* Tipografía coherente */
+    cursor: pointer; /* Cursor de mano */
+    text-align: center; /* Texto centrado */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    margin: 20px auto; /* Centrado automático */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+}
+
+#mostrar-mas-motos:hover {
+    background-color: #e63e00; /* Color más oscuro al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+#mostrar-mas-motos:active {
+    transform: translateY(0); /* El botón vuelve al sitio al hacer clic */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra más leve */
+}
 @media (max-width:1440px) {
     .banner{
         width: 82%;   
@@ -314,6 +341,10 @@ nav a, .footer-links a {
     }
 
     #mostrar-mas-coches {
+        font-size: 16px; /* Ajusta el tamaño del texto en el botón */
+        padding: 12px 25px; /* Ajusta el padding */
+    }
+    #mostrar-mas-motos {
         font-size: 16px; /* Ajusta el tamaño del texto en el botón */
         padding: 12px 25px; /* Ajusta el padding */
     }

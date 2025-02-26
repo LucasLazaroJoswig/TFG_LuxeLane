@@ -235,6 +235,7 @@ h4 {
   font-weight: 600;
   margin-bottom: 20px;
   display: inline-block;
+  width: 100%;
 }
 
 .section1 h1 {
@@ -243,10 +244,8 @@ h4 {
 }
 
 .seccion1_container {
-  max-width: 770px;
   background-color: black;
   border-radius: 65px;
-  margin-left: 50px;
   padding: 20px 20px;
   max-height: 700px;
   overflow: hidden;
@@ -438,9 +437,10 @@ h4 {
 
 .section2 h2 {
   font-size: 20px;
-  margin-left: 890px;
   font-family: Epilogue, sans-serif;
   color: #FF3600;
+  display: flex;
+  justify-content: center;
 }
 
 .section2 iframe {
@@ -468,11 +468,6 @@ h4 {
   margin-right: 100px;
   padding: 40px;
   /* Mueve el contenedor de la sección a la izquierda */
-}
-
-.seccion1 form {
-  margin-right: 120px;
-  margin-top: 10px;
 }
 .btn-submit {
   padding: 10px 20px; /* Ajusta el tamaño del botón */
@@ -562,9 +557,7 @@ h4 {
     margin-left: 40px;
   }
 
-  .section2 h2 {
-    margin-left: 600px;
-  }
+
 
   .section2 h1 {
     font-size: 40px !important;
@@ -616,8 +609,8 @@ h4 {
   }
 
   .section2 h2 {
-    font-size: 15px;
-    margin-left: 280px;
+  display: flex;
+  justify-content: center;
   }
 
   .section2 h1 {
