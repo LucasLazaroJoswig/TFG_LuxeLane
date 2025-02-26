@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // Suponemos que el ID del usuario se obtiene de la sesión o se define de forma fija para pruebas
-  var userId = 1;
-  
+  var userId = localStorage.getItem('userId');
+  console.log(userId);  
   // Función para cargar las reservas según el filtro de estado seleccionado
   function loadReservas(filter) {
     let url = '';
@@ -29,6 +29,7 @@ $(document).ready(function() {
       url: url,
       method: 'GET',
       success: function(data) {
+        console.log(data);
         if (data.length === 0) {
           $('#cochesTable tbody').html('<tr><td colspan="6">No se encontraron reservas.</td></tr>');
           return;
@@ -37,11 +38,11 @@ $(document).ready(function() {
         reservasTable.empty();
         data.forEach(reserva => {
           // Determinar si la reserva es de coche o de moto según los valores de coche_id y moto_id
-          let vehiculo = reserva.coche_id != null ? reserva.coche.marca + " " + reserva.coche.modelo : reserva.moto.marca + ' ' + reserva.moto.modelo;
+          let vehiculo = reserva.coche != null ? reserva.coche : reserva.moto ;
           let cancelarBtn =reserva.estado!='CANCELADA' ? `<button class="btn btn-info btn-sm cancelarBtn" data-id="${reserva.id}">Cancelar</button>` : '';
           reservasTable.append(`
             <tr>
-              <td>${vehiculo}</td>
+              <td>${vehiculo.marca} ${vehiculo.modelo}</td>
               <td>${reserva.fechaInicio}</td>
               <td>${reserva.fechaFin}</td>
               <td>${reserva.estado}</td>
@@ -84,13 +85,13 @@ $(document).ready(function() {
       success: function(reserva) {
         console.log(reserva);
         const modalBody = $('#detalleModalBody');
-        let vehiculo = reserva.coche_id != null ? reserva.coche.marca + " " + reserva.coche.modelo : reserva.moto.marca + ' ' + reserva.moto.modelo;
+        let vehiculo = reserva.coche != null ? reserva.coche : reserva.moto ;
         modalBody.html(`
           <div class="container">
             <div class="row">
               <div class="col-md-6 text-start">
                 <p><strong>ID:</strong> ${reserva.id}</p>
-                <p><strong>Marca y Modelo:</strong> ${vehiculo}</p>
+                <p><strong>Marca y Modelo:</strong> ${vehiculo.marca} ${vehiculo.modelo}</p>
                 <p><strong>Fecha Inicio:</strong> ${reserva.fechaInicio}</p>
                 <p><strong>Fecha Fin:</strong> ${reserva.fechaFin}</p>
                 <p><strong>Estado:</strong> ${reserva.estado}</p>
@@ -108,7 +109,7 @@ $(document).ready(function() {
   }
   
   // Cargar las reservas con el filtro por defecto ("todas") al cargar la página
-  loadReservas('confirmadas');
+  loadReservas('todas');
   
   //al hacer click en boton de cancelar abrir modal de confirmacion
   // Al hacer clic en el botón de cancelar, se abre la modal de confirmación
