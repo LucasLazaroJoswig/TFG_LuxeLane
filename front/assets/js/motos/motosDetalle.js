@@ -13,30 +13,50 @@ $(document).ready(function() {
                 $('body').html(`
                 <!-- Barra de navegación -->
                 <!-- Header Principal -->
-                <header class="header">
-                <div class="logo">
-                    <img src="./fotos/logo.png" alt="Logo">
-                    <p>
-                        <span style="color: rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
-                    </p>
-                </div>
-            
-                <nav class="nav-links">
-                    <a href="./index.html">Inicio</a>
-                    <a href="#">motos</a>
-                    <a href="#">Motos</a>
-                    <a href="#">Chófers</a>
-                    <a href="#">Sobre Nosotros</a>
-                    <a href="#">Contáctanos</a>
-                    <div class="button-container-nav">
-                        <a href="/front/login.html" class="button button-reservar">Área Personal</a>
+                <header class="bg-black shadow-md p-4 w-full header">
+                <div class="flex items-center justify-between w-[90%]">
+                    <!-- Logo y nombre -->
+                    <a class="flex items-center space-x-2" href="index.html">
+                        <img src="./fotos/logo.png" alt="Logo" class="h-[50px]">
+                        <h1 class="text-4xl font-bold font-[Montserrat] text-[#FF3600]">Luxe<span class="text-white">Lane</span></h1>
+                    </a>
+        
+                    <!-- Menú -->
+                    <nav class="hidden md:flex space-x-1 font-[Epilogue]">
+                        <a href="index.html" class="text-white hover:text-[#FF3600]">Inicio</a>
+                        <a href="catalogo_coches.html" class="text-white hover:text-[#FF3600]">Coches</a>
+                        <a href="catalogo_motos.html" class="text-white hover:text-[#FF3600]">Motos</a>
+                        <a href="contactanos.html" class="text-white hover:text-[#FF3600]">Contáctanos</a>
+                        <a href="areaPersonal.html" class="bg-[#FF3600] text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">Área personal</a>
+                    </nav>
+        
+                    <!-- Menú móvil (hamburguesa) -->
+                    <div class="md:hidden">
+                        <button id="menuButton" class="text-[#FF3600] focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
                     </div>
-                </nav>
-            
-                <!-- Icono menú hamburguesa -->
-                <div class="menu-toggle" onclick="toggleMenu()">
-                    ☰
+
+                    
                 </div>
+
+                <div id="overlay" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 hidden"></div>
+
+            <div id="mobileMenu" class="fixed top-0 left-0 w-[100%] h-[100vh] bg-black transform -translate-x-full flex flex-col items-center justify-between space-y-8  z-10 text-white text-2xl font-[Epilogue] transition-transform duration-300 ease-in-out">
+              <button id="cerrarMenuBtn" class="absolute top-5 right-5 text-white text-[50px]">
+                  &times;
+              </button> 
+              <img src="./fotos/logo.png" alt="Logo" class="w-[15%]">
+              <h1 class="text-4xl font-bold font-[Montserrat] text-[#FF3600]">Luxe<span class="text-white">Lane</span></h1>
+              <a href="index.html" class="hover:text-[#FF3600]">Inicio</a>
+              <a href="catalogo_coches.html" class="hover:text-[#FF3600]">Coches</a>
+              <a href="catalogo_motos.html" class="hover:text-[#FF3600]">Motos</a>
+              <a href="#" class="hover:text-[#FF3600]">Chófers</a>
+              <a href="cotactanos.html" class="hover:text-[#FF3600]">Contáctanos</a>
+              <a href="areaPersonal.html" class="bg-[#FF3600] text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">Área personal</a>
+            </div>
             </header>
             
             <!-- Menú lateral para móviles -->

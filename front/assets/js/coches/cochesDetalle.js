@@ -13,22 +13,21 @@ $(document).ready(function() {
                 $('body').html(`
                 <!-- Barra de navegación -->
                 <!-- Header Principal -->
-                <header class="bg-black shadow-md p-4 w-full header">
+                 <header class="bg-black shadow-md p-4 w-full header">
                 <div class="flex items-center justify-between w-[90%]">
                     <!-- Logo y nombre -->
-                    <div class="flex items-center space-x-2">
+                    <a class="flex items-center space-x-2" href="index.html">
                         <img src="./fotos/logo.png" alt="Logo" class="h-[50px]">
                         <h1 class="text-4xl font-bold font-[Montserrat] text-[#FF3600]">Luxe<span class="text-white">Lane</span></h1>
-                    </div>
+                    </a>
         
                     <!-- Menú -->
                     <nav class="hidden md:flex space-x-1 font-[Epilogue]">
-                        <a href="#" class="text-white hover:text-[#FF3600]">Inicio</a>
-                        <a href="#" class="text-white hover:text-[#FF3600]">Coches</a>
-                        <a href="#" class="text-white hover:text-[#FF3600]">Motos</a>
-                        <a href="#" class="text-white hover:text-[#FF3600]">Chófers</a>
-                        <a href="#" class="text-white hover:text-[#FF3600]">Contáctanos</a>
-                        <a href="#" class="bg-[#FF3600] text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">Área personal</a>
+                        <a href="index.html" class="text-white hover:text-[#FF3600]">Inicio</a>
+                        <a href="catalogo_coches.html" class="text-white hover:text-[#FF3600]">Coches</a>
+                        <a href="catalogo_motos.html" class="text-white hover:text-[#FF3600]">Motos</a>
+                        <a href="contactanos.html" class="text-white hover:text-[#FF3600]">Contáctanos</a>
+                        <a href="areaPersonal.html" class="bg-[#FF3600] text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">Área personal</a>
                     </nav>
         
                     <!-- Menú móvil (hamburguesa) -->
@@ -51,17 +50,14 @@ $(document).ready(function() {
               </button> 
               <img src="./fotos/logo.png" alt="Logo" class="w-[15%]">
               <h1 class="text-4xl font-bold font-[Montserrat] text-[#FF3600]">Luxe<span class="text-white">Lane</span></h1>
-              <a href="#" class="hover:text-[#FF3600]">Inicio</a>
-              <a href="#" class="hover:text-[#FF3600]">Coches</a>
-              <a href="#" class="hover:text-[#FF3600]">Motos</a>
+              <a href="index.html" class="hover:text-[#FF3600]">Inicio</a>
+              <a href="catalogo_coches.html" class="hover:text-[#FF3600]">Coches</a>
+              <a href="catalogo_motos.html" class="hover:text-[#FF3600]">Motos</a>
               <a href="#" class="hover:text-[#FF3600]">Chófers</a>
-              <a href="#" class="hover:text-[#FF3600]">Contáctanos</a>
-              <a href="#" class="bg-[#FF3600] text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">Área personal</a>
+              <a href="cotactanos.html" class="hover:text-[#FF3600]">Contáctanos</a>
+              <a href="areaPersonal.html" class="bg-[#FF3600] text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">Área personal</a>
             </div>
             </header>
-            
-            
-            
             
                 <!-- Banner con fondo de coches -->
                 <section class="banner">

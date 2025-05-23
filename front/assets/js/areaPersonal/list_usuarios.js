@@ -16,11 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
                       <td>${usuario.rol}</td>
                       <td>${usuario.enabled}</td>
 
-                      <td>
-                          <button class="button">Ver detalle</button>
-                          <button class="button">Modificar</button>
-                          <button class="button">Desactivar</button>
-                      </td>
                   `;
                   usuariosTable.appendChild(row);
               });
@@ -49,11 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>${usuario.rol}</td>
                     <td>${usuario.enabled}</td>
 
-                    <td>
-                      <button class="btn btn-info btn-sm verDetalleBtn" data-id="${usuario.id}">Ver detalle</button>
-                      <button class="btn btn-info btn-sm modificarBtn" data-id="${usuario.id}">Modificar</button>   
-                      <button class="btn btn-info btn-sm desactivarBtn">Desactivar</button>                       
-                    </td>
                 </tr>
                 `);
             });

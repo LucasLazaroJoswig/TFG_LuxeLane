@@ -98,25 +98,7 @@ nav a:hover {
     display: inline-block;
 }
 
-.button-container-nav a {
-    background-color: #ff3600;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 250ms ease;
-}
-.button-logout:hover{
-    background-color: #ff0000;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-}
+
 
 /* Estilos para la tabla */
 .table-coches {
