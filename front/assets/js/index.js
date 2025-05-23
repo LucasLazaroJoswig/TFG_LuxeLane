@@ -1,94 +1,71 @@
-const cochesPorPagina = 10; // Cantidad de coches por página
-const cochesPorSlide = 4; // Cantidad de coches visibles por cada slide del carrusel
+const cochesPorSlide = 4;
+let slideActual = 0;
+let totalSlides = 0;
+let gruposDeCoches = [];
 
-// Función para obtener y mostrar coches en el carrusel
+// Estilos necesarios para estructura fija y sin saltos
+const style = document.createElement('style');
+style.innerHTML = `
+    .slider-wrapper {
+        max-width: 87%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .slide-grupo {
+        display: none;
+        transition: opacity 0.5s ease-in-out;
+        height: 450px;
+    }
+
+    .slide-grupo.activo {
+        display: flex;
+        opacity: 1;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .slider-controles {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .slider-controles button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+`;
+document.head.appendChild(style);
+
 function mostrarCoches() {
     $.ajax({
-        url: 'http://localhost:8087/coches/', // Endpoint para obtener coches
+        url: 'http://localhost:8087/coches/',
         type: "GET",
         success: function(response) {
-            console.log('Respuesta completa del servidor:', response);
-
             if (Array.isArray(response)) {
                 const coches = response;
-                let carouselInnerHTML = '';
-                let gruposDeCoches = [];
+                gruposDeCoches = [];
 
-                // Dividir los coches en grupos de 4
                 for (let i = 0; i < coches.length; i += cochesPorSlide) {
                     gruposDeCoches.push(coches.slice(i, i + cochesPorSlide));
                 }
 
-                // Generar los elementos del carrusel
-                gruposDeCoches.forEach((grupo, index) => {
-                    let isActive = index === 0 ? 'active' : ''; // Solo el primer grupo debe estar activo
-                    let cochesHTML = grupo.map(coche => `
-                        <div class="col-lg-3 col-md-4 col-6"> <!-- 4 en pantallas grandes, 3 en medianas, 2 en móviles -->
-                            <div class="card text-white p-4 shadow-lg" style="height: 400px; width: 270px; margin: 0 auto; background-color: #191919; border-radius: 25px;"> <!-- Ancho ajustado al 80% y centrado -->
-                                <div class="w-100" style="height: 120px; position: relative;"> <!-- Tamaño reducido -->
-                                    <!-- Imagen ajustada a un tamaño fijo -->
-                                    <img src="./fotos/fotos_coches/${coche.imagen}" alt="${coche.marca} ${coche.modelo}" class="d-block w-100" style="height: 100%; object-fit: cover; border-radius: 25px;">
-                                </div>
-                                <div class="card-body" style="height: 230px;  position: relative;"> <!-- Aumento de altura del contenido -->
-                                    <span class="badge bg-secondary">${coche.tipoVehiculo}</span>
-                                    <h2 class="card-title fs-4">${coche.marca} ${coche.modelo}</h2>
-                                    <ul class="list-unstyled text-md">
-                                        <li class="d-flex justify-content-between">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <img src="./assets/iconos/puerta.svg" class="w-5 h-5">
-                                                Puertas
-                                            </div>
-                                            ${coche.numeroPuertas}
-                                        </li>
-                                        <li class="d-flex justify-content-between">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <img src="./assets/iconos/pasajeros.svg" class="w-5 h-5">
-                                                ${coche.numeroAsientos} Pasajeros
-                                            </div>
-                                        </li>   
-                                    </ul>
-                                    <div class="d-flex justify-content-between align-items-center mt-4" style="position: absolute; bottom: 10px; width: 100%;">
-                                        <div>
-                                            <span class="fs-4 fw-bold">&euro;${coche.precioPorDia}</span>
-                                            <span class="text small">/Por Día</span>
-                                        </div>
-                                        <img class="flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}" 
-                                        style="width: 40px; height: 40px; cursor: pointer; display: block; margin-left:auto;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `).join(''); 
+                totalSlides = gruposDeCoches.length;
 
-                    // Agregar el grupo de coches al carrusel
-                    carouselInnerHTML += `
-                        <div class="carousel-item ${isActive}">
-                            <div class="row justify-content-center">${cochesHTML}</div>
-                        </div>
-                    `;
+                renderSlider();
+
+                // Controladores
+                $('#btn-prev').on('click', function () {
+                    slideActual = (slideActual - 1 + totalSlides) % totalSlides;
+                    actualizarSlide();
                 });
 
-                // Insertar el carrusel en el DOM con los ajustes de tamaño y centrado
-                $('#vehiculos-container').html(`
-                <div id="carCarousel" class="carousel slide mx-auto" data-bs-ride="false" style="max-width: 87%;"> <!-- Se elimina el auto-ride -->
-                    <div class="carousel-inner">${carouselInnerHTML}</div>
-                    <div class="carousel-controls">
-                        <!-- Botón de control personalizado anterior -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
-                            <img src="assets/iconos/Button - Previous slide.svg" alt="Anterior" width="50" height="50">
-                        </button>
-                        <!-- Botón de control personalizado siguiente -->
-                        <button class="carousel-control-next" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
-                            <img src="assets/iconos/Button - Next slide.svg" alt="Siguiente" width="50" height="50">
-                        </button>
-                    </div>
-                </div>
-            `);
-
-                // Evento para los botones de detalles
-                $('.flecha-btn').on('click', function() {
-                    var cocheId = $(this).data('id');
-                    window.location.href = `cocheDetalles.html?id=${cocheId}`;
+                $('#btn-next').on('click', function () {
+                    slideActual = (slideActual + 1) % totalSlides;
+                    actualizarSlide();
                 });
 
             } else {
@@ -101,5 +78,72 @@ function mostrarCoches() {
     });
 }
 
-// Llamar a la función para cargar los coches
+function renderSlider() {
+    let sliderHTML = gruposDeCoches.map((grupo, index) => {
+        let cochesHTML = grupo.map(coche => `
+            <div class="card text-white p-4 shadow-lg" style="height: 400px; width: 270px; background-color: #191919; border-radius: 25px;">
+                <div style="height: 120px;">
+                    <img src="./fotos/fotos_coches/${coche.imagen}" loading="lazy" alt="${coche.marca} ${coche.modelo}" class="d-block w-100" style="height: 100%; object-fit: cover; border-radius: 25px;">
+                </div>
+                <div class="card-body" style="height: 230px; position: relative;">
+                    <span class="badge bg-secondary">${coche.tipoVehiculo}</span>
+                    <h2 class="card-title fs-4">${coche.marca} ${coche.modelo}</h2>
+                    <ul class="list-unstyled text-md">
+                        <li class="d-flex justify-content-between">
+                            <div class="d-flex align-items-center gap-2">
+                                <img src="./assets/iconos/puerta.svg" class="w-5 h-5">
+                                Puertas
+                            </div>
+                            ${coche.numeroPuertas}
+                        </li>
+                        <li class="d-flex justify-content-between">
+                            <div class="d-flex align-items-center gap-2">
+                                <img src="./assets/iconos/pasajeros.svg" class="w-5 h-5">
+                                ${coche.numeroAsientos} Pasajeros
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="d-flex justify-content-between align-items-center mt-4" style="position: absolute; bottom: 10px; width: 100%;">
+                        <div>
+                            <span class="fs-4 fw-bold">&euro;${coche.precioPorDia}</span>
+                            <span class="text small">/Por Día</span>
+                        </div>
+                        <img class="flecha-btn" src="./fotos/flecha.svg" data-id="${coche.id}" style="width: 40px; height: 40px; cursor: pointer;">
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        return `
+            <div class="slide-grupo ${index === 0 ? 'activo' : ''}" data-slide="${index}">
+                ${cochesHTML}
+            </div>
+        `;
+    }).join('');
+
+    $('#vehiculos-container').html(`
+        <div class="slider-wrapper">
+            ${sliderHTML}
+            <div class="slider-controles">
+                <button id="btn-prev">
+                    <img src="assets/iconos/Button - Previous slide.svg" alt="Anterior" width="50" height="50">
+                </button>
+                <button id="btn-next">
+                    <img src="assets/iconos/Button - Next slide.svg" alt="Siguiente" width="50" height="50">
+                </button>
+            </div>
+        </div>
+    `);
+
+    $('.flecha-btn').on('click', function () {
+        const cocheId = $(this).data('id');
+        window.location.href = `cocheDetalles.html?id=${cocheId}`;
+    });
+}
+
+function actualizarSlide() {
+    $('.slide-grupo').removeClass('activo');
+    $(`.slide-grupo[data-slide="${slideActual}"]`).addClass('activo');
+}
+
 mostrarCoches();
