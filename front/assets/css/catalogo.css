@@ -21,59 +21,97 @@ body {
     gap: 20px;
 }
 
+
 footer {
     grid-area: fo;
     background-color: #111;
     padding: 30px;
     margin-top: 50px;
     text-align: center;
-    }
-    
-    footer .footer-content {
+    color: white;
+  }
+  
+  footer .footer-content {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    }
-    
-    footer .footer-links a {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+  }
+  hr{
+    padding-bottom: 2px;
+  }
+  /* Logo */
+  .logo-footer {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ff4500;
+    font-family: 'Montserrat', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    flex: 1 1 0;
+  }
+  footer{
+    margin-left:-200px;
+  }
+  /* Bloques de links */
+  footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex: 1 1 0;
+  }
+  
+  footer .footer-links a {
     color: white;
     text-decoration: none;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 25px;
-    margin-right: 30px;
+    margin-bottom: 10px;
     font-family: Epilogue, sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 27px;
-    }
-    
-    footer .footer-links a:hover {
+  }
+  
+  footer .footer-links a:hover {
     color: #FF3600;
-    }
-    
-    #links_hover:hover {
+  }
+  
+  #links_hover:hover {
     color: white !important;
-    }
-    
-    footer #links_hover {
+  }
+  
+  footer #links_hover {
     font-size: 20px;
     line-height: 24px;
     font-weight: bold;
-    }
-    
-    footer .newsletter input {
+    color: white;
+  }
+  
+  /* Newsletter */
+  footer .newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 1 0;
+  }
+  
+  footer .newsletter input {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #444;
     background: #222;
     color: white;
-    margin-right: 10px;
-    }
-    
-    footer .btn-suscribir {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  footer .btn-suscribir {
     background-color: #ff4500;
     color: white;
     padding: 10px;
@@ -81,23 +119,30 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    }
-    
-    footer .btn-suscribir:hover {
+  }
+  
+  footer .btn-suscribir:hover {
     background-color: #ff6700;
-    }
-    
-    .logo-footer {
+  }
+  
+  
+  
+  .logo-footer{
     font-size: 50px;
+    /* Aumenté el tamaño del texto */
     font-weight: bold;
     color: #ff4500;
+    /* Naranja para el logo */
     display: flex;
     align-items: center;
     margin-right: 50px;
+    /* Separación entre el logo y el menú */
     font-family: 'Montserrat', serif;
     margin-left: 200px;
     margin-bottom: 200px;
-    }
+    
+    
+  }
     
 
 .header {
@@ -112,28 +157,13 @@ footer {
     grid-area: he;
 }
 
-.logo, .logo-footer {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ff4500;
-    display: flex;
-    align-items: center;
-    margin-right: 50px;
-    font-family: 'Montserrat', serif;
-}
-
-.logo img {
-    width: 100px;
-    height: 70px;
-    margin-right: 5px;
-}
 
 nav {
     display: flex;
     gap: 20px;
 }
 
-nav a, .footer-links a {
+nav a {
     text-decoration: none;
     color: white;
     font-size: 16px;
@@ -142,9 +172,6 @@ nav a, .footer-links a {
     transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-    color: #ff3600;
-}
 
 .button {
     padding: 16px 25px;
