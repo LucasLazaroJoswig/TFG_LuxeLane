@@ -14,7 +14,7 @@ $(document).ready(function() {
                 <!-- Barra de navegación -->
                 <!-- Header Principal -->
                  <header class="bg-black shadow-md p-4 w-full header">
-                <div class="flex items-center justify-between w-[90%]">
+                <div class="flex items-center justify-between w-[80%]">
                     <!-- Logo y nombre -->
                     <a class="flex items-center space-x-2" href="index.html">
                         <img src="./fotos/logo.png" alt="Logo" class="h-[50px]">
@@ -60,7 +60,7 @@ $(document).ready(function() {
             </header>
             
                 <!-- Banner con fondo de coches -->
-                <section class="banner">
+                <section class="banner mr-3">
                     <div class="banner-text">
                         <h1 font-['Epilogue']>${coche.marca} ${coche.modelo}</h1>
                     </div>
@@ -71,7 +71,7 @@ $(document).ready(function() {
             
                     <!-- Tarjeta de Vehículo -->
                     <section class="filtro">
-                        <div class="ml-[100px] mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-[375px] max-w-md z-8 sticky z-99 top-[20px]">
+                        <div class="ml-[80px] mt-[100px] bg-[#202020] rounded-xl shadow-xl p-8 w-[325px] max-w-md z-8 sticky z-99 top-[20px]">
                           <div class="text-left mb-6">
                             <h1 class="text-[50px] font-bold" style="font-family: DM sans;">€${coche.precioPorDia} <span class="text-[16px] font-normal">/dia</span></h1>
                             <hr class="bg-[#2c2c2c] my-2 h-[2px]">
@@ -142,13 +142,13 @@ $(document).ready(function() {
                             </div>
                         </div>
             
-                        <div class="my-3 h-[384.33px] relative border-b border-white/10">
+                        <div class="m-3 h-[384.33px] relative border-b border-white/10">
                             <div class="w-full text-left flex flex-wrap space-x-1 align-center">
                                 <img src="./assets/iconos/asterisco.svg" alt="Icono Información" width="19" height="19" />
                                 <div class="text-[#ff3600] text-base font-semibold font-['Epilogue'] leading-tight">Información General</div>
                             </div>
                             <div class="text-left w-full my-2">
-                              <div class="text-white text-[44px] font-bold font-['Epilogue']">Conoce a cerca de nuestros servicios</div>
+                              <div class="text-white text-[40px] font-bold font-['Epilogue']">Conoce a cerca de nuestros servicios</div>
                             </div>
                             <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left">Conduce el ${coche.marca} ${coche.modelo} y experimenta un viaje de lujo, confort y seguridad. Nuestro servicio está diseñado para que disfrutes al máximo, con beneficios exclusivos <br> que garantizan tu tranquilidad.</div>
                             <div class="h-[105.77px] left-0 top-[190.55px] absolute flex-col justify-start items-start gap-[19px] inline-flex">
@@ -167,7 +167,7 @@ $(document).ready(function() {
                             </div>
                         </div>
                           
-                        <div class="my-3 h-[384.33px] relative border-b border-white/10">
+                        <div class="m-3 h-[384.33px] relative border-b border-white/10">
                             <div class="w-full text-left flex flex-wrap space-x-1 align-center">
                                 <img src="./assets/iconos/asterisco.svg" alt="Icono Información" width="19" height="19" />
                                 <div class="text-[#ff3600] text-base font-semibold font-['Epilogue'] leading-tight">Características</div>
@@ -177,27 +177,27 @@ $(document).ready(function() {
                             </div>
                             <div class=" text-[#cecece] text-base font-normal font-['DM Sans'] text-left my-3">Este ${coche.marca} ${coche.modelo} está equipado con las últimas innovaciones y comodidades, pensado para cubrir todas tus necesidades durante el viaje:</div>
                             <div class="w-[836.66px] h-[126.39px] relative my-3">
-                                <div class="w-[200px] left-0 top-[-0.10px] absolute justify-start items-center gap-2.5 inline-flex ">
+                                <div class="w-[170px] left-0 top-[-0.10px] absolute justify-start items-center gap-2.5 inline-flex ">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
                                   <div class="text-white text-lg font-medium font-['Epilogue'] leading-7 text-left">Sistema de Música</div>
                                 </div>
-                                <div class="w-[200px] left-[223.67px] top-[-0.27px] absolute justify-start items-center gap-2.5 inline-flex">
+                                <div class="w-[170px] left-[223.67px] top-[-0.27px] absolute justify-start items-center gap-2.5 inline-flex">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
                                   <div class="text-white text-lg font-medium font-['Epilogue'] leading-7 text-left">Herramientas</div>
                                 </div>
-                                <div class="w-[200px] left-[428.31px] top-[-0.10px] absolute justify-start items-center gap-2.5 inline-flex">
+                                <div class="w-[170px] left-[428.31px] top-[-0.10px] absolute justify-start items-center gap-2.5 inline-flex">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
                                   <div class="text-white text-lg font-medium font-['Epilogue'] leading-7 text-left">Sistema ABS</div>
                                 </div>
-                                <div class="w-[200px] left-[622.67px] top-[-0.27px] absolute justify-start items-center gap-2.5 inline-flex">
+                                <div class="w-[170px] left-[622.67px] top-[-0.27px] absolute justify-start items-center gap-2.5 inline-flex">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
                                   <div class="text-white text-lg font-medium font-['Epilogue'] leading-7 text-left">Bluetooth</div>
                                 </div>
-                                <div class="w-[200px] left-[223.67px] top-[48.52px] absolute justify-start items-center gap-2.5 inline-flex">
+                                <div class="w-[170px] left-[223.67px] top-[48.52px] absolute justify-start items-center gap-2.5 inline-flex">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
                                   <div class="text-white text-lg font-medium font-['Epilogue'] leading-7  text-left">Cargador USB</div>
                                 </div>
-                                <div class="w-[200px] left-[428.31px] top-[48.69px] absolute justify-start items-center gap-2.5 inline-flex">
+                                <div class="w-[170px] left-[428.31px] top-[48.69px] absolute justify-start items-center gap-2.5 inline-flex">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
                                   <div class="text-white text-lg font-medium font-['Epilogue'] leading-7  text-left">Entrada Auxiliar</div>
                                 </div>
@@ -213,7 +213,7 @@ $(document).ready(function() {
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" />
                                   <div class="text-white text-lg font-medium font-['Epilogue'] leading-7  text-left">Espacio de maletero completo</div>
                                 </div>
-                                <div class="w-[200px] pr-[0.49px] left-[622.67px] top-[48.73px] absolute justify-center items-center gap-[9.35px] inline-flex">
+                                <div class="w-[170px] pr-[0.49px] left-[622.67px] top-[48.73px] absolute justify-center items-center gap-[9.35px] inline-flex">
                                   <img src="./assets/iconos/tick naranja.svg" alt="Icono" class="w-[20.32px] h-5" />
                                   <div class="w-[164px] h-[29px] text-white text-lg font-medium font-['Epilogue'] leading-7 text-left">Dirección asistida</div>
                                 </div>
@@ -339,25 +339,23 @@ $(document).ready(function() {
                 <!-- Footer -->
                 <footer>
                     <div class="footer-content">
-                      <div class="logo-footer">
-                          <span style="color:  rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
-                        </p>
-                      </div>
+                        <div class="logo-footer">
+                            <span style="color: rgb(255, 54, 0);">Luxe</span><span style="color: white;">Lane</span>
+                        </div>
                         <div class="footer-links">
                             <a href="#" id="links_hover">Política Legal</a>
-                            <a href="#">Términos & Condiciones</a>
-                            <a href="#">Contacto</a>
+                            <a href="assets/terminos_condiciones.txt" target="_blank">Términos & Condiciones</a>
+                            <a href="mailto:luxelane@ejemplo.com">Contacto</a>
                             <a href="#">Noticia Legal</a>
                             <a href="#">Accesibilidad</a>
                         </div>
                         <div class="footer-links">
-                          <a href="#" id="links_hover">Links</a>
-                          <a href="#">Inicio</a>
-                          <a href="#">Sobre Nosotros</a>
-                          <a href="#">Coches</a>
-                          <a href="#">Motos</a>
-                          <a href="#">Contáctanos</a>
-                      </div>
+                            <a href="#" id="links_hover">Links</a>
+                            <a href="index.html">Inicio</a>
+                            <a href="catalogo_coches.html">Coches</a>
+                            <a href="catalogo_motos.html">Motos</a>
+                            <a href="contactanos.html">Contáctanos</a>
+                        </div>
                         <div class="newsletter">
                             <label for="email" id="links_hover">Suscríbete al boletín:</label>
                             <input type="email" id="email" placeholder="Correo electrónico">
@@ -365,7 +363,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                     <hr>
-                   <p class="copy">&copy;2024 LuxeLane. Derechos Resevados</p>
+                    <p class="copy">&copy;2025 LuxeLane. Derechos Reservados</p>
                     
                 </footer>
 
